@@ -1,0 +1,212 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <!-- ── Filters ── -->
+    <filter id="tealGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b2"/>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="goldGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="b2"/>
+      <feMerge><feMergeNode in="b2"/><feMergeNode in="b1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6"/>
+    </filter>
+
+    <filter id="flameBloom" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- ── Gradients ── -->
+
+    <!-- Background radial glow -->
+    <radialGradient id="bgGlow" cx="50%" cy="56%" r="44%">
+      <stop offset="0%"   stop-color="#f59e0b" stop-opacity="0.14"/>
+      <stop offset="40%"  stop-color="#10d9a0" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#05050f" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Iris: gold core → teal rings → dark rim -->
+    <radialGradient id="irisGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#f59e0b" stop-opacity="1"/>
+      <stop offset="22%"  stop-color="#fbbf24" stop-opacity="0.9"/>
+      <stop offset="42%"  stop-color="#10d9a0" stop-opacity="0.85"/>
+      <stop offset="72%"  stop-color="#0d9b73" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#10d9a0" stop-opacity="0.06"/>
+    </radialGradient>
+
+    <!-- Outer flame -->
+    <linearGradient id="flameOuter" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%"   stop-color="#f59e0b" stop-opacity="1"/>
+      <stop offset="45%"  stop-color="#fbbf24" stop-opacity="0.85"/>
+      <stop offset="85%"  stop-color="#fde68a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fef3c7" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Inner flame (brighter core) -->
+    <linearGradient id="flameInner" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%"   stop-color="#fff7ed" stop-opacity="1"/>
+      <stop offset="55%"  stop-color="#fde68a" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#fff"    stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Sclera (eye white) very subtle fill -->
+    <radialGradient id="scleraFill" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#10d9a0" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#10d9a0" stop-opacity="0.01"/>
+    </radialGradient>
+
+    <!-- Clip to eye shape for iris detail -->
+    <clipPath id="eyeClip">
+      <path d="M 40,224 C 120,160 280,160 360,224 C 280,288 120,288 40,224 Z"/>
+    </clipPath>
+
+    <!-- Clip to iris circle -->
+    <clipPath id="irisClip">
+      <circle cx="200" cy="224" r="56"/>
+    </clipPath>
+
+  </defs>
+
+  <!-- ══════════════════════════════════════════
+       BACKGROUND
+  ══════════════════════════════════════════ -->
+  <rect width="400" height="400" fill="#05050f"/>
+
+  <!-- Background ambient glow (behind everything) -->
+  <ellipse cx="200" cy="228" rx="190" ry="150" fill="url(#bgGlow)"/>
+
+  <!-- Subtle background rings — like ripples of perception -->
+  <ellipse cx="200" cy="224" rx="170" ry="95" fill="none"
+           stroke="#10d9a0" stroke-width="0.4" stroke-opacity="0.08"/>
+  <ellipse cx="200" cy="224" rx="140" ry="78" fill="none"
+           stroke="#10d9a0" stroke-width="0.3" stroke-opacity="0.06"/>
+  <ellipse cx="200" cy="224" rx="110" ry="60" fill="none"
+           stroke="#10d9a0" stroke-width="0.3" stroke-opacity="0.05"/>
+
+  <!-- ══════════════════════════════════════════
+       FLAME — Shiva's third eye fire
+       (the activation of sight beyond sight)
+  ══════════════════════════════════════════ -->
+
+  <!-- Bloom halo (wide, soft gold atmosphere) -->
+  <ellipse cx="200" cy="118" rx="52" ry="70" fill="#f59e0b" opacity="0.08" filter="url(#softGlow)"/>
+
+  <!-- Outer flame glow -->
+  <path d="M 200,165 C 176,140 164,108 200,62 C 236,108 224,140 200,165 Z"
+        fill="#f59e0b" opacity="0.22" filter="url(#flameBloom)"/>
+
+  <!-- Outer flame body -->
+  <path d="M 200,165 C 180,146 171,120 200,72 C 229,120 220,146 200,165 Z"
+        fill="url(#flameOuter)"/>
+
+  <!-- Middle flame layer -->
+  <path d="M 200,160 C 186,143 180,120 200,84 C 220,120 214,143 200,160 Z"
+        fill="url(#flameOuter)" opacity="0.75"/>
+
+  <!-- Inner flame (bright white-gold core) -->
+  <path d="M 200,155 C 191,140 188,122 200,98 C 212,122 209,140 200,155 Z"
+        fill="url(#flameInner)"/>
+
+  <!-- Flame tip spark -->
+  <circle cx="200" cy="74" r="4" fill="#fef3c7" opacity="0.9" filter="url(#goldGlow)"/>
+
+  <!-- ══════════════════════════════════════════
+       THE EYE — vesica piscis / almond shape
+       (the universal human eye — all-seeing)
+  ══════════════════════════════════════════ -->
+
+  <!-- Sclera fill (very subtle) -->
+  <path d="M 40,224 C 120,160 280,160 360,224 C 280,288 120,288 40,224 Z"
+        fill="url(#scleraFill)"/>
+
+  <!-- IRIS disc (gold-to-teal gradient, clipped to eye) -->
+  <circle cx="200" cy="224" r="56" fill="url(#irisGrad)" clip-path="url(#eyeClip)"/>
+
+  <!-- Iris outer ring -->
+  <circle cx="200" cy="224" r="56" fill="none" stroke="#10d9a0" stroke-width="1.2"
+          stroke-opacity="0.55" clip-path="url(#eyeClip)"/>
+
+  <!-- Iris middle ring -->
+  <circle cx="200" cy="224" r="42" fill="none" stroke="#10d9a0" stroke-width="0.9"
+          stroke-opacity="0.38" clip-path="url(#eyeClip)"/>
+
+  <!-- Iris inner ring -->
+  <circle cx="200" cy="224" r="28" fill="none" stroke="#10d9a0" stroke-width="0.8"
+          stroke-opacity="0.28" clip-path="url(#eyeClip)"/>
+
+  <!-- Iris spokes — 12 lines, like a real iris AND like a radar/data readout -->
+  <!-- r_inner=22, r_outer=54, center=(200,224) -->
+  <g clip-path="url(#eyeClip)" stroke="#10d9a0" stroke-width="0.7" stroke-opacity="0.32">
+    <!-- 0°   right   --> <line x1="222" y1="224" x2="254" y2="224"/>
+    <!-- 30°          --> <line x1="219.1" y1="235" x2="246.7" y2="251"/>
+    <!-- 60°          --> <line x1="211"   y1="243.1" x2="227" y2="270.8"/>
+    <!-- 90°  bottom  --> <line x1="200"   y1="246" x2="200" y2="278"/>
+    <!-- 120°         --> <line x1="189"   y1="243.1" x2="173" y2="270.8"/>
+    <!-- 150°         --> <line x1="180.9" y1="235" x2="153.3" y2="251"/>
+    <!-- 180° left    --> <line x1="178"   y1="224" x2="146" y2="224"/>
+    <!-- 210°         --> <line x1="180.9" y1="213" x2="153.3" y2="197"/>
+    <!-- 240°         --> <line x1="189"   y1="204.9" x2="173" y2="177.2"/>
+    <!-- 270° top     --> <line x1="200"   y1="202" x2="200" y2="170"/>
+    <!-- 300°         --> <line x1="211"   y1="204.9" x2="227" y2="177.2"/>
+    <!-- 330°         --> <line x1="219.1" y1="213" x2="246.7" y2="197"/>
+  </g>
+
+  <!-- PUPIL — dark, drawing the eye in -->
+  <circle cx="200" cy="224" r="22" fill="#05050f"/>
+
+  <!-- Gold inner glow — the pineal fire, the third eye core -->
+  <circle cx="200" cy="224" r="15" fill="#f59e0b" opacity="0.2" filter="url(#softGlow)"/>
+  <circle cx="200" cy="224" r="13" fill="#f59e0b" opacity="0.95" filter="url(#goldGlow)"/>
+  <circle cx="200" cy="224" r="9"  fill="#fbbf24"/>
+  <circle cx="200" cy="224" r="5"  fill="#fef3c7"/>
+  <!-- Tiny dark center (the point of singular insight) -->
+  <circle cx="200" cy="224" r="2"  fill="#2d1200"/>
+
+  <!-- EYE OUTLINE — teal with glow (renders twice: glow layer + crisp layer) -->
+  <path d="M 40,224 C 120,160 280,160 360,224 C 280,288 120,288 40,224 Z"
+        fill="none" stroke="#10d9a0" stroke-width="2.5" filter="url(#tealGlow)" stroke-opacity="0.7"/>
+  <path d="M 40,224 C 120,160 280,160 360,224 C 280,288 120,288 40,224 Z"
+        fill="none" stroke="#10d9a0" stroke-width="1.8" stroke-opacity="0.95"/>
+
+  <!-- Eye corner accent dots (the classic eye corner emphasis) -->
+  <circle cx="40"  cy="224" r="4" fill="#10d9a0" opacity="0.9"/>
+  <circle cx="360" cy="224" r="4" fill="#10d9a0" opacity="0.9"/>
+
+  <!-- Eye highlight — makes it feel alive, real, awake -->
+  <ellipse cx="214" cy="211" rx="8" ry="5" fill="white" opacity="0.10"
+           transform="rotate(-30 214 211)"/>
+  <circle  cx="209" cy="207" r="3" fill="white" opacity="0.07"/>
+
+  <!-- ══════════════════════════════════════════
+       SUBTLE BROW ARC — the forehead above the eye
+       (carries the Shiva forehead placement meaning)
+  ══════════════════════════════════════════ -->
+  <path d="M 90,162 Q 200,128 310,162"
+        fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.18"
+        stroke-dasharray="3,7"/>
+
+  <!-- ══════════════════════════════════════════
+       DATA MARKERS — tiny tick marks below the eye
+       like a signal readout / stock chart ticks
+       (bridging the spiritual + financial data)
+  ══════════════════════════════════════════ -->
+  <g stroke="#10d9a0" stroke-width="1" stroke-opacity="0.35" stroke-linecap="round">
+    <line x1="152" y1="300" x2="152" y2="308"/>
+    <line x1="168" y1="296" x2="168" y2="308"/>
+    <line x1="184" y1="299" x2="184" y2="308"/>
+    <line x1="200" y1="294" x2="200" y2="308"/>  <!-- center — tallest tick -->
+    <line x1="216" y1="299" x2="216" y2="308"/>
+    <line x1="232" y1="296" x2="232" y2="308"/>
+    <line x1="248" y1="300" x2="248" y2="308"/>
+  </g>
+  <!-- Baseline under ticks -->
+  <line x1="145" y1="308" x2="255" y2="308" stroke="#10d9a0" stroke-width="0.6" stroke-opacity="0.2"/>
+
+</svg>

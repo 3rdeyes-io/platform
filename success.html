@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to 3rd Eyes | You're In</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 52px 44px;
+      max-width: 560px;
+      width: 100%;
+    }
+    .icon { font-size: 56px; margin-bottom: 20px; }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    h1 span { color: #00d4ff; }
+    .sub {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .steps {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .step-num {
+      background: #00d4ff;
+      color: #000;
+      font-weight: 800;
+      font-size: 13px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-text { font-size: 14px; color: #ccc; line-height: 1.6; }
+    .step-text strong { color: #fff; display: block; margin-bottom: 2px; font-size: 15px; }
+    a.step-link { color: #00d4ff; text-decoration: none; }
+    a.step-link:hover { text-decoration: underline; }
+    .btn {
+      display: inline-block;
+      background: #00d4ff;
+      color: #000;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 15px;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+    .btn:hover { background: #00b8d9; }
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid #333;
+      color: #888;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      width: 100%;
+    }
+    .btn-outline:hover { border-color: #555; color: #bbb; }
+    .redirect-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #444;
+    }
+    #countdown { color: #00d4ff; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h1>You're in, <span>welcome!</span></h1>
+    <p class="sub">Payment confirmed — your Pro subscription is active.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <strong>Check your email</strong>
+          We've sent a private Telegram channel invite to your email. It's one-time use and expires in 7 days. Check your spam folder if you don't see it within 2 minutes.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>Install Telegram (if you haven't already)</strong>
+          Download the free Telegram app on your phone or desktop at
+          <a class="step-link" href="https://telegram.org" target="_blank">telegram.org</a>.
+          You'll need it to receive signals.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <strong>Click the invite link in your email</strong>
+          The link opens Telegram and adds you to the private 3rd Eyes Pro channel. Signals post automatically — no action needed after joining.
+        </div>
+      </div>
+    </div>
+
+    <a class="btn" href="https://t.me/3rdeyes_signals">Need help? Message support on Telegram</a>
+    <a class="btn-outline" href="/">← Back to 3rdeyes.io</a>
+
+    <p class="redirect-note">Redirecting to homepage in <span id="countdown">15</span>s</p>
+  </div>
+
+  <script>
+    var t = 15;
+    var el = document.getElementById('countdown');
+    var iv = setInterval(function() {
+      t--;
+      el.textContent = t;
+      if (t <= 0) { clearInterval(iv); window.location.href = '/'; }
+    }, 1000);
+  </script>
+</body>
+</html>

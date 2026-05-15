@@ -1,0 +1,22 @@
+# Dependencies
+netlify/functions/node_modules/
+node_modules/
+
+# Netlify build cache
+.netlify/
+
+# Environment secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

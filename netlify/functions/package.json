@@ -1,0 +1,8 @@
+{
+  "name": "3rdeyes-functions",
+  "version": "1.0.0",
+  "description": "Netlify functions for 3rd Eyes subscription pipeline",
+  "dependencies": {
+    "stripe": "^14.21.0"
+  }
+}

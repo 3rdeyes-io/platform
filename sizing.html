@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3rd Eyes | Position Sizing & Risk Tiers</title>
+<meta name="description" content="Pick your aggression level. Model returns. Understand the stop-loss. Everything you need to size positions for Kalshi weather signals.">
+<link rel="canonical" href="https://3rdeyes.io/sizing">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #10d9a0;
+    --gold:  #f59e0b;
+    --red:   #ef4444;
+    --blue:  #6366f1;
+    --muted: #64748b;
+    --card:  rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #050c1a;
+    color: #e2e8f0;
+    line-height: 1.6;
+    font-size: 15px;
+    min-height: 100vh;
+  }
+
+  /* Nav */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(5,12,26,.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .top-nav a { color: #94a3b8; text-decoration: none; font-size: .8rem; transition: color .2s; }
+  .top-nav a:hover { color: var(--green); }
+  .top-nav .brand { font-family: 'Sora',sans-serif; font-weight: 700; color: var(--green); margin-right: auto; font-size: 1rem; }
+  .top-nav a.active { color: var(--green); }
+
+  /* Hero */
+  .hero {
+    padding: 60px 5% 40px;
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,217,160,.08) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(99,102,241,.06) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #10d9a0, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero .sub {
+    color: #cbd5e1;
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  /* Sections */
+  main { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+
+  section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-label {
+    display: inline-block; font-size: .72rem; text-transform: uppercase;
+    letter-spacing: .12em; color: var(--green); font-weight: 700;
+    background: rgba(16,217,160,.08); border: 1px solid rgba(16,217,160,.2);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+  }
+  .section-title {
+    font-family: 'Sora',sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800;
+    line-height: 1.2; color: #f1f5f9; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1rem; color: #94a3b8; max-width: 620px; line-height: 1.7;
+    margin: 0 auto;
+  }
+
+  /* Calculator */
+  .calc-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    align-items: start;
+    max-width: 920px; margin: 0 auto;
+  }
+  .calc-form { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px; }
+  .form-group { margin-bottom: 22px; }
+  .form-label { display: block; font-size: .78rem; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .5px; }
+  .form-input {
+    width: 100%; background: rgba(255,255,255,.06); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 16px; color: #fff;
+    font-size: 1rem; font-family: 'JetBrains Mono', monospace;
+    outline: none;
+  }
+  .form-input:focus { border-color: var(--green); }
+  input[type=range] {
+    width: 100%; accent-color: var(--green);
+    height: 4px; border-radius: 2px; background: rgba(255,255,255,.1);
+    cursor: pointer;
+  }
+  .range-labels { display: flex; justify-content: space-between; font-size: .72rem; color: var(--muted); margin-top: 6px; }
+  .calc-result {
+    background: linear-gradient(135deg, rgba(16,217,160,.1), rgba(59,130,246,.05));
+    border: 1px solid rgba(16,217,160,.2); border-radius: 20px; padding: 28px;
+    text-align: center;
+  }
+  .result-label { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .result-amount {
+    font-family: 'Sora', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 6px;
+  }
+  .result-growth { font-size: .85rem; color: #94a3b8; margin-bottom: 24px; }
+  .result-breakdown { text-align: left; background: rgba(0,0,0,.2); border-radius: 12px; padding: 18px; }
+  .breakdown-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--border); font-size: .8125rem; }
+  .breakdown-row:last-child { border-bottom: none; font-weight: 700; color: #fff; }
+  .breakdown-row span:last-child { color: var(--green); }
+
+  @media (max-width: 720px) {
+    .calc-wrap { grid-template-columns: 1fr; }
+  }
+
+  /* Footer */
+  footer {
+    text-align: center; padding: 40px 5%;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: .8rem;
+  }
+  footer a { color: var(--green); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <span class="brand">👁 3rd Eyes</span>
+  <a href="/">← Home</a>
+  <a href="/sizing" class="active">Sizing & Risk</a>
+  <a href="/track">Track Record</a>
+  <a href="/methodology">Methodology</a>
+</nav>
+
+<section class="hero" style="border-bottom:none;padding:60px 5% 30px;">
+  <h1>Position Sizing & Risk Tiers</h1>
+  <p class="sub">Same signal goes to every subscriber. What changes is the stake. Pick a tier, see the stop-loss mechanics, model your scenario. Everything to size a position lives on this page.</p>
+</section>
+
+<main>
+
+  <!-- ═══════════════════════════════════════
+       RISK TIERS
+  ═══════════════════════════════════════ -->
+  <section id="risk-tiers">
+    <div class="section-header">
+      <div class="section-label">Choose your aggression level</div>
+      <h2 class="section-title">Same signal. Three ways to play it.</h2>
+      <p class="section-sub">Every subscriber gets identical signals at the same time. What changes is <em>how much you stake</em>, based on the signal's confidence grade and your personal risk appetite.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1060px;margin:0 auto 48px;">
+
+      <!-- SAFE -->
+      <div style="background:rgba(16,217,160,.05);border:1px solid rgba(16,217,160,.2);border-radius:16px;padding:32px 28px;position:relative;">
+        <div style="font-size:2rem;margin-bottom:8px;">🟢</div>
+        <div style="font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:700;color:#10d9a0;margin-bottom:4px;">Safe</div>
+        <div style="font-size:.8125rem;color:var(--muted);margin-bottom:20px;font-weight:500;">A+ Grade signals only</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>≥10°F buffer inland · ≥8°F coastal</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>All 30 GFS members unanimous · σ ≤ 1.2°F</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>HRRR within 1.5°F of GFS consensus</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>NO price 93–97¢ (high premium, low risk)</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>Position size: 50–60% of slot stake</li>
+        </ul>
+        <div style="background:rgba(16,217,160,.08);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Historical win rate (A+ only)</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#10d9a0;">~98%</div>
+        </div>
+      </div>
+
+      <!-- MEDIUM -->
+      <div style="background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.25);border-radius:16px;padding:32px 28px;position:relative;">
+        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:rgba(245,158,11,.9);color:#050c1a;font-size:.7rem;font-weight:800;padding:4px 14px;border-radius:0 0 8px 8px;letter-spacing:.05em;">RECOMMENDED</div>
+        <div style="font-size:2rem;margin-bottom:8px;margin-top:8px;">🟡</div>
+        <div style="font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:700;color:#f59e0b;margin-bottom:4px;">Medium</div>
+        <div style="font-size:.8125rem;color:var(--muted);margin-bottom:20px;font-weight:500;">A+ and A Grade signals</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>≥7°F buffer inland · ≥7°F coastal</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>≥28/30 GFS members agree · σ ≤ 2°F</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>HRRR within 2.5°F of GFS consensus</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>NO price 88–97¢</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>Position size: 70–80% of slot stake</li>
+        </ul>
+        <div style="background:rgba(245,158,11,.08);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Historical win rate (A+/A)</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#f59e0b;">~97.1%</div>
+        </div>
+      </div>
+
+      <!-- AGGRESSIVE -->
+      <div style="background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.18);border-radius:16px;padding:32px 28px;">
+        <div style="font-size:2rem;margin-bottom:8px;">🔴</div>
+        <div style="font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:700;color:#ef4444;margin-bottom:4px;">Aggressive</div>
+        <div style="font-size:.8125rem;color:var(--muted);margin-bottom:20px;font-weight:500;">A+, A, and B+ Grade signals</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>≥5°F buffer required (tighter margin)</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>≥25/30 GFS members agree · σ ≤ 2.5°F</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>More frequent signals, smaller edge per trade</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>NO price 85–97¢</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>Position size: 85–100% of slot stake</li>
+        </ul>
+        <div style="background:rgba(239,68,68,.08);border-radius:8px;padding:12px;text-align:center;">
+          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Estimated win rate (B+ included)</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#ef4444;">~88–92%</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stop-loss explainer -->
+    <div style="max-width:860px;margin:0 auto;background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.2);border-radius:16px;padding:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
+      <div style="font-size:2.5rem;flex-shrink:0;">🛡️</div>
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:12px;">What happens if a trade goes wrong?</div>
+        <p style="font-size:.9375rem;color:#94a3b8;line-height:1.7;margin-bottom:16px;">
+          Every position is monitored every 30 seconds. If the NO price drops from 95¢ to <strong style="color:#fbbf24;">85¢</strong> (rare weather event emerging), you get an immediate Telegram alert. If it reaches <strong style="color:#ef4444;">82¢</strong>, the position is automatically closed — regardless of how much time is left.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+          <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#fbbf24;font-weight:600;">85¢ threshold</div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Telegram warning alert fires</div>
+          </div>
+          <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#ef4444;font-weight:600;">82¢ threshold</div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Position closed. Slot resets to $80.</div>
+          </div>
+          <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#10d9a0;font-weight:600;">Other 3 slots</div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Completely unaffected. Untouched.</div>
+          </div>
+        </div>
+        <p style="font-size:.8125rem;color:var(--muted);margin-top:14px;">In our spring 2026 sample, the stop-loss has triggered once (LA coastal, -$9.80). Coastal buffer was subsequently upgraded. The system prevented an $80 total loss from becoming worse.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       CALCULATOR
+  ═══════════════════════════════════════ -->
+  <section id="calculator">
+    <div class="section-header">
+      <div class="section-label">Growth simulator</div>
+      <h2 class="section-title">Model both strategies. See the difference.</h2>
+      <p class="section-sub">Toggle between Ladder Compounding (higher ceiling, riskier) and Fixed + Bank (protected, grows by adding slots). Both use the same win rate — the difference is risk management.</p>
+    </div>
+
+    <!-- Strategy toggle -->
+    <div style="display:flex;justify-content:center;margin-bottom:36px;">
+      <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:4px;display:inline-flex;gap:4px;">
+        <button id="tab-fixed" onclick="switchMode('fixed')"
+          style="padding:10px 24px;border-radius:8px;border:none;font-family:'Sora',sans-serif;font-weight:600;font-size:.875rem;cursor:pointer;transition:all .2s;background:var(--green);color:#050c1a;">
+          ✅ Fixed + Bank (Recommended)
+        </button>
+        <button id="tab-ladder" onclick="switchMode('ladder')"
+          style="padding:10px 24px;border-radius:8px;border:none;font-family:'Sora',sans-serif;font-weight:600;font-size:.875rem;cursor:pointer;transition:all .2s;background:transparent;color:var(--muted);">
+          ⚠️ Ladder Compounding
+        </button>
+      </div>
+    </div>
+
+    <div class="calc-wrap">
+      <div class="calc-form">
+        <div class="form-group">
+          <label class="form-label">Starting stake per slot ($)</label>
+          <input type="number" class="form-input" id="calc-stake" value="80" min="10" max="10000" oninput="recalc()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Number of starting slots</label>
+          <input type="range" id="calc-slots" min="1" max="4" value="4" oninput="recalc()">
+          <div class="range-labels"><span>1 slot</span><span id="slots-label">4 slots</span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Trades per week (per slot)</label>
+          <input type="range" id="calc-freq" min="1" max="7" value="3" oninput="recalc()">
+          <div class="range-labels"><span>1/week</span><span id="freq-label">3/week</span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(spring sample: 97.1% — forward expect 82–92%)</span></label>
+          <input type="range" id="calc-wr" min="50" max="97" value="90" oninput="recalc()">
+          <div class="range-labels"><span>50%</span><span id="wr-label">90%</span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Time horizon (weeks)</label>
+          <input type="range" id="calc-weeks" min="1" max="52" value="12" oninput="recalc()">
+          <div class="range-labels"><span>1 week</span><span id="weeks-label">12 weeks</span></div>
+        </div>
+
+        <div id="mode-warning-ladder" style="display:none;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px;font-size:.8125rem;color:#fca5a5;line-height:1.6;">
+          ⚠️ <strong>Ladder mode:</strong> Each win increases your stake. A stop-loss hit at peak stake costs significantly more than at base. The "worst-case single-trade loss" reflects the maximum possible loss at your highest stake reached — not a fixed amount.
+        </div>
+        <div id="mode-warning-fixed" style="background:rgba(16,217,160,.06);border:1px solid rgba(16,217,160,.15);border-radius:10px;padding:14px;font-size:.8125rem;color:#6ee7b7;line-height:1.6;">
+          ✅ <strong>Fixed + Bank mode:</strong> Your per-slot stake never increases. Profits accumulate in your bank. New slots are funded from banked profits — not by risking more per trade. Maximum single-trade loss stays at ~13.7% of your base stake, always.
+        </div>
+
+        <div class="form-group" style="margin-top:14px;">
+          <label class="form-label" style="display:flex;align-items:center;gap:10px;cursor:pointer;text-transform:none;letter-spacing:0;">
+            <input type="checkbox" id="calc-fees" onchange="recalc()" checked
+              style="width:16px;height:16px;accent-color:var(--green);cursor:pointer;">
+            Show net-of-fees (Kalshi $0.01/contract)
+          </label>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px;">At 95¢ NO: gross +$0.05/contract → net +$0.04/contract after fee. At 97¢ NO: gross +$0.03 → net +$0.02.</div>
+        </div>
+
+        <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.15);border-radius:10px;padding:14px;font-size:.75rem;color:#fbbf24;line-height:1.6;margin-top:10px;">
+          ⚠️ <strong>Hypothetical — not guaranteed.</strong> Past performance (97.1% over 34 trades, small sample). The calculator shows the <em>expected</em> outcome at your chosen win rate — your actual result will vary. Forward expectation is 82–92%. Only risk discretionary funds you can afford to lose entirely.
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="result-label" id="result-mode-label">Fixed + Bank: Projected Total</div>
+        <div class="result-amount">$<span id="calc-final">0</span></div>
+        <div class="result-growth" id="calc-growth"></div>
+        <div class="result-breakdown">
+          <div class="breakdown-row"><span>Starting capital at risk</span><span id="bd-start">$0</span></div>
+          <div class="breakdown-row"><span>Total trades executed</span><span id="bd-trades">0</span></div>
+          <div class="breakdown-row"><span>Wins</span><span id="bd-wins" style="color:#10d9a0;">0</span></div>
+          <div class="breakdown-row"><span>Losses (stop-loss hits)</span><span id="bd-losses" style="color:#ef4444;">0</span></div>
+          <div class="breakdown-row" id="row-maxloss"><span>Worst-case single loss</span><span id="bd-maxloss" style="color:#fbbf24;">$0</span></div>
+          <div class="breakdown-row" id="row-banked"><span>Profits banked (safe)</span><span id="bd-banked" style="color:#10d9a0;">$0</span></div>
+          <div class="breakdown-row" id="row-slots-added"><span>New slots you could fund</span><span id="bd-slots-added" style="color:#818cf8;">0</span></div>
+          <div class="breakdown-row"><span style="font-weight:700;color:#fff">Total gain</span><span id="bd-gain">$0</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="/">← Back to home</a> · <a href="/track">Live track record</a> · <a href="/methodology">Methodology v1.0</a><br>
+  <span style="font-size:.7rem;display:inline-block;margin-top:10px;">© 2026 3rd Eyes. Past performance does not guarantee future results. Not investment advice.</span>
+</footer>
+
+<script>
+  let calcMode = 'fixed';
+
+  function switchMode(mode) {
+    calcMode = mode;
+    const tabFixed  = document.getElementById('tab-fixed');
+    const tabLadder = document.getElementById('tab-ladder');
+    const warnFixed  = document.getElementById('mode-warning-fixed');
+    const warnLadder = document.getElementById('mode-warning-ladder');
+
+    if (mode === 'fixed') {
+      tabFixed.style.background  = 'var(--green)';
+      tabFixed.style.color       = '#050c1a';
+      tabLadder.style.background = 'transparent';
+      tabLadder.style.color      = 'var(--muted)';
+      warnFixed.style.display    = 'block';
+      warnLadder.style.display   = 'none';
+      document.getElementById('row-banked').style.display     = '';
+      document.getElementById('row-slots-added').style.display = '';
+      document.getElementById('result-mode-label').textContent = 'Fixed + Bank: Projected Total';
+    } else {
+      tabLadder.style.background = '#ef4444';
+      tabLadder.style.color      = '#fff';
+      tabFixed.style.background  = 'transparent';
+      tabFixed.style.color       = 'var(--muted)';
+      warnLadder.style.display   = 'block';
+      warnFixed.style.display    = 'none';
+      document.getElementById('row-banked').style.display     = 'none';
+      document.getElementById('row-slots-added').style.display = 'none';
+      document.getElementById('result-mode-label').textContent = 'Ladder: Projected Total';
+    }
+    recalc();
+  }
+
+  function recalc() {
+    const stake = parseFloat(document.getElementById('calc-stake').value) || 80;
+    const slots = parseInt(document.getElementById('calc-slots').value) || 4;
+    const freq  = parseInt(document.getElementById('calc-freq').value) || 3;
+    const wr    = parseInt(document.getElementById('calc-wr').value) / 100;
+    const weeks = parseInt(document.getElementById('calc-weeks').value) || 12;
+
+    document.getElementById('slots-label').textContent  = slots + ' slot' + (slots > 1 ? 's' : '');
+    document.getElementById('freq-label').textContent   = freq + '/week';
+    document.getElementById('wr-label').textContent     = Math.round(wr * 100) + '%';
+    document.getElementById('weeks-label').textContent  = weeks + ' week' + (weeks > 1 ? 's' : '');
+
+    const NO_PRICE = 0.95, SL_PRICE = 0.82, KALSHI_FEE = 0.01;
+    const applyFees = document.getElementById('calc-fees') ? document.getElementById('calc-fees').checked : true;
+    const startingCapital = stake * slots;
+    const totalTradesPerSlot = freq * weeks;
+    const totalTrades = totalTradesPerSlot * slots;
+
+    function tradeEcon(currentStake) {
+      const contracts = Math.max(Math.floor(currentStake / NO_PRICE), 1);
+      const cost = contracts * NO_PRICE;
+      const fee  = applyFees ? contracts * KALSHI_FEE : 0;
+      const winPayout  = contracts * 1.0;
+      const winProfit  = winPayout - cost - fee;
+      const slProceeds = contracts * SL_PRICE;
+      const lossAmt    = cost - slProceeds + fee;
+      return { contracts, cost, fee, winPayout, winProfit, lossAmt };
+    }
+
+    if (calcMode === 'fixed') {
+      const econ = tradeEcon(stake);
+      const evPerTrade = wr * econ.winProfit - (1 - wr) * econ.lossAmt;
+      const expectedWins   = totalTrades * wr;
+      const expectedLosses = totalTrades * (1 - wr);
+      const totalProfit    = totalTrades * evPerTrade;
+      const finalBalance   = startingCapital + totalProfit;
+
+      const bonusSlots = totalProfit > 0 ? Math.floor(totalProfit / stake) : 0;
+      const bankedSafe = Math.max(totalProfit - bonusSlots * stake, 0);
+      const activeSlots = slots + bonusSlots;
+      const growth = ((finalBalance - startingCapital) / startingCapital * 100);
+
+      document.getElementById('calc-final').textContent   = Math.max(finalBalance, 0).toFixed(0);
+      document.getElementById('calc-growth').textContent  =
+        `${growth >= 0 ? '+' : ''}${growth.toFixed(1)}% · ${activeSlots} slots · ${applyFees ? 'net of fees' : 'gross'}`;
+      document.getElementById('bd-start').textContent      = '$' + startingCapital.toFixed(0);
+      document.getElementById('bd-trades').textContent     = totalTrades.toFixed(0);
+      document.getElementById('bd-wins').textContent       = expectedWins.toFixed(1);
+      document.getElementById('bd-losses').textContent     = expectedLosses.toFixed(1);
+      document.getElementById('bd-maxloss').textContent    = '-$' + econ.lossAmt.toFixed(2);
+      document.getElementById('bd-banked').textContent     = '$' + bankedSafe.toFixed(0);
+      document.getElementById('bd-slots-added').textContent = '+' + bonusSlots + ' slot' + (bonusSlots !== 1 ? 's' : '');
+      document.getElementById('bd-gain').textContent       =
+        (totalProfit >= 0 ? '+' : '') + '$' + Math.abs(totalProfit).toFixed(0);
+    } else {
+      let totalProfit = 0;
+      let peakLoss = 0;
+      let peakStake = stake;
+
+      for (let slotIdx = 0; slotIdx < slots; slotIdx++) {
+        let curStake = stake;
+        for (let n = 0; n < totalTradesPerSlot; n++) {
+          const econ = tradeEcon(curStake);
+          totalProfit += wr * econ.winProfit - (1 - wr) * econ.lossAmt;
+          if (econ.lossAmt > peakLoss) peakLoss = econ.lossAmt;
+          if (curStake > peakStake) peakStake = curStake;
+          curStake = wr * econ.winPayout + (1 - wr) * stake;
+        }
+      }
+
+      const expectedWins   = totalTrades * wr;
+      const expectedLosses = totalTrades * (1 - wr);
+      const finalBalance   = Math.max(startingCapital + totalProfit, 0);
+      const growth = ((finalBalance - startingCapital) / startingCapital * 100);
+
+      document.getElementById('calc-final').textContent  = finalBalance.toFixed(0);
+      document.getElementById('calc-growth').textContent =
+        `${growth >= 0 ? '+' : ''}${growth.toFixed(1)}% · peak stake ~$${peakStake.toFixed(0)} · worst loss -$${peakLoss.toFixed(2)}`;
+      document.getElementById('bd-start').textContent    = '$' + startingCapital.toFixed(0);
+      document.getElementById('bd-trades').textContent   = totalTrades.toFixed(0);
+      document.getElementById('bd-wins').textContent     = expectedWins.toFixed(1);
+      document.getElementById('bd-losses').textContent   = expectedLosses.toFixed(1);
+      document.getElementById('bd-maxloss').textContent  = '-$' + peakLoss.toFixed(2);
+      document.getElementById('bd-banked').textContent   = 'N/A';
+      document.getElementById('bd-slots-added').textContent = 'N/A';
+      document.getElementById('bd-gain').textContent     =
+        (totalProfit >= 0 ? '+' : '') + '$' + Math.abs(totalProfit).toFixed(0);
+    }
+  }
+  recalc();
+</script>
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3rd Eyes | Public Track Record</title>
+<meta name="description" content="Every Kalshi weather signal we've fired, win or loss. Live, ungated, auto-updated from the bot ledger.">
+<link rel="canonical" href="https://3rdeyes.io/track">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #10d9a0;
+    --red:   #f43f5e;
+    --gold:  #f59e0b;
+    --blue:  #6366f1;
+    --muted: #64748b;
+    --card:  rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #050c1a;
+    color: #e2e8f0;
+    line-height: 1.6;
+    font-size: 15px;
+    min-height: 100vh;
+  }
+
+  /* Nav */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(5,12,26,.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .top-nav a { color: #94a3b8; text-decoration: none; font-size: .8rem; transition: color .2s; }
+  .top-nav a:hover { color: var(--green); }
+  .top-nav .brand { font-family: 'Sora',sans-serif; font-weight: 700; color: var(--green); margin-right: auto; font-size: 1rem; }
+
+  /* Hero */
+  .hero {
+    padding: 60px 5% 40px;
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,217,160,.08) 0%, transparent 70%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #10d9a0, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero .sub {
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto 8px;
+    font-size: 1rem;
+  }
+  .hero .pulse {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: .8rem;
+    color: var(--muted);
+  }
+  .pulse .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 0 rgba(16,217,160,.7);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(16,217,160,.6); }
+    70% { box-shadow: 0 0 0 12px rgba(16,217,160,0); }
+    100% { box-shadow: 0 0 0 0 rgba(16,217,160,0); }
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card .label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+  .stat-card .value { font-family: 'Sora',sans-serif; font-size: 1.8rem; font-weight: 700; color: #f1f5f9; }
+  .stat-card .value.green { color: var(--green); }
+  .stat-card .value.red { color: var(--red); }
+  .stat-card .sub { font-size: .7rem; color: var(--muted); margin-top: 4px; }
+
+  /* Main */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 5% 80px;
+  }
+
+  /* Filters */
+  .filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  .filter-label { font-size: .75rem; color: var(--muted); margin-right: 4px; text-transform: uppercase; letter-spacing: .06em; }
+  .chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: #cbd5e1;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .8rem;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  .chip:hover { border-color: var(--green); color: #fff; }
+  .chip.active { background: rgba(16,217,160,.12); border-color: var(--green); color: var(--green); }
+
+  /* Notice */
+  .notice {
+    background: rgba(99,102,241,.06);
+    border: 1px solid rgba(99,102,241,.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: .85rem;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+  }
+  .notice strong { color: #a5b4fc; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+  th, td { padding: 12px 14px; text-align: left; white-space: nowrap; }
+  th {
+    background: rgba(255,255,255,.02);
+    font-weight: 600;
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+  th:hover { color: var(--green); }
+  th .sort-arrow { display: inline-block; width: 10px; margin-left: 4px; opacity: .4; }
+  th.sorted .sort-arrow { opacity: 1; color: var(--green); }
+  tr { border-bottom: 1px solid rgba(255,255,255,.04); }
+  tr:last-child { border-bottom: none; }
+  tr:hover { background: rgba(255,255,255,.02); }
+  td.mono { font-family: 'JetBrains Mono', monospace; font-size: .8rem; }
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: .7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .pill.win { background: rgba(16,217,160,.15); color: var(--green); }
+  .pill.loss { background: rgba(244,63,94,.15); color: var(--red); }
+  .pill.skip { background: rgba(100,116,139,.15); color: var(--muted); }
+  .pill.qual { background: rgba(99,102,241,.15); color: #a5b4fc; }
+  .pl-pos { color: var(--green); font-weight: 600; }
+  .pl-neg { color: var(--red); font-weight: 600; }
+
+  .empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+  }
+  .loading { text-align: center; padding: 60px 20px; color: var(--muted); }
+  .loading .spinner {
+    display: inline-block;
+    width: 24px; height: 24px;
+    border: 2px solid var(--border);
+    border-top-color: var(--green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 32px 5%;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .8rem;
+  }
+  footer a { color: var(--green); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    th, td { padding: 10px 8px; font-size: .75rem; }
+    .stat-card .value { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <span class="brand">👁 3rd Eyes</span>
+  <a href="/">← Home</a>
+  <a href="/methodology">Methodology</a>
+  <a href="/track" style="color: var(--green);">Track Record</a>
+</nav>
+
+<section class="hero">
+  <h1>Public Track Record</h1>
+  <p class="sub">Every signal we've fired since the live ledger started: win, loss, or skipped fill. Auto-updated from the bot. Nothing hidden.</p>
+  <div class="pulse"><span class="dot"></span> Live from VPS · refreshes every 2 min</div>
+</section>
+
+<div class="stats-bar" id="stats-bar">
+  <div class="stat-card"><div class="label">Qualified Wins</div><div class="value green" id="s-wins">—</div><div class="sub">≥$8 fills</div></div>
+  <div class="stat-card"><div class="label">Qualified Losses</div><div class="value red" id="s-losses">—</div><div class="sub">incl. stop-outs</div></div>
+  <div class="stat-card"><div class="label">Win Rate</div><div class="value green" id="s-winrate">—</div><div class="sub">qualified only</div></div>
+  <div class="stat-card"><div class="label">Net P&amp;L</div><div class="value" id="s-pl">—</div><div class="sub">all signals</div></div>
+  <div class="stat-card"><div class="label">Cities</div><div class="value" id="s-cities">—</div><div class="sub">with fills</div></div>
+  <div class="stat-card"><div class="label">Total Signals</div><div class="value" id="s-total">—</div><div class="sub">incl. skipped</div></div>
+</div>
+
+<main>
+
+  <!-- Today's Scan Activity -->
+  <section id="scan-activity" style="margin-bottom: 32px;">
+    <h2 style="font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:14px;color:#f1f5f9;display:flex;align-items:center;gap:10px;">
+      <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(16,217,160,.7);animation:pulse 2s infinite;"></span>
+      Today's Scan Activity
+      <span style="font-size:.7rem;color:var(--muted);font-weight:400;text-transform:uppercase;letter-spacing:.06em;">UTC</span>
+    </h2>
+    <div id="scan-activity-body" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;">
+      <div class="loading"><div class="spinner"></div><div>Loading scan log…</div></div>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:10px;line-height:1.5;">
+      Even on no-signal days, the bot scans 24+ markets every 5 minutes. This panel shows what was filtered and why, so you can see the model running, not guess.
+    </p>
+  </section>
+
+  <!-- Model-Run-Drop Detector -->
+  <section id="shifts" style="margin-bottom: 32px;">
+    <h2 style="font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:14px;color:#f1f5f9;display:flex;align-items:center;gap:10px;">
+      Model-Run Forecast Shifts
+      <span style="font-size:.7rem;color:var(--muted);font-weight:400;text-transform:uppercase;letter-spacing:.06em;">Last 24h · Δ ≥ 1.5°F</span>
+    </h2>
+    <div id="shifts-body" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;">
+      <div class="loading"><div class="spinner"></div><div>Loading forecast shift log…</div></div>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:10px;line-height:1.5;">
+      GFS publishes new ensemble runs every 6 hours (00Z / 06Z / 12Z / 18Z UTC). When a fresh run materially shifts the forecast for a tracked city, Kalshi often takes 5-30 minutes to reprice; that lag is a discrete edge we are now instrumenting. Currently in observe-only mode (Phase A); trading-rule integration follows once we validate the signal in live data.
+    </p>
+  </section>
+
+  <!-- Per-Station Calibration -->
+  <section id="calibration" style="margin-bottom: 32px;">
+    <h2 style="font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:14px;color:#f1f5f9;display:flex;align-items:center;gap:10px;">
+      Per-Station Calibration
+      <span style="font-size:.7rem;color:var(--muted);font-weight:400;text-transform:uppercase;letter-spacing:.06em;">Live bias correction</span>
+    </h2>
+    <div id="calibration-body" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;">
+      <div class="loading"><div class="spinner"></div><div>Loading calibration…</div></div>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:10px;line-height:1.5;">
+      After every resolved trade, we record the gap between the GFS forecast and the actual airport reading. The rolling 20-sample mean becomes a per-station bias that we subtract from future forecasts. This is how the model learns that LAX systematically runs warmer than GFS predicts.
+    </p>
+  </section>
+
+  <h2 style="font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:14px;color:#f1f5f9;">Full Trade Ledger</h2>
+
+  <div class="notice">
+    <strong>Ledger start date: April 23, 2026.</strong> This is when continuous daily scanning began under v1.0 methodology. A handful of earlier exploratory trades are excluded from these stats (but kept on the VPS for backtest validation).
+    <br><br>
+    <strong>What counts as "qualified"?</strong> A signal becomes a qualified trade only if the fill was ≥$8. Smaller fills are logged as "skip" and do not affect the win-rate metric (per <a href="/methodology" style="color:var(--green);">methodology v1.0</a>). Skipped rows are shown here for full transparency; nothing is filtered out within the qualifying window.
+  </div>
+
+  <div class="filters">
+    <span class="filter-label">Show</span>
+    <button class="chip active" data-filter="all">All</button>
+    <button class="chip" data-filter="qualified">Qualified Only</button>
+    <button class="chip" data-filter="win">Wins</button>
+    <button class="chip" data-filter="loss">Losses</button>
+    <button class="chip" data-filter="skip">Skips</button>
+  </div>
+
+  <div class="table-wrap">
+    <table id="trades-table">
+      <thead>
+        <tr>
+          <th data-col="date">Date <span class="sort-arrow">▼</span></th>
+          <th data-col="city">City <span class="sort-arrow">↕</span></th>
+          <th data-col="threshold">Threshold <span class="sort-arrow">↕</span></th>
+          <th data-col="no_price">NO Fill <span class="sort-arrow">↕</span></th>
+          <th data-col="fill_dollars">Stake <span class="sort-arrow">↕</span></th>
+          <th data-col="grade">Grade <span class="sort-arrow">↕</span></th>
+          <th data-col="outcome">Outcome <span class="sort-arrow">↕</span></th>
+          <th data-col="pl">P&amp;L <span class="sort-arrow">↕</span></th>
+        </tr>
+      </thead>
+      <tbody id="trades-body">
+        <tr><td colspan="8"><div class="loading"><div class="spinner"></div><div>Loading ledger…</div></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer>
+  Live ledger from <code style="color:#94a3b8;">stats-server</code> on VPS · <a href="/methodology">Methodology</a> · <a href="/">Home</a><br>
+  <span style="font-size:.7rem;">© 2026 3rd Eyes. Past performance does not guarantee future results. Not investment advice.</span>
+</footer>
+
+<script>
+  let allTrades = [];
+  let currentFilter = 'all';
+  let sortCol = 'date';
+  let sortDir = 'desc';
+
+  // Continuous live-tracking began April 23, 2026 (start of v1.0 methodology
+  // and uninterrupted daily scanning). Earlier ad-hoc trades are excluded
+  // from public stats but remain on the VPS for backtest purposes.
+  const LEDGER_START_DATE = new Date('2026-04-23T00:00:00Z');
+
+  const fmtPct = (n) => (n * 100).toFixed(0) + '%';
+  const fmtMoney = (n) => (n >= 0 ? '+$' : '-$') + Math.abs(n).toFixed(2);
+  const fmtDate = (s) => s; // already pre-formatted upstream
+
+  function parseDate(d) {
+    // "MAY 13, 2026" → Date
+    return new Date(d);
+  }
+
+  function recomputeStats(trades) {
+    const qualified = trades.filter(t => t.qualified);
+    const wins = qualified.filter(t => t.outcome === 'win').length;
+    const losses = qualified.filter(t => t.outcome === 'loss' || t.outcome === 'stop_loss').length;
+    const decided = wins + losses;
+    const winRate = decided > 0 ? (wins / decided * 100) : 0;
+    const netPl = trades.reduce((s, t) => s + (t.pl || 0), 0);
+    const cities = new Set(qualified.map(t => t.city)).size;
+
+    document.getElementById('s-wins').textContent = wins;
+    document.getElementById('s-losses').textContent = losses;
+    document.getElementById('s-winrate').textContent = decided > 0 ? winRate.toFixed(1) + '%' : '—';
+    const plEl = document.getElementById('s-pl');
+    plEl.textContent = fmtMoney(netPl);
+    plEl.className = 'value ' + (netPl >= 0 ? 'green' : 'red');
+    document.getElementById('s-cities').textContent = cities;
+    document.getElementById('s-total').textContent = trades.length;
+  }
+
+  function applyFilter(trades, filter) {
+    if (filter === 'all') return trades;
+    if (filter === 'qualified') return trades.filter(t => t.qualified);
+    if (filter === 'win') return trades.filter(t => t.outcome === 'win');
+    if (filter === 'loss') return trades.filter(t => t.outcome === 'loss' || t.outcome === 'stop_loss');
+    if (filter === 'skip') return trades.filter(t => t.outcome === 'skip');
+    return trades;
+  }
+
+  function applySort(trades, col, dir) {
+    const sorted = [...trades];
+    sorted.sort((a, b) => {
+      let av = a[col], bv = b[col];
+      if (col === 'date') { av = parseDate(av).getTime(); bv = parseDate(bv).getTime(); }
+      if (col === 'threshold') { av = parseFloat(String(av).replace(/[^\d.-]/g, '')); bv = parseFloat(String(bv).replace(/[^\d.-]/g, '')); }
+      if (typeof av === 'string') { av = av.toLowerCase(); bv = (bv || '').toLowerCase(); }
+      if (av < bv) return dir === 'asc' ? -1 : 1;
+      if (av > bv) return dir === 'asc' ? 1 : -1;
+      return 0;
+    });
+    return sorted;
+  }
+
+  function renderTable() {
+    const filtered = applyFilter(allTrades, currentFilter);
+    const sorted = applySort(filtered, sortCol, sortDir);
+    const tbody = document.getElementById('trades-body');
+
+    if (sorted.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="8"><div class="empty">No trades match this filter.</div></td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = sorted.map(t => {
+      const outcomeClass = t.outcome === 'win' ? 'win'
+        : (t.outcome === 'loss' || t.outcome === 'stop_loss') ? 'loss'
+        : 'skip';
+      const outcomeLabel = t.outcome === 'stop_loss' ? 'Stop' : t.outcome;
+      const plClass = (t.pl || 0) >= 0 ? 'pl-pos' : 'pl-neg';
+      const qualBadge = t.qualified ? '<span class="pill qual" title="≥$8 fill, counts toward win rate">Q</span>' : '';
+      return `
+        <tr>
+          <td class="mono">${fmtDate(t.date)}</td>
+          <td>${t.city}</td>
+          <td class="mono">${t.threshold}</td>
+          <td class="mono">${fmtPct(t.no_price)}</td>
+          <td class="mono">$${(t.fill_dollars || 0).toFixed(2)}</td>
+          <td>${t.grade || '—'} ${qualBadge}</td>
+          <td><span class="pill ${outcomeClass}">${outcomeLabel}</span></td>
+          <td class="mono ${plClass}">${fmtMoney(t.pl || 0)}</td>
+        </tr>
+      `;
+    }).join('');
+
+    // Update sort arrows
+    document.querySelectorAll('th').forEach(th => {
+      th.classList.remove('sorted');
+      const arrow = th.querySelector('.sort-arrow');
+      if (arrow) arrow.textContent = '↕';
+    });
+    const activeTh = document.querySelector(`th[data-col="${sortCol}"]`);
+    if (activeTh) {
+      activeTh.classList.add('sorted');
+      const arrow = activeTh.querySelector('.sort-arrow');
+      if (arrow) arrow.textContent = sortDir === 'asc' ? '▲' : '▼';
+    }
+  }
+
+  async function loadTrades() {
+    try {
+      const res = await fetch('/.netlify/functions/stats/trades', { cache: 'no-cache' });
+      const data = await res.json();
+      const raw = Array.isArray(data) ? data : [];
+      allTrades = raw.filter(t => {
+        const d = parseDate(t.date);
+        return !isNaN(d) && d >= LEDGER_START_DATE;
+      });
+      recomputeStats(allTrades);
+      renderTable();
+    } catch (err) {
+      document.getElementById('trades-body').innerHTML =
+        '<tr><td colspan="8"><div class="empty">Could not reach the live ledger. Try refreshing in a minute.</div></td></tr>';
+    }
+  }
+
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentFilter = chip.dataset.filter;
+      renderTable();
+    });
+  });
+
+  document.querySelectorAll('th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (sortCol === col) {
+        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortCol = col;
+        sortDir = (col === 'date' || col === 'pl' || col === 'fill_dollars') ? 'desc' : 'asc';
+      }
+      renderTable();
+    });
+  });
+
+  // ── Scan activity widget ─────────────────────────────────────────────
+  const FILTER_LABELS = {
+    price_outside_range: 'Already fully priced',
+    buffer_too_small:    'Buffer below threshold',
+    wrong_direction:     'Forecast in wrong direction',
+    thin_market:         'Thin market (wide spread)',
+    no_data:             'No ensemble data',
+    not_unanimous:       'Models disagreed',
+    high_spread:         'Ensemble too uncertain',
+    hrrr_diverges:       'HRRR diverged from GFS',
+    low_confidence:      'Below min confidence grade',
+    other:               'Other',
+  };
+  const FILTER_HINTS = {
+    price_outside_range: "Market already prices NO at 100% (or below 88¢): no edge to capture.",
+    buffer_too_small:    "Forecast gap from threshold smaller than the bot's safety buffer.",
+    wrong_direction:     "Forecast actually exceeds the threshold: wrong side to bet NO.",
+    thin_market:         "Bid-ask spread too wide for clean execution.",
+    no_data:             "GFS ensemble not yet published for this market.",
+    not_unanimous:       "Not all 30 ensemble members agreed on the direction.",
+    high_spread:         "Ensemble spread too high: model uncertainty too large.",
+    hrrr_diverges:       "Short-range HRRR model disagrees with GFS.",
+    low_confidence:      "Signal exists but doesn't meet min confidence grade.",
+    other:               "Filtered for an unspecified reason.",
+  };
+
+  function timeAgo(iso) {
+    if (!iso) return '—';
+    const t = new Date(iso).getTime();
+    const sec = Math.floor((Date.now() - t) / 1000);
+    if (sec < 60)   return sec + 's ago';
+    if (sec < 3600) return Math.floor(sec/60) + 'm ago';
+    if (sec < 86400) return Math.floor(sec/3600) + 'h ago';
+    return Math.floor(sec/86400) + 'd ago';
+  }
+
+  function renderScanActivity(payload) {
+    const body = document.getElementById('scan-activity-body');
+    const today = payload && payload.today;
+    if (!today) {
+      body.innerHTML = '<div class="empty" style="padding:20px;">No scans logged yet today.</div>';
+      return;
+    }
+    const filters = today.filter_totals || {};
+    const total = Object.values(filters).reduce((a,b) => a+b, 0) || 1;
+    const sorted = Object.entries(filters).sort((a,b) => b[1] - a[1]);
+
+    const cmHtml = today.closest_miss ? `
+      <div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:14px 16px;margin-top:16px;">
+        <div style="font-size:.7rem;color:#fbbf24;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Closest miss today</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.9rem;color:#f1f5f9;">${today.closest_miss.ticker}</div>
+        <div style="font-size:.8rem;color:var(--muted);margin-top:4px;">${today.closest_miss.reason}: <strong style="color:#fbbf24;">${today.closest_miss.miss_f}°F short</strong> of qualifying</div>
+      </div>
+    ` : '';
+
+    const barsHtml = sorted.map(([k, v]) => {
+      const pct = (v / total * 100);
+      const label = FILTER_LABELS[k] || k;
+      const hint = FILTER_HINTS[k] || '';
+      return `
+        <div style="margin-bottom:10px;" title="${hint}">
+          <div style="display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:4px;">
+            <span style="color:#cbd5e1;">${label}</span>
+            <span style="color:var(--muted);font-family:'JetBrains Mono',monospace;">${v}</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden;">
+            <div style="height:100%;width:${pct}%;background:linear-gradient(90deg, var(--blue), var(--green));border-radius:3px;"></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    body.innerHTML = `
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:18px;">
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Scans run</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;">${today.scan_count}</div></div>
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Markets / scan</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;">${today.markets_per_scan}</div></div>
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Signals fired</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:${today.signals_fired > 0 ? 'var(--green)' : '#f1f5f9'};">${today.signals_fired}</div></div>
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Last scan</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;">${timeAgo(today.last_scan)}</div></div>
+      </div>
+      <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Filter breakdown: ${total.toLocaleString()} contract-evaluations</div>
+      ${barsHtml}
+      ${cmHtml}
+    `;
+  }
+
+  async function loadScans() {
+    try {
+      const res = await fetch('/.netlify/functions/stats/scans', { cache: 'no-cache' });
+      const data = await res.json();
+      renderScanActivity(data);
+    } catch (err) {
+      document.getElementById('scan-activity-body').innerHTML =
+        '<div class="empty" style="padding:20px;">Could not load scan activity.</div>';
+    }
+  }
+
+  // ── Calibration widget ───────────────────────────────────────────────
+  function renderCalibration(payload) {
+    const body = document.getElementById('calibration-body');
+    const stations = (payload && payload.stations) || [];
+    const summary  = (payload && payload.summary)  || {};
+
+    if (stations.length === 0) {
+      body.innerHTML = '<div class="empty" style="padding:20px;">No calibration samples logged yet. Bias data accrues from each resolved trade.</div>';
+      return;
+    }
+
+    const minNeeded = summary.min_samples_needed || 3;
+    const window = summary.rolling_window || 20;
+
+    const headHtml = `
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:18px;">
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Stations tracked</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;">${summary.tracked || 0}</div></div>
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Active corrections</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:var(--green);">${summary.active || 0}</div></div>
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Min samples</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;">${minNeeded}</div></div>
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Rolling window</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;">${window}</div></div>
+      </div>
+    `;
+
+    const rowsHtml = stations.map(s => {
+      const isActive = s.status === 'active';
+      const biasStr = isActive
+        ? `<span style="font-family:'JetBrains Mono',monospace;font-weight:600;color:${s.applied_bias < 0 ? '#fbbf24' : 'var(--green)'};">${s.applied_bias > 0 ? '+' : ''}${s.applied_bias.toFixed(2)}°F</span>`
+        : `<span style="color:var(--muted);font-size:.8rem;">learning (${s.samples}/${minNeeded})</span>`;
+      const direction = !isActive ? ''
+        : s.applied_bias < 0 ? '<span style="font-size:.7rem;color:var(--muted);">GFS too cold</span>'
+        : s.applied_bias > 0 ? '<span style="font-size:.7rem;color:var(--muted);">GFS too hot</span>'
+        : '<span style="font-size:.7rem;color:var(--muted);">balanced</span>';
+      const errsHtml = s.last_errors.map(e => {
+        const color = e < 0 ? '#fbbf24' : e > 0 ? 'var(--green)' : 'var(--muted)';
+        return `<span style="display:inline-block;padding:2px 6px;background:rgba(255,255,255,.04);border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:.7rem;color:${color};margin-right:4px;">${e > 0 ? '+' : ''}${e.toFixed(1)}</span>`;
+      }).join('');
+      return `
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:12px 8px;color:#f1f5f9;font-weight:500;">${s.city}</td>
+          <td style="padding:12px 8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);">${s.station}</td>
+          <td style="padding:12px 8px;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#cbd5e1;">${s.samples}</td>
+          <td style="padding:12px 8px;">${biasStr}<br>${direction}</td>
+          <td style="padding:12px 8px;">${errsHtml || '<span style="color:var(--muted);font-size:.7rem;">—</span>'}</td>
+        </tr>
+      `;
+    }).join('');
+
+    body.innerHTML = `
+      ${headHtml}
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);">
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">City</th>
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">Station</th>
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">Samples</th>
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">Applied Bias</th>
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">Last 10 Errors (°F)</th>
+            </tr>
+          </thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  async function loadCalibration() {
+    try {
+      const res = await fetch('/.netlify/functions/stats/calibration', { cache: 'no-cache' });
+      const data = await res.json();
+      renderCalibration(data);
+    } catch (err) {
+      document.getElementById('calibration-body').innerHTML =
+        '<div class="empty" style="padding:20px;">Could not load calibration.</div>';
+    }
+  }
+
+  // ── Model-run shifts widget ──────────────────────────────────────────
+  const STATION_CITY = {
+    KNYC:'New York', KMDW:'Chicago', KMIA:'Miami', KCQT:'Los Angeles',
+    KDEN:'Denver', KBOS:'Boston', KDFW:'Dallas', KAUS:'Austin',
+    KSAT:'San Antonio', KPHL:'Philadelphia', KDCA:'Washington DC',
+    KMSP:'Minneapolis', KATL:'Atlanta', KSEA:'Seattle', KPHX:'Phoenix',
+    KMSY:'New Orleans', KOKC:'Oklahoma City', KLAS:'Las Vegas',
+    KSFO:'San Francisco', KDTW:'Detroit', KIAH:'Houston', KTPA:'Tampa',
+    KPDX:'Portland', KCLT:'Charlotte', KBNA:'Nashville', KMEM:'Memphis',
+    KSTL:'St. Louis', KMCI:'Kansas City', KIND:'Indianapolis', KCMH:'Columbus',
+    KPIT:'Pittsburgh', KRDU:'Raleigh', KSLC:'Salt Lake City', KSMF:'Sacramento',
+  };
+
+  function renderShifts(payload) {
+    const body = document.getElementById('shifts-body');
+    const shifts = (payload && payload.recent_shifts) || [];
+    const tracked = (payload && payload.tracked_pairs) || 0;
+    const totalSnaps = (payload && payload.total_snapshots) || 0;
+
+    const summaryHtml = `
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:18px;">
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Pairs tracked</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;">${tracked}</div></div>
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Snapshots</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:#f1f5f9;">${totalSnaps}</div></div>
+        <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Shifts (24h)</div><div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700;color:${shifts.length > 0 ? 'var(--green)' : '#f1f5f9'};">${shifts.length}</div></div>
+      </div>
+    `;
+
+    if (shifts.length === 0) {
+      body.innerHTML = summaryHtml +
+        '<div class="empty" style="padding:24px;font-size:.85rem;">No significant model-run shifts in the last 24h. The bot is recording a snapshot every scan; the next GFS cycle drops at ~03:30 / 09:30 / 15:30 / 21:30 UTC.</div>';
+      return;
+    }
+
+    const rowsHtml = shifts.map(s => {
+      const city = STATION_CITY[s.station] || s.station;
+      const upDown = s.delta_f > 0 ? '↑' : '↓';
+      const color = s.delta_f > 0 ? 'var(--green)' : '#fbbf24';
+      const ago = timeAgo(s.ts);
+      return `
+        <tr style="border-bottom:1px solid rgba(255,255,255,.04);">
+          <td style="padding:10px 8px;color:#f1f5f9;font-weight:500;">${city}</td>
+          <td style="padding:10px 8px;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);">${s.target_date}</td>
+          <td style="padding:10px 8px;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#cbd5e1;">${s.prev_mean.toFixed(1)} → ${s.new_mean.toFixed(1)}°F</td>
+          <td style="padding:10px 8px;font-family:'JetBrains Mono',monospace;font-size:.95rem;font-weight:700;color:${color};">${upDown} ${Math.abs(s.delta_f).toFixed(1)}°F</td>
+          <td style="padding:10px 8px;font-size:.75rem;color:var(--muted);">${ago}</td>
+        </tr>
+      `;
+    }).join('');
+
+    body.innerHTML = summaryHtml + `
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);">
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">City</th>
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">Target Date</th>
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">Forecast Shift</th>
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">Δ</th>
+              <th style="padding:10px 8px;text-align:left;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);">When</th>
+            </tr>
+          </thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  async function loadShifts() {
+    try {
+      const res = await fetch('/.netlify/functions/stats/shifts', { cache: 'no-cache' });
+      const data = await res.json();
+      renderShifts(data);
+    } catch (err) {
+      document.getElementById('shifts-body').innerHTML =
+        '<div class="empty" style="padding:20px;">Could not load forecast shifts.</div>';
+    }
+  }
+
+  loadTrades();
+  loadScans();
+  loadCalibration();
+  loadShifts();
+  setInterval(loadTrades,      120000);
+  setInterval(loadScans,        60000);
+  setInterval(loadCalibration, 600000);
+  setInterval(loadShifts,      120000);
+</script>
+</body>
+</html>

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3rd Eyes Signal Methodology v1.0</title>
+<link rel="canonical" href="https://3rdeyes.io/methodology">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ── Base ── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #050c1a;
+    color: #e2e8f0;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  :root {
+    --green: #10d9a0;
+    --gold:  #f59e0b;
+    --blue:  #6366f1;
+    --muted: #64748b;
+    --card:  rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+  }
+
+  /* ── Cover page ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 5%;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,217,160,.08) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 80% 80%, rgba(99,102,241,.06) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cover-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #10d9a0, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .cover-eye { font-size: 3rem; margin-bottom: 16px; display: block; }
+
+  .cover-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .cover-subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .cover-meta-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: .85rem;
+  }
+
+  .cover-meta-item span { color: var(--green); font-weight: 700; }
+
+  .cover-disclaimer {
+    max-width: 600px;
+    font-size: .75rem;
+    color: var(--muted);
+    line-height: 1.6;
+    border: 1px solid rgba(245,158,11,.2);
+    border-radius: 8px;
+    background: rgba(245,158,11,.04);
+    padding: 14px 20px;
+  }
+
+  /* ── Nav ── */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(5,12,26,.95);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .top-nav a { color: #94a3b8; text-decoration: none; font-size: .8rem; transition: color .2s; }
+  .top-nav a:hover { color: var(--green); }
+  .top-nav .brand { font-family: 'Sora',sans-serif; font-weight: 700; color: var(--green); margin-right: auto; }
+
+  .print-btn {
+    background: var(--green);
+    color: #050c1a;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    font-size: .8rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter',sans-serif;
+  }
+
+  /* ── Content ── */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 5% 100px;
+  }
+
+  /* ── Section ── */
+  .section { margin-bottom: 64px; }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .75rem;
+    font-weight: 500;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  p { margin-bottom: 14px; color: #cbd5e1; }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+    font-size: .95rem;
+  }
+
+  .card p { margin-bottom: 6px; font-size: .88rem; }
+
+  /* ── Formula block ── */
+  .formula {
+    background: rgba(16,217,160,.04);
+    border: 1px solid rgba(16,217,160,.15);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 20px;
+    margin: 16px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .85rem;
+    color: var(--green);
+    line-height: 1.8;
+  }
+
+  /* ── Warning block ── */
+  .warn {
+    background: rgba(245,158,11,.05);
+    border: 1px solid rgba(245,158,11,.2);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 20px;
+    margin: 16px 0;
+    font-size: .85rem;
+    color: #fde68a;
+    line-height: 1.7;
+  }
+
+  /* ── Table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: .85rem;
+  }
+
+  th {
+    text-align: left;
+    padding: 10px 14px;
+    background: rgba(255,255,255,.06);
+    color: var(--muted);
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-top: 1px solid var(--border);
+    color: #cbd5e1;
+    vertical-align: top;
+  }
+
+  tr:hover td { background: rgba(255,255,255,.02); }
+
+  /* ── Tier badges ── */
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: .72rem;
+    font-weight: 700;
+  }
+  .badge-safe { background: rgba(16,217,160,.1); color: var(--green); border: 1px solid rgba(16,217,160,.2); }
+  .badge-med  { background: rgba(245,158,11,.1); color: var(--gold);  border: 1px solid rgba(245,158,11,.2); }
+  .badge-agg  { background: rgba(239,68,68,.1);  color: #f87171;      border: 1px solid rgba(239,68,68,.2); }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 48px;
+  }
+
+  .toc-title {
+    font-family: 'Sora',sans-serif;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: var(--green); text-decoration: none; font-size: .88rem; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ── Flow diagram ── */
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 20px 0;
+    align-items: stretch;
+  }
+
+  .flow-step {
+    flex: 1;
+    min-width: 140px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    position: relative;
+    text-align: center;
+  }
+
+  .flow-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--green);
+    font-size: 1.2rem;
+    z-index: 1;
+  }
+
+  .flow-step:first-child { border-radius: 10px 0 0 10px; }
+  .flow-step:last-child  { border-radius: 0 10px 10px 0; }
+
+  .flow-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 4px; }
+  .flow-val   { font-weight: 700; color: var(--green); font-size: .88rem; }
+
+  /* ── Footer ── */
+  .doc-footer {
+    text-align: center;
+    padding: 40px 5%;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: .78rem;
+    line-height: 1.8;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: #fff; color: #111; }
+    .top-nav, .print-btn { display: none; }
+    .cover { background: none; page-break-after: always; }
+    .cover-logo, .cover-title { color: #111; -webkit-text-fill-color: #111; }
+    .section { page-break-inside: avoid; }
+    .formula { background: #f0fdf4; border-color: #166534; color: #166534; }
+    .warn { background: #fffbeb; border-color: #92400e; color: #92400e; }
+    .card { background: #f8fafc; border-color: #e2e8f0; }
+    p, td { color: #334155; }
+  }
+
+  @media (max-width: 600px) {
+    .flow { flex-direction: column; }
+    .flow-step:not(:last-child)::after { content: '↓'; right: auto; left: 50%; top: auto; bottom: -14px; transform: translateX(-50%); }
+    .flow-step:first-child { border-radius: 10px 10px 0 0; }
+    .flow-step:last-child  { border-radius: 0 0 10px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="top-nav">
+  <span class="brand">👁 3rd Eyes</span>
+  <a href="/">← Back to site</a>
+  <a href="#overview">Overview</a>
+  <a href="#models">Models</a>
+  <a href="#signal">Signal Generation</a>
+  <a href="#execution">Execution</a>
+  <a href="#risk">Risk Management</a>
+  <a href="#failure">Failure Modes</a>
+  <a href="#track-record">Track Record</a>
+  <button class="print-btn" onclick="window.print()">⬇ Save as PDF</button>
+</nav>
+
+<!-- Cover -->
+<div class="cover">
+  <span class="cover-eye">👁</span>
+  <div class="cover-logo">3rd Eyes</div>
+  <h1 class="cover-title">Signal Methodology v1.0</h1>
+  <p class="cover-subtitle">GFS Ensemble + HRRR Dual-Model Weather Signal System<br>for Kalshi Temperature Prediction Markets</p>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">Version <span>1.0</span></div>
+    <div class="cover-meta-item">Published <span>May 2026</span></div>
+    <div class="cover-meta-item">Live Track Record <span>33W / 1L</span></div>
+    <div class="cover-meta-item">Win Rate <span>97.1%*</span></div>
+    <div class="cover-meta-item">Cities Scanned <span>40+</span></div>
+  </div>
+
+  <div class="cover-disclaimer">
+    <strong>Important:</strong> This document describes a signal methodology, not a guaranteed trading strategy. Past performance is not indicative of future results. *Win rate calculated on qualified fills ≥$8, spring 2026 only — a small sample of 34 trades (live ledger updates as new markets resolve). Seasonality, model uncertainty, and market liquidity all affect outcomes. See Section 7 for failure modes.
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#overview">Executive Overview</a></li>
+      <li><a href="#models">Data Sources: GFS Ensemble + HRRR</a></li>
+      <li><a href="#signal">Signal Generation Pipeline</a></li>
+      <li><a href="#calibration">Confidence Grading &amp; Calibration</a></li>
+      <li><a href="#execution">Execution Framework</a></li>
+      <li><a href="#risk">Risk Management &amp; Compounding</a></li>
+      <li><a href="#failure">Known Failure Modes</a></li>
+      <li><a href="#track-record">Live Track Record Summary</a></li>
+      <li><a href="#legal">Legal Disclosures</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. Overview -->
+  <div class="section" id="overview">
+    <div class="section-num">§ 1</div>
+    <h2 class="section-title">Executive Overview</h2>
+
+    <p>3rd Eyes publishes meteorological signals for Kalshi daily high-temperature prediction markets. The core insight is that weather models, particularly the GFS ensemble mean and HRRR short-range radar assimilation, can identify temperature outcomes with sufficient confidence to generate positive expected value (EV) on Kalshi's binary NO contracts.</p>
+
+    <p>The strategy targets specific market inefficiencies: Kalshi market makers price temperature thresholds using basic climatological priors. When numerical weather prediction (NWP) models diverge strongly from those priors, due to an identifiable synoptic pattern, we publish a NO signal. The edge is meteorological, not statistical arbitrage.</p>
+
+    <div class="card">
+      <div class="card-title">Core Thesis in One Sentence</div>
+      <p>When two independent NWP models (GFS ensemble mean + HRRR hourly update) agree that a temperature threshold will NOT be reached, and the market is still pricing that event at 3–18¢ (implying 3–18% probability), the true probability is materially lower, creating positive EV on the NO side.</p>
+    </div>
+
+    <p>We operate exclusively on <strong>NO contracts</strong>, betting that a temperature threshold will not be exceeded (for high-temp markets) or not be reached (for low-temp markets). This creates asymmetric payouts: risk $X to win ~$Y where Y &gt; X if probability is mispriced by ≥5 percentage points.</p>
+  </div>
+
+  <!-- 2. Models -->
+  <div class="section" id="models">
+    <div class="section-num">§ 2</div>
+    <h2 class="section-title">Data Sources: GFS Ensemble + HRRR</h2>
+
+    <div class="card">
+      <div class="card-title">🌐 GFS Ensemble Mean (GEFS)</div>
+      <p><strong>Source:</strong> NOAA Global Ensemble Forecast System — 30-member ensemble</p>
+      <p><strong>Resolution:</strong> 0.25° (~25 km) horizontal, 6-hourly runs (00Z, 06Z, 12Z, 18Z)</p>
+      <p><strong>Lead time used:</strong> 12–96 hours (Day 0 through Day 4)</p>
+      <p><strong>Role in signal:</strong> Primary temperature forecast. The ensemble mean suppresses random variability; the ensemble spread quantifies uncertainty. Narrow spread (low σ) = high model confidence.</p>
+      <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. Kalshi threshold. Buffer: ≥3°F separation required for Grade A signal.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🛰 HRRR (High-Resolution Rapid Refresh)</div>
+      <p><strong>Source:</strong> NOAA/ESRL HRRR — single deterministic model</p>
+      <p><strong>Resolution:</strong> 3 km horizontal, hourly runs</p>
+      <p><strong>Lead time used:</strong> 0–36 hours (same-day and next-day markets only)</p>
+      <p><strong>Role in signal:</strong> Confirmation for near-term signals. HRRR assimilates real-time radar, surface observations, and satellite data — it has materially higher skill at ≤24 hours than GFS.</p>
+      <p><strong>Key metric:</strong> HRRR maximum 2m temperature vs. Kalshi threshold. Agreement with GFS required for signal publication.</p>
+    </div>
+
+    <div class="warn">
+      ⚠️ <strong>Model Agreement Requirement:</strong> A signal is only published when <em>both</em> GFS ensemble mean <em>and</em> (for ≤36h markets) HRRR independently forecast the threshold will not be reached. Disagreement between models = no signal, regardless of individual model confidence.
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>GFS Ensemble (GEFS)</th>
+          <th>HRRR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Best for</td>
+          <td>Day 2–4 signals</td>
+          <td>Same-day / Day 1 signals</td>
+        </tr>
+        <tr>
+          <td>Resolution</td>
+          <td>~25 km</td>
+          <td>3 km</td>
+        </tr>
+        <tr>
+          <td>Update frequency</td>
+          <td>4× daily</td>
+          <td>Hourly</td>
+        </tr>
+        <tr>
+          <td>Ensemble size</td>
+          <td>30 members</td>
+          <td>1 (deterministic)</td>
+        </tr>
+        <tr>
+          <td>Radar assimilation</td>
+          <td>No</td>
+          <td>Yes (real-time)</td>
+        </tr>
+        <tr>
+          <td>Weakness</td>
+          <td>Coarse resolution misses urban heat islands</td>
+          <td>No ensemble spread — single point of failure</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. Signal Generation -->
+  <div class="section" id="signal">
+    <div class="section-num">§ 3</div>
+    <h2 class="section-title">Signal Generation Pipeline</h2>
+
+    <p>The signal pipeline runs automatically every 5 minutes, scanning open Kalshi weather markets and evaluating each against current NWP model output.</p>
+
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-label">Step 1</div>
+        <div class="flow-val">Market Scan</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-label">Step 2</div>
+        <div class="flow-val">NWP Pull</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-label">Step 3</div>
+        <div class="flow-val">Buffer Check</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-label">Step 4</div>
+        <div class="flow-val">Dual-Model OK</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-label">Step 5</div>
+        <div class="flow-val">Grade + Publish</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step 1: Market Scan</div>
+      <p>Fetch all open Kalshi <code>KXHIGH*</code> and <code>KXLOW*</code> markets via the Kalshi API. Filter for markets resolving within the next 96 hours with ≥$10 liquidity on the NO side.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step 2: NWP Temperature Pull</div>
+      <p>For each market, extract the forecast high temperature for the relevant city, date, and hour from GFS ensemble mean (all markets) and HRRR (markets resolving ≤36h).</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step 3: Buffer Calculation</div>
+      <p>Compute the temperature buffer: the gap between the forecast high and the Kalshi threshold:</p>
+      <div class="formula">
+        buffer = threshold_temp − gfs_ensemble_mean_high<br>
+        signal_valid = buffer ≥ 3°F   (Grade A)<br>
+        signal_valid = buffer ≥ 1.5°F (Grade B)<br>
+        signal_valid = buffer ≥ 0.5°F (Grade C — avoid or smallest position)
+      </div>
+      <p>A positive buffer means the model forecasts the threshold will NOT be reached. Larger buffer = higher confidence = higher signal grade.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step 4: Dual-Model Confirmation</div>
+      <p>For ≤36h markets, HRRR must independently agree (buffer ≥ 0.5°F on the HRRR forecast). For Day 2–4 markets, GFS ensemble spread (σ) must be ≤3°F; high spread = uncertain = no signal.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Step 5: Grade Assignment &amp; Publish</div>
+      <p>Assign confidence grade (A / B / C), check orderbook depth for minimum fill ≥$8, and publish signal via Telegram with full reasoning: city, threshold, GFS mean, HRRR (if applicable), buffer, grade, and suggested position sizing.</p>
+    </div>
+  </div>
+
+  <!-- 4. Calibration -->
+  <div class="section" id="calibration">
+    <div class="section-num">§ 4</div>
+    <h2 class="section-title">Confidence Grading &amp; Calibration</h2>
+
+    <p>Each signal is assigned a grade (A, B, or C) based on the temperature buffer and model agreement. This grade directly informs suggested position sizing across our three risk tiers.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Grade</th>
+          <th>Buffer (°F)</th>
+          <th>Model Spread</th>
+          <th>Interpretation</th>
+          <th>Suggested Tier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#10d9a0;">A</strong></td>
+          <td>≥ 3°F</td>
+          <td>&lt; 2°F σ</td>
+          <td>High conviction: both models clear, low uncertainty</td>
+          <td><span class="badge badge-safe">Safe</span> <span class="badge badge-med">Medium</span> <span class="badge badge-agg">Aggressive</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#f59e0b;">B</strong></td>
+          <td>1.5 – 3°F</td>
+          <td>&lt; 3°F σ</td>
+          <td>Moderate conviction: good buffer, manageable spread</td>
+          <td><span class="badge badge-safe">Safe</span> <span class="badge badge-med">Medium</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#94a3b8;">C</strong></td>
+          <td>0.5 – 1.5°F</td>
+          <td>&lt; 4°F σ</td>
+          <td>Low conviction: edge exists but thin; smallest size only</td>
+          <td><span class="badge badge-safe">Safe only</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn">
+      ⚠️ <strong>Calibration Status:</strong> With 34 qualified trades in our live sample, we have directional calibration but insufficient data for rigorous per-grade win rate calculation. Grade-level statistics will be published at 100 qualified trades. Current live win rate: 97.1% (33W/1L, all grades combined, spring 2026). See /#ledger for the live, auto-updating count.
+    </div>
+
+    <p>Calibration is ongoing. We will update this document at: 100 trades (v1.1), summer 2026 season end (v1.2), 500 trades (v2.0). All updates will be published at 3rdeyes.io/methodology.</p>
+  </div>
+
+  <!-- 5. Execution -->
+  <div class="section" id="execution">
+    <div class="section-num">§ 5</div>
+    <h2 class="section-title">Execution Framework</h2>
+
+    <p>Signals are published via Telegram. Subscribers execute trades independently on Kalshi (US residents) or equivalent platforms (international). 3rd Eyes never touches subscriber funds.</p>
+
+    <div class="card">
+      <div class="card-title">Position Sizing — Risk Tiers</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Slot Stake</th>
+            <th>Slots</th>
+            <th>Total Exposure</th>
+            <th>Trade Grades</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-safe">Safe</span></td>
+            <td>$20 – $40</td>
+            <td>1–2</td>
+            <td>$20 – $80</td>
+            <td>A, B, C</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-med">Medium</span></td>
+            <td>$40 – $80</td>
+            <td>2–4</td>
+            <td>$80 – $320</td>
+            <td>A, B only</td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-agg">Aggressive</span></td>
+            <td>$80 – $160</td>
+            <td>4</td>
+            <td>$320 – $640</td>
+            <td>Grade A only</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Compounding Logic (Ladder Mode)</div>
+      <p>For subscribers using the compounding (Ladder) approach with 4 independent slots:</p>
+      <div class="formula">
+        WIN:  new_stake[slot] = payout_received   ← compound gains<br>
+        LOSS: new_stake[slot] = BASE_STAKE         ← reset to base (no progressive loss)<br>
+        SKIP: new_stake[slot] = unchanged          ← thin fills don't reset compounding
+      </div>
+      <p>Each slot compounds independently. A loss in Slot 1 does not affect Slots 2–4. This contains drawdown to individual slot level.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Stop-Loss Protocol</div>
+      <p>If an active position's NO price drops to ≤$0.82 (implying 18%+ probability the threshold will be reached), the signal system flags an exit recommendation. This recovers ~82¢ of every dollar at risk, limiting max loss to ~18% of notional per position.</p>
+      <div class="formula">
+        Max loss per position ≈ stake × 0.18 + (contracts × $0.01 fee)<br>
+        Example: $80 stake @ 95¢ NO → 84 contracts → max loss ≈ $80 × 0.18 + $0.84 = ~$15.24
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Minimum Fill Threshold</div>
+      <p>Signals where the Kalshi orderbook cannot fill ≥$8 (thin markets, usually &lt;10 contracts at the target NO price) are flagged as <strong>SKIP</strong>. These are published for informational purposes but are excluded from the W/L track record and do not affect slot compounding.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Kalshi Fee Structure</div>
+      <p>Kalshi charges a flat $0.01 per contract fee on fills. This fee applies to both entry and exit (stop-loss) fills.</p>
+      <div class="formula">
+        Net profit per win = payout − entry_cost − (contracts × $0.01)<br>
+        Example: 84 contracts @ 95¢ NO → win payout $84 − cost $79.80 − fee $0.84 = net +$3.36<br>
+        Example: 84 contracts @ 97¢ NO → win payout $84 − cost $81.48 − fee $0.84 = net +$1.68
+      </div>
+      <p>At high NO prices (95¢+), the fee is material (25–50% of gross profit). Always check net-of-fees EV before sizing up.</p>
+    </div>
+  </div>
+
+  <!-- 6. Risk Management -->
+  <div class="section" id="risk">
+    <div class="section-num">§ 6</div>
+    <h2 class="section-title">Risk Management &amp; Compounding</h2>
+
+    <p>The 3rd Eyes framework prioritizes capital preservation over maximizing individual trade returns. This manifests in four hard rules:</p>
+
+    <div class="card">
+      <div class="card-title">Rule 1: Never size into thin orderbooks</div>
+      <p>Minimum fill $8. If the orderbook cannot fill $8 at the target price, skip the trade entirely. Thin markets mean: poor price execution, high slippage on exit, and outsized fee impact.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Rule 2: Respect the stop-loss unconditionally</div>
+      <p>Stop-loss at 82¢ is not a suggestion. When the NO price drops to ≤82¢, the position is exiting a scenario where our model edge has deteriorated (unexpected weather development). Holding through a stop risks full position loss.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Rule 3: No pyramiding into losing positions</div>
+      <p>If a position moves against us, we do not add contracts. The stop-loss exits the position. We wait for the next independent signal.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Rule 4: Slot isolation</div>
+      <p>Each of the 4 slots is financially independent. Slot 1 losing does not trigger additional exposure from Slots 2–4. Maximum simultaneous exposure = 4 × slot_stake, and each slot resets independently on loss.</p>
+    </div>
+  </div>
+
+  <!-- 7. Failure Modes -->
+  <div class="section" id="failure">
+    <div class="section-num">§ 7</div>
+    <h2 class="section-title">Known Failure Modes</h2>
+
+    <p>We are transparent about the conditions under which this methodology underperforms or fails. Every subscriber should understand these risks before placing any position.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Failure Mode</th>
+          <th>Cause</th>
+          <th>Mitigation</th>
+          <th>Frequency (estimated)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Sudden synoptic shift</strong></td>
+          <td>A frontal system moves faster or slower than models predict, pushing temps across the threshold after signal entry</td>
+          <td>Stop-loss at 82¢</td>
+          <td>~1–2% of trades</td>
+        </tr>
+        <tr>
+          <td><strong>Urban heat island miss</strong></td>
+          <td>GFS 25km resolution misses localized urban heating; HRRR 3km typically catches this for ≤24h, but not always</td>
+          <td>Use HRRR confirmation for city markets</td>
+          <td>~1% of trades</td>
+        </tr>
+        <tr>
+          <td><strong>Convective outlier</strong></td>
+          <td>An unexpected thunderstorm (especially summer) suppresses daytime high below model forecast — but for NO bets, this is usually a win</td>
+          <td>N/A (benefits NO positions)</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td><strong>Model initialization error</strong></td>
+          <td>A bad radiosonde observation poisons the GFS analysis, creating a systematically wrong forecast for 1–2 days</td>
+          <td>HRRR cross-check (HRRR uses independent radar data)</td>
+          <td>&lt;0.5% of trades</td>
+        </tr>
+        <tr>
+          <td><strong>Kalshi thin market</strong></td>
+          <td>Low liquidity → poor fill price → fee drag erases edge</td>
+          <td>$8 minimum fill filter</td>
+          <td>Excluded from W/L</td>
+        </tr>
+        <tr>
+          <td><strong>Summer convective season</strong></td>
+          <td>June–August afternoon convection randomizes peak temperatures; model uncertainty 3× higher than spring</td>
+          <td>Grade C signals suspended; Grade B position sizing halved</td>
+          <td>Seasonal — 3 months/year</td>
+        </tr>
+        <tr>
+          <td><strong>API / system downtime</strong></td>
+          <td>Kalshi API outage, VPS failure, or cron job failure can cause missed signals or missed stop-loss exits</td>
+          <td>5-min scan + 1-min position monitor; Telegram alerts on error</td>
+          <td>Rare, monitored</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn">
+      ⚠️ <strong>Seasonality Warning:</strong> Our 97.1% win rate is a <em>spring 2026</em> figure. Spring frontal systems produce the most predictable temperature deviations in the continental US. Summer 2026 will be the first real stress-test of this methodology. We expect win rates to normalize downward to 85–92% in summer conditions. We will update this document with real data after August 2026.
+    </div>
+  </div>
+
+  <!-- 8. Track Record -->
+  <div class="section" id="track-record">
+    <div class="section-num">§ 8</div>
+    <h2 class="section-title">Live Track Record Summary</h2>
+
+    <p>All trades are live from the Kalshi API. Full ledger available at <a href="/#ledger" style="color:var(--green);">3rdeyes.io/#ledger</a>.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Value</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Qualified wins</td>
+          <td style="color:#10d9a0;font-weight:700;">35</td>
+          <td>Fills ≥$8, finalized markets</td>
+        </tr>
+        <tr>
+          <td>Qualified losses</td>
+          <td style="color:#f87171;font-weight:700;">1</td>
+          <td>Stop-loss exit; recovered ~82¢ per dollar</td>
+        </tr>
+        <tr>
+          <td>Win rate</td>
+          <td style="color:#10d9a0;font-weight:700;">97.1%</td>
+          <td>35 / 36 qualified trades</td>
+        </tr>
+        <tr>
+          <td>Thin-fill skips</td>
+          <td>2</td>
+          <td>Excluded from W/L; fills &lt;$8 (orderbook too thin)</td>
+        </tr>
+        <tr>
+          <td>Cities with qualified fills</td>
+          <td>7 (of 40+ scanned)</td>
+          <td>Miami, Chicago, LA, NYC, Phoenix, Dallas and more</td>
+        </tr>
+        <tr>
+          <td>Season</td>
+          <td>Spring 2026</td>
+          <td>Apr–May 2026 live data</td>
+        </tr>
+        <tr>
+          <td>Sample size warning</td>
+          <td>⚠️ Small</td>
+          <td>34 trades — insufficient for statistical significance; track record is directional only</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>This track record is authentic and verifiable on-chain via Kalshi's public market data. We invite any subscriber to cross-reference the trade ledger against Kalshi's market resolution history.</p>
+  </div>
+
+  <!-- 9. Legal -->
+  <div class="section" id="legal">
+    <div class="section-num">§ 9</div>
+    <h2 class="section-title">Legal Disclosures</h2>
+
+    <div class="card">
+      <div class="card-title">Publisher Exemption: CFTC Rule 4.14(a)(9)</div>
+      <p>3rd Eyes publishes impersonal market research and signals only. All signals are identical for every subscriber — no advice is tailored to any individual's financial situation, account size, or risk tolerance. 3rd Eyes does not hold discretionary trading authority over any subscriber's account, does not execute trades on behalf of subscribers, and does not act as a Commodity Trading Advisor (CTA) as defined under the Commodity Exchange Act. 3rd Eyes operates under the publisher exemption from CTA registration pursuant to CFTC Rule 4.14(a)(9).</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Risk Disclosure</div>
+      <p>Trading Kalshi event contracts involves substantial risk of loss, including the possibility of total loss of all capital deployed. Past performance (including the 97.1% win rate described in this document) is not indicative of future results. The single managed stop-loss exit demonstrates that losses do occur; the stop-loss system is designed to limit, not eliminate, losses.</p>
+      <p>Hypothetical and projected performance figures (e.g., compounding calculator outputs) are for educational illustration only and do not represent actual or guaranteed trading results.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Platform Note</div>
+      <p>US residents execute signals on Kalshi (CFTC-regulated). International subscribers may use signals on available platforms (Polymarket, FanDuel, DraftKings, Robinhood, Coinbase, HK Opinion Market, or others) at their own discretion, subject to local regulations. 3rd Eyes signals are market-agnostic and do not constitute legal, financial, or regulatory advice for any specific jurisdiction.</p>
+    </div>
+
+    <p style="font-size:.8rem;color:var(--muted);margin-top:24px;">© 2026 3rd Eyes. All rights reserved. This document may be shared freely in unmodified form. Do not alter or misrepresent the methodology or track record.</p>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="doc-footer">
+  <div style="font-size:1.4rem;margin-bottom:8px;">👁</div>
+  <strong style="color:var(--green);">3rd Eyes Signal Methodology v1.0</strong><br>
+  Published May 2026 · <a href="/" style="color:var(--green);text-decoration:none;">3rdeyes.io</a> · Updated at 100, 500 qualified trades<br><br>
+  <span style="font-size:.72rem;">This document is published for transparency and subscriber education. It is not investment advice. Past performance does not guarantee future results.</span>
+</div>
+
+</body>
+</html>
