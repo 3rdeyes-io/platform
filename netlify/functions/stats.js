@@ -35,8 +35,8 @@ exports.handler = async (event) => {
                    : endpoint === '/calibration' ? { stations: [], summary: {} }
                    : endpoint === '/shifts'      ? { recent_shifts: [], tracked_pairs: 0 }
                    : {
-      wins: 33, losses: 1, winRate: 97.1,
-      totalTrades: 34, balance: 351.01, cities: 7,
+      wins: 32, losses: 4, winRate: 88.9,
+      totalTrades: 36, balance: 351.01, cities: 7,
       lastScan: null, lastMonitor: null,
       scanIntervalSec: 300, monitorIntervalSec: 30
     };

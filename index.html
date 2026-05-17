@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3rd Eyes | Mini Quant Weather Strategy on Kalshi</title>
-<meta name="description" content="3rd Eyes is a dual-model meteorological signal service for Kalshi weather contracts. 33W / 1L · 97.1% win rate (small spring sample). GFS ensemble + HRRR radar. Full trade reasoning with every signal. Choose your risk tier.">
-<meta property="og:title" content="3rd Eyes | Mini Quant Weather Strategy on Kalshi">
-<meta property="og:description" content="33W / 1L · 97.1% win rate. GFS + HRRR dual-model signals with full trade reasoning. Safe / Medium / Aggressive risk tiers. Every signal explained.">
+<title>3rd Eyes | AI Weather Signals for Kalshi</title>
+<meta name="description" content="An AI that finds mispriced temperature bets on Kalshi. Get alerted when the weather models say the market is wrong. 32W / 4L since April 2026. Free signals via Telegram.">
+<meta property="og:title" content="3rd Eyes | AI Weather Signals for Kalshi">
+<meta property="og:description" content="We find the weather bets Kalshi gets wrong. 32W / 4L · 89% win rate. Free signals on Telegram. No credit card required.">
 <meta property="og:image" content="https://og-image.vercel.app/**3rd%20Eyes**%20%7C%20Mini%20Quant%20Weather%20Strategy.png?theme=dark&md=1&fontSize=60px">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://3rdeyes.io">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@3rdEyesIO">
-<meta name="twitter:title" content="3rd Eyes | Mini Quant Weather Strategy on Kalshi">
-<meta name="twitter:description" content="33W / 1L · 97.1% win rate. Dual-model meteorology (GFS + HRRR) signals for Kalshi weather contracts. Full trade reasoning. Risk tiers: Safe / Medium / Aggressive."
+<meta name="twitter:title" content="3rd Eyes | AI Weather Signals for Kalshi">
+<meta name="twitter:description" content="An AI that finds mispriced temperature bets on Kalshi. 32W / 4L · 89% win rate. Free signals on Telegram — no credit card needed."
 <meta name="twitter:image" content="https://og-image.vercel.app/**3rd%20Eyes**%20%7C%20See%20what%20the%20market%20can't.png?theme=dark&md=1&fontSize=60px">
 
 <!-- Favicon — eye + flame mark -->
@@ -652,7 +652,7 @@
 
   <div class="hero-badge">
     <div class="live-dot"></div>
-    Live · <span id="hero-wl">33W / 1L</span> · <span id="hero-wr">97.1%</span> · Spring 2026 · <a href="#ledger" style="color:var(--green);text-decoration:none;">verify on Kalshi →</a>
+    Live · <span id="hero-wl">32W / 4L</span> · <span id="hero-wr">89%</span> · Spring 2026 · <a href="#ledger" style="color:var(--green);text-decoration:none;">verify on Kalshi →</a>
   </div>
 
   <!-- ── Live operational pulse — proves the bot is actually running ── -->
@@ -667,12 +667,13 @@
     </span>
   </div>
 
-  <h1>Weather intelligence<br><span>for prediction markets.</span></h1>
+  <h1>We find the weather bets<br><span>Kalshi gets wrong.</span></h1>
 
   <p class="hero-sub">
-    Kalshi temperature contracts are systematically mispriced. We run the same dual-model NWP stack
-    (GFS ensemble + HRRR radar) that operational meteorologists use, surface the trades where retail
-    pricing diverges from physics, and publish every signal (wins, losses, and skips) to a live public ledger.
+    Kalshi lets you bet on whether a city's temperature hits a threshold. Our AI scans 40 US cities
+    every 5 minutes, compares the market price against professional-grade weather models, and sends you
+    an alert when the odds are off. <strong style="color:var(--green)">32 wins, 4 losses since April 23, 2026.</strong>
+    Every trade — wins, losses, and skips — posted to a live public ledger.
   </p>
 
   <form class="hero-form" onsubmit="handleSignup(event, this)">
@@ -812,7 +813,7 @@
   <div style="max-width:760px;margin:40px auto 0;padding:0 20px;">
     <div style="background:rgba(16,217,160,.05);border:1px solid rgba(16,217,160,.2);border-radius:14px;padding:22px 26px;text-align:center;">
       <p style="font-size:.95rem;color:#cbd5e1;line-height:1.7;margin:0;">
-        <strong style="color:#fff;">You don't need to be a trader.</strong> If you can read a text message and tap a button, you can use 3rd Eyes. Start with whatever stake you're comfortable with (<strong style="color:var(--green);">$80 minimum, $500, $5,000, your call</strong>) and place 3–5 trades a week. The free tier sends you sample signals so you can verify the track record before paying anything.
+        <strong style="color:#fff;">You don't need to be a trader.</strong> If you can read a text message and tap a button, you can use 3rd Eyes. Start with whatever amount you're comfortable with — even $20 to test the waters — and place a few trades a week. The free tier sends sample signals so you can verify the track record before paying anything.
       </p>
     </div>
   </div>
@@ -883,41 +884,41 @@
 ═══════════════════════════════════════ -->
 <section id="how-it-works">
   <div class="section-header">
-    <div class="section-label">Not signals: a mini quant strategy</div>
-    <h2 class="section-title">How the model goes from<br>forecast to trade.</h2>
-    <p class="section-sub">Most signal services tell you what to do with no explanation. We show you every input the model used, every gate it passed, and exactly why the trade was taken.</p>
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">From weather forecast<br>to trade alert — automatically.</h2>
+    <p class="section-sub">Every step is logged and published. You always know exactly why a signal fired — or didn't.</p>
   </div>
 
   <div class="steps-grid">
     <div class="step-card">
       <div class="step-num">01</div>
       <div class="step-icon">🛰️</div>
-      <div class="step-title">Dual-model scan: 40 cities, every 5 min</div>
-      <div class="step-desc">Every 5 minutes, our system pulls NWS GFS ensemble data (30 independent members) and HRRR radar across 40 US cities. Two models. 1,200 data points per cycle. Not a weather app.</div>
+      <div class="step-title">40 cities scanned every 5 minutes</div>
+      <div class="step-desc">Our AI continuously pulls professional-grade weather data — the same models meteorologists use — for 40 US cities. It runs 24/7 so you don't have to watch anything.</div>
     </div>
     <div class="step-card">
       <div class="step-num">02</div>
       <div class="step-icon">🔬</div>
-      <div class="step-title">Ensemble gate: all 30 must agree</div>
-      <div class="step-desc">GFS must be unanimous: all 30 members below the Kalshi threshold, ensemble spread (σ) below 2.5°F. One outlier member vetoes the trade. Then HRRR must confirm within 3°F. Both pass or no signal fires.</div>
+      <div class="step-title">All 30 model members must agree</div>
+      <div class="step-desc">We run 30 independent weather simulations. Every single one must predict the temperature stays safely away from the threshold. One disagreement kills the trade. No signal fires on a split verdict.</div>
     </div>
     <div class="step-card">
       <div class="step-num">03</div>
       <div class="step-icon">📏</div>
-      <div class="step-title">Buffer + market edge check</div>
-      <div class="step-desc">Forecast must clear the Kalshi threshold by ≥5°F inland or ≥7°F coastal. NO price must be 88–97¢ (high premium, not already priced). All gates pass → confidence grade assigned (A+/A/B).</div>
+      <div class="step-title">Safety margin + price check</div>
+      <div class="step-desc">The forecast must clear the threshold by a comfortable margin (≥3°F inland, ≥5°F coastal) — not just barely. The contract price must also be in the right range. All checks pass → confidence grade assigned (A+/A/B).</div>
     </div>
     <div class="step-card">
       <div class="step-num">04</div>
       <div class="step-icon">⚡</div>
-      <div class="step-title">Signal hits your Telegram, with full reasoning</div>
-      <div class="step-desc">You receive the city, market, GFS output, HRRR output, buffer margin, confidence grade, recommended stake (based on your risk tier), stop-loss level, and <em>why the model fired.</em></div>
+      <div class="step-title">Alert hits your Telegram instantly</div>
+      <div class="step-desc">You get the city, contract, direction, confidence grade, and plain-English reasoning — exactly why the model fired. Place the trade manually on your platform, or let the pipeline handle it automatically.</div>
     </div>
     <div class="step-card">
       <div class="step-num">05</div>
       <div class="step-icon">🛡️</div>
-      <div class="step-title">Live monitoring + stop-loss</div>
-      <div class="step-desc">Open positions are monitored every 30 seconds. Alert at 85¢, auto-close at 82¢. Same-day expiry tightens the stop to 88¢. A loss resets one slot to $80; the other 3 slots are untouched.</div>
+      <div class="step-title">Live monitoring + automatic stop-loss</div>
+      <div class="step-desc">Open positions are watched in real time. You get an alert if a trade moves against you, and an auto-close triggers if it drops below the stop-loss threshold. Each trade is independent — one loss doesn't affect the others.</div>
     </div>
   </div>
 </section>
@@ -928,9 +929,9 @@
 ═══════════════════════════════════════ -->
 <section id="risk-tiers" style="background:rgba(255,255,255,.015);">
   <div class="section-header">
-    <div class="section-label">Choose your aggression level</div>
-    <h2 class="section-title">Same signal. Three ways<br>to play it.</h2>
-    <p class="section-sub">Every subscriber gets identical signals at the same time. What changes is <em>how much you stake</em>, based on signal confidence and your risk appetite.</p>
+    <div class="section-label">Risk levels</div>
+    <h2 class="section-title">Same signal. You choose<br>how much to trade.</h2>
+    <p class="section-sub">Every subscriber gets the same alerts at the same time. The only difference is which signals you act on — and how much you put in per trade.</p>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:920px;margin:0 auto 32px;">
@@ -939,8 +940,8 @@
       <div style="font-size:1.6rem;margin-bottom:6px;">🟢</div>
       <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#10d9a0;margin-bottom:4px;">Safe</div>
       <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">A+ signals only</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:700;color:#10d9a0;">~98%</div>
-      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">historical win rate</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:700;color:#10d9a0;">89%</div>
+      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">live win rate (all signals)</div>
     </div>
 
     <div style="background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.25);border-radius:14px;padding:24px;text-align:center;position:relative;">
@@ -948,16 +949,16 @@
       <div style="font-size:1.6rem;margin-bottom:6px;margin-top:6px;">🟡</div>
       <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#f59e0b;margin-bottom:4px;">Medium</div>
       <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">A+ &amp; A signals</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:700;color:#f59e0b;">~97.1%</div>
-      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">historical win rate</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:700;color:#f59e0b;">89%</div>
+      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">live win rate (all signals)</div>
     </div>
 
     <div style="background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.18);border-radius:14px;padding:24px;text-align:center;">
       <div style="font-size:1.6rem;margin-bottom:6px;">🔴</div>
       <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#ef4444;margin-bottom:4px;">Aggressive</div>
       <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">A+, A, B+ signals</div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:700;color:#ef4444;">~88–92%</div>
-      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">estimated win rate</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:700;color:#ef4444;">89%</div>
+      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">live win rate (all signals)</div>
     </div>
 
   </div>
@@ -1185,7 +1186,7 @@
       <span style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.75rem;color:#94a3b8;">🏦 Robinhood / Coinbase</span>
       <span style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.75rem;color:#94a3b8;">🌏 HK Opinion Market</span>
     </div>
-    <p style="font-size:.75rem;color:var(--muted);margin-top:8px;">Our signals are market-agnostic. US residents trade on Kalshi. International subscribers use signals on any available platform.</p>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:8px;">Our signals work on any platform with temperature contracts. Most US subscribers use Kalshi. International subscribers use Polymarket or local markets.</p>
   </div>
 
   <div class="pricing-grid" style="max-width:900px;margin:0 auto;">
@@ -1194,16 +1195,16 @@
     <div class="price-card">
       <div class="price-tier">Free</div>
       <div class="price-amount">$0 <span>/mo</span></div>
-      <p class="price-desc">Get the feel. See the signals. Verify everything on Kalshi yourself.</p>
+      <p class="price-desc">See real signals. Check the track record. Try it on your platform before paying anything.</p>
       <ul class="price-features">
-        <li><div class="feat-icon">✓</div> 3 signals per week</li>
-        <li><div class="feat-icon">✓</div> Public track record access</li>
-        <li><div class="feat-icon">✓</div> Methodology guide</li>
-        <li><div class="feat-icon">✓</div> Compounding calculator</li>
-        <li><div class="feat-icon no">✗</div> Real-time Telegram alerts</li>
-        <li><div class="feat-icon no">✗</div> Full city coverage (40)</li>
-        <li><div class="feat-icon no">✗</div> Confidence grades</li>
-        <li><div class="feat-icon no">✗</div> Auto-execute API</li>
+        <li><div class="feat-icon">✓</div> Sample signals via public Telegram</li>
+        <li><div class="feat-icon">✓</div> Full public trade ledger (every win &amp; loss)</li>
+        <li><div class="feat-icon">✓</div> Methodology &amp; how-it-works guide</li>
+        <li><div class="feat-icon">✓</div> Sizing calculator</li>
+        <li><div class="feat-icon no">✗</div> Real-time alerts (all signals)</li>
+        <li><div class="feat-icon no">✗</div> Full 40-city coverage</li>
+        <li><div class="feat-icon no">✗</div> Confidence grades per signal</li>
+        <li><div class="feat-icon no">✗</div> Auto-execute pipeline</li>
       </ul>
       <a href="https://t.me/thirdeyes_signals" target="_blank" rel="noopener" class="btn-plan btn-plan-outline">Join Free Channel →</a>
     </div>
@@ -1213,7 +1214,7 @@
       <div class="popular-badge">🔥 Most Popular</div>
       <div class="price-tier" style="color:var(--green)">Pro</div>
       <div class="price-amount">$49 <span>/mo</span></div>
-      <p class="price-desc">Full signals with complete trade reasoning: GFS output, HRRR output, buffer, grade, and why the model fired.</p>
+      <p class="price-desc">Every signal the moment it fires — with plain-English reasoning. City, direction, confidence grade, and exactly why the trade looks good.</p>
       <ul class="price-features">
         <li><div class="feat-icon">✓</div> <strong>All signals, unlimited and real-time</strong></li>
         <li><div class="feat-icon">✓</div> Full trade reasoning with every alert</li>
@@ -1320,10 +1321,10 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        Will the 97% win rate hold up?
+        Will the 89% win rate hold up?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a">Honestly, probably not at that exact number. A 97.1% spring sample is a small statistical window. A realistic forward expectation is 82–92% as the sample grows, seasons change, and other traders narrow the edge. Summer convective weather is materially harder than spring frontal systems. We publish every win, loss, and skip to a live ledger so the rate updates in public, not in our marketing.</div>
+      <div class="faq-a">Honestly, probably not at that exact number. An 89% spring sample is a small statistical window. A realistic forward expectation is lower — likely 75–85% — as the sample grows, seasons change, and other traders narrow the edge. Summer convective weather is materially harder than spring frontal systems. We publish every win, loss, and skip to a live ledger so the rate updates in public, not in our marketing.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1415,8 +1416,8 @@
   </div>
   <p class="footer-disclaimer">
     <strong>Important Disclosures:</strong> 3rd Eyes publishes impersonal market research and signals only. All signals are identical for every subscriber; no advice is tailored to any individual's financial situation, account size, or risk tolerance. Risk tier guidance (Safe / Medium / Aggressive) describes position sizing frameworks based on model confidence grades and is not personalized investment advice. 3rd Eyes does not hold discretionary trading authority over any subscriber's account, does not execute trades on behalf of subscribers, and does not act as a Commodity Trading Advisor (CTA) as defined under the Commodity Exchange Act. Subscribers make all trading decisions independently on the Kalshi platform using their own accounts and funds. 3rd Eyes operates under the publisher exemption from CTA registration pursuant to CFTC Rule 4.14(a)(9).<br><br>
-    Kalshi event contracts are CFTC-regulated. Trading prediction markets involves substantial risk of loss, including the possibility of total loss of traded capital. Past performance (33 wins, 1 managed stop-loss exit, 97.1% win rate, as of May 2026, filtered for fills ≥$8; live ledger updates as new trades resolve) is not indicative of future results.<br><br>
-    <strong>Variance is real and expected.</strong> A 97.1% spring sample will not extrapolate linearly. A realistic forward expectation is a win rate in the 82–92% range as the sample grows and seasonal conditions change. Summer convective weather, edge decay from competing traders, and Kalshi liquidity changes can all compress returns. A 33W/1L record could reasonably become 55W/8L or 120W/30L over time. Subscribers should expect losing streaks and pre-budget psychologically for them. The stop-loss system is designed to limit, not eliminate, losses. Hypothetical performance illustrations in the calculator are for educational purposes only and do not represent guaranteed outcomes. Win rate figures are based on a small sample of 34 trades and are subject to material change. This service is intended for US residents on Kalshi; international subscribers use signals on available platforms at their own discretion. Not suitable for all investors. Only trade with capital you can afford to lose entirely.
+    Kalshi event contracts are CFTC-regulated. Trading prediction markets involves substantial risk of loss, including the possibility of total loss of traded capital. Past performance (32 wins, 4 losses, 89% win rate, since the automated strategy went live April 23, 2026; live ledger updates as new trades resolve) is not indicative of future results.<br><br>
+    <strong>Variance is real and expected.</strong> An 89% spring sample will not extrapolate linearly. A realistic forward expectation is a lower win rate as the sample grows and seasonal conditions change. Summer convective weather, edge decay from competing traders, and Kalshi liquidity changes can all compress returns. A 32W/4L record could reasonably become 55W/12L or 110W/35L over time. Subscribers should expect losing streaks and pre-budget psychologically for them. The stop-loss system is designed to limit, not eliminate, losses. Hypothetical performance illustrations in the calculator are for educational purposes only and do not represent guaranteed outcomes. Win rate figures are based on a small sample of 36 trades and are subject to material change. This service is intended for US residents on Kalshi; international subscribers use signals on available platforms at their own discretion. Not suitable for all investors. Only trade with capital you can afford to lose entirely.
   </p>
 </footer>
 
@@ -1425,7 +1426,7 @@
      FLOATING CTA BAR
 ═══════════════════════════════════════ -->
 <div class="floating-bar" id="floating-bar">
-  <span class="floating-text"><strong id="floating-wl">33W / 1L</strong> · Next scan in <strong id="countdown">04:22</strong></span>
+  <span class="floating-text"><strong id="floating-wl">32W / 4L</strong> · Next scan in <strong id="countdown">04:22</strong></span>
   <a href="#pricing" class="btn-primary" style="padding:10px 20px;font-size:.875rem;">
     Get Signals →
   </a>

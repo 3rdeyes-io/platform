@@ -361,13 +361,13 @@
   <div class="cover-meta">
     <div class="cover-meta-item">Version <span>1.0</span></div>
     <div class="cover-meta-item">Published <span>May 2026</span></div>
-    <div class="cover-meta-item">Live Track Record <span>33W / 1L</span></div>
-    <div class="cover-meta-item">Win Rate <span>97.1%*</span></div>
+    <div class="cover-meta-item">Live Track Record <span>32W / 4L</span></div>
+    <div class="cover-meta-item">Win Rate <span>89%*</span></div>
     <div class="cover-meta-item">Cities Scanned <span>40+</span></div>
   </div>
 
   <div class="cover-disclaimer">
-    <strong>Important:</strong> This document describes a signal methodology, not a guaranteed trading strategy. Past performance is not indicative of future results. *Win rate calculated on qualified fills ≥$8, spring 2026 only — a small sample of 34 trades (live ledger updates as new markets resolve). Seasonality, model uncertainty, and market liquidity all affect outcomes. See Section 7 for failure modes.
+    <strong>Important:</strong> This document describes a signal methodology, not a guaranteed trading strategy. Past performance is not indicative of future results. *Win rate across 36 settled trades since the automated strategy went live April 23, 2026 (spring sample; live ledger updates as new markets resolve). Seasonality, model uncertainty, and market liquidity all affect outcomes. See Section 7 for failure modes.
   </div>
 </div>
 
@@ -583,7 +583,7 @@
     </table>
 
     <div class="warn">
-      ⚠️ <strong>Calibration Status:</strong> With 34 qualified trades in our live sample, we have directional calibration but insufficient data for rigorous per-grade win rate calculation. Grade-level statistics will be published at 100 qualified trades. Current live win rate: 97.1% (33W/1L, all grades combined, spring 2026). See /#ledger for the live, auto-updating count.
+      ⚠️ <strong>Calibration Status:</strong> With 36 trades in our live sample, we have directional calibration but insufficient data for rigorous per-grade win rate calculation. Grade-level statistics will be published at 100 qualified trades. Current live win rate: 89% (32W/4L, all grades combined, spring 2026). See /#ledger for the live, auto-updating count.
     </div>
 
     <p>Calibration is ongoing. We will update this document at: 100 trades (v1.1), summer 2026 season end (v1.2), 500 trades (v2.0). All updates will be published at 3rdeyes.io/methodology.</p>
@@ -762,7 +762,7 @@
     </table>
 
     <div class="warn">
-      ⚠️ <strong>Seasonality Warning:</strong> Our 97.1% win rate is a <em>spring 2026</em> figure. Spring frontal systems produce the most predictable temperature deviations in the continental US. Summer 2026 will be the first real stress-test of this methodology. We expect win rates to normalize downward to 85–92% in summer conditions. We will update this document with real data after August 2026.
+      ⚠️ <strong>Seasonality Warning:</strong> Our 89% win rate is a <em>spring 2026</em> figure. Spring frontal systems produce the most predictable temperature deviations in the continental US. Summer 2026 will be the first real stress-test of this methodology. We expect win rates to normalize downward in summer conditions. We will update this document with real data after August 2026.
     </div>
   </div>
 
@@ -783,24 +783,24 @@
       </thead>
       <tbody>
         <tr>
-          <td>Qualified wins</td>
-          <td style="color:#10d9a0;font-weight:700;">35</td>
-          <td>Fills ≥$8, finalized markets</td>
+          <td>Wins</td>
+          <td style="color:#10d9a0;font-weight:700;">32</td>
+          <td>Finalized markets, since Apr 23 2026</td>
         </tr>
         <tr>
-          <td>Qualified losses</td>
-          <td style="color:#f87171;font-weight:700;">1</td>
-          <td>Stop-loss exit; recovered ~82¢ per dollar</td>
+          <td>Losses</td>
+          <td style="color:#f87171;font-weight:700;">4</td>
+          <td>Includes one large loss (-$57.62) — see Failure Modes</td>
         </tr>
         <tr>
           <td>Win rate</td>
-          <td style="color:#10d9a0;font-weight:700;">97.1%</td>
-          <td>35 / 36 qualified trades</td>
+          <td style="color:#10d9a0;font-weight:700;">89%</td>
+          <td>32 / 36 settled trades</td>
         </tr>
         <tr>
-          <td>Thin-fill skips</td>
+          <td>Unfilled orders</td>
           <td>2</td>
-          <td>Excluded from W/L; fills &lt;$8 (orderbook too thin)</td>
+          <td>Orders that never executed — excluded from W/L</td>
         </tr>
         <tr>
           <td>Cities with qualified fills</td>
@@ -815,7 +815,7 @@
         <tr>
           <td>Sample size warning</td>
           <td>⚠️ Small</td>
-          <td>34 trades — insufficient for statistical significance; track record is directional only</td>
+          <td>36 trades — insufficient for statistical significance; track record is directional only</td>
         </tr>
       </tbody>
     </table>
@@ -835,7 +835,7 @@
 
     <div class="card">
       <div class="card-title">Risk Disclosure</div>
-      <p>Trading Kalshi event contracts involves substantial risk of loss, including the possibility of total loss of all capital deployed. Past performance (including the 97.1% win rate described in this document) is not indicative of future results. The single managed stop-loss exit demonstrates that losses do occur; the stop-loss system is designed to limit, not eliminate, losses.</p>
+      <p>Trading Kalshi event contracts involves substantial risk of loss, including the possibility of total loss of all capital deployed. Past performance (including the 89% win rate described in this document) is not indicative of future results. Recorded losses — including one large loss — demonstrate that losses do occur; the stop-loss system is designed to limit, not eliminate, losses.</p>
       <p>Hypothetical and projected performance figures (e.g., compounding calculator outputs) are for educational illustration only and do not represent actual or guaranteed trading results.</p>
     </div>
 

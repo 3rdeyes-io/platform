@@ -190,8 +190,8 @@
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>Position size: 50–60% of slot stake</li>
         </ul>
         <div style="background:rgba(16,217,160,.08);border-radius:8px;padding:12px;text-align:center;">
-          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Historical win rate (A+ only)</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#10d9a0;">~98%</div>
+          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Overall live win rate</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#10d9a0;">89%</div>
         </div>
       </div>
 
@@ -209,8 +209,8 @@
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>Position size: 70–80% of slot stake</li>
         </ul>
         <div style="background:rgba(245,158,11,.08);border-radius:8px;padding:12px;text-align:center;">
-          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Historical win rate (A+/A)</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#f59e0b;">~97.1%</div>
+          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Overall live win rate</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#f59e0b;">89%</div>
         </div>
       </div>
 
@@ -227,8 +227,8 @@
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>Position size: 85–100% of slot stake</li>
         </ul>
         <div style="background:rgba(239,68,68,.08);border-radius:8px;padding:12px;text-align:center;">
-          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Estimated win rate (B+ included)</div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#ef4444;">~88–92%</div>
+          <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Overall live win rate</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:1.375rem;font-weight:700;color:#ef4444;">89%</div>
         </div>
       </div>
 
@@ -256,7 +256,7 @@
             <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Completely unaffected. Untouched.</div>
           </div>
         </div>
-        <p style="font-size:.8125rem;color:var(--muted);margin-top:14px;">In our spring 2026 sample, the stop-loss has triggered once (LA coastal, -$9.80). Coastal buffer was subsequently upgraded. The system prevented an $80 total loss from becoming worse.</p>
+        <p style="font-size:.8125rem;color:var(--muted);margin-top:14px;">In our spring 2026 sample, 4 trades have lost — the largest a -$57.62 loss on an LA position. That loss is why we added hard position-size caps, so a single trade can't erase a long run of wins.</p>
       </div>
     </div>
   </section>
@@ -303,7 +303,7 @@
           <div class="range-labels"><span>1/week</span><span id="freq-label">3/week</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(spring sample: 97.1% — forward expect 82–92%)</span></label>
+          <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(spring sample: 89% — forward expectation lower)</span></label>
           <input type="range" id="calc-wr" min="50" max="97" value="90" oninput="recalc()">
           <div class="range-labels"><span>50%</span><span id="wr-label">90%</span></div>
         </div>
@@ -330,7 +330,7 @@
         </div>
 
         <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.15);border-radius:10px;padding:14px;font-size:.75rem;color:#fbbf24;line-height:1.6;margin-top:10px;">
-          ⚠️ <strong>Hypothetical — not guaranteed.</strong> Past performance (97.1% over 34 trades, small sample). The calculator shows the <em>expected</em> outcome at your chosen win rate — your actual result will vary. Forward expectation is 82–92%. Only risk discretionary funds you can afford to lose entirely.
+          ⚠️ <strong>Hypothetical — not guaranteed.</strong> Past performance (89% over 36 trades, small sample). The calculator shows the <em>expected</em> outcome at your chosen win rate — your actual result will vary. Forward expectation is lower. Only risk discretionary funds you can afford to lose entirely.
         </div>
       </div>
 
