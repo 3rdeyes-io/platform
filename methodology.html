@@ -356,7 +356,7 @@
   <span class="cover-eye">👁</span>
   <div class="cover-logo">3rd Eyes</div>
   <h1 class="cover-title">Signal Methodology v1.0</h1>
-  <p class="cover-subtitle">GFS Ensemble + HRRR Dual-Model Weather Signal System<br>for Kalshi Temperature Prediction Markets</p>
+  <p class="cover-subtitle">GFS Ensemble + HRRR Dual-Model Weather Signal System<br>for Temperature Prediction Markets</p>
 
   <div class="cover-meta">
     <div class="cover-meta-item">Version <span>1.0</span></div>
@@ -418,7 +418,7 @@
       <p><strong>Resolution:</strong> 0.25° (~25 km) horizontal, 6-hourly runs (00Z, 06Z, 12Z, 18Z)</p>
       <p><strong>Lead time used:</strong> 12–96 hours (Day 0 through Day 4)</p>
       <p><strong>Role in signal:</strong> Primary temperature forecast. The ensemble mean suppresses random variability; the ensemble spread quantifies uncertainty. Narrow spread (low σ) = high model confidence.</p>
-      <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. Kalshi threshold. Buffer: ≥3°F separation required for Grade A signal.</p>
+      <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. the market threshold. A calibrated minimum separation (the "buffer") is required before a signal is graded — exact thresholds are proprietary.</p>
     </div>
 
     <div class="card">
@@ -521,17 +521,16 @@
       <div class="card-title">Step 3: Buffer Calculation</div>
       <p>Compute the temperature buffer: the gap between the forecast high and the Kalshi threshold:</p>
       <div class="formula">
-        buffer = threshold_temp − gfs_ensemble_mean_high<br>
-        signal_valid = buffer ≥ 3°F   (Grade A)<br>
-        signal_valid = buffer ≥ 1.5°F (Grade B)<br>
-        signal_valid = buffer ≥ 0.5°F (Grade C — avoid or smallest position)
+        buffer = | forecast high − market threshold |<br>
+        A signal is published only when the buffer clears a calibrated,<br>
+        grade-dependent minimum. Exact thresholds are proprietary.
       </div>
       <p>A positive buffer means the model forecasts the threshold will NOT be reached. Larger buffer = higher confidence = higher signal grade.</p>
     </div>
 
     <div class="card">
       <div class="card-title">Step 4: Dual-Model Confirmation</div>
-      <p>For ≤36h markets, HRRR must independently agree (buffer ≥ 0.5°F on the HRRR forecast). For Day 2–4 markets, GFS ensemble spread (σ) must be ≤3°F; high spread = uncertain = no signal.</p>
+      <p>For ≤36h markets, HRRR must independently agree with the ensemble. For Day 2–4 markets, the GFS ensemble spread must fall within a calibrated tolerance; high spread = uncertain = no signal.</p>
     </div>
 
     <div class="card">
