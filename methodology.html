@@ -356,7 +356,7 @@
   <span class="cover-eye">👁</span>
   <div class="cover-logo">3rd Eyes</div>
   <h1 class="cover-title">Signal Methodology v1.0</h1>
-  <p class="cover-subtitle">GFS Ensemble + HRRR Dual-Model Weather Signal System<br>for Temperature Prediction Markets</p>
+  <p class="cover-subtitle">Multi-Model Ensemble + HRRR Weather Signal System<br>for Temperature Prediction Markets</p>
 
   <div class="cover-meta">
     <div class="cover-meta-item">Version <span>1.0</span></div>
@@ -379,7 +379,7 @@
     <div class="toc-title">Table of Contents</div>
     <ol>
       <li><a href="#overview">Executive Overview</a></li>
-      <li><a href="#models">Data Sources: GFS Ensemble + HRRR</a></li>
+      <li><a href="#models">Data Sources: Multi-Model Ensemble + HRRR</a></li>
       <li><a href="#signal">Signal Generation Pipeline</a></li>
       <li><a href="#calibration">Win-Probability &amp; Calibration</a></li>
       <li><a href="#execution">Execution Framework</a></li>
@@ -395,13 +395,13 @@
     <div class="section-num">§ 1</div>
     <h2 class="section-title">Executive Overview</h2>
 
-    <p>3rd Eyes publishes meteorological signals for Kalshi daily high-temperature prediction markets. The core insight is that weather models, particularly the GFS ensemble mean and HRRR short-range radar assimilation, can identify temperature outcomes with sufficient confidence to generate positive expected value (EV) on Kalshi's binary NO contracts.</p>
+    <p>3rd Eyes publishes meteorological signals for weather prediction markets — currently <strong>Kalshi and Polymarket</strong> — focused on daily high- and low-temperature contracts. The core insight is that weather models, particularly a multi-model forecast ensemble and HRRR short-range radar assimilation, can identify temperature outcomes with sufficient confidence to generate positive expected value (EV) on binary NO contracts.</p>
 
-    <p>The strategy targets specific market inefficiencies: Kalshi market makers price temperature thresholds using basic climatological priors. When numerical weather prediction (NWP) models diverge strongly from those priors, due to an identifiable synoptic pattern, we publish a NO signal. The edge is meteorological, not statistical arbitrage.</p>
+    <p>The strategy targets a specific market inefficiency: market makers price temperature thresholds using basic climatological priors. When numerical weather prediction (NWP) models diverge strongly from those priors, due to an identifiable synoptic pattern, we publish a NO signal. The edge is meteorological, not statistical arbitrage.</p>
 
     <div class="card">
       <div class="card-title">Core Thesis in One Sentence</div>
-      <p>When two independent NWP models (GFS ensemble mean + HRRR hourly update) agree that a temperature threshold will NOT be reached, and the market is still pricing that event at 3–18¢ (implying 3–18% probability), the true probability is materially lower, creating positive EV on the NO side.</p>
+      <p>When an independent multi-model ensemble and the HRRR hourly update agree that a temperature threshold will NOT be reached, and the market is still pricing that event at 3–18¢ (implying 3–18% probability), the true probability is materially lower, creating positive EV on the NO side.</p>
     </div>
 
     <p>We operate exclusively on <strong>NO contracts</strong>, betting that a temperature threshold will not be exceeded (for high-temp markets) or not be reached (for low-temp markets). This creates asymmetric payouts: risk $X to win ~$Y where Y &gt; X if probability is mispriced by ≥5 percentage points.</p>
@@ -410,14 +410,14 @@
   <!-- 2. Models -->
   <div class="section" id="models">
     <div class="section-num">§ 2</div>
-    <h2 class="section-title">Data Sources: GFS Ensemble + HRRR</h2>
+    <h2 class="section-title">Data Sources: Multi-Model Ensemble + HRRR</h2>
 
     <div class="card">
-      <div class="card-title">🌐 GFS Ensemble Mean (GEFS)</div>
-      <p><strong>Source:</strong> NOAA Global Ensemble Forecast System — 30-member ensemble</p>
-      <p><strong>Resolution:</strong> 0.25° (~25 km) horizontal, 6-hourly runs (00Z, 06Z, 12Z, 18Z)</p>
+      <div class="card-title">🌐 Multi-Model Forecast Ensemble</div>
+      <p><strong>Source:</strong> Four independent global numerical weather models — GFS (NOAA), ECMWF, ICON (DWD) and GEM (Environment Canada).</p>
+      <p><strong>Resolution:</strong> ~9–25 km horizontal; each model re-runs every 6–12 hours.</p>
       <p><strong>Lead time used:</strong> 12–96 hours (Day 0 through Day 4)</p>
-      <p><strong>Role in signal:</strong> Primary temperature forecast. The ensemble mean suppresses random variability; the ensemble spread quantifies uncertainty. Narrow spread (low σ) = high model confidence.</p>
+      <p><strong>Role in signal:</strong> Primary temperature forecast. Pooling four independent models cancels out any single model's bias; the spread across them quantifies uncertainty. Narrow spread (low σ) = strong agreement = high confidence.</p>
       <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. the market threshold. A calibrated minimum separation (the "buffer") is required before a signal is scored — exact thresholds are proprietary.</p>
     </div>
 
@@ -426,19 +426,19 @@
       <p><strong>Source:</strong> NOAA/ESRL HRRR — single deterministic model</p>
       <p><strong>Resolution:</strong> 3 km horizontal, hourly runs</p>
       <p><strong>Lead time used:</strong> 0–36 hours (same-day and next-day markets only)</p>
-      <p><strong>Role in signal:</strong> Confirmation for near-term signals. HRRR assimilates real-time radar, surface observations, and satellite data — it has materially higher skill at ≤24 hours than GFS.</p>
-      <p><strong>Key metric:</strong> HRRR maximum 2m temperature vs. Kalshi threshold. Agreement with GFS required for signal publication.</p>
+      <p><strong>Role in signal:</strong> Confirmation for near-term signals. HRRR assimilates real-time radar, surface observations, and satellite data — it has materially higher skill at ≤24 hours than the global models.</p>
+      <p><strong>Key metric:</strong> HRRR maximum 2m temperature vs. the market threshold. Agreement with the ensemble required for signal publication.</p>
     </div>
 
     <div class="warn">
-      ⚠️ <strong>Model Agreement Requirement:</strong> A signal is only published when <em>both</em> GFS ensemble mean <em>and</em> (for ≤36h markets) HRRR independently forecast the threshold will not be reached. Disagreement between models = no signal, regardless of individual model confidence.
+      ⚠️ <strong>Model Agreement Requirement:</strong> A signal is only published when <em>every</em> model in the ensemble <em>and</em> (for ≤36h markets) HRRR independently forecast the threshold will not be reached. Any disagreement = no signal, regardless of individual model confidence.
     </div>
 
     <table>
       <thead>
         <tr>
           <th>Attribute</th>
-          <th>GFS Ensemble (GEFS)</th>
+          <th>Multi-Model Ensemble</th>
           <th>HRRR</th>
         </tr>
       </thead>
@@ -450,17 +450,17 @@
         </tr>
         <tr>
           <td>Resolution</td>
-          <td>~25 km</td>
+          <td>~9–25 km</td>
           <td>3 km</td>
         </tr>
         <tr>
           <td>Update frequency</td>
-          <td>4× daily</td>
+          <td>Every 6–12 h</td>
           <td>Hourly</td>
         </tr>
         <tr>
-          <td>Ensemble size</td>
-          <td>30 members</td>
+          <td>Composition</td>
+          <td>4 global models (GFS, ECMWF, ICON, GEM)</td>
           <td>1 (deterministic)</td>
         </tr>
         <tr>
@@ -470,7 +470,7 @@
         </tr>
         <tr>
           <td>Weakness</td>
-          <td>Coarse resolution misses urban heat islands</td>
+          <td>Coarser resolution can miss urban heat islands</td>
           <td>No ensemble spread — single point of failure</td>
         </tr>
       </tbody>
@@ -509,7 +509,7 @@
 
     <div class="card">
       <div class="card-title">Step 1: Market Scan</div>
-      <p>Fetch all open Kalshi <code>KXHIGH*</code> and <code>KXLOW*</code> markets via the Kalshi API. Filter for markets resolving within the next 96 hours with ≥$10 liquidity on the NO side.</p>
+      <p>Fetch open temperature markets from both venues — Kalshi (<code>KXHIGH*</code>/<code>KXLOW*</code> series via the Kalshi API) and Polymarket (via its public Gamma API). Filter for markets resolving within the next 96 hours with adequate NO-side liquidity.</p>
     </div>
 
     <div class="card">
@@ -723,7 +723,7 @@
         </tr>
         <tr>
           <td><strong>Urban heat island miss</strong></td>
-          <td>GFS 25km resolution misses localized urban heating; HRRR 3km typically catches this for ≤24h, but not always</td>
+          <td>The global models' ~25km resolution can miss localized urban heating; HRRR 3km typically catches this for ≤24h, but not always</td>
           <td>Use HRRR confirmation for city markets</td>
           <td>~1% of trades</td>
         </tr>
