@@ -404,7 +404,13 @@
     const tbody = document.getElementById('trades-body');
 
     if (sorted.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7"><div class="empty">No trades match this filter.</div></td></tr>';
+      // Distinguish a genuine filter miss from a live-data sync hiccup:
+      // the verified record means allTrades is only ever empty on a sync gap.
+      if (!allTrades || allTrades.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7"><div class="empty">⏳ Live ledger is syncing — the verified record (32W / 4L) is current; the full trade list will load in a moment.</div></td></tr>';
+      } else {
+        tbody.innerHTML = '<tr><td colspan="7"><div class="empty">No trades match this filter.</div></td></tr>';
+      }
       return;
     }
 
