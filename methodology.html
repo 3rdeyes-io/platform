@@ -381,7 +381,7 @@
       <li><a href="#overview">Executive Overview</a></li>
       <li><a href="#models">Data Sources: GFS Ensemble + HRRR</a></li>
       <li><a href="#signal">Signal Generation Pipeline</a></li>
-      <li><a href="#calibration">Confidence Grading &amp; Calibration</a></li>
+      <li><a href="#calibration">Win-Probability &amp; Calibration</a></li>
       <li><a href="#execution">Execution Framework</a></li>
       <li><a href="#risk">Risk Management &amp; Compounding</a></li>
       <li><a href="#failure">Known Failure Modes</a></li>
@@ -418,7 +418,7 @@
       <p><strong>Resolution:</strong> 0.25° (~25 km) horizontal, 6-hourly runs (00Z, 06Z, 12Z, 18Z)</p>
       <p><strong>Lead time used:</strong> 12–96 hours (Day 0 through Day 4)</p>
       <p><strong>Role in signal:</strong> Primary temperature forecast. The ensemble mean suppresses random variability; the ensemble spread quantifies uncertainty. Narrow spread (low σ) = high model confidence.</p>
-      <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. the market threshold. A calibrated minimum separation (the "buffer") is required before a signal is graded — exact thresholds are proprietary.</p>
+      <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. the market threshold. A calibrated minimum separation (the "buffer") is required before a signal is scored — exact thresholds are proprietary.</p>
     </div>
 
     <div class="card">
@@ -499,11 +499,11 @@
       </div>
       <div class="flow-step">
         <div class="flow-label">Step 4</div>
-        <div class="flow-val">Dual-Model OK</div>
+        <div class="flow-val">Multi-Model OK</div>
       </div>
       <div class="flow-step">
         <div class="flow-label">Step 5</div>
-        <div class="flow-val">Grade + Publish</div>
+        <div class="flow-val">Score + Publish</div>
       </div>
     </div>
 
@@ -514,7 +514,7 @@
 
     <div class="card">
       <div class="card-title">Step 2: NWP Temperature Pull</div>
-      <p>For each market, extract the forecast high temperature for the relevant city, date, and hour from GFS ensemble mean (all markets) and HRRR (markets resolving ≤36h).</p>
+      <p>For each market, extract the forecast high temperature for the relevant city, date, and hour from the multi-model ensemble mean (GFS, ECMWF, ICON, GEM — all markets) and HRRR (markets resolving ≤36h).</p>
     </div>
 
     <div class="card">
@@ -522,34 +522,34 @@
       <p>Compute the temperature buffer: the gap between the forecast high and the Kalshi threshold:</p>
       <div class="formula">
         buffer = | forecast high − market threshold |<br>
-        A signal is published only when the buffer clears a calibrated,<br>
-        grade-dependent minimum. Exact thresholds are proprietary.
+        A signal is published only when the buffer clears a calibrated<br>
+        minimum. Exact thresholds are proprietary.
       </div>
-      <p>A positive buffer means the model forecasts the threshold will NOT be reached. Larger buffer = higher confidence = higher signal grade.</p>
+      <p>A positive buffer means the model forecasts the threshold will NOT be reached. Larger buffer = higher confidence = higher win-probability.</p>
     </div>
 
     <div class="card">
-      <div class="card-title">Step 4: Dual-Model Confirmation</div>
-      <p>For ≤36h markets, HRRR must independently agree with the ensemble. For Day 2–4 markets, the GFS ensemble spread must fall within a calibrated tolerance; high spread = uncertain = no signal.</p>
+      <div class="card-title">Step 4: Multi-Model Confirmation</div>
+      <p>For ≤36h markets, HRRR must independently agree with the ensemble. For Day 2–4 markets, the model ensemble spread must fall within a calibrated tolerance; high spread = uncertain = no signal.</p>
     </div>
 
     <div class="card">
-      <div class="card-title">Step 5: Grade Assignment &amp; Publish</div>
-      <p>Assign confidence grade (A / B / C), check orderbook depth for minimum fill ≥$8, and publish signal via Telegram with full reasoning: city, threshold, GFS mean, HRRR (if applicable), buffer, grade, and suggested position sizing.</p>
+      <div class="card-title">Step 5: Win-Probability &amp; Publish</div>
+      <p>Compute a calibrated win-probability, check orderbook depth for minimum fill ≥$8, and publish signal via Telegram with full reasoning: city, threshold, model mean, HRRR (if applicable), buffer, win-probability, and suggested position sizing.</p>
     </div>
   </div>
 
   <!-- 4. Calibration -->
   <div class="section" id="calibration">
     <div class="section-num">§ 4</div>
-    <h2 class="section-title">Confidence Grading &amp; Calibration</h2>
+    <h2 class="section-title">Win-Probability &amp; Calibration</h2>
 
-    <p>Each signal is assigned a grade (A, B, or C) based on the temperature buffer and model agreement. This grade directly informs suggested position sizing across our three risk tiers.</p>
+    <p>Each signal carries a calibrated win-probability — the model's estimate of the chance the NO side resolves correctly. It is derived from a Normal distribution fitted to the multi-model ensemble, with the spread deliberately widened for forecast lead time so the number stays honest rather than overconfident. This win-probability directly informs suggested position sizing across our three risk tiers.</p>
 
     <table>
       <thead>
         <tr>
-          <th>Grade</th>
+          <th>Win-Probability</th>
           <th>Buffer (°F)</th>
           <th>Model Spread</th>
           <th>Interpretation</th>
@@ -558,31 +558,31 @@
       </thead>
       <tbody>
         <tr>
-          <td><strong style="color:#10d9a0;">A</strong></td>
+          <td><strong style="color:#10d9a0;">≥ 93%</strong></td>
           <td>≥ 3°F</td>
           <td>&lt; 2°F σ</td>
-          <td>High conviction: both models clear, low uncertainty</td>
+          <td>High conviction: every model clears, low uncertainty</td>
           <td><span class="badge badge-safe">Safe</span> <span class="badge badge-med">Medium</span> <span class="badge badge-agg">Aggressive</span></td>
         </tr>
         <tr>
-          <td><strong style="color:#f59e0b;">B</strong></td>
+          <td><strong style="color:#f59e0b;">88 – 93%</strong></td>
           <td>1.5 – 3°F</td>
           <td>&lt; 3°F σ</td>
           <td>Moderate conviction: good buffer, manageable spread</td>
-          <td><span class="badge badge-safe">Safe</span> <span class="badge badge-med">Medium</span></td>
+          <td><span class="badge badge-med">Medium</span> <span class="badge badge-agg">Aggressive</span></td>
         </tr>
         <tr>
-          <td><strong style="color:#94a3b8;">C</strong></td>
+          <td><strong style="color:#94a3b8;">84 – 88%</strong></td>
           <td>0.5 – 1.5°F</td>
           <td>&lt; 4°F σ</td>
-          <td>Low conviction: edge exists but thin; smallest size only</td>
-          <td><span class="badge badge-safe">Safe only</span></td>
+          <td>Lower conviction: edge exists but thinner; smallest size only</td>
+          <td><span class="badge badge-agg">Aggressive only</span></td>
         </tr>
       </tbody>
     </table>
 
     <div class="warn">
-      ⚠️ <strong>Calibration Status:</strong> With 36 trades in our live sample, we have directional calibration but insufficient data for rigorous per-grade win rate calculation. Grade-level statistics will be published at 100 qualified trades. Current live win rate: 89% (32W/4L, all grades combined, spring 2026). See /#ledger for the live, auto-updating count.
+      ⚠️ <strong>Calibration Status:</strong> With 36 trades in our live sample, we have directional calibration but insufficient data for rigorous per-band win rate calculation. Win-probability calibration curves will be published at 100 qualified trades. Current live win rate: 89% (32W/4L, all signals combined, spring 2026). See /#ledger for the live, auto-updating count.
     </div>
 
     <p>Calibration is ongoing. We will update this document at: 100 trades (v1.1), summer 2026 season end (v1.2), 500 trades (v2.0). All updates will be published at 3rdeyes.io/methodology.</p>
@@ -604,7 +604,7 @@
             <th>Slot Stake</th>
             <th>Slots</th>
             <th>Total Exposure</th>
-            <th>Trade Grades</th>
+            <th>Signals Taken</th>
           </tr>
         </thead>
         <tbody>
@@ -613,21 +613,21 @@
             <td>$20 – $40</td>
             <td>1–2</td>
             <td>$20 – $80</td>
-            <td>A, B, C</td>
+            <td>≥ 93% win-prob</td>
           </tr>
           <tr>
             <td><span class="badge badge-med">Medium</span></td>
             <td>$40 – $80</td>
             <td>2–4</td>
             <td>$80 – $320</td>
-            <td>A, B only</td>
+            <td>≥ 88% win-prob</td>
           </tr>
           <tr>
             <td><span class="badge badge-agg">Aggressive</span></td>
             <td>$80 – $160</td>
             <td>4</td>
             <td>$320 – $640</td>
-            <td>Grade A only</td>
+            <td>≥ 84% win-prob</td>
           </tr>
         </tbody>
       </table>
@@ -748,7 +748,7 @@
         <tr>
           <td><strong>Summer convective season</strong></td>
           <td>June–August afternoon convection randomizes peak temperatures; model uncertainty 3× higher than spring</td>
-          <td>Grade C signals suspended; Grade B position sizing halved</td>
+          <td>Lower-band signals (&lt; 90% win-prob) suspended; position sizing halved on the rest</td>
           <td>Seasonal — 3 months/year</td>
         </tr>
         <tr>

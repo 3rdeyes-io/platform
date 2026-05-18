@@ -742,7 +742,7 @@
       <div class="scene-stage scene-3">
         <div class="scene-icon">📱</div>
         <div class="scene-title">You get a text.</div>
-        <div class="scene-sub">"NO @ 95¢ · Chicago · 11° buffer · A+ grade."<br>You tap "Buy" on Kalshi.</div>
+        <div class="scene-sub">"NO @ 95¢ · Chicago · 11° buffer · 96% win-prob."<br>You tap "Buy" on Kalshi.</div>
       </div>
       <!-- Arrow -->
       <div class="scene-arrow scene-arrow-3">→</div>
@@ -798,7 +798,7 @@
     <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px 26px;">
       <div style="font-size:2rem;margin-bottom:12px;">🛰️</div>
       <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;margin-bottom:8px;">Most people guess. We don't.</div>
-      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">Most Kalshi traders glance at a weather app and bet on a hunch. We pull the actual government weather computer (the one that runs hurricane warnings) and run 30 different forecasts. When the crowd's bet is mathematically wrong, we see it 24 hours ahead.</p>
+      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">Most Kalshi traders glance at a weather app and bet on a hunch. We pull the actual government weather computers (the ones that run hurricane warnings) and run dozens of independent forecasts across four major models. When the crowd's bet is mathematically wrong, we see it 24 hours ahead.</p>
     </div>
 
     <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px 26px;">
@@ -899,20 +899,20 @@
     <div class="step-card">
       <div class="step-num">02</div>
       <div class="step-icon">🔬</div>
-      <div class="step-title">All 30 model members must agree</div>
-      <div class="step-desc">We run 30 independent weather simulations. Every single one must predict the temperature stays safely away from the threshold. One disagreement kills the trade. No signal fires on a split verdict.</div>
+      <div class="step-title">Every forecast model must agree</div>
+      <div class="step-desc">We run dozens of independent weather simulations across four major forecast models (GFS, ECMWF, ICON, GEM). Every single one must predict the temperature stays safely away from the threshold. One disagreement kills the trade. No signal fires on a split verdict.</div>
     </div>
     <div class="step-card">
       <div class="step-num">03</div>
       <div class="step-icon">📏</div>
       <div class="step-title">Safety margin + price check</div>
-      <div class="step-desc">The forecast must clear the threshold by a comfortable margin (≥3°F inland, ≥5°F coastal) — not just barely. The contract price must also be in the right range. All checks pass → confidence grade assigned (A+/A/B).</div>
+      <div class="step-desc">The forecast must clear the threshold by a comfortable margin (≥3°F inland, ≥5°F coastal) — not just barely. The contract price must also be in the right range. All checks pass → a calibrated win-probability is assigned.</div>
     </div>
     <div class="step-card">
       <div class="step-num">04</div>
       <div class="step-icon">⚡</div>
       <div class="step-title">Alert hits your Telegram instantly</div>
-      <div class="step-desc">You get the city, contract, direction, confidence grade, and plain-English reasoning — exactly why the model fired. Place the trade manually on your platform, or let the pipeline handle it automatically.</div>
+      <div class="step-desc">You get the city, contract, direction, win-probability, and plain-English reasoning — exactly why the model fired. Place the trade manually on your platform, or let the pipeline handle it automatically.</div>
     </div>
     <div class="step-card">
       <div class="step-num">05</div>
@@ -1021,9 +1021,9 @@
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.07);border-radius:10px;overflow:hidden;margin-bottom:20px;">
           <div style="padding:12px 16px;border-right:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">GFS Ensemble</div>
+            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Model Ensemble</div>
             <div style="font-family:'JetBrains Mono',monospace;color:#fff;font-size:.9375rem;font-weight:600;">50.7°F</div>
-            <div style="font-size:.75rem;color:#10d9a0;">30/30 members · σ 1.1°F</div>
+            <div style="font-size:.75rem;color:#10d9a0;">All members agree · σ 1.1°F</div>
           </div>
           <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.07);">
             <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">HRRR Model</div>
@@ -1041,8 +1041,8 @@
             <div style="font-size:.75rem;color:#10d9a0;">Within range 88–97¢ ✓</div>
           </div>
           <div style="padding:12px 16px;border-right:1px solid rgba(255,255,255,.07);">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Confidence Grade</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#10d9a0,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">A+</div>
+            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Win-Probability</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#10d9a0,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">96%</div>
           </div>
           <div style="padding:12px 16px;">
             <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Recommended Stake</div>
@@ -1053,7 +1053,7 @@
 
         <div style="background:rgba(16,217,160,.07);border:1px solid rgba(16,217,160,.15);border-radius:8px;padding:14px 16px;margin-bottom:16px;">
           <div style="font-size:.75rem;color:#6c8a9f;margin-bottom:4px;">Why this trade fires:</div>
-          <div style="font-size:.875rem;color:#cbd5e1;line-height:1.6;">High pressure system locked over Great Lakes. All 30 GFS members show Chicago max temp 50–52°F, a full 11.3°F below the 62°F threshold. Overnight low was 44°F, no southerly flow. HRRR confirms. This is a very high-confidence signal.</div>
+          <div style="font-size:.875rem;color:#cbd5e1;line-height:1.6;">High pressure system locked over Great Lakes. Every model member shows Chicago max temp 50–52°F, a full 11.3°F below the 62°F threshold. Overnight low was 44°F, no southerly flow. HRRR confirms. This is a very high-confidence signal.</div>
         </div>
         </details>
 
@@ -1203,7 +1203,7 @@
         <li><div class="feat-icon">✓</div> Sizing calculator</li>
         <li><div class="feat-icon no">✗</div> Real-time alerts (all signals)</li>
         <li><div class="feat-icon no">✗</div> Full 40-city coverage</li>
-        <li><div class="feat-icon no">✗</div> Confidence grades per signal</li>
+        <li><div class="feat-icon no">✗</div> Win-probability on every signal</li>
         <li><div class="feat-icon no">✗</div> Auto-execute pipeline</li>
       </ul>
       <a href="https://t.me/thirdeyes_signals" target="_blank" rel="noopener" class="btn-plan btn-plan-outline">Join Free Channel →</a>
@@ -1214,12 +1214,12 @@
       <div class="popular-badge">🔥 Most Popular</div>
       <div class="price-tier" style="color:var(--green)">Pro</div>
       <div class="price-amount">$49 <span>/mo</span></div>
-      <p class="price-desc">Every signal the moment it fires — with plain-English reasoning. City, direction, confidence grade, and exactly why the trade looks good.</p>
+      <p class="price-desc">Every signal the moment it fires — with plain-English reasoning. City, direction, win-probability, and exactly why the trade looks good.</p>
       <ul class="price-features">
         <li><div class="feat-icon">✓</div> <strong>All signals, unlimited and real-time</strong></li>
         <li><div class="feat-icon">✓</div> Full trade reasoning with every alert</li>
         <li><div class="feat-icon">✓</div> Safe / Medium / Aggressive tier guidance</li>
-        <li><div class="feat-icon">✓</div> A+/A/B/C confidence grades per signal</li>
+        <li><div class="feat-icon">✓</div> Calibrated win-probability on every signal</li>
         <li><div class="feat-icon">✓</div> All 40 cities · every 5-min scan</li>
         <li><div class="feat-icon">✓</div> Stop-loss alerts (85¢ warning, 82¢ close)</li>
         <li><div class="feat-icon">✓</div> Daily EOD P&L report</li>
@@ -1289,7 +1289,7 @@
         Why do you trade NO instead of YES?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a">Temperature extremes are rare. "City X will hit 95°F today" is usually false. The NO side bets that the temperature stays below a stated threshold, which our models can predict with high confidence when the GFS ensemble shows all 30 members clustered far from the threshold. We never trade YES because the upside is smaller and the prediction is harder.</div>
+      <div class="faq-a">Temperature extremes are rare. "City X will hit 95°F today" is usually false. The NO side bets that the temperature stays below a stated threshold, which our models can predict with high confidence when every ensemble member across all four forecast models clusters far from the threshold. We never trade YES because the upside is smaller and the prediction is harder.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1317,7 +1317,7 @@
         How many signals fire per week?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a">It varies. Currently we average 5–8 qualifying signals per week across 40+ cities. The system only fires when buffer, dual-model agreement, and orderbook depth all clear thresholds; we'd rather miss a trade than take a bad one. Quiet weather periods may show 2–3/week; active high-pressure regimes can push it past 10.</div>
+      <div class="faq-a">It varies. Currently we average 5–8 qualifying signals per week across 40+ cities. The system only fires when buffer, multi-model agreement, and orderbook depth all clear thresholds; we'd rather miss a trade than take a bad one. Quiet weather periods may show 2–3/week; active high-pressure regimes can push it past 10.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1331,7 +1331,7 @@
         What's the real edge? Is it just weather forecasting?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a">Not exactly. We're not competing against meteorology desks on raw forecast accuracy. The edge comes from retail behavioral inefficiency on Kalshi: slow repricing, "YES chasing" on extreme temperatures, low liquidity in long-dated markets, and inconsistent risk management by casual traders. Our dual-model stack lets us identify those mispriced markets quickly. The forecast is the gate. The edge is the gap.</div>
+      <div class="faq-a">Not exactly. We're not competing against meteorology desks on raw forecast accuracy. The edge comes from retail behavioral inefficiency on Kalshi: slow repricing, "YES chasing" on extreme temperatures, low liquidity in long-dated markets, and inconsistent risk management by casual traders. Our multi-model stack lets us identify those mispriced markets quickly. The forecast is the gate. The edge is the gap.</div>
     </div>
   </div>
 </section>
@@ -1376,7 +1376,7 @@
         <img src="logo.svg" alt="3rd Eyes" style="width:36px;height:36px;border-radius:8px;">
         3rd Eyes
       </a>
-      <p>We see what the market can't. Dual-model meteorological signals on Kalshi weather contracts. Backed by the same models the NWS uses to forecast hurricanes.</p>
+      <p>We see what the market can't. Multi-model meteorological signals for weather prediction markets. Backed by the same models the NWS uses to forecast hurricanes.</p>
       <div style="display:flex;gap:12px;margin-top:20px;">
         <a href="https://x.com/3rdEyesIO" style="color:var(--muted);text-decoration:none;font-size:1.25rem;" title="X / Twitter">𝕏</a>
         <a href="https://discord.gg/3rdeyes" style="color:var(--muted);text-decoration:none;font-size:1.25rem;" title="Discord">💬</a>
@@ -1415,7 +1415,7 @@
     <div>Signals powered by <a href="https://kalshi.com" style="color:var(--green);text-decoration:none;">Kalshi</a> · CFTC regulated · 3rdeyes.io</div>
   </div>
   <p class="footer-disclaimer">
-    <strong>Important Disclosures:</strong> 3rd Eyes publishes impersonal market research and signals only. All signals are identical for every subscriber; no advice is tailored to any individual's financial situation, account size, or risk tolerance. Risk tier guidance (Safe / Medium / Aggressive) describes position sizing frameworks based on model confidence grades and is not personalized investment advice. 3rd Eyes does not hold discretionary trading authority over any subscriber's account, does not execute trades on behalf of subscribers, and does not act as a Commodity Trading Advisor (CTA) as defined under the Commodity Exchange Act. Subscribers make all trading decisions independently on the Kalshi platform using their own accounts and funds. 3rd Eyes operates under the publisher exemption from CTA registration pursuant to CFTC Rule 4.14(a)(9).<br><br>
+    <strong>Important Disclosures:</strong> 3rd Eyes publishes impersonal market research and signals only. All signals are identical for every subscriber; no advice is tailored to any individual's financial situation, account size, or risk tolerance. Risk tier guidance (Safe / Medium / Aggressive) describes position sizing frameworks based on model win-probability and is not personalized investment advice. 3rd Eyes does not hold discretionary trading authority over any subscriber's account, does not execute trades on behalf of subscribers, and does not act as a Commodity Trading Advisor (CTA) as defined under the Commodity Exchange Act. Subscribers make all trading decisions independently on the Kalshi platform using their own accounts and funds. 3rd Eyes operates under the publisher exemption from CTA registration pursuant to CFTC Rule 4.14(a)(9).<br><br>
     Kalshi event contracts are CFTC-regulated. Trading prediction markets involves substantial risk of loss, including the possibility of total loss of traded capital. Past performance (32 wins, 4 losses, 89% win rate, since the automated strategy went live April 23, 2026; live ledger updates as new trades resolve) is not indicative of future results.<br><br>
     <strong>Variance is real and expected.</strong> An 89% spring sample will not extrapolate linearly. A realistic forward expectation is a lower win rate as the sample grows and seasonal conditions change. Summer convective weather, edge decay from competing traders, and Kalshi liquidity changes can all compress returns. A 32W/4L record could reasonably become 55W/12L or 110W/35L over time. Subscribers should expect losing streaks and pre-budget psychologically for them. The stop-loss system is designed to limit, not eliminate, losses. Hypothetical performance illustrations in the calculator are for educational purposes only and do not represent guaranteed outcomes. Win rate figures are based on a small sample of 36 trades and are subject to material change. This service is intended for US residents on Kalshi; international subscribers use signals on available platforms at their own discretion. Not suitable for all investors. Only trade with capital you can afford to lose entirely.
   </p>

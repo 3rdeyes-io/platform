@@ -320,13 +320,12 @@
           <th data-col="threshold">Threshold <span class="sort-arrow">↕</span></th>
           <th data-col="no_price">NO Fill <span class="sort-arrow">↕</span></th>
           <th data-col="fill_dollars">Stake <span class="sort-arrow">↕</span></th>
-          <th data-col="grade">Grade <span class="sort-arrow">↕</span></th>
           <th data-col="outcome">Outcome <span class="sort-arrow">↕</span></th>
           <th data-col="pl">P&amp;L <span class="sort-arrow">↕</span></th>
         </tr>
       </thead>
       <tbody id="trades-body">
-        <tr><td colspan="8"><div class="loading"><div class="spinner"></div><div>Loading ledger…</div></div></td></tr>
+        <tr><td colspan="7"><div class="loading"><div class="spinner"></div><div>Loading ledger…</div></div></td></tr>
       </tbody>
     </table>
   </div>
@@ -405,7 +404,7 @@
     const tbody = document.getElementById('trades-body');
 
     if (sorted.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="8"><div class="empty">No trades match this filter.</div></td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7"><div class="empty">No trades match this filter.</div></td></tr>';
       return;
     }
 
@@ -423,8 +422,7 @@
           <td class="mono">${t.threshold}</td>
           <td class="mono">${fmtPct(t.no_price)}</td>
           <td class="mono">$${(t.fill_dollars || 0).toFixed(2)}</td>
-          <td>${t.grade || '—'} ${qualBadge}</td>
-          <td><span class="pill ${outcomeClass}">${outcomeLabel}</span></td>
+          <td><span class="pill ${outcomeClass}">${outcomeLabel}</span> ${qualBadge}</td>
           <td class="mono ${plClass}">${fmtMoney(t.pl || 0)}</td>
         </tr>
       `;
@@ -457,7 +455,7 @@
       renderTable();
     } catch (err) {
       document.getElementById('trades-body').innerHTML =
-        '<tr><td colspan="8"><div class="empty">Could not reach the live ledger. Try refreshing in a minute.</div></td></tr>';
+        '<tr><td colspan="7"><div class="empty">Could not reach the live ledger. Try refreshing in a minute.</div></td></tr>';
     }
   }
 
@@ -492,8 +490,8 @@
     no_data:             'No ensemble data',
     not_unanimous:       'Models disagreed',
     high_spread:         'Ensemble too uncertain',
-    hrrr_diverges:       'HRRR diverged from GFS',
-    low_confidence:      'Below min confidence grade',
+    hrrr_diverges:       'HRRR diverged from ensemble',
+    low_confidence:      'Below minimum win-probability',
     other:               'Other',
   };
   const FILTER_HINTS = {
@@ -501,11 +499,11 @@
     buffer_too_small:    "Forecast gap from threshold smaller than the bot's safety buffer.",
     wrong_direction:     "Forecast actually exceeds the threshold: wrong side to bet NO.",
     thin_market:         "Bid-ask spread too wide for clean execution.",
-    no_data:             "GFS ensemble not yet published for this market.",
-    not_unanimous:       "Not all 30 ensemble members agreed on the direction.",
+    no_data:             "Model ensemble not yet published for this market.",
+    not_unanimous:       "Not all ensemble members agreed on the direction.",
     high_spread:         "Ensemble spread too high: model uncertainty too large.",
-    hrrr_diverges:       "Short-range HRRR model disagrees with GFS.",
-    low_confidence:      "Signal exists but doesn't meet min confidence grade.",
+    hrrr_diverges:       "Short-range HRRR model disagrees with the ensemble.",
+    low_confidence:      "Signal exists but doesn't clear the minimum win-probability.",
     other:               "Filtered for an unspecified reason.",
   };
 
