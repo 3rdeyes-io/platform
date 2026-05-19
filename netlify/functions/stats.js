@@ -15,10 +15,13 @@ exports.handler = async (event) => {
     });
     if (!res.ok) throw new Error('VPS ' + res.status);
     const data = await res.json();
-    // Track record is Kalshi-verified and authoritative — pin it so the public
-    // number stays honest even if the live stats server drifts.
+    // Track record is being rebuilt directly from Kalshi settlement records.
+    // Until that's complete, do not expose any win/loss numbers — the prior
+    // public ledger was under-recording losses and we will not republish
+    // figures we cannot fully stand behind.
     if (endpoint === '/stats' && data && typeof data === 'object') {
-      data.wins = 32; data.losses = 4; data.winRate = 88.9; data.totalTrades = 36;
+      delete data.wins; delete data.losses; delete data.winRate; delete data.totalTrades;
+      data.trackRecord = 'under_reconstruction';
     }
     return {
       statusCode: 200,
@@ -40,8 +43,10 @@ exports.handler = async (event) => {
                    : endpoint === '/calibration' ? { stations: [], summary: {} }
                    : endpoint === '/shifts'      ? { recent_shifts: [], tracked_pairs: 0 }
                    : {
-      wins: 32, losses: 4, winRate: 88.9,
-      totalTrades: 36, balance: 351.01, cities: 7,
+      // Fallback: VPS stats endpoint unreachable. Do not surface fabricated
+      // numbers — return the honest "under reconstruction" state.
+      trackRecord: 'under_reconstruction',
+      balance: null, cities: 7,
       lastScan: null, lastMonitor: null,
       scanIntervalSec: 300, monitorIntervalSec: 30
     };

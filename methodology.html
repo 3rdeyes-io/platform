@@ -361,13 +361,13 @@
   <div class="cover-meta">
     <div class="cover-meta-item">Version <span>1.0</span></div>
     <div class="cover-meta-item">Published <span>May 2026</span></div>
-    <div class="cover-meta-item">Live Track Record <span>32W / 4L</span></div>
-    <div class="cover-meta-item">Win Rate <span>89%*</span></div>
+    <div class="cover-meta-item">Track Record <span>under reconstruction</span></div>
+    <div class="cover-meta-item">Ensemble <span>GFS + ECMWF + ICON + GEM</span></div>
     <div class="cover-meta-item">Cities Scanned <span>40+</span></div>
   </div>
 
   <div class="cover-disclaimer">
-    <strong>Important:</strong> This document describes a signal methodology, not a guaranteed trading strategy. Past performance is not indicative of future results. *Win rate across 36 settled trades since the automated strategy went live April 23, 2026 (spring sample; live ledger updates as new markets resolve). Seasonality, model uncertainty, and market liquidity all affect outcomes. See Section 7 for failure modes.
+    <strong>Important:</strong> This document describes a signal methodology, not a guaranteed trading strategy. The prior public track record was under-recording losing trades; it has been taken offline and is being rebuilt directly from Kalshi's settlement records. No win-rate figure is being published in this document until that reconciliation is complete. Past performance, once republished, is not indicative of future results. Seasonality, model uncertainty, and market liquidity all affect outcomes. See Section 7 for failure modes.
   </div>
 </div>
 
@@ -582,7 +582,7 @@
     </table>
 
     <div class="warn">
-      ⚠️ <strong>Calibration Status:</strong> With 36 trades in our live sample, we have directional calibration but insufficient data for rigorous per-band win rate calculation. Win-probability calibration curves will be published at 100 qualified trades. Current live win rate: 89% (32W/4L, all signals combined, spring 2026). See /#ledger for the live, auto-updating count.
+      ⚠️ <strong>Calibration Status:</strong> The prior public ledger was under-recording losses and has been taken offline. Win-probability calibration curves and current live win rate will be republished once the track record is reconstructed from Kalshi's settlement records. See <a href="/track" style="color:var(--green);">/track</a>.
     </div>
 
     <p>Calibration is ongoing. We will update this document at: 100 trades (v1.1), summer 2026 season end (v1.2), 500 trades (v2.0). All updates will be published at 3rdeyes.io/methodology.</p>
@@ -761,7 +761,7 @@
     </table>
 
     <div class="warn">
-      ⚠️ <strong>Seasonality Warning:</strong> Our 89% win rate is a <em>spring 2026</em> figure. Spring frontal systems produce the most predictable temperature deviations in the continental US. Summer 2026 will be the first real stress-test of this methodology. We expect win rates to normalize downward in summer conditions. We will update this document with real data after August 2026.
+      ⚠️ <strong>Seasonality Warning:</strong> Whatever win rate is republished after the track-record reconstruction will be a spring 2026 figure. Spring frontal systems produce the most predictable temperature deviations in the continental US. Summer 2026 will be the first real stress-test of this methodology. We expect win rates to normalize downward in summer conditions. We will update this document with real data after August 2026.
     </div>
   </div>
 
@@ -772,54 +772,19 @@
 
     <p>All trades are live from the Kalshi API. Full ledger available at <a href="/#ledger" style="color:var(--green);">3rdeyes.io/#ledger</a>.</p>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Metric</th>
-          <th>Value</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Wins</td>
-          <td style="color:#10d9a0;font-weight:700;">32</td>
-          <td>Finalized markets, since Apr 23 2026</td>
-        </tr>
-        <tr>
-          <td>Losses</td>
-          <td style="color:#f87171;font-weight:700;">4</td>
-          <td>Includes one large loss (-$57.62) — see Failure Modes</td>
-        </tr>
-        <tr>
-          <td>Win rate</td>
-          <td style="color:#10d9a0;font-weight:700;">89%</td>
-          <td>32 / 36 settled trades</td>
-        </tr>
-        <tr>
-          <td>Unfilled orders</td>
-          <td>2</td>
-          <td>Orders that never executed — excluded from W/L</td>
-        </tr>
-        <tr>
-          <td>Cities with qualified fills</td>
-          <td>7 (of 40+ scanned)</td>
-          <td>Miami, Chicago, LA, NYC, Phoenix, Dallas and more</td>
-        </tr>
-        <tr>
-          <td>Season</td>
-          <td>Spring 2026</td>
-          <td>Apr–May 2026 live data</td>
-        </tr>
-        <tr>
-          <td>Sample size warning</td>
-          <td>⚠️ Small</td>
-          <td>36 trades — insufficient for statistical significance; track record is directional only</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>This track record is authentic and verifiable on-chain via Kalshi's public market data. We invite any subscriber to cross-reference the trade ledger against Kalshi's market resolution history.</p>
+    <div class="warn">
+      <strong>The track record table that appeared here has been removed.</strong>
+      While auditing our own numbers, we found that the trade ledger we had been
+      publishing was under-recording losing trades. The win/loss figures previously
+      shown in this section were therefore not accurate.
+      <br><br>
+      Rather than display a corrected number we cannot yet fully stand behind,
+      we are rebuilding the track record directly from Kalshi's own settlement
+      records — the only fully verifiable source, where every trade, win and loss,
+      is documented by the exchange itself. See <a href="/track" style="color:var(--green);">/track</a>
+      for the public notice. The reconstructed table will be republished in this
+      section when it is ready.
+    </div>
   </div>
 
   <!-- 9. Legal -->
@@ -834,7 +799,7 @@
 
     <div class="card">
       <div class="card-title">Risk Disclosure</div>
-      <p>Trading Kalshi event contracts involves substantial risk of loss, including the possibility of total loss of all capital deployed. Past performance (including the 89% win rate described in this document) is not indicative of future results. Recorded losses — including one large loss — demonstrate that losses do occur; the stop-loss system is designed to limit, not eliminate, losses.</p>
+      <p>Trading Kalshi event contracts involves substantial risk of loss, including the possibility of total loss of all capital deployed. Past performance, once republished from Kalshi's settlement records, is not indicative of future results. Losses do occur; the stop-loss system is designed to limit, not eliminate, losses.</p>
       <p>Hypothetical and projected performance figures (e.g., compounding calculator outputs) are for educational illustration only and do not represent actual or guaranteed trading results.</p>
     </div>
 
