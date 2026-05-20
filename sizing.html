@@ -270,6 +270,9 @@
       <div class="section-label">Growth simulator</div>
       <h2 class="section-title">Model both strategies. See the difference.</h2>
       <p class="section-sub">Toggle between Ladder Compounding (higher ceiling, riskier) and Fixed + Bank (protected, grows by adding slots). Both use the same win rate — the difference is risk management.</p>
+      <div style="max-width:680px;margin:20px auto 0;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:14px 18px;font-size:.82rem;color:#fde68a;line-height:1.55;text-align:left;">
+        <strong style="color:#fbbf24;">⚠️ Reality check on calculator defaults:</strong> Current observed trade frequency is <strong>~4-8 trades/month across all slots</strong> (Kalshi same-day liquidity is the bottleneck while we expand venue coverage). The calculator defaults model an active-liquidity regime; dial the trades-per-week slider <strong>down</strong> to see today's realistic ROI, or <strong>up</strong> to model what a more liquid future could look like. Track record is also <a href="/track" style="color:#fde68a;text-decoration:underline;">under reconstruction</a>.
+      </div>
     </div>
 
     <!-- Strategy toggle -->
@@ -298,9 +301,11 @@
           <div class="range-labels"><span>1 slot</span><span id="slots-label">4 slots</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Trades per week (per slot)</label>
-          <input type="range" id="calc-freq" min="1" max="7" value="3" oninput="recalc()">
-          <div class="range-labels"><span>1/week</span><span id="freq-label">3/week</span></div>
+          <label class="form-label">Trades per week (per slot)
+            <span style="color:#fbbf24;font-size:.72rem;font-weight:500;">(current real frequency: ~0.5/slot/week)</span>
+          </label>
+          <input type="range" id="calc-freq" min="1" max="7" value="1" oninput="recalc()">
+          <div class="range-labels"><span>1/week</span><span id="freq-label">1/week</span></div>
         </div>
         <div class="form-group">
           <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(hypothetical — track record under reconstruction)</span></label>
@@ -396,7 +401,7 @@
   function recalc() {
     const stake = parseFloat(document.getElementById('calc-stake').value) || 80;
     const slots = parseInt(document.getElementById('calc-slots').value) || 4;
-    const freq  = parseInt(document.getElementById('calc-freq').value) || 3;
+    const freq  = parseInt(document.getElementById('calc-freq').value) || 1;
     const wr    = parseInt(document.getElementById('calc-wr').value) / 100;
     const weeks = parseInt(document.getElementById('calc-weeks').value) || 12;
 
