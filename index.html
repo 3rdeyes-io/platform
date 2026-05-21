@@ -1847,10 +1847,14 @@ function fetchPulse() {
     });
 }
 
-paintPulse();           // render "checking…" immediately
-fetchPulse();           // initial fetch
-setInterval(paintPulse, 1000);   // tick relative-time + countdown every second
-setInterval(fetchPulse, 30000);  // re-fetch actual lastScan from API every 30s
+paintPulse();           // render immediately
+fetchPulse();           // ONE initial fetch on page load (the only network call)
+setInterval(paintPulse, 1000);   // tick the countdown locally every second — NO network
+// NOTE: no recurring fetchPulse. The countdown to the next scan is computed
+// client-side from the local clock + scan interval, so it stays accurate without
+// re-fetching. A recurring 30s fetch was invoking the Netlify function on every
+// open tab (~2,880 calls/day/tab) and blew the credit cap. One fetch per page
+// load is plenty. To re-enable periodic refresh later, add it back at >=300000ms.
 
 // ── Scroll animations ───────────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
