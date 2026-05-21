@@ -395,7 +395,7 @@
     <div class="section-num">§ 1</div>
     <h2 class="section-title">Executive Overview</h2>
 
-    <p>3rd Eyes publishes meteorological signals for US weather prediction markets — <strong>Kalshi</strong>, and the identical contracts carried by <strong>Coinbase</strong> and <strong>Robinhood</strong> — focused on daily high- and low-temperature contracts. The core insight is that weather models, particularly a multi-model forecast ensemble and HRRR short-range radar assimilation, can identify temperature outcomes with sufficient confidence to generate positive expected value (EV) on binary contracts.</p>
+    <p>3rd Eyes publishes meteorological signals for US weather prediction markets - <strong>Kalshi</strong>, and the identical contracts carried by <strong>Coinbase</strong> and <strong>Robinhood</strong> - focused on daily high- and low-temperature contracts. The core insight is that weather models, particularly a multi-model forecast ensemble and HRRR short-range radar assimilation, can identify temperature outcomes with sufficient confidence to generate positive expected value (EV) on binary contracts.</p>
 
     <p>The strategy targets a specific market inefficiency: market makers price temperature thresholds using basic climatological priors. When numerical weather prediction (NWP) models diverge strongly from those priors, due to an identifiable synoptic pattern, we publish a NO signal. The edge is meteorological, not statistical arbitrage.</p>
 
@@ -414,19 +414,19 @@
 
     <div class="card">
       <div class="card-title">🌐 Multi-Model Forecast Ensemble</div>
-      <p><strong>Source:</strong> Four independent global numerical weather models — GFS (NOAA), ECMWF, ICON (DWD) and GEM (Environment Canada).</p>
+      <p><strong>Source:</strong> Four independent global numerical weather models - GFS (NOAA), ECMWF, ICON (DWD) and GEM (Environment Canada).</p>
       <p><strong>Resolution:</strong> ~9–25 km horizontal; each model re-runs every 6–12 hours.</p>
       <p><strong>Lead time used:</strong> 12–96 hours (Day 0 through Day 4)</p>
       <p><strong>Role in signal:</strong> Primary temperature forecast. Pooling four independent models cancels out any single model's bias; the spread across them quantifies uncertainty. Narrow spread (low σ) = strong agreement = high confidence.</p>
-      <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. the market threshold. A calibrated minimum separation (the "buffer") is required before a signal is scored — exact thresholds are proprietary.</p>
+      <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. the market threshold. A calibrated minimum separation (the "buffer") is required before a signal is scored - exact thresholds are proprietary.</p>
     </div>
 
     <div class="card">
       <div class="card-title">🛰 HRRR (High-Resolution Rapid Refresh)</div>
-      <p><strong>Source:</strong> NOAA/ESRL HRRR — single deterministic model</p>
+      <p><strong>Source:</strong> NOAA/ESRL HRRR - single deterministic model</p>
       <p><strong>Resolution:</strong> 3 km horizontal, hourly runs</p>
       <p><strong>Lead time used:</strong> 0–36 hours (same-day and next-day markets only)</p>
-      <p><strong>Role in signal:</strong> Confirmation for near-term signals. HRRR assimilates real-time radar, surface observations, and satellite data — it has materially higher skill at ≤24 hours than the global models.</p>
+      <p><strong>Role in signal:</strong> Confirmation for near-term signals. HRRR assimilates real-time radar, surface observations, and satellite data - it has materially higher skill at ≤24 hours than the global models.</p>
       <p><strong>Key metric:</strong> HRRR maximum 2m temperature vs. the market threshold. Agreement with the ensemble required for signal publication.</p>
     </div>
 
@@ -471,7 +471,7 @@
         <tr>
           <td>Weakness</td>
           <td>Coarser resolution can miss urban heat islands</td>
-          <td>No ensemble spread — single point of failure</td>
+          <td>No ensemble spread - single point of failure</td>
         </tr>
       </tbody>
     </table>
@@ -514,7 +514,7 @@
 
     <div class="card">
       <div class="card-title">Step 2: NWP Temperature Pull</div>
-      <p>For each market, extract the forecast high temperature for the relevant city, date, and hour from the multi-model ensemble mean (GFS, ECMWF, ICON, GEM — all markets) and HRRR (markets resolving ≤36h).</p>
+      <p>For each market, extract the forecast high temperature for the relevant city, date, and hour from the multi-model ensemble mean (GFS, ECMWF, ICON, GEM - all markets) and HRRR (markets resolving ≤36h).</p>
     </div>
 
     <div class="card">
@@ -544,7 +544,7 @@
     <div class="section-num">§ 4</div>
     <h2 class="section-title">Win-Probability &amp; Calibration</h2>
 
-    <p>Each signal carries a calibrated win-probability — the model's estimate of the chance the NO side resolves correctly. It is derived from a Normal distribution fitted to the multi-model ensemble, with the spread deliberately widened for forecast lead time so the number stays honest rather than overconfident. This win-probability directly informs suggested position sizing across our three risk tiers.</p>
+    <p>Each signal carries a calibrated win-probability - the model's estimate of the chance the NO side resolves correctly. It is derived from a Normal distribution fitted to the multi-model ensemble, with the spread deliberately widened for forecast lead time so the number stays honest rather than overconfident. This win-probability directly informs suggested position sizing across our three risk tiers.</p>
 
     <table>
       <thead>
@@ -596,7 +596,7 @@
     <p>Signals are published via Telegram. Subscribers execute trades independently on Kalshi (US residents) or equivalent platforms (international). 3rd Eyes never touches subscriber funds.</p>
 
     <div class="card">
-      <div class="card-title">Position Sizing — Risk Tiers</div>
+      <div class="card-title">Position Sizing - Risk Tiers</div>
       <table>
         <thead>
           <tr>
@@ -729,7 +729,7 @@
         </tr>
         <tr>
           <td><strong>Convective outlier</strong></td>
-          <td>An unexpected thunderstorm (especially summer) suppresses daytime high below model forecast — but for NO bets, this is usually a win</td>
+          <td>An unexpected thunderstorm (especially summer) suppresses daytime high below model forecast - but for NO bets, this is usually a win</td>
           <td>N/A (benefits NO positions)</td>
           <td>N/A</td>
         </tr>
@@ -749,7 +749,7 @@
           <td><strong>Summer convective season</strong></td>
           <td>June–August afternoon convection randomizes peak temperatures; model uncertainty 3× higher than spring</td>
           <td>Lower-band signals (&lt; 90% win-prob) suspended; position sizing halved on the rest</td>
-          <td>Seasonal — 3 months/year</td>
+          <td>Seasonal - 3 months/year</td>
         </tr>
         <tr>
           <td><strong>API / system downtime</strong></td>
@@ -780,7 +780,7 @@
       <br><br>
       Rather than display a corrected number we cannot yet fully stand behind,
       we are rebuilding the track record directly from Kalshi's own settlement
-      records — the only fully verifiable source, where every trade, win and loss,
+      records - the only fully verifiable source, where every trade, win and loss,
       is documented by the exchange itself. See <a href="/track" style="color:var(--green);">/track</a>
       for the public notice. The reconstructed table will be republished in this
       section when it is ready.
@@ -794,7 +794,7 @@
 
     <div class="card">
       <div class="card-title">Publisher Exemption: CFTC Rule 4.14(a)(9)</div>
-      <p>3rd Eyes publishes impersonal market research and signals only. All signals are identical for every subscriber — no advice is tailored to any individual's financial situation, account size, or risk tolerance. 3rd Eyes does not hold discretionary trading authority over any subscriber's account, does not execute trades on behalf of subscribers, and does not act as a Commodity Trading Advisor (CTA) as defined under the Commodity Exchange Act. 3rd Eyes operates under the publisher exemption from CTA registration pursuant to CFTC Rule 4.14(a)(9).</p>
+      <p>3rd Eyes publishes impersonal market research and signals only. All signals are identical for every subscriber - no advice is tailored to any individual's financial situation, account size, or risk tolerance. 3rd Eyes does not hold discretionary trading authority over any subscriber's account, does not execute trades on behalf of subscribers, and does not act as a Commodity Trading Advisor (CTA) as defined under the Commodity Exchange Act. 3rd Eyes operates under the publisher exemption from CTA registration pursuant to CFTC Rule 4.14(a)(9).</p>
     </div>
 
     <div class="card">

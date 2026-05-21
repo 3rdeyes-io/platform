@@ -3,150 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3rd Eyes | Live Track Record</title>
-<meta name="description" content="Every 3rd Eyes trade, win and loss, recorded from Kalshi settlements. Full transparency — nothing hidden.">
+<title>3rd Eyes | Track Record - Under Reconstruction</title>
+<meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
-  :root { --green:#10d9a0; --red:#f87171; --amber:#fbbf24; --muted:#94a3b8; --border:rgba(255,255,255,.08); --panel:rgba(255,255,255,.025); }
+  :root { --green:#10d9a0; --muted:#94a3b8; --border:rgba(255,255,255,.1); }
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     background:#050c1a; color:#e2e8f0;
     font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    line-height:1.6; padding:40px 20px;
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:32px; line-height:1.65;
   }
-  .wrap { max-width:900px; margin:0 auto; }
-  .nav { display:flex; justify-content:space-between; align-items:center; margin-bottom:36px; }
-  .nav a { color:var(--green); text-decoration:none; font-weight:600; font-size:.9rem; }
-  .eyebrow { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:var(--green); margin-bottom:10px; }
-  h1 { font-size:2rem; font-weight:800; color:#fff; margin-bottom:10px; line-height:1.2; }
-  .sub { color:var(--muted); font-size:.95rem; max-width:640px; margin-bottom:32px; }
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-bottom:36px; }
-  .stat { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:20px; }
-  .stat .label { font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:8px; }
-  .stat .value { font-family:'JetBrains Mono',monospace; font-size:1.7rem; font-weight:800; color:#fff; }
-  .stat .value.green { color:var(--green); }
-  .stat .value.red { color:var(--red); }
-  .table-wrap { border:1px solid var(--border); border-radius:14px; overflow:hidden; overflow-x:auto; background:var(--panel); }
-  table { width:100%; border-collapse:collapse; min-width:640px; }
-  th { text-align:left; font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); padding:13px 16px; border-bottom:1px solid var(--border); font-weight:700; }
-  td { padding:12px 16px; font-size:.85rem; border-top:1px solid rgba(255,255,255,.04); }
-  td.mono { font-family:'JetBrains Mono',monospace; font-size:.8rem; }
-  .pill { display:inline-block; padding:2px 9px; border-radius:100px; font-size:.7rem; font-weight:700; }
-  .pill.win  { background:rgba(16,217,160,.12); color:var(--green); }
-  .pill.loss { background:rgba(248,113,113,.12); color:var(--red); }
-  .pill.stop { background:rgba(251,191,36,.12); color:var(--amber); }
-  .pill.pend { background:rgba(148,163,184,.12); color:var(--muted); }
-  .empty { text-align:center; padding:50px 20px; color:var(--muted); }
-  .note { margin-top:28px; font-size:.82rem; color:var(--muted); background:rgba(16,217,160,.05); border:1px solid rgba(16,217,160,.15); border-radius:12px; padding:16px 18px; line-height:1.6; }
-  .foot { margin-top:32px; font-size:.8rem; color:var(--muted); }
-  .pos { color:var(--green); } .neg { color:var(--red); }
+  .card {
+    max-width:620px; background:rgba(255,255,255,.03);
+    border:1px solid var(--border); border-radius:18px; padding:44px 40px;
+  }
+  .eyebrow { font-size:.72rem; font-weight:700; text-transform:uppercase;
+    letter-spacing:2px; color:var(--green); margin-bottom:14px; }
+  h1 { font-size:1.6rem; font-weight:800; color:#fff; margin-bottom:18px; line-height:1.25; }
+  p { color:var(--muted); font-size:.95rem; margin-bottom:14px; }
+  strong { color:#cbd5e1; }
+  a { color:var(--green); text-decoration:none; font-weight:600; }
+  .foot { margin-top:24px; font-size:.85rem; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="nav">
-    <a href="/">← 3rd Eyes</a>
-    <a href="/methodology">Methodology →</a>
+  <div class="card">
+    <div class="eyebrow">Track record · under reconstruction</div>
+    <h1>We took this page down on purpose.</h1>
+    <p>While reconciling our trade records, we found our data sources disagree on
+       how <strong>stop-loss exits</strong> are counted. Rather than publish a
+       win-rate figure we cannot fully stand behind, we have taken the record
+       offline.</p>
+    <p>We are rebuilding it directly from <strong>Kalshi's own settlement
+       records</strong>, the only fully verifiable source, where every trade
+       (win, loss, and stop-loss exit alike) is documented by the exchange
+       itself.</p>
+    <p>Honesty matters more to us than a number on a page. The corrected,
+       exchange-verified record will be published here when it is ready.</p>
+    <p class="foot"><a href="/">Back to 3rd Eyes</a></p>
   </div>
-
-  <div class="eyebrow">Live track record</div>
-  <h1>Every trade. Every win. Every loss.</h1>
-  <p class="sub">Recorded directly from Kalshi settlements — the exchange's own resolution record. Nothing is hidden, nothing is cherry-picked. This page is live: it updates as markets settle.</p>
-
-  <div class="cards" id="stat-cards">
-    <div class="stat"><div class="label">Loading…</div><div class="value">—</div></div>
-  </div>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Date</th><th>City</th><th>Side</th><th>Entry</th><th>P&amp;L</th><th>Result</th></tr>
-      </thead>
-      <tbody id="rows">
-        <tr><td colspan="6" class="empty">Loading trade record…</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="note" id="note">
-    <strong style="color:#cbd5e1;">How to read this:</strong> Every settled position is shown — wins, losses, and stop-loss exits alike. P&amp;L is net of entry cost. Win rate counts settled trades only (pending trades excluded). Past performance is not indicative of future results; weather is forecastable but never certain.
-  </div>
-
-  <p class="foot">3rd Eyes publishes impersonal market research. Not financial advice. Trade only with capital you can afford to lose.</p>
-</div>
-
-<script>
-// Defensive parser — works whether the API returns the transformed shape
-// (date/outcome/pl/no_price) or the raw trade-log shape (ts/result/profit/price).
-function norm(t) {
-  const result = (t.result || t.outcome || '').toString().toUpperCase();
-  const isWin  = result.includes('WIN');
-  const isStop = result.includes('STOP');
-  const isLoss = result === 'LOSS' || (result.includes('LOSS') && !isStop);
-  const resolved = isWin || isLoss || isStop;
-  const pl = (typeof t.profit === 'number') ? t.profit
-           : (typeof t.pl === 'number') ? t.pl : null;
-  return {
-    date:    (t.ts || t.date || t.target_date || '').toString().slice(0, 10) || '—',
-    city:    t.city || '—',
-    side:    (t.bet_side || t.side || 'NO').toString().toUpperCase().slice(0, 3),
-    entry:   (typeof t.price === 'number') ? t.price
-             : (typeof t.no_price === 'number') ? t.no_price : null,
-    pl, isWin, isLoss, isStop, resolved,
-  };
-}
-
-function render(trades) {
-  const rows = document.getElementById('rows');
-  const cards = document.getElementById('stat-cards');
-
-  if (!Array.isArray(trades) || trades.length === 0) {
-    rows.innerHTML = '<tr><td colspan="6" class="empty">Track record is syncing from Kalshi settlements. Check back shortly.</td></tr>';
-    cards.innerHTML = '<div class="stat"><div class="label">Status</div><div class="value">syncing</div></div>';
-    return;
-  }
-
-  const norms = trades.map(norm).filter(t => t.date !== '—' || t.city !== '—');
-  norms.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-
-  const settled = norms.filter(t => t.resolved);
-  const wins  = settled.filter(t => t.isWin).length;
-  const losses = settled.filter(t => t.isLoss).length;
-  const stops = settled.filter(t => t.isStop).length;
-  const pnl = settled.reduce((s, t) => s + (t.pl || 0), 0);
-  const wr = settled.length ? (wins / settled.length * 100) : 0;
-
-  cards.innerHTML = `
-    <div class="stat"><div class="label">Settled trades</div><div class="value">${settled.length}</div></div>
-    <div class="stat"><div class="label">Wins</div><div class="value green">${wins}</div></div>
-    <div class="stat"><div class="label">Losses</div><div class="value red">${losses + stops}</div></div>
-    <div class="stat"><div class="label">Win rate</div><div class="value">${wr.toFixed(0)}%</div></div>
-    <div class="stat"><div class="label">Net P&amp;L</div><div class="value ${pnl >= 0 ? 'green' : 'red'}">${pnl >= 0 ? '+' : '−'}$${Math.abs(pnl).toFixed(2)}</div></div>
-  `;
-
-  rows.innerHTML = norms.slice(0, 200).map(t => {
-    const pill = t.isWin ? '<span class="pill win">WIN</span>'
-               : t.isStop ? '<span class="pill stop">STOP</span>'
-               : t.isLoss ? '<span class="pill loss">LOSS</span>'
-               : '<span class="pill pend">PENDING</span>';
-    const plStr = (t.pl == null) ? '—'
-                : `<span class="${t.pl >= 0 ? 'pos' : 'neg'}">${t.pl >= 0 ? '+' : '−'}$${Math.abs(t.pl).toFixed(2)}</span>`;
-    const entryStr = (t.entry == null) ? '—' : `${(t.entry * 100).toFixed(0)}¢`;
-    return `<tr>
-      <td class="mono">${t.date}</td>
-      <td>${t.city}</td>
-      <td class="mono">${t.side}</td>
-      <td class="mono">${entryStr}</td>
-      <td class="mono">${plStr}</td>
-      <td>${pill}</td>
-    </tr>`;
-  }).join('');
-}
-
-fetch('/.netlify/functions/stats/trades', { cache: 'no-store' })
-  .then(r => r.json())
-  .then(render)
-  .catch(() => render([]));
-</script>
 </body>
 </html>

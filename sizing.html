@@ -240,7 +240,7 @@
       <div>
         <div style="font-family:'Sora',sans-serif;font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:12px;">What happens if a trade goes wrong?</div>
         <p style="font-size:.9375rem;color:#94a3b8;line-height:1.7;margin-bottom:16px;">
-          Every position is monitored every 30 seconds. If the NO price drops from 95¢ to <strong style="color:#fbbf24;">85¢</strong> (rare weather event emerging), you get an immediate Telegram alert. If it reaches <strong style="color:#ef4444;">82¢</strong>, the position is automatically closed — regardless of how much time is left.
+          Every position is monitored every 30 seconds. If the NO price drops from 95¢ to <strong style="color:#fbbf24;">85¢</strong> (rare weather event emerging), you get an immediate Telegram alert. If it reaches <strong style="color:#ef4444;">82¢</strong>, the position is automatically closed - regardless of how much time is left.
         </p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
           <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
@@ -269,7 +269,7 @@
     <div class="section-header">
       <div class="section-label">Growth simulator</div>
       <h2 class="section-title">Model both strategies. See the difference.</h2>
-      <p class="section-sub">Toggle between Ladder Compounding (higher ceiling, riskier) and Fixed + Bank (protected, grows by adding slots). Both use the same win rate — the difference is risk management.</p>
+      <p class="section-sub">Toggle between Ladder Compounding (higher ceiling, riskier) and Fixed + Bank (protected, grows by adding slots). Both use the same win rate - the difference is risk management.</p>
       <div style="max-width:680px;margin:20px auto 0;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:14px 18px;font-size:.82rem;color:#fde68a;line-height:1.55;text-align:left;">
         <strong style="color:#fbbf24;">⚠️ Reality check on calculator defaults:</strong> Current observed trade frequency is <strong>~4-8 trades/month across all slots</strong> (Kalshi same-day liquidity is the bottleneck while we expand venue coverage). The calculator defaults model an active-liquidity regime; dial the trades-per-week slider <strong>down</strong> to see today's realistic ROI, or <strong>up</strong> to model what a more liquid future could look like. Track record is also <a href="/track" style="color:#fde68a;text-decoration:underline;">under reconstruction</a>.
       </div>
@@ -308,7 +308,7 @@
           <div class="range-labels"><span>1/week</span><span id="freq-label">1/week</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(hypothetical — track record under reconstruction)</span></label>
+          <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(hypothetical - track record under reconstruction)</span></label>
           <input type="range" id="calc-wr" min="50" max="97" value="90" oninput="recalc()">
           <div class="range-labels"><span>50%</span><span id="wr-label">90%</span></div>
         </div>
@@ -319,10 +319,10 @@
         </div>
 
         <div id="mode-warning-ladder" style="display:none;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px;font-size:.8125rem;color:#fca5a5;line-height:1.6;">
-          ⚠️ <strong>Ladder mode:</strong> Each win increases your stake. A stop-loss hit at peak stake costs significantly more than at base. The "worst-case single-trade loss" reflects the maximum possible loss at your highest stake reached — not a fixed amount.
+          ⚠️ <strong>Ladder mode:</strong> Each win increases your stake. A stop-loss hit at peak stake costs significantly more than at base. The "worst-case single-trade loss" reflects the maximum possible loss at your highest stake reached - not a fixed amount.
         </div>
         <div id="mode-warning-fixed" style="background:rgba(16,217,160,.06);border:1px solid rgba(16,217,160,.15);border-radius:10px;padding:14px;font-size:.8125rem;color:#6ee7b7;line-height:1.6;">
-          ✅ <strong>Fixed + Bank mode:</strong> Your per-slot stake never increases. Profits accumulate in your bank. New slots are funded from banked profits — not by risking more per trade. Maximum single-trade loss stays at ~13.7% of your base stake, always.
+          ✅ <strong>Fixed + Bank mode:</strong> Your per-slot stake never increases. Profits accumulate in your bank. New slots are funded from banked profits - not by risking more per trade. Maximum single-trade loss stays at ~13.7% of your base stake, always.
         </div>
 
         <div class="form-group" style="margin-top:14px;">
@@ -335,7 +335,7 @@
         </div>
 
         <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.15);border-radius:10px;padding:14px;font-size:.75rem;color:#fbbf24;line-height:1.6;margin-top:10px;">
-          ⚠️ <strong>Hypothetical — not guaranteed.</strong> The calculator shows the <em>expected</em> outcome at the win rate <em>you</em> enter — it is a sensitivity tool, not a forecast. Our track record is under reconstruction (see <a href="/track" style="color:#fbbf24;text-decoration:underline;">/track</a>) and no live win-rate figure is currently published. Only risk discretionary funds you can afford to lose entirely.
+          ⚠️ <strong>Hypothetical - not guaranteed.</strong> The calculator shows the <em>expected</em> outcome at the win rate <em>you</em> enter - it is a sensitivity tool, not a forecast. Our track record is under reconstruction (see <a href="/track" style="color:#fbbf24;text-decoration:underline;">/track</a>) and no live win-rate figure is currently published. Only risk discretionary funds you can afford to lose entirely.
         </div>
       </div>
 
