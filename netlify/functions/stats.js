@@ -1,4 +1,4 @@
-// Live stats proxy — fetches from VPS stats server
+// Live stats proxy - fetches from VPS stats server
 const VPS = 'http://198.211.100.161:8765';
 
 exports.handler = async (event) => {
@@ -11,7 +11,7 @@ exports.handler = async (event) => {
 
   try {
     // 2.5s timeout (was 8s). If the VPS stats server is slow/down, an 8s timeout
-    // meant every invocation burned ~8s of function execution — a huge credit
+    // meant every invocation burned ~8s of function execution - a huge credit
     // multiplier. 2.5s fails fast to the cached fallback instead.
     const res = await fetch(VPS + endpoint, {
       signal: AbortSignal.timeout(2500)
@@ -19,7 +19,7 @@ exports.handler = async (event) => {
     if (!res.ok) throw new Error('VPS ' + res.status);
     const data = await res.json();
     // Track record is being rebuilt directly from Kalshi settlement records.
-    // Until that's complete, do not expose any win/loss numbers — the prior
+    // Until that's complete, do not expose any win/loss numbers - the prior
     // public ledger was under-recording losses and we will not republish
     // figures we cannot fully stand behind.
     if (endpoint === '/stats' && data && typeof data === 'object') {
@@ -47,14 +47,14 @@ exports.handler = async (event) => {
                    : endpoint === '/shifts'      ? { recent_shifts: [], tracked_pairs: 0 }
                    : {
       // Fallback: VPS stats endpoint unreachable. Do not surface fabricated
-      // numbers — return the honest "under reconstruction" state.
+      // numbers - return the honest "under reconstruction" state.
       trackRecord: 'under_reconstruction',
       balance: null, cities: 7,
       lastScan: null, lastMonitor: null,
       scanIntervalSec: 300, monitorIntervalSec: 30
     };
     // CRITICAL: cache the fallback too. Without a Cache-Control header, a
-    // down-VPS response was NOT cached by the CDN — so every single request
+    // down-VPS response was NOT cached by the CDN - so every single request
     // re-invoked the function (and re-timed-out). Caching the fallback for 60s
     // means an outage is served from CDN cache instead of hammering the function.
     return {

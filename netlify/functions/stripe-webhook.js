@@ -1,6 +1,6 @@
 /**
  * stripe-webhook.js
- * Netlify Function — handles Stripe checkout.session.completed events.
+ * Netlify Function - handles Stripe checkout.session.completed events.
  *
  * Flow:
  *   1. Stripe fires webhook after successful payment
@@ -79,7 +79,7 @@ async function sendWelcomeEmail({ toEmail, toName, plan, inviteLink }) {
             <p style="margin:0 0 24px;color:#aaa;font-size:15px;">Hi${toName ? ' ' + toName.split(' ')[0] : ''},</p>
             <p style="margin:0 0 24px;color:#ccc;font-size:15px;line-height:1.6;">
               Your <strong style="color:#00d4ff;">${planLabel} subscription</strong> is now active.
-              Click below to join your private signals channel — our AI posts trade alerts
+              Click below to join your private signals channel - our AI posts trade alerts
               before the market moves.
             </p>
             <!-- CTA button -->
@@ -99,7 +99,7 @@ async function sendWelcomeEmail({ toEmail, toName, plan, inviteLink }) {
             <hr style="border:none;border-top:1px solid #222;margin:28px 0;">
             <p style="margin:0;color:#555;font-size:13px;line-height:1.6;">
               Questions? Reply to this email or message us on Telegram @thirdeyes_signals.<br>
-              — The 3rd Eyes Team
+              - The 3rd Eyes Team
             </p>
           </td>
         </tr>
@@ -126,7 +126,7 @@ async function sendWelcomeEmail({ toEmail, toName, plan, inviteLink }) {
     body: JSON.stringify({
       from:    '3rd Eyes Signals <signals@3rdeyes.io>',
       to:      [toEmail],
-      subject: `${emoji} Your ${planLabel} channel invite — 3rd Eyes`,
+      subject: `${emoji} Your ${planLabel} channel invite - 3rd Eyes`,
       html,
     }),
   });
@@ -137,7 +137,7 @@ async function sendWelcomeEmail({ toEmail, toName, plan, inviteLink }) {
   }
 
   const result = await resp.json();
-  console.log(`Email sent to ${toEmail} — ID: ${result.id}`);
+  console.log(`Email sent to ${toEmail} - ID: ${result.id}`);
   return result.id;
 }
 
@@ -195,7 +195,7 @@ exports.handler = async (event) => {
 
   if (!customerEmail) {
     console.error('No customer email in session:', session.id);
-    return { statusCode: 200, body: 'No email — skipped' };
+    return { statusCode: 200, body: 'No email - skipped' };
   }
 
   // ── 3. Identify plan from line items ────────────────────────────────────

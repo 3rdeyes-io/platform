@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@3rdEyesIO">
 <meta name="twitter:title" content="3rd Eyes | Weather Prediction-Market Intelligence">
-<meta name="twitter:description" content="A 4-model meteorological ensemble finds the temperature bets the market prices wrong. Trade on Kalshi, Coinbase, or Robinhood. Free signals on Telegram."
+<meta name="twitter:description" content="A 4-model meteorological ensemble finds the temperature bets the market prices wrong. Trade on Kalshi, Coinbase, or Robinhood. Free signals on Telegram.">
 <meta name="twitter:image" content="https://og-image.vercel.app/**3rd%20Eyes**%20%7C%20Weather%20Prediction-Market%20Intelligence.png?theme=dark&md=1&fontSize=60px">
 
 <!-- Favicon - eye + flame mark -->
@@ -617,7 +617,7 @@
     <li><a href="#ledger">Track record</a></li>
     <li><a href="#calculator">Calculator</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="/track" style="color:var(--green);">Live Track ↗</a></li>
+    <li><a href="/track" style="color:var(--green);">Track ↗</a></li>
     <li><a href="/sizing" style="color:var(--green);">Sizing ↗</a></li>
     <li><a href="/methodology" style="color:var(--green);">Methodology ↗</a></li>
   </ul>
@@ -691,7 +691,7 @@
 
   <div class="hero-ctas">
     <a href="#ledger" class="btn-secondary">
-      See Live Trade Ledger ↓
+      See the track record ↓
     </a>
     <a href="/methodology" class="btn-secondary" style="background:transparent;border-color:rgba(255,255,255,0.12);">
       Read methodology
@@ -1031,7 +1031,7 @@
         <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10d9a0,#6366f1);display:flex;align-items:center;justify-content:center;font-size:.875rem;font-weight:700;color:#fff;">3E</div>
         <div>
           <div style="font-weight:600;color:#fff;font-size:.9375rem;">3rd Eyes Signals</div>
-          <div style="font-size:.75rem;color:#6c8a9f;">@3rdeyes_signals · Pro Channel</div>
+          <div style="font-size:.75rem;color:#6c8a9f;">@thirdeyes_signals · Pro Channel</div>
         </div>
         <div style="margin-left:auto;font-size:.75rem;color:#6c8a9f;">Sample signal</div>
       </div>
@@ -1150,7 +1150,7 @@
   <div class="section-header">
     <div class="section-label">Full transparency</div>
     <h2 class="section-title">Every trade. Every city.<br>Nothing hidden.</h2>
-    <p class="section-sub">Live from the Kalshi API. The full searchable ledger lives on a dedicated page. Here's the snapshot.</p>
+    <p class="section-sub">Rebuilt directly from Kalshi settlement records. The full ledger lives on a dedicated page, and is being reconstructed now.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;" id="ledger-summary-chips">
       <span class="ledger-chip green" id="chip-wins">- W</span>
       <span class="ledger-chip red" id="chip-losses">- L</span>
@@ -1188,7 +1188,7 @@
 
     <div style="text-align:center;margin-top:28px;">
       <a href="/track" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#050c1a;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .2s;">
-        See full live ledger, scan activity &amp; calibration <span>→</span>
+        See the track record, scan activity &amp; calibration <span>→</span>
       </a>
       <p style="font-size:.75rem;color:var(--muted);margin-top:14px;line-height:1.6;max-width:520px;margin-left:auto;margin-right:auto;">
         The /track page will show every trade once the reconstruction from Kalshi settlement records is complete. Today's scan filter breakdown, per-station bias calibration, and model-run forecast shifts will accompany the rebuilt ledger.
@@ -1431,10 +1431,10 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What happened with that one LA loss?
+        How do you handle losing trades?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a">On May 8, 2026, an LA position was manually exited at -$9.80 when the NO price dropped from 97% to 76% intraday. The root cause: morning GFS models underestimated LA afternoon temps due to marine layer burn-off, a known coastal bias. We responded by increasing the LA/SF/SD minimum buffer to 7°F and adding per-station bias correction. That specific failure scenario now triggers a filter. No similar position has been taken since.</div>
+      <div class="faq-a">Losses are part of any probabilistic edge, and we publish them rather than hide them. One instructive example: an early LA position moved against us intraday when morning GFS models underestimated afternoon temperatures due to marine-layer burn-off, a known coastal bias. We responded by widening the LA/SF/SD minimum buffer and adding per-station bias correction, so that specific failure mode now triggers a filter. Our full win and loss record is being rebuilt directly from Kalshi settlement records - see <a href="/track" style="color:var(--green);">/track</a>.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1892,7 +1892,7 @@ async function handleSignup(e, form) {
   } catch(_) {}
 
   form.innerHTML = `<div class="signup-success">
-    Check your email &mdash; channel link is on its way.
+    Check your email - channel link is on its way.
   </div>`;
 }
 
@@ -2003,18 +2003,12 @@ function renderChips(data) {
   if (c)  c.textContent  = 'Scanning 40+ cities live';
 }
 
-fetch('/.netlify/functions/stats/trades')
-  .then(r => r.json())
-  .then(trades => {
-    renderLedgerPreview(Array.isArray(trades) ? trades : []);
-    return fetch('/.netlify/functions/stats');
-  })
-  .then(r => r.json())
-  .then(renderChips)
-  .catch(() => {
-    const tbody = document.getElementById('ledger-preview-body');
-    if (tbody) tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--muted);">Unable to load live data. Try again shortly.</td></tr>`;
-  });
+// Track record is under reconstruction (see /track). Until the corrected,
+// Kalshi-settlement-verified ledger is republished, the homepage must NOT pull
+// or render the old /trades data - it under-recorded stop-loss exits and would
+// contradict the /track holding page. Render the neutral holding state directly.
+renderLedgerPreview([]);
+renderChips({});
 </script>
 
 </body>

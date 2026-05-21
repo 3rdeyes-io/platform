@@ -110,7 +110,7 @@ exports.handler = async (event) => {
     }
 
     const result = await resp.json();
-    console.log(`Free signup email sent to ${email} — ID: ${result.id}`);
+    console.log(`Free signup email sent to ${email} - ID: ${result.id}`);
 
     return {
       statusCode: 200,
