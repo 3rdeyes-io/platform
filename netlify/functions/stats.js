@@ -10,8 +10,11 @@ exports.handler = async (event) => {
                  : '/stats';
 
   try {
+    // 2.5s timeout (was 8s). If the VPS stats server is slow/down, an 8s timeout
+    // meant every invocation burned ~8s of function execution — a huge credit
+    // multiplier. 2.5s fails fast to the cached fallback instead.
     const res = await fetch(VPS + endpoint, {
-      signal: AbortSignal.timeout(8000)
+      signal: AbortSignal.timeout(2500)
     });
     if (!res.ok) throw new Error('VPS ' + res.status);
     const data = await res.json();
@@ -50,9 +53,17 @@ exports.handler = async (event) => {
       lastScan: null, lastMonitor: null,
       scanIntervalSec: 300, monitorIntervalSec: 30
     };
+    // CRITICAL: cache the fallback too. Without a Cache-Control header, a
+    // down-VPS response was NOT cached by the CDN — so every single request
+    // re-invoked the function (and re-timed-out). Caching the fallback for 60s
+    // means an outage is served from CDN cache instead of hammering the function.
     return {
       statusCode: 200,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'public, max-age=60',
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify(fallback)
     };
   }
