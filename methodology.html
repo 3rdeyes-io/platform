@@ -395,7 +395,7 @@
     <div class="section-num">§ 1</div>
     <h2 class="section-title">Executive Overview</h2>
 
-    <p>3rd Eyes publishes meteorological signals for weather prediction markets — currently <strong>Kalshi and Polymarket</strong> — focused on daily high- and low-temperature contracts. The core insight is that weather models, particularly a multi-model forecast ensemble and HRRR short-range radar assimilation, can identify temperature outcomes with sufficient confidence to generate positive expected value (EV) on binary NO contracts.</p>
+    <p>3rd Eyes publishes meteorological signals for US weather prediction markets — <strong>Kalshi</strong>, and the identical contracts carried by <strong>Coinbase</strong> and <strong>Robinhood</strong> — focused on daily high- and low-temperature contracts. The core insight is that weather models, particularly a multi-model forecast ensemble and HRRR short-range radar assimilation, can identify temperature outcomes with sufficient confidence to generate positive expected value (EV) on binary contracts.</p>
 
     <p>The strategy targets a specific market inefficiency: market makers price temperature thresholds using basic climatological priors. When numerical weather prediction (NWP) models diverge strongly from those priors, due to an identifiable synoptic pattern, we publish a NO signal. The edge is meteorological, not statistical arbitrage.</p>
 
@@ -509,7 +509,7 @@
 
     <div class="card">
       <div class="card-title">Step 1: Market Scan</div>
-      <p>Fetch open temperature markets from both venues — Kalshi (<code>KXHIGH*</code>/<code>KXLOW*</code> series via the Kalshi API) and Polymarket (via its public Gamma API). Filter for markets resolving within the next 96 hours with adequate NO-side liquidity.</p>
+      <p>Fetch open temperature markets from Kalshi (<code>KXHIGH*</code>/<code>KXLOW*</code> series via the Kalshi API). The same contracts are mirrored on Coinbase and Robinhood, so a Kalshi signal is tradeable on any of the three. Filter for markets resolving within the next 96 hours with adequate liquidity.</p>
     </div>
 
     <div class="card">
@@ -805,7 +805,7 @@
 
     <div class="card">
       <div class="card-title">Platform Note</div>
-      <p>US residents execute signals on Kalshi (CFTC-regulated). International subscribers may use signals on available platforms (Polymarket, FanDuel, DraftKings, Robinhood, Coinbase, HK Opinion Market, or others) at their own discretion, subject to local regulations. 3rd Eyes signals are market-agnostic and do not constitute legal, financial, or regulatory advice for any specific jurisdiction.</p>
+      <p>Signals are for US-legal, CFTC-regulated weather contracts: Kalshi, and the identical contracts carried by Coinbase and Robinhood. Subscribers execute on whichever of these they hold an account with, and verify availability and compliance in their own jurisdiction. 3rd Eyes signals do not constitute legal, financial, or regulatory advice.</p>
     </div>
 
     <p style="font-size:.8rem;color:var(--muted);margin-top:24px;">© 2026 3rd Eyes. All rights reserved. This document may be shared freely in unmodified form. Do not alter or misrepresent the methodology or track record.</p>
