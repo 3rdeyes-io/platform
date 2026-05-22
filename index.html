@@ -560,6 +560,8 @@
     white-space: nowrap;
   }
   @keyframes slideUp { from{opacity:0;transform:translate(-50%,20px)} to{opacity:1;transform:translate(-50%,0)} }
+  /* Mobile entrance: no translateX(-50%) so the full-width bar isn't shifted off-screen. */
+  @keyframes slideUpMobile { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
   .floating-text { font-size: .875rem; color: #94a3b8; }
   .floating-text strong { color: var(--green); }
 
@@ -582,14 +584,24 @@
     .steps-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-    .floating-bar { width: 90%; max-width: 360px; padding: 10px 10px 10px 16px; }
-    .floating-text { font-size: .8rem; }
+    .floating-bar {
+      left: 14px; right: 14px; transform: none;
+      width: auto; max-width: none;
+      padding: 10px 12px; gap: 10px;
+      white-space: normal;            /* allow the status text to wrap instead of overflowing */
+      animation: slideUpMobile .5s 1s ease both;   /* override desktop slideUp (which re-applies translateX(-50%)) */
+    }
+    .floating-text { font-size: .78rem; flex: 1 1 auto; min-width: 0; line-height: 1.35; }
+    .floating-bar .btn-primary { flex-shrink: 0; padding: 9px 16px !important; font-size: .8rem !important; white-space: nowrap; }
   }
   @media (max-width: 480px) {
     .stats-strip { flex-direction: column; }
     .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
     .stat-cell:last-child { border-bottom: none; }
     .hero-ctas { flex-direction: column; align-items: center; }
+    /* Compact the ledger table so the (holding-state) message + columns fit a phone */
+    #ledger table { font-size: .68rem; }
+    #ledger table th, #ledger table td { padding: 8px 6px !important; }
   }
 
   /* ── Utilities ── */
