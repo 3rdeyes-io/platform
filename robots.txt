@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rainmaker.trade/sitemap.xml
+Sitemap: https://3rdeyes.io/sitemap.xml

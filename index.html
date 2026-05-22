@@ -693,7 +693,7 @@
 
   <form class="hero-form" onsubmit="handleSignup(event, this)">
     <div class="hero-form-row">
-      <input type="email" name="email" placeholder="your@email.com" required class="hero-email-input">
+      <input type="email" name="email" placeholder="your@email.com" required class="hero-email-input" aria-label="Email address">
       <button type="submit" class="btn-primary hero-form-btn">
         Get Free Signals →
       </button>
@@ -967,6 +967,107 @@
       <div class="step-desc">Open positions are watched in real time. You get an alert if a trade moves against you, and an auto-close triggers if it drops below the stop-loss threshold. Each trade is independent - one loss doesn't affect the others.</div>
     </div>
   </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     THE EDGE (data-driven comparison)
+═══════════════════════════════════════ -->
+<section id="the-edge" style="border-top:1px solid var(--border);">
+  <style>
+    .edge-compare{max-width:940px;margin:28px auto 0;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+    .ec-row{display:grid;grid-template-columns:1fr 1.1fr 1.3fr;}
+    .ec-row + .ec-row{border-top:1px solid var(--border);}
+    .ec-cell{padding:13px 16px;font-size:.86rem;line-height:1.45;}
+    .ec-head{background:rgba(255,255,255,.04);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+    .ec-dim{color:#cbd5e1;font-weight:600;border-right:1px solid var(--border);}
+    .ec-them{color:#8b97a7;border-right:1px solid var(--border);}
+    .ec-us{color:#d8fff4;background:rgba(16,217,160,.06);}
+    .ec-us b{color:var(--green);}
+    .ec-head.ec-us{color:var(--green);background:rgba(16,217,160,.10);}
+    .checks-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:940px;margin:22px auto 0;}
+    .check-card{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.02);}
+    .check-card .ck{width:24px;height:24px;border-radius:50%;background:rgba(16,217,160,.15);color:var(--green);font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .check-name{font-weight:700;color:#fff;font-size:.9rem;}
+    .check-req{font-size:.78rem;color:var(--muted);margin-top:2px;line-height:1.4;}
+    @media(max-width:680px){
+      .ec-row{grid-template-columns:1fr;}
+      .ec-cell{border-right:none !important;}
+      .ec-dim{background:rgba(255,255,255,.04);}
+      .ec-head{display:none;}
+      .ec-them::before{content:"Most bettors: ";color:#64748b;font-weight:700;}
+      .ec-us::before{content:"3rd Eyes: ";color:var(--green);font-weight:700;}
+      .checks-grid{grid-template-columns:1fr;}
+    }
+  </style>
+  <div class="section-header">
+    <div class="section-label">The edge</div>
+    <h2 class="section-title">Why our analysis beats<br>betting on a hunch.</h2>
+    <p class="section-sub">Most people bet on tomorrow's temperature with one weather app and a gut feeling. We run the same disciplined, data-driven process on every single market. Here is the difference, feature by feature.</p>
+  </div>
+
+  <div class="edge-compare">
+    <div class="ec-row">
+      <div class="ec-cell ec-head ec-dim">What matters</div>
+      <div class="ec-cell ec-head ec-them">Most weather bettors</div>
+      <div class="ec-cell ec-head ec-us">3rd Eyes</div>
+    </div>
+    <div class="ec-row">
+      <div class="ec-cell ec-dim">Weather models</div>
+      <div class="ec-cell ec-them">One phone weather app</div>
+      <div class="ec-cell ec-us"><b>4 global supercomputer models</b> (GFS, ECMWF, ICON, GEM) + HRRR</div>
+    </div>
+    <div class="ec-row">
+      <div class="ec-cell ec-dim">Forecast uncertainty</div>
+      <div class="ec-cell ec-them">Ignored</div>
+      <div class="ec-cell ec-us">Measured as <b>model spread</b> (&sigma;); we sit out when the models disagree</div>
+    </div>
+    <div class="ec-row">
+      <div class="ec-cell ec-dim">Local station bias</div>
+      <div class="ec-cell ec-them">Ignored</div>
+      <div class="ec-cell ec-us"><b>Per-station bias correction</b> learned from observed history</div>
+    </div>
+    <div class="ec-row">
+      <div class="ec-cell ec-dim">When to bet</div>
+      <div class="ec-cell ec-them">Gut feeling</div>
+      <div class="ec-cell ec-us">Only when our win-probability beats the market price by <b>&ge; 2.5 points</b> (+EV)</div>
+    </div>
+    <div class="ec-row">
+      <div class="ec-cell ec-dim">Position sizing</div>
+      <div class="ec-cell ec-them">Whatever feels right</div>
+      <div class="ec-cell ec-us">A disciplined <b>10-slot system</b>, capped per weather region</div>
+    </div>
+    <div class="ec-row">
+      <div class="ec-cell ec-dim">Exits</div>
+      <div class="ec-cell ec-them">Panic or hope</div>
+      <div class="ec-cell ec-us">A <b>pre-set stop-loss</b> on every position</div>
+    </div>
+    <div class="ec-row">
+      <div class="ec-cell ec-dim">Where to trade</div>
+      <div class="ec-cell ec-them">One app</div>
+      <div class="ec-cell ec-us">US-legal <b>Kalshi, Coinbase, Robinhood &amp; Polymarket</b></div>
+    </div>
+    <div class="ec-row">
+      <div class="ec-cell ec-dim">Reporting</div>
+      <div class="ec-cell ec-them">None</div>
+      <div class="ec-cell ec-us">Rebuilt from <b>exchange settlement records</b> (independently verifiable)</div>
+    </div>
+  </div>
+
+  <h3 style="text-align:center;margin:42px 0 0;font-size:1.1rem;color:#fff;font-weight:700;">Every signal must clear all six checks</h3>
+  <p style="text-align:center;font-size:.82rem;color:var(--muted);margin-top:6px;">If even one fails, we do not bet. That is why a typical day produces only a handful of signals out of 40+ cities scanned.</p>
+  <div class="checks-grid">
+    <div class="check-card"><span class="ck">1</span><div><div class="check-name">Models agree</div><div class="check-req">All four models point the same direction</div></div></div>
+    <div class="check-card"><span class="ck">2</span><div><div class="check-name">Forecast buffer</div><div class="check-req">&ge; 2&deg;F inland / 3.5&deg;F coastal cushion vs the temperature line</div></div></div>
+    <div class="check-card"><span class="ck">3</span><div><div class="check-name">Pricing edge</div><div class="check-req">Our win-probability is &ge; 2.5 points above the market price</div></div></div>
+    <div class="check-card"><span class="ck">4</span><div><div class="check-name">Win-probability floor</div><div class="check-req">&ge; 70% modeled chance to win, or we skip it</div></div></div>
+    <div class="check-card"><span class="ck">5</span><div><div class="check-name">Confidence grade</div><div class="check-req">A+/A/B only (tight model spread + HRRR cross-check)</div></div></div>
+    <div class="check-card"><span class="ck">6</span><div><div class="check-name">Concentration cap</div><div class="check-req">No more than 2 positions in one weather region</div></div></div>
+  </div>
+
+  <p style="text-align:center;font-size:.72rem;color:var(--muted);margin:24px auto 0;max-width:620px;line-height:1.55;">
+    This describes our analysis method, not a performance guarantee. Our win/loss record is being rebuilt directly from Kalshi's settlement records (see <a href="/track" style="color:var(--green);">/track</a>). Prediction-market bets carry real risk - never bet more than you can afford to lose.
+  </p>
 </section>
 
 
@@ -1341,7 +1442,7 @@
       <p class="price-desc">See real signals. Check the track record. Try it on your platform before paying anything.</p>
       <ul class="price-features">
         <li><div class="feat-icon">✓</div> Sample signals via public Telegram</li>
-        <li><div class="feat-icon">✓</div> Full public trade ledger (every win &amp; loss)</li>
+        <li><div class="feat-icon">✓</div> Public trade ledger (rebuilding from Kalshi settlements)</li>
         <li><div class="feat-icon">✓</div> Methodology &amp; how-it-works guide</li>
         <li><div class="feat-icon">✓</div> Sizing calculator</li>
         <li><div class="feat-icon no">✗</div> Real-time alerts (all signals)</li>
@@ -1490,7 +1591,7 @@
 
   <form style="max-width:480px;margin:0 auto;" onsubmit="handleSignup(event, this)">
     <div class="hero-form-row">
-      <input type="email" name="email" placeholder="your@email.com" required class="hero-email-input" style="flex:1;min-width:200px;">
+      <input type="email" name="email" placeholder="your@email.com" required class="hero-email-input" style="flex:1;min-width:200px;" aria-label="Email address">
       <button type="submit" class="btn-primary hero-form-btn" style="font-size:1rem;padding:14px 28px;">
         Get Signals →
       </button>
@@ -1506,6 +1607,69 @@
       📡 Telegram Channel
     </a>
   </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     WHERE TO TRADE (referral)
+═══════════════════════════════════════ -->
+<!-- HIDDEN until referral links are wired in (placeholder hrefs __*_REF__ below).
+     Remove the display:none and replace the placeholders to go live. -->
+<section id="where-to-trade" style="display:none;">
+  <style>
+    .venue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:920px;margin:28px auto 0;}
+    .venue-card{display:flex;align-items:center;gap:12px;padding:16px;border-radius:14px;
+      border:1px solid var(--border);background:rgba(255,255,255,.03);text-decoration:none;
+      transition:transform .15s ease,border-color .15s ease,background .15s ease;}
+    .venue-card:hover{transform:translateY(-3px);border-color:var(--vc);background:rgba(255,255,255,.06);}
+    .venue-mark{width:42px;height:42px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;
+      justify-content:center;font-weight:800;font-size:1rem;color:#fff;background:var(--vc);letter-spacing:.5px;}
+    .venue-name{font-weight:700;color:#fff;font-size:.98rem;}
+    .venue-sub{font-size:.72rem;color:var(--muted);margin-top:2px;line-height:1.3;}
+    .venue-go{margin-left:auto;color:var(--vc);font-weight:700;font-size:.85rem;flex-shrink:0;}
+    @media(max-width:760px){.venue-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:480px){.venue-grid{grid-template-columns:1fr;}}
+  </style>
+  <div class="section-header">
+    <div class="section-label">Where to trade</div>
+    <h2 class="section-title">Trade the signals on<br>your favorite app.</h2>
+    <p class="section-sub">Our weather signals settle on U.S.-legal, CFTC-regulated prediction markets. Open an account on any of these and place the trades we send. Kalshi (and its resellers Coinbase &amp; Robinhood) carry the temperature markets our bot trades.</p>
+  </div>
+  <div class="venue-grid">
+    <a class="venue-card" style="--vc:#10d9a0;" href="__KALSHI_REF__" target="_blank" rel="noopener nofollow">
+      <span class="venue-mark">K</span>
+      <span><span class="venue-name">Kalshi</span><br><span class="venue-sub">Main exchange · weather markets</span></span>
+      <span class="venue-go">Open →</span>
+    </a>
+    <a class="venue-card" style="--vc:#0052FF;" href="__COINBASE_REF__" target="_blank" rel="noopener nofollow">
+      <span class="venue-mark">C</span>
+      <span><span class="venue-name">Coinbase</span><br><span class="venue-sub">Resells Kalshi · weather markets</span></span>
+      <span class="venue-go">Open →</span>
+    </a>
+    <a class="venue-card" style="--vc:#00C805;" href="__ROBINHOOD_REF__" target="_blank" rel="noopener nofollow">
+      <span class="venue-mark">R</span>
+      <span><span class="venue-name">Robinhood</span><br><span class="venue-sub">Resells Kalshi · weather markets</span></span>
+      <span class="venue-go">Open →</span>
+    </a>
+    <a class="venue-card" style="--vc:#4F66FF;" href="__POLYMARKET_REF__" target="_blank" rel="noopener nofollow">
+      <span class="venue-mark">P</span>
+      <span><span class="venue-name">Polymarket</span><br><span class="venue-sub">CFTC-regulated · event markets</span></span>
+      <span class="venue-go">Open →</span>
+    </a>
+    <a class="venue-card" style="--vc:#53D337;" href="__DRAFTKINGS_REF__" target="_blank" rel="noopener nofollow">
+      <span class="venue-mark">DK</span>
+      <span><span class="venue-name">DraftKings</span><br><span class="venue-sub">Predictions · mostly sports</span></span>
+      <span class="venue-go">Open →</span>
+    </a>
+    <a class="venue-card" style="--vc:#1493FF;" href="__FANDUEL_REF__" target="_blank" rel="noopener nofollow">
+      <span class="venue-mark">FD</span>
+      <span><span class="venue-name">FanDuel</span><br><span class="venue-sub">Predicts · mostly sports</span></span>
+      <span class="venue-go">Open →</span>
+    </a>
+  </div>
+  <p style="text-align:center;font-size:.72rem;color:var(--muted);margin:20px auto 0;max-width:580px;line-height:1.5;">
+    Opening an account through these links may earn 3rd Eyes a referral credit at no cost to you. Availability varies by U.S. state. DraftKings &amp; FanDuel are mostly sports-focused today.
+  </p>
 </section>
 
 
