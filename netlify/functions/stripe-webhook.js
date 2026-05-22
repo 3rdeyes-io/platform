@@ -5,28 +5,37 @@
  * Flow:
  *   1. Stripe fires webhook after successful payment
  *   2. We verify the signature (prevents spoofing)
- *   3. Retrieve the session to identify Pro vs Elite plan
+ *   3. Retrieve the session to identify the plan (Pro vs Execution Pipeline)
  *   4. Create a one-time Telegram invite link for the correct channel
  *   5. Email the invite link to the subscriber via Resend
  */
 
 const stripe = require('stripe');
 
+// HTML-escape any value interpolated into the welcome-email markup. The customer
+// name comes from Stripe, but we never inject raw user text into HTML.
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 /* ── Plan routing ──────────────────────────────────────────────────────────── */
-// Map Stripe Price IDs → plan keys
+// Real products: Pro ($49/mo) and Execution Pipeline ($499 one-time, which also
+// includes Pro). There is NO separate "Elite" tier or channel — both buyers join
+// the Pro signals channel; Pipeline buyers additionally get a setup session.
 function getPlan(priceId) {
-  const proId    = process.env.STRIPE_PRO_PRICE_ID;
-  const eliteId  = process.env.STRIPE_ELITE_PRICE_ID;
-  if (priceId === eliteId)  return 'elite';
-  if (priceId === proId)    return 'pro';
+  const proId      = process.env.STRIPE_PRO_PRICE_ID;
+  const pipelineId = process.env.STRIPE_PIPELINE_PRICE_ID || process.env.STRIPE_ELITE_PRICE_ID; // back-compat env name
+  if (priceId && priceId === pipelineId) return 'pipeline';
+  if (priceId && priceId === proId)      return 'pro';
   return 'pro'; // default fallback
 }
 
-// Map plan → Telegram channel ID (negative number for channels)
-function getChannelId(plan) {
-  return plan === 'elite'
-    ? process.env.TELEGRAM_ELITE_CHANNEL_ID
-    : process.env.TELEGRAM_PRO_CHANNEL_ID;
+// Both Pro and Execution Pipeline buyers join the Pro channel (Pipeline includes
+// Pro). There is no separate Elite channel.
+function getChannelId(_plan) {
+  return process.env.TELEGRAM_PRO_CHANNEL_ID;
 }
 
 /* ── Telegram helper ───────────────────────────────────────────────────────── */
@@ -54,8 +63,13 @@ async function createTelegramInvite(channelId) {
 
 /* ── Email helper (Resend) ─────────────────────────────────────────────────── */
 async function sendWelcomeEmail({ toEmail, toName, plan, inviteLink }) {
-  const planLabel = plan === 'elite' ? 'Elite' : 'Pro';
-  const emoji     = plan === 'elite' ? '👑' : '⚡';
+  const isPipeline = plan === 'pipeline';
+  const planLabel  = isPipeline ? 'Pro + Execution Pipeline' : 'Pro';
+  const emoji      = isPipeline ? '🚀' : '⚡';
+  const firstName  = toName ? esc(toName.split(' ')[0]) : '';
+  const pipelineNote = isPipeline
+    ? `<p style="margin:0 0 24px;color:#ccc;font-size:15px;line-height:1.6;">Your <strong style="color:#818cf8;">Execution Pipeline</strong> setup is reserved - we will reach out within 24 hours to schedule your one-on-one session (your server, your keys, fully automated).</p>`
+    : '';
 
   const html = `
 <!DOCTYPE html>
@@ -76,12 +90,13 @@ async function sendWelcomeEmail({ toEmail, toName, plan, inviteLink }) {
         <tr>
           <td style="padding:36px 40px;">
             <h2 style="margin:0 0 8px;font-size:22px;color:#fff;">${emoji} Welcome to ${planLabel}!</h2>
-            <p style="margin:0 0 24px;color:#aaa;font-size:15px;">Hi${toName ? ' ' + toName.split(' ')[0] : ''},</p>
+            <p style="margin:0 0 24px;color:#aaa;font-size:15px;">Hi${firstName ? ' ' + firstName : ''},</p>
             <p style="margin:0 0 24px;color:#ccc;font-size:15px;line-height:1.6;">
-              Your <strong style="color:#00d4ff;">${planLabel} subscription</strong> is now active.
+              Your <strong style="color:#00d4ff;">${planLabel}</strong> access is now active.
               Click below to join your private signals channel - our AI posts trade alerts
               before the market moves.
             </p>
+            ${pipelineNote}
             <!-- CTA button -->
             <table cellpadding="0" cellspacing="0" style="margin:0 auto 32px;">
               <tr>
@@ -208,9 +223,10 @@ exports.handler = async (event) => {
     const priceId = fullSession.line_items?.data?.[0]?.price?.id;
     if (priceId) plan = getPlan(priceId);
   } catch (err) {
-    // Fallback: infer from amount
+    // Fallback only runs if line-item retrieval failed. Pro is $49 and the Execution
+    // Pipeline is $499 (one-time), so an amount of $100+ cleanly indicates Pipeline.
     const amount = session.amount_total || 0;
-    if (amount >= 7900) plan = 'elite';
+    if (amount >= 10000) plan = 'pipeline';
     console.warn(`Could not retrieve line items (${err.message}), inferred plan=${plan} from amount=${amount}`);
   }
 
@@ -236,7 +252,10 @@ exports.handler = async (event) => {
     await logToAdmin(
       `🎉 <b>New ${plan.toUpperCase()} subscriber</b>\n` +
       `📧 ${customerEmail}\n` +
-      `🔗 ${inviteLink}`
+      `🔗 ${inviteLink}` +
+      (plan === 'pipeline'
+        ? `\n\n💼 <b>EXECUTION PIPELINE - action needed:</b> reach out to schedule the setup session.`
+        : '')
     );
 
     return {
