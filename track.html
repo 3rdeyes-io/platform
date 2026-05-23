@@ -3,46 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3rd Eyes | Track Record - Under Reconstruction</title>
-<meta name="robots" content="noindex">
+<title>3rd Eyes | Verified Track Record</title>
+<meta name="description" content="Every 3rd Eyes weather trade, reconstructed from Kalshi's own exchange settlement and fill records. Wins, losses, and stop-loss exits — all of it.">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
-  :root { --green:#10d9a0; --muted:#94a3b8; --border:rgba(255,255,255,.1); }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    background:#050c1a; color:#e2e8f0;
+  :root{
+    --bg:#050c1a; --panel:rgba(255,255,255,.03); --border:rgba(255,255,255,.1);
+    --green:#10d9a0; --red:#f87171; --muted:#94a3b8; --dim:#64748b; --fg:#e2e8f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg); color:var(--fg);
     font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    min-height:100vh; display:flex; align-items:center; justify-content:center;
-    padding:32px; line-height:1.65;
+    line-height:1.6; padding:0 20px 80px;
   }
-  .card {
-    max-width:620px; background:rgba(255,255,255,.03);
-    border:1px solid var(--border); border-radius:18px; padding:44px 40px;
+  .wrap{max-width:880px;margin:0 auto;}
+  header{padding:28px 0 8px;}
+  .home{color:var(--dim);font-size:.85rem;text-decoration:none;font-weight:600;}
+  .home:hover{color:var(--green);}
+  .eyebrow{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin:34px 0 14px;}
+  h1{font-size:2rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:14px;letter-spacing:-.5px;}
+  .lede{color:var(--muted);font-size:1.02rem;max-width:680px;margin-bottom:8px;}
+  .period{color:var(--dim);font-size:.88rem;margin-bottom:30px;}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px;}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px 18px;}
+  .stat .v{font-size:1.9rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px;}
+  .stat .v.g{color:var(--green);}
+  .stat .k{font-size:.72rem;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-weight:600;}
+
+  .verify{display:flex;align-items:flex-start;gap:11px;background:rgba(16,217,160,.06);
+    border:1px solid rgba(16,217,160,.25);border-radius:12px;padding:15px 18px;margin:18px 0 8px;font-size:.9rem;color:#cbd5e1;}
+  .verify svg{flex:0 0 auto;margin-top:1px;}
+  .verify strong{color:#fff;}
+
+  .secnote{color:var(--muted);font-size:.9rem;margin:26px 0 14px;max-width:720px;}
+  .secnote strong{color:#cbd5e1;}
+
+  .tablewrap{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;}
+  thead th{text-align:left;font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:var(--dim);
+    font-weight:700;padding:14px 16px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.02);}
+  thead th.r,tbody td.net{text-align:right;}
+  tbody td{padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.05);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:rgba(255,255,255,.02);}
+  td.dt{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  td.mk{color:#e2e8f0;}
+  td.call{color:var(--dim);font-weight:700;font-size:.78rem;letter-spacing:.5px;}
+  td.net{font-variant-numeric:tabular-nums;font-weight:700;}
+  tr.w td.net{color:var(--green);}
+  tr.l td.net{color:var(--red);}
+  .b{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.5px;padding:3px 9px;border-radius:6px;}
+  .b.w{background:rgba(16,217,160,.14);color:var(--green);}
+  .b.l{background:rgba(248,113,113,.14);color:var(--red);}
+
+  tfoot td{padding:15px 16px;font-weight:800;color:#fff;border-top:1px solid var(--border);background:rgba(255,255,255,.02);}
+  tfoot td.net{color:var(--green);text-align:right;font-variant-numeric:tabular-nums;}
+
+  .notes{margin-top:26px;font-size:.82rem;color:var(--dim);max-width:760px;}
+  .notes li{margin-bottom:9px;list-style:none;padding-left:18px;position:relative;}
+  .notes li:before{content:"\2022";position:absolute;left:2px;color:var(--green);}
+  .disc{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);font-size:.78rem;color:var(--dim);line-height:1.7;max-width:760px;}
+  .cta{margin-top:34px;}
+  .cta a{display:inline-block;background:var(--green);color:#04140f;font-weight:800;text-decoration:none;
+    padding:13px 28px;border-radius:10px;font-size:.95rem;}
+  .cta a.ghost{background:transparent;color:var(--muted);border:1px solid var(--border);margin-left:10px;}
+
+  @media(max-width:640px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    h1{font-size:1.55rem;}
+    td.call{display:none;} thead th.call{display:none;}
+    tbody td,thead th{padding:10px 12px;}
   }
-  .eyebrow { font-size:.72rem; font-weight:700; text-transform:uppercase;
-    letter-spacing:2px; color:var(--green); margin-bottom:14px; }
-  h1 { font-size:1.6rem; font-weight:800; color:#fff; margin-bottom:18px; line-height:1.25; }
-  p { color:var(--muted); font-size:.95rem; margin-bottom:14px; }
-  strong { color:#cbd5e1; }
-  a { color:var(--green); text-decoration:none; font-weight:600; }
-  .foot { margin-top:24px; font-size:.85rem; }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="eyebrow">Track record · under reconstruction</div>
-    <h1>We took this page down on purpose.</h1>
-    <p>While reconciling our trade records, we found our data sources disagree on
-       how <strong>stop-loss exits</strong> are counted. Rather than publish a
-       win-rate figure we cannot fully stand behind, we have taken the record
-       offline.</p>
-    <p>We are rebuilding it directly from <strong>Kalshi's own settlement
-       records</strong>, the only fully verifiable source, where every trade
-       (win, loss, and stop-loss exit alike) is documented by the exchange
-       itself.</p>
-    <p>Honesty matters more to us than a number on a page. The corrected,
-       exchange-verified record will be published here when it is ready.</p>
-    <p class="foot"><a href="/">Back to 3rd Eyes</a></p>
+<div class="wrap">
+  <header><a class="home" href="/">&larr; 3rd Eyes</a></header>
+
+  <div class="eyebrow">Exchange-verified track record</div>
+  <h1>Every trade. Wins, losses, and stop-outs alike.</h1>
+  <p class="lede">This is the complete record of every weather position the 3rd Eyes
+     engine has taken, reconstructed line-by-line from <strong>Kalshi's own settlement
+     and fill records</strong> &mdash; the exchange's data, not ours.</p>
+  <p class="period">Live results &middot; Apr 23 &ndash; May 22, 2026</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v g">89.6%</div><div class="k">Win rate</div></div>
+    <div class="stat"><div class="v">43&ndash;5</div><div class="k">Win &ndash; Loss</div></div>
+    <div class="stat"><div class="v">48</div><div class="k">Settled trades</div></div>
+    <div class="stat"><div class="v g">+$57.44</div><div class="k">Net P&amp;L</div></div>
   </div>
+
+  <div class="verify">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#10d9a0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#10d9a0" stroke-width="2"/></svg>
+    <div><strong>How this is verified.</strong> Each row is the realized, per-position
+      net &mdash; total proceeds plus settlement, minus what we paid and minus exchange
+      fees. Stop-loss exits are counted in full at the price we actually got out, so a
+      market we exited early shows its true cash result, not the outcome we would have had
+      if we'd held. Nothing is rounded up, hidden, or back-filled.</div>
+  </div>
+
+  <p class="secnote">Every position is a <strong>NO</strong> bet: the engine fades
+     temperature bands the market has priced too high. The edge per trade is small by
+     design &mdash; we win often and keep losses tight. Position sizes during this live
+     validation window were modest (roughly $10&ndash;$90 per trade).</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="dt">Date</th>
+          <th>Market (daily high)</th>
+          <th class="call">Call</th>
+          <th>Result</th>
+          <th class="r">Net</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="w"><td class="dt">Apr 23</td><td class="mk">Miami &middot; &gt;82&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.46</td></tr>
+        <tr class="w"><td class="dt">Apr 23</td><td class="mk">Chicago &middot; &gt;85&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.18</td></tr>
+        <tr class="l"><td class="dt">Apr 24</td><td class="mk">Miami &middot; &gt;85&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$0.17</td></tr>
+        <tr class="w"><td class="dt">Apr 25</td><td class="mk">Miami &middot; &gt;86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.44</td></tr>
+        <tr class="w"><td class="dt">Apr 26</td><td class="mk">Los Angeles &middot; &gt;69&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.18</td></tr>
+        <tr class="w"><td class="dt">Apr 27</td><td class="mk">Los Angeles &middot; &gt;69&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.37</td></tr>
+        <tr class="w"><td class="dt">Apr 28</td><td class="mk">Miami &middot; &gt;87&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.03</td></tr>
+        <tr class="w"><td class="dt">Apr 30</td><td class="mk">Miami &middot; &gt;90&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.65</td></tr>
+        <tr class="w"><td class="dt">Apr 30</td><td class="mk">Denver &middot; &lt;42&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.46</td></tr>
+        <tr class="w"><td class="dt">May 1</td><td class="mk">Miami &middot; &gt;91&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.18</td></tr>
+        <tr class="w"><td class="dt">May 1</td><td class="mk">Chicago &middot; &gt;55&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.18</td></tr>
+        <tr class="w"><td class="dt">May 1</td><td class="mk">Los Angeles &middot; &lt;68&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.27</td></tr>
+        <tr class="w"><td class="dt">May 2</td><td class="mk">Denver &middot; &gt;74&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.44</td></tr>
+        <tr class="w"><td class="dt">May 2</td><td class="mk">Chicago &middot; &gt;58&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.27</td></tr>
+        <tr class="w"><td class="dt">May 2</td><td class="mk">Los Angeles &middot; &lt;65&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.37</td></tr>
+        <tr class="w"><td class="dt">May 2</td><td class="mk">Philadelphia &middot; &lt;60&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.37</td></tr>
+        <tr class="w"><td class="dt">May 3</td><td class="mk">Philadelphia &middot; &lt;60&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.28</td></tr>
+        <tr class="w"><td class="dt">May 3</td><td class="mk">Denver &middot; &gt;78&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.35</td></tr>
+        <tr class="w"><td class="dt">May 3</td><td class="mk">Chicago &middot; &gt;73&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.27</td></tr>
+        <tr class="w"><td class="dt">May 4</td><td class="mk">Chicago &middot; &gt;83&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.87</td></tr>
+        <tr class="w"><td class="dt">May 4</td><td class="mk">New York &middot; &gt;77&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.28</td></tr>
+        <tr class="w"><td class="dt">May 5</td><td class="mk">Austin &middot; &gt;95&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.85</td></tr>
+        <tr class="w"><td class="dt">May 6</td><td class="mk">Miami &middot; &gt;91&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.41</td></tr>
+        <tr class="w"><td class="dt">May 6</td><td class="mk">Chicago &middot; &gt;62&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.31</td></tr>
+        <tr class="w"><td class="dt">May 7</td><td class="mk">Los Angeles &middot; &lt;68&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.75</td></tr>
+        <tr class="w"><td class="dt">May 7</td><td class="mk">Miami &middot; &gt;94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.06</td></tr>
+        <tr class="w"><td class="dt">May 7</td><td class="mk">Chicago &middot; &gt;65&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.40</td></tr>
+        <tr class="l"><td class="dt">May 8</td><td class="mk">Los Angeles &middot; &lt;68&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$9.62</td></tr>
+        <tr class="w"><td class="dt">May 9</td><td class="mk">Miami &middot; &gt;94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.28</td></tr>
+        <tr class="w"><td class="dt">May 9</td><td class="mk">Los Angeles &middot; &lt;69&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.28</td></tr>
+        <tr class="w"><td class="dt">May 10</td><td class="mk">Miami &middot; &gt;93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.06</td></tr>
+        <tr class="l"><td class="dt">May 11</td><td class="mk">Los Angeles &middot; &lt;69&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$0.15</td></tr>
+        <tr class="w"><td class="dt">May 11</td><td class="mk">Miami &middot; &gt;93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.05</td></tr>
+        <tr class="w"><td class="dt">May 12</td><td class="mk">Los Angeles &middot; &lt;63&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.61</td></tr>
+        <tr class="w"><td class="dt">May 13</td><td class="mk">Los Angeles &middot; &lt;61&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.02</td></tr>
+        <tr class="w"><td class="dt">May 18</td><td class="mk">Chicago &middot; 86-87&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.03</td></tr>
+        <tr class="l"><td class="dt">May 20</td><td class="mk">Denver &middot; 54-55&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$1.23</td></tr>
+        <tr class="w"><td class="dt">May 20</td><td class="mk">Los Angeles &middot; 75-76&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.55</td></tr>
+        <tr class="w"><td class="dt">May 20</td><td class="mk">Chicago &middot; 57-58&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.30</td></tr>
+        <tr class="w"><td class="dt">May 20</td><td class="mk">Denver &middot; 60-61&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.80</td></tr>
+        <tr class="w"><td class="dt">May 21</td><td class="mk">Chicago &middot; 58-59&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$16.47</td></tr>
+        <tr class="w"><td class="dt">May 21</td><td class="mk">Austin &middot; 77-78&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.52</td></tr>
+        <tr class="w"><td class="dt">May 21</td><td class="mk">Los Angeles &middot; 70-71&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.56</td></tr>
+        <tr class="w"><td class="dt">May 22</td><td class="mk">Los Angeles &middot; 70-71&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$9.57</td></tr>
+        <tr class="l"><td class="dt">May 22</td><td class="mk">New York &middot; 63-64&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$4.27</td></tr>
+        <tr class="w"><td class="dt">May 22</td><td class="mk">Chicago &middot; &lt;64&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.14</td></tr>
+        <tr class="w"><td class="dt">May 22</td><td class="mk">Austin &middot; 91-92&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.70</td></tr>
+        <tr class="w"><td class="dt">May 22</td><td class="mk">Chicago &middot; 64-65&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.26</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">48 trades &middot; 43 wins &middot; 5 losses</td>
+          <td>89.6%</td>
+          <td class="net">+$57.44</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <ul class="notes">
+    <li><strong style="color:#cbd5e1">"Net"</strong> is realized cash per market: sell
+        proceeds + settlement payout &minus; purchase cost &minus; Kalshi fees.</li>
+    <li>The largest single result was a <strong style="color:#cbd5e1">+$16.47</strong>
+        Chicago position (May 21) that churned heavily before settling; the largest loss
+        was <strong style="color:#cbd5e1">&minus;$9.62</strong> (LA, May 8).</li>
+    <li>Only the engine's core <strong style="color:#cbd5e1">NO</strong> strategy is shown.
+        Open positions that have not yet settled on the exchange are excluded &mdash; only
+        resolved markets count here.</li>
+  </ul>
+
+  <p class="disc">
+    Past performance is not indicative of future results. Prediction-market trading
+    involves risk of loss, including the loss of your entire stake. 3rd Eyes publishes
+    research and signals for informational and educational purposes only and does not
+    provide individualized financial, investment, or trading advice. You are solely
+    responsible for your own trading decisions. Results shown reflect a specific, limited
+    live window and small position sizes and may not be representative of any other period.
+  </p>
+
+  <div class="cta">
+    <a href="/#pricing">See the signals &rarr;</a>
+    <a class="home ghost" href="/">Back to home</a>
+  </div>
+</div>
 </body>
 </html>
