@@ -200,10 +200,16 @@ exports.handler = async (event) => {
     stripeEvent = stripeClient.webhooks.constructEvent(
       rawBody,
       sig,
-      process.env.STRIPE_WEBHOOK_SECRET
+      (process.env.STRIPE_WEBHOOK_SECRET || '').trim()  // trim: a trailing newline/space in the env var silently breaks verification
     );
   } catch (err) {
-    console.error('Stripe signature verification failed:', err.message);
+    // Diagnostic detail (no secrets) to pinpoint a persistent 400: tells us whether
+    // the body was base64, its length, and the secret's prefix/length.
+    const sec = process.env.STRIPE_WEBHOOK_SECRET || '';
+    console.error('Stripe signature verification failed:', err.message,
+      '| isBase64Encoded=', event.isBase64Encoded,
+      '| rawBodyLen=', rawBody ? rawBody.length : 0,
+      '| secretPrefix=', sec.slice(0, 8), '| secretLen=', sec.length);
     return { statusCode: 400, body: `Webhook signature error: ${err.message}` };
   }
 
