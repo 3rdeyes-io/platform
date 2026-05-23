@@ -187,9 +187,18 @@ exports.handler = async (event) => {
   let stripeEvent;
   const stripeClient = stripe(process.env.STRIPE_SECRET_KEY);
 
+  // Stripe signs the EXACT raw request bytes. Netlify base64-encodes function
+  // request bodies (event.isBase64Encoded === true), so event.body is NOT the
+  // raw payload Stripe signed — passing it straight to constructEvent fails every
+  // time with "No signatures found matching the expected signature for payload".
+  // Decode back to the original UTF-8 bytes before verifying.
+  const rawBody = event.isBase64Encoded
+    ? Buffer.from(event.body, 'base64').toString('utf8')
+    : event.body;
+
   try {
     stripeEvent = stripeClient.webhooks.constructEvent(
-      event.body,                          // raw body (Netlify passes it as-is)
+      rawBody,
       sig,
       process.env.STRIPE_WEBHOOK_SECRET
     );
