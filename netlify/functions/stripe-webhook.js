@@ -97,7 +97,10 @@ async function sendWelcomeEmail({ toEmail, toName, plan, inviteLink }) {
   const emoji      = isPipeline ? '🚀' : '⚡';
   const firstName  = toName ? esc(toName.split(' ')[0]) : '';
   const pipelineNote = isPipeline
-    ? `<p style="margin:0 0 24px;color:#ccc;font-size:15px;line-height:1.6;">Your <strong style="color:#818cf8;">Execution Pipeline</strong> setup is reserved - we will reach out within 24 hours to schedule your one-on-one session (your server, your keys, fully automated).</p>`
+    ? `<p style="margin:0 0 12px;color:#ccc;font-size:15px;line-height:1.6;">Your <strong style="color:#818cf8;">Execution Pipeline</strong> is confirmed. Book your 45-minute 1-on-1 setup session now (your server, your keys, fully automated):</p>
+       <table cellpadding="0" cellspacing="0" style="margin:0 auto 28px;"><tr><td style="background:#6366f1;border-radius:8px;">
+         <a href="https://calendly.com/anilshar1327/45mins" style="display:block;padding:13px 32px;font-size:15px;font-weight:700;color:#fff;text-decoration:none;">📅 Schedule your setup call →</a>
+       </td></tr></table>`
     : '';
 
   const html = `
