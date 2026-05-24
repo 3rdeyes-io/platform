@@ -218,14 +218,26 @@ export default async (req) => {
   // RAW body, exactly as Stripe sent and signed it.
   const rawBody = await req.text();
   const stripeClient = Stripe(process.env.STRIPE_SECRET_KEY);
-  const secret = (process.env.STRIPE_WEBHOOK_SECRET || '').trim();
 
-  let stripeEvent;
-  try {
-    stripeEvent = stripeClient.webhooks.constructEvent(rawBody, sig, secret);
-  } catch (err) {
-    console.error('Stripe signature verification failed:', err.message);
-    return new Response(`Webhook signature error: ${err.message}`, { status: 400 });
+  // Accept BOTH the current and (optionally) an old account's signing secret. This
+  // lets us migrate 3rd Eyes to its own Stripe account while existing subscribers
+  // — whose subscriptions can't be moved between accounts — keep getting their
+  // cancellation / payment-failed events processed from the old account. New
+  // checkouts come from the new account (STRIPE_SECRET_KEY), so onboarding API
+  // calls use the right key; the old-account events only read the payload.
+  const secrets = [
+    (process.env.STRIPE_WEBHOOK_SECRET || '').trim(),
+    (process.env.STRIPE_WEBHOOK_SECRET_OLD || '').trim(),
+  ].filter(Boolean);
+
+  let stripeEvent = null, lastErr = null;
+  for (const s of secrets) {
+    try { stripeEvent = stripeClient.webhooks.constructEvent(rawBody, sig, s); break; }
+    catch (e) { lastErr = e; }
+  }
+  if (!stripeEvent) {
+    console.error('Stripe signature verification failed:', lastErr && lastErr.message);
+    return new Response(`Webhook signature error: ${lastErr ? lastErr.message : 'no secret configured'}`, { status: 400 });
   }
 
   const eventType = stripeEvent.type;
