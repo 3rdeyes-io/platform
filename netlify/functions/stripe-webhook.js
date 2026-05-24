@@ -302,15 +302,45 @@ export default async (req) => {
 
   console.log(`New ${plan} subscriber: ${customerEmail}`);
 
-  // Stamp the subscription with the buyer's email now, so a future cancellation
-  // alert can identify them even if they never joined the channel. The Telegram
-  // user id is added later (by telegram-webhook.js) when they join. Stripe merges
-  // metadata per-key, so these two writes don't clobber each other.
-  if (session.subscription) {
+  // Determine the subscription this buyer's channel access is tied to.
+  // - Pro (mode=subscription): the checkout already created session.subscription.
+  // - Pipeline (mode=payment, $499 one-time): no subscription exists yet, so we
+  //   create a Pro subscription with a 30-DAY FREE TRIAL using the card saved at
+  //   checkout (setup_future_usage=off_session). They pay $499 today, get Pro free
+  //   for a month, then auto-renew at $49/mo. We tie channel access to THIS sub so
+  //   cancellation auto-removes them.
+  let subId = session.subscription || null;
+
+  if (plan === 'pipeline' && session.customer) {
     try {
-      await stripeClient.subscriptions.update(session.subscription, {
-        metadata: { email: customerEmail, plan },
+      let pmId = null;
+      if (session.payment_intent) {
+        const pi = await stripeClient.paymentIntents.retrieve(session.payment_intent);
+        pmId = pi.payment_method || null;
+      }
+      const proSub = await stripeClient.subscriptions.create({
+        customer:           session.customer,
+        items:              [{ price: process.env.STRIPE_PRO_PRICE_ID }],
+        trial_period_days:  30,
+        ...(pmId ? { default_payment_method: pmId } : {}),
+        metadata:           { email: customerEmail, plan: 'pipeline' },
       });
+      subId = proSub.id;
+      console.log(`Pipeline: created trialing Pro subscription ${subId} for ${customerEmail}`);
+    } catch (e) {
+      console.error('Pipeline Pro-subscription create failed:', e.message);
+      await logToAdmin(
+        `⚠️ <b>Pipeline buyer paid $499 but the free-month Pro subscription FAILED</b>\n` +
+        `📧 ${customerEmail}\n❌ ${e.message}\nCreate their Pro sub (30-day trial) manually.`
+      );
+    }
+  }
+
+  // Stamp the (Pro) subscription with the buyer's email so a future cancellation
+  // alert can identify them. Pipeline subs already got this in create() above.
+  if (subId && plan !== 'pipeline') {
+    try {
+      await stripeClient.subscriptions.update(subId, { metadata: { email: customerEmail, plan } });
     } catch (e) {
       console.warn('Could not stamp subscription metadata:', e.message);
     }
@@ -319,7 +349,7 @@ export default async (req) => {
   // Create invite (named with the subscription id so joins can be linked back)
   // + send email.
   try {
-    const inviteLink = await createTelegramInvite(channelId, session.subscription);
+    const inviteLink = await createTelegramInvite(channelId, subId);
 
     await sendWelcomeEmail({
       toEmail: customerEmail,
