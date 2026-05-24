@@ -43,8 +43,12 @@ function getChannelId(_plan) {
   return process.env.TELEGRAM_PRO_CHANNEL_ID;
 }
 
-/* ── Telegram helper ───────────────────────────────────────────────────────── */
-async function createTelegramInvite(channelId) {
+/* ── Telegram helpers ──────────────────────────────────────────────────────── */
+// `name` is set to the Stripe subscription id (<=32 chars). When the buyer joins
+// via this one-time link, Telegram reports invite_link.name in the chat_member
+// update, letting telegram-webhook.js record their user id on the subscription —
+// which we then use to auto-remove them on cancellation.
+async function createTelegramInvite(channelId, name) {
   const expireDate = Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 7; // 7 days
   const url = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/createChatInviteLink`;
 
@@ -56,6 +60,7 @@ async function createTelegramInvite(channelId) {
       member_limit:         1,      // one-time use
       expire_date:          expireDate,
       creates_join_request: false,
+      ...(name ? { name: String(name).slice(0, 32) } : {}),
     }),
   });
 
@@ -64,6 +69,25 @@ async function createTelegramInvite(channelId) {
     throw new Error(`Telegram createChatInviteLink failed: ${data.description}`);
   }
   return data.result.invite_link;
+}
+
+// Remove a user from the channel. ban then unban = kicked WITHOUT a permanent
+// ban, so they can rejoin (with a fresh invite) if they ever resubscribe.
+async function kickFromChannel(channelId, userId) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const ban = await fetch(`https://api.telegram.org/bot${token}/banChatMember`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: channelId, user_id: Number(userId) }),
+  }).then(r => r.json()).catch(e => ({ ok: false, description: e.message }));
+
+  await fetch(`https://api.telegram.org/bot${token}/unbanChatMember`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: channelId, user_id: Number(userId), only_if_banned: true }),
+  }).catch(() => {});
+
+  return ban;
 }
 
 /* ── Email helper (Resend) ─────────────────────────────────────────────────── */
@@ -201,9 +225,45 @@ export default async (req) => {
     return new Response(`Webhook signature error: ${err.message}`, { status: 400 });
   }
 
-  // Only handle completed checkouts.
-  if (stripeEvent.type !== 'checkout.session.completed') {
-    console.log(`Ignored event type: ${stripeEvent.type}`);
+  const eventType = stripeEvent.type;
+
+  /* ── Subscription canceled / ended → remove from the Pro channel ─────────── */
+  if (eventType === 'customer.subscription.deleted') {
+    const sub       = stripeEvent.data.object;
+    const channelId = process.env.TELEGRAM_PRO_CHANNEL_ID;
+    const userId    = sub.metadata?.telegram_user_id;
+    const who       = sub.metadata?.email || sub.customer || sub.id;
+    if (userId && channelId) {
+      const res = await kickFromChannel(channelId, userId);
+      await logToAdmin(
+        `🚪 <b>Subscription canceled</b>\n📧 ${who}\n` +
+        (res?.ok ? `✅ Removed from the Pro channel.` : `⚠️ Auto-remove failed (${res?.description || '?'}) — please remove manually.`)
+      );
+    } else {
+      await logToAdmin(
+        `⚠️ <b>Subscription canceled</b>\n📧 ${who}\n` +
+        `No Telegram ID on file (they may have paid before tracking was enabled, or never joined). ` +
+        `Please remove them from the Pro channel manually.`
+      );
+    }
+    return new Response('ok', { status: 200 });
+  }
+
+  /* ── Renewal payment failed → warn (do NOT kick; Stripe retries) ─────────── */
+  if (eventType === 'invoice.payment_failed') {
+    const inv = stripeEvent.data.object;
+    const who = inv.customer_email || inv.customer;
+    await logToAdmin(
+      `💳 <b>Renewal payment failed</b>\n📧 ${who}\n` +
+      `Stripe will retry over the next few days. Access is retained until the subscription ` +
+      `ultimately cancels — at which point they're removed automatically.`
+    );
+    return new Response('ok', { status: 200 });
+  }
+
+  // Everything else: only completed checkouts proceed past here.
+  if (eventType !== 'checkout.session.completed') {
+    console.log(`Ignored event type: ${eventType}`);
     return new Response('Ignored', { status: 200 });
   }
 
@@ -239,9 +299,24 @@ export default async (req) => {
 
   console.log(`New ${plan} subscriber: ${customerEmail}`);
 
-  // Create invite + send email.
+  // Stamp the subscription with the buyer's email now, so a future cancellation
+  // alert can identify them even if they never joined the channel. The Telegram
+  // user id is added later (by telegram-webhook.js) when they join. Stripe merges
+  // metadata per-key, so these two writes don't clobber each other.
+  if (session.subscription) {
+    try {
+      await stripeClient.subscriptions.update(session.subscription, {
+        metadata: { email: customerEmail, plan },
+      });
+    } catch (e) {
+      console.warn('Could not stamp subscription metadata:', e.message);
+    }
+  }
+
+  // Create invite (named with the subscription id so joins can be linked back)
+  // + send email.
   try {
-    const inviteLink = await createTelegramInvite(channelId);
+    const inviteLink = await createTelegramInvite(channelId, session.subscription);
 
     await sendWelcomeEmail({
       toEmail: customerEmail,
