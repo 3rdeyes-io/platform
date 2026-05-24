@@ -284,7 +284,7 @@
       <div>
         <div style="font-family:'Sora',sans-serif;font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:12px;">What happens if a trade goes wrong?</div>
         <p style="font-size:.9375rem;color:#94a3b8;line-height:1.7;margin-bottom:16px;">
-          Every position is monitored every 30 seconds. If the NO price drops from 95¢ to <strong style="color:#fbbf24;">85¢</strong> (rare weather event emerging), you get an immediate Telegram alert. If it reaches <strong style="color:#ef4444;">82¢</strong>, the position is automatically closed - regardless of how much time is left.
+          Every position is monitored every 30 seconds, and the stop sits a fixed <strong>20¢ below your entry</strong> - wide enough to ride out intraday noise but not a genuine forecast miss. On a 95¢ buy: a slip to <strong style="color:#fbbf24;">~85¢</strong> fires an immediate Telegram alert, and a fall to <strong style="color:#ef4444;">75¢</strong> auto-closes the position - capping the loss at roughly 20¢ per contract (~21%), regardless of how much time is left.
         </p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
           <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
@@ -292,8 +292,8 @@
             <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Telegram warning alert fires</div>
           </div>
           <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#ef4444;font-weight:600;">82¢ threshold</div>
-            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Position closed. Slot resets to $80.</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#ef4444;font-weight:600;">75¢ stop</div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">20¢ below entry &middot; auto-closed, slot resets to $80.</div>
           </div>
           <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
             <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#10d9a0;font-weight:600;">Other 3 slots</div>
@@ -367,7 +367,7 @@
           ⚠️ <strong>Ladder mode:</strong> Each win increases your stake. A stop-loss hit at peak stake costs significantly more than at base. The "worst-case single-trade loss" reflects the maximum possible loss at your highest stake reached - not a fixed amount.
         </div>
         <div id="mode-warning-fixed" style="background:rgba(16,217,160,.06);border:1px solid rgba(16,217,160,.15);border-radius:10px;padding:14px;font-size:.8125rem;color:#6ee7b7;line-height:1.6;">
-          ✅ <strong>Fixed + Bank mode:</strong> Your per-slot stake never increases. Profits accumulate in your bank. New slots are funded from banked profits - not by risking more per trade. Maximum single-trade loss stays at ~13.7% of your base stake, always.
+          ✅ <strong>Fixed + Bank mode:</strong> Your per-slot stake never increases. Profits accumulate in your bank. New slots are funded from banked profits - not by risking more per trade. Maximum single-trade loss is capped by the stop at roughly 20¢ per contract (~21% of the position), always.
         </div>
 
         <div class="form-group" style="margin-top:14px;">
@@ -455,7 +455,7 @@
     document.getElementById('wr-label').textContent     = Math.round(wr * 100) + '%';
     document.getElementById('weeks-label').textContent  = weeks + ' week' + (weeks > 1 ? 's' : '');
 
-    const NO_PRICE = 0.95, SL_PRICE = 0.82, KALSHI_FEE = 0.01;
+    const NO_PRICE = 0.95, STOP_MARGIN = 0.20, SL_PRICE = NO_PRICE - STOP_MARGIN, KALSHI_FEE = 0.01;  // stop = entry - 20c (matches engine STOP_MARGIN)
     const applyFees = document.getElementById('calc-fees') ? document.getElementById('calc-fees').checked : true;
     const startingCapital = stake * slots;
     const totalTradesPerSlot = freq * weeks;
