@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3rd Eyes | Verified Track Record</title>
-<meta name="description" content="Every 3rd Eyes weather trade, reconstructed from Kalshi's own exchange settlement and fill records. Wins, losses, and stop-loss exits — all of it.">
+<meta name="description" content="Every 3rd Eyes weather trade, reconstructed from Kalshi's own exchange settlement and fill records. Wins, losses, and stop-loss exits - all of it.">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
   :root{
@@ -102,20 +102,20 @@
   <h1>Every trade. Wins, losses, and stop-outs alike.</h1>
   <p class="lede">This is the complete record of every weather position the 3rd Eyes
      engine has taken, reconstructed line-by-line from <strong>Kalshi's own settlement
-     and fill records</strong> &mdash; the exchange's data, not ours.</p>
-  <p class="period" id="t-period">Live results &middot; Apr 23 &ndash; May 23, 2026</p>
+     and fill records</strong> - the exchange's data, not ours.</p>
+  <p class="period" id="t-period">Live results &middot; Apr 23 - May 23, 2026</p>
 
   <div class="stats">
-    <div class="stat"><div class="v g" id="t-wr">87.8%</div><div class="k">Win rate</div></div>
-    <div class="stat"><div class="v" id="t-wl">43&ndash;6</div><div class="k">Win &ndash; Loss</div></div>
+    <div class="stat"><div class="v g" id="t-wr">88.0%</div><div class="k">Win rate</div></div>
+    <div class="stat"><div class="v" id="t-wl">44-6</div><div class="k">Win - Loss</div></div>
     <div class="stat"><div class="v" id="t-n">49</div><div class="k">Settled trades</div></div>
-    <div class="stat"><div class="v g" id="t-net">+$33.53</div><div class="k">Net P&amp;L</div></div>
+    <div class="stat"><div class="v g" id="t-net">+$44.97</div><div class="k">Net P&amp;L</div></div>
   </div>
 
   <div class="verify">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#10d9a0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#10d9a0" stroke-width="2"/></svg>
     <div><strong>How this is verified.</strong> Each row is the realized, per-position
-      net &mdash; total proceeds plus settlement, minus what we paid and minus exchange
+      net - total proceeds plus settlement, minus what we paid and minus exchange
       fees. Stop-loss exits are counted in full at the price we actually got out, so a
       market we exited early shows its true cash result, not the outcome we would have had
       if we'd held. Nothing is rounded up, hidden, or back-filled.</div>
@@ -123,8 +123,8 @@
 
   <p class="secnote">Every position is a <strong>NO</strong> bet: the engine fades
      temperature bands the market has priced too high. The edge per trade is small by
-     design &mdash; we win often and keep losses tight. Position sizes during this live
-     validation window were modest (roughly $10&ndash;$90 per trade).</p>
+     design - we win often and keep losses tight. Position sizes during this live
+     validation window were modest (roughly $10-$90 per trade).</p>
 
   <div class="tablewrap">
     <table>
@@ -190,9 +190,9 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3" id="t-foot">49 trades &middot; 43 wins &middot; 6 losses</td>
-          <td id="t-foot-wr">87.8%</td>
-          <td class="net" id="t-foot-net">+$33.53</td>
+          <td colspan="3" id="t-foot">50 trades &middot; 44 wins &middot; 6 losses</td>
+          <td id="t-foot-wr">88.0%</td>
+          <td class="net" id="t-foot-net">+$44.97</td>
         </tr>
       </tfoot>
     </table>
@@ -200,13 +200,13 @@
 
   <ul class="notes">
     <li><strong style="color:#cbd5e1">"Net"</strong> is realized cash per market: sell
-        proceeds + settlement payout &minus; purchase cost &minus; Kalshi fees.</li>
+        proceeds + settlement payout - purchase cost - Kalshi fees.</li>
     <li>The largest single result was a <strong style="color:#cbd5e1">+$16.47</strong>
         Chicago position (May 21) that churned heavily before settling; the largest loss
-        was <strong style="color:#cbd5e1">&minus;$23.91</strong> (LA, May 23) &mdash; a
+        was <strong style="color:#cbd5e1">-$23.91</strong> (LA, May 23) - a
         stop-loss on a narrow 1&deg; coastal band.</li>
     <li>Only the engine's core <strong style="color:#cbd5e1">NO</strong> strategy is shown.
-        Open positions that have not yet settled on the exchange are excluded &mdash; only
+        Open positions that have not yet settled on the exchange are excluded - only
         resolved markets count here.</li>
   </ul>
 
@@ -232,7 +232,7 @@ fetch('/.netlify/functions/ledger').then(r => r.ok ? r.json() : null).then(d => 
   if (!d || !Array.isArray(d.rows) || !d.rows.length) return;
   const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
   set('t-wr', d.winRate);
-  set('t-wl', d.wins + '–' + d.losses);
+  set('t-wl', d.wins + '-' + d.losses);
   set('t-n', d.trades);
   set('t-net', d.net);
   set('t-foot', d.trades + ' trades · ' + d.wins + ' wins · ' + d.losses + ' losses');

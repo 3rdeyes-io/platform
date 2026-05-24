@@ -423,7 +423,7 @@
 
     <div class="card">
       <div class="card-title">Core Thesis in One Sentence</div>
-      <p>When an independent multi-model ensemble and the HRRR hourly update agree that a temperature threshold will NOT be reached, and the market is still pricing that event at 3–18¢ (implying 3–18% probability), the true probability is materially lower, creating positive EV on the NO side.</p>
+      <p>When an independent multi-model ensemble and the HRRR hourly update agree that a temperature threshold will NOT be reached, and the market is still pricing that event at 3-18¢ (implying 3-18% probability), the true probability is materially lower, creating positive EV on the NO side.</p>
     </div>
 
     <p>We operate exclusively on <strong>NO contracts</strong>, betting that a temperature threshold will not be exceeded (for high-temp markets) or not be reached (for low-temp markets). This creates asymmetric payouts: risk $X to win ~$Y where Y &gt; X if probability is mispriced by ≥5 percentage points.</p>
@@ -437,8 +437,8 @@
     <div class="card">
       <div class="card-title">🌐 Multi-Model Forecast Ensemble</div>
       <p><strong>Source:</strong> Four independent global numerical weather models - GFS (NOAA), ECMWF, ICON (DWD) and GEM (Environment Canada).</p>
-      <p><strong>Resolution:</strong> ~9–25 km horizontal; each model re-runs every 6–12 hours.</p>
-      <p><strong>Lead time used:</strong> 12–96 hours (Day 0 through Day 4)</p>
+      <p><strong>Resolution:</strong> ~9-25 km horizontal; each model re-runs every 6-12 hours.</p>
+      <p><strong>Lead time used:</strong> 12-96 hours (Day 0 through Day 4)</p>
       <p><strong>Role in signal:</strong> Primary temperature forecast. Pooling four independent models cancels out any single model's bias; the spread across them quantifies uncertainty. Narrow spread (low σ) = strong agreement = high confidence.</p>
       <p><strong>Key metric:</strong> Ensemble mean 2m temperature vs. the market threshold. A calibrated minimum separation (the "buffer") is required before a signal is scored - exact thresholds are proprietary.</p>
     </div>
@@ -447,7 +447,7 @@
       <div class="card-title">🛰 HRRR (High-Resolution Rapid Refresh)</div>
       <p><strong>Source:</strong> NOAA/ESRL HRRR - single deterministic model</p>
       <p><strong>Resolution:</strong> 3 km horizontal, hourly runs</p>
-      <p><strong>Lead time used:</strong> 0–36 hours (same-day and next-day markets only)</p>
+      <p><strong>Lead time used:</strong> 0-36 hours (same-day and next-day markets only)</p>
       <p><strong>Role in signal:</strong> Confirmation for near-term signals. HRRR assimilates real-time radar, surface observations, and satellite data - it has materially higher skill at ≤24 hours than the global models.</p>
       <p><strong>Key metric:</strong> HRRR maximum 2m temperature vs. the market threshold. Agreement with the ensemble required for signal publication.</p>
     </div>
@@ -467,17 +467,17 @@
       <tbody>
         <tr>
           <td>Best for</td>
-          <td>Day 2–4 signals</td>
+          <td>Day 2-4 signals</td>
           <td>Same-day / Day 1 signals</td>
         </tr>
         <tr>
           <td>Resolution</td>
-          <td>~9–25 km</td>
+          <td>~9-25 km</td>
           <td>3 km</td>
         </tr>
         <tr>
           <td>Update frequency</td>
-          <td>Every 6–12 h</td>
+          <td>Every 6-12 h</td>
           <td>Hourly</td>
         </tr>
         <tr>
@@ -543,7 +543,7 @@
       <div class="card-title">Step 3: Buffer Calculation</div>
       <p>Compute the temperature buffer: the gap between the forecast high and the Kalshi threshold:</p>
       <div class="formula">
-        buffer = | forecast high − market threshold |<br>
+        buffer = | forecast high - market threshold |<br>
         A signal is published only when the buffer clears a calibrated<br>
         minimum. Exact thresholds are proprietary.
       </div>
@@ -552,7 +552,7 @@
 
     <div class="card">
       <div class="card-title">Step 4: Multi-Model Confirmation</div>
-      <p>For ≤36h markets, HRRR must independently agree with the ensemble. For Day 2–4 markets, the model ensemble spread must fall within a calibrated tolerance; high spread = uncertain = no signal.</p>
+      <p>For ≤36h markets, HRRR must independently agree with the ensemble. For Day 2-4 markets, the model ensemble spread must fall within a calibrated tolerance; high spread = uncertain = no signal.</p>
     </div>
 
     <div class="card">
@@ -587,15 +587,15 @@
           <td><span class="badge badge-safe">Safe</span> <span class="badge badge-med">Medium</span> <span class="badge badge-agg">Aggressive</span></td>
         </tr>
         <tr>
-          <td><strong style="color:#f59e0b;">88 – 93%</strong></td>
-          <td>1.5 – 3°F</td>
+          <td><strong style="color:#f59e0b;">88 - 93%</strong></td>
+          <td>1.5 - 3°F</td>
           <td>&lt; 3°F σ</td>
           <td>Moderate conviction: good buffer, manageable spread</td>
           <td><span class="badge badge-med">Medium</span> <span class="badge badge-agg">Aggressive</span></td>
         </tr>
         <tr>
-          <td><strong style="color:#94a3b8;">84 – 88%</strong></td>
-          <td>0.5 – 1.5°F</td>
+          <td><strong style="color:#94a3b8;">84 - 88%</strong></td>
+          <td>0.5 - 1.5°F</td>
           <td>&lt; 4°F σ</td>
           <td>Lower conviction: edge exists but thinner; smallest size only</td>
           <td><span class="badge badge-agg">Aggressive only</span></td>
@@ -632,23 +632,23 @@
         <tbody>
           <tr>
             <td><span class="badge badge-safe">Safe</span></td>
-            <td>$20 – $40</td>
-            <td>1–2</td>
-            <td>$20 – $80</td>
+            <td>$20 - $40</td>
+            <td>1-2</td>
+            <td>$20 - $80</td>
             <td>≥ 93% win-prob</td>
           </tr>
           <tr>
             <td><span class="badge badge-med">Medium</span></td>
-            <td>$40 – $80</td>
-            <td>2–4</td>
-            <td>$80 – $320</td>
+            <td>$40 - $80</td>
+            <td>2-4</td>
+            <td>$80 - $320</td>
             <td>≥ 88% win-prob</td>
           </tr>
           <tr>
             <td><span class="badge badge-agg">Aggressive</span></td>
-            <td>$80 – $160</td>
+            <td>$80 - $160</td>
             <td>4</td>
-            <td>$320 – $640</td>
+            <td>$320 - $640</td>
             <td>≥ 84% win-prob</td>
           </tr>
         </tbody>
@@ -663,7 +663,7 @@
         LOSS: new_stake[slot] = BASE_STAKE         ← reset to base (no progressive loss)<br>
         SKIP: new_stake[slot] = unchanged          ← thin fills don't reset compounding
       </div>
-      <p>Each slot compounds independently. A loss in Slot 1 does not affect Slots 2–4. This contains drawdown to individual slot level.</p>
+      <p>Each slot compounds independently. A loss in Slot 1 does not affect Slots 2-4. This contains drawdown to individual slot level.</p>
     </div>
 
     <div class="card">
@@ -684,11 +684,11 @@
       <div class="card-title">Kalshi Fee Structure</div>
       <p>Kalshi charges a flat $0.01 per contract fee on fills. This fee applies to both entry and exit (stop-loss) fills.</p>
       <div class="formula">
-        Net profit per win = payout − entry_cost − (contracts × $0.01)<br>
-        Example: 84 contracts @ 95¢ NO → win payout $84 − cost $79.80 − fee $0.84 = net +$3.36<br>
-        Example: 84 contracts @ 97¢ NO → win payout $84 − cost $81.48 − fee $0.84 = net +$1.68
+        Net profit per win = payout - entry_cost - (contracts × $0.01)<br>
+        Example: 84 contracts @ 95¢ NO → win payout $84 - cost $79.80 - fee $0.84 = net +$3.36<br>
+        Example: 84 contracts @ 97¢ NO → win payout $84 - cost $81.48 - fee $0.84 = net +$1.68
       </div>
-      <p>At high NO prices (95¢+), the fee is material (25–50% of gross profit). Always check net-of-fees EV before sizing up.</p>
+      <p>At high NO prices (95¢+), the fee is material (25-50% of gross profit). Always check net-of-fees EV before sizing up.</p>
     </div>
   </div>
 
@@ -716,7 +716,7 @@
 
     <div class="card">
       <div class="card-title">Rule 4: Slot isolation</div>
-      <p>Each of the 4 slots is financially independent. Slot 1 losing does not trigger additional exposure from Slots 2–4. Maximum simultaneous exposure = 4 × slot_stake, and each slot resets independently on loss.</p>
+      <p>Each of the 4 slots is financially independent. Slot 1 losing does not trigger additional exposure from Slots 2-4. Maximum simultaneous exposure = 4 × slot_stake, and each slot resets independently on loss.</p>
     </div>
   </div>
 
@@ -741,7 +741,7 @@
           <td><strong>Sudden synoptic shift</strong></td>
           <td>A frontal system moves faster or slower than models predict, pushing temps across the threshold after signal entry</td>
           <td>Stop-loss at 82¢</td>
-          <td>~1–2% of trades</td>
+          <td>~1-2% of trades</td>
         </tr>
         <tr>
           <td><strong>Urban heat island miss</strong></td>
@@ -757,7 +757,7 @@
         </tr>
         <tr>
           <td><strong>Model initialization error</strong></td>
-          <td>A bad radiosonde observation poisons the GFS analysis, creating a systematically wrong forecast for 1–2 days</td>
+          <td>A bad radiosonde observation poisons the GFS analysis, creating a systematically wrong forecast for 1-2 days</td>
           <td>HRRR cross-check (HRRR uses independent radar data)</td>
           <td>&lt;0.5% of trades</td>
         </tr>
@@ -769,7 +769,7 @@
         </tr>
         <tr>
           <td><strong>Summer convective season</strong></td>
-          <td>June–August afternoon convection randomizes peak temperatures; model uncertainty 3× higher than spring</td>
+          <td>June-August afternoon convection randomizes peak temperatures; model uncertainty 3× higher than spring</td>
           <td>Lower-band signals (&lt; 90% win-prob) suspended; position sizing halved on the rest</td>
           <td>Seasonal - 3 months/year</td>
         </tr>
