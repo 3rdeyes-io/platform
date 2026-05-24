@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3rd Eyes | Quick-Start Guide</title>
+<meta name="description" content="From sign-up to your first trade in five simple steps. How to get 3rd Eyes weather signals and place them on Kalshi, Coinbase, or Robinhood.">
+<meta property="og:title" content="3rd Eyes - Quick-Start Guide">
+<meta property="og:description" content="From sign-up to your first trade in five simple steps.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://3rdeyes.io/start">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://3rdeyes.io/start">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --green: #10d9a0; --gold: #f59e0b; --blue: #6366f1;
+    --muted: #94a3b8; --dim: #64748b;
+    --card: rgba(255,255,255,0.04); --border: rgba(255,255,255,0.08);
+  }
+  body { font-family: 'Inter', sans-serif; background: #050c1a; color: #e2e8f0; line-height: 1.6; font-size: 15px; min-height: 100vh; }
+
+  .top-nav {
+    position: sticky; top: 0; z-index: 50; background: rgba(5,12,26,.95);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
+    padding: 12px 5%; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .top-nav a { color: #94a3b8; text-decoration: none; font-size: .8rem; transition: color .2s; }
+  .top-nav a:hover { color: var(--green); }
+  .top-nav a.active { color: var(--green); }
+  .top-nav .brand { font-family: 'Sora',sans-serif; font-weight: 700; color: var(--green); margin-right: auto; font-size: 1rem; }
+
+  .hero {
+    padding: 64px 5% 36px; text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,217,160,.08) 0%, transparent 70%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero .label {
+    display: inline-block; font-size: .72rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--green); font-weight: 700; background: rgba(16,217,160,.08);
+    border: 1px solid rgba(16,217,160,.2); padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Sora', sans-serif; font-size: clamp(1.9rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 14px;
+    background: linear-gradient(135deg, #10d9a0, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p { color: #cbd5e1; max-width: 620px; margin: 0 auto; font-size: 1.02rem; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 48px 5% 24px; }
+
+  .step {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px 26px; margin-bottom: 18px;
+  }
+  .step-num {
+    flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, #10d9a0, #0891b2); color: #050c1a;
+    font-family: 'Sora',sans-serif; font-weight: 800; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step h3 { font-family: 'Sora',sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 6px; font-weight: 700; }
+  .step p { color: var(--muted); font-size: .92rem; line-height: 1.65; margin: 0; }
+  .step p a { color: var(--green); text-decoration: none; }
+  .step p a:hover { text-decoration: underline; }
+
+  .support {
+    max-width: 760px; margin: 8px auto 0; padding: 0 5%;
+  }
+  .support-box {
+    background: rgba(99,102,241,.06); border: 1px solid rgba(99,102,241,.2); border-radius: 16px;
+    padding: 26px 28px; text-align: center;
+  }
+  .support-box h3 { font-family: 'Sora',sans-serif; color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
+  .support-box p { color: var(--muted); font-size: .92rem; margin: 0 auto; max-width: 520px; }
+  .support-box a { color: var(--green); text-decoration: none; font-weight: 600; }
+
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 32px auto 8px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 10px;
+    text-decoration: none; font-weight: 700; font-size: .94rem;
+  }
+  .btn-primary { background: var(--green); color: #050c1a; }
+  .btn-secondary { background: rgba(255,255,255,.05); color: #e2e8f0; border: 1px solid var(--border); }
+
+  footer { text-align: center; padding: 40px 5%; border-top: 1px solid var(--border); color: var(--dim); font-size: .8rem; margin-top: 48px; }
+  footer a { color: var(--green); text-decoration: none; }
+
+  /* Accessibility: honor OS "reduce motion". */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <span class="brand">👁 3rd Eyes</span>
+  <a href="/">Home</a>
+  <a href="/start" class="active">Quick Start</a>
+  <a href="/sizing">Sizing & Risk</a>
+  <a href="/track">Track Record</a>
+  <a href="/methodology">Methodology</a>
+</nav>
+
+<section class="hero">
+  <div class="label">Quick-Start Guide</div>
+  <h1>From sign-up to your first trade.</h1>
+  <p>Five simple steps. No trading experience needed - and you always stay in full control of your own account and funds.</p>
+</section>
+
+<main>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div>
+      <h3>Get the signals (free)</h3>
+      <p>Drop your email on the <a href="/">home page</a>, or join our free <a href="https://t.me/thirdeyes_signals" target="_blank" rel="noopener">Telegram channel</a> directly. Every signal tells you the city, the exact contract, the model's win-probability, and the NO price to pay.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div>
+      <h3>Open a trading account</h3>
+      <p>Our signals settle on <strong style="color:#cbd5e1;">Kalshi</strong>, a CFTC-regulated exchange. The same temperature contracts also trade on <strong style="color:#cbd5e1;">Coinbase</strong> and <strong style="color:#cbd5e1;">Robinhood</strong> - use whichever app you prefer (see <a href="/#where-to-trade">where to trade</a>). You fund and control your own account; 3rd Eyes never touches your money.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div>
+      <h3>Wait for a signal</h3>
+      <p>We only send one when all four weather models agree and the market is mispriced - that is roughly 4-8 a month, not dozens a day. Quiet weather means no signal, and that is by design: quality over quantity.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div>
+      <h3>Place the trade</h3>
+      <p>Open the contract in your app, buy <strong style="color:var(--green);">NO</strong> at or below the listed price, and you are done. Place it, set it down, get on with your day - most markets settle the same or the next day.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div>
+      <h3>Size it sensibly and track results</h3>
+      <p>Start small. Use the <a href="/sizing">Sizing &amp; Risk</a> guide to choose a stake and understand the stop-loss, and never stake more than you can afford to lose. Every trade we publish is verifiable on the public <a href="/track">Track Record</a>. When you are ready for full coverage, <a href="/#pricing">upgrade to Pro</a>.</p>
+    </div>
+  </div>
+
+</main>
+
+<div class="support">
+  <div class="support-box">
+    <h3>Need a hand?</h3>
+    <p>Email us at <a href="mailto:support@3rdeyes.io">support@3rdeyes.io</a> or message us on <a href="https://t.me/thirdeyes_signals" target="_blank" rel="noopener">Telegram</a>. We usually reply within a day. New to prediction markets? The <a href="/methodology">methodology</a> explains exactly how the signals are built.</p>
+  </div>
+</div>
+
+<div class="cta-row">
+  <a href="/" class="btn btn-primary">Get free signals →</a>
+  <a href="/track" class="btn btn-secondary">See the track record</a>
+</div>
+
+<footer>
+  <a href="/">Back to home</a> &middot; <a href="/track">Live track record</a> &middot; <a href="/sizing">Sizing &amp; Risk</a> &middot; <a href="/methodology">Methodology v1.0</a><br>
+  <span style="font-size:.7rem;display:inline-block;margin-top:10px;">© 2026 3rd Eyes. Research and signals only, not investment advice. Past performance does not guarantee future results.</span>
+</footer>
+
+</body>
+</html>
