@@ -17,6 +17,24 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: 'Invalid email' };
   }
 
+  // Add the subscriber to the Resend audience so they receive signal emails.
+  // No-op until RESEND_AUDIENCE_ID is set, so this never breaks the welcome flow.
+  const audienceId = process.env.RESEND_AUDIENCE_ID;
+  if (audienceId) {
+    try {
+      await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({ email, unsubscribed: false }),
+      });
+    } catch (err) {
+      console.error('Resend audience add failed:', err.message);
+    }
+  }
+
   const channelUrl = 'https://t.me/thirdeyes_signals';
 
   const html = `
