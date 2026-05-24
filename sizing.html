@@ -141,6 +141,9 @@
     z-index: 20;
   }
   .tip:hover::after, .tip:focus::after { opacity: 1; transform: translateX(-50%) scale(1); }
+  .preset-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 26px; }
+  .preset-btn { background: rgba(255,255,255,.05); border: 1px solid var(--border); color: #cbd5e1; border-radius: 999px; padding: 8px 16px; font-size: .82rem; font-weight: 600; font-family: 'Inter',sans-serif; cursor: pointer; transition: border-color .15s, background .15s; }
+  .preset-btn:hover, .preset-btn:focus-visible { border-color: var(--green); background: rgba(16,217,160,.08); outline: none; }
   input[type=range] {
     width: 100%; accent-color: var(--green);
     height: 4px; border-radius: 2px; background: rgba(255,255,255,.1);
@@ -198,6 +201,7 @@
   <span class="brand">👁 3rd Eyes</span>
   <a href="/">← Home</a>
   <a href="/start">Quick Start</a>
+  <a href="/resources">Resources</a>
   <a href="/sizing" class="active">Sizing & Risk</a>
   <a href="/track">Track Record</a>
   <a href="/methodology">Methodology</a>
@@ -334,6 +338,13 @@
       </div>
     </div>
 
+    <div class="preset-row">
+      <span style="font-size:.78rem;color:var(--muted);">Quick preset:</span>
+      <button type="button" class="preset-btn" onclick="setPreset('conservative')">🟢 Conservative</button>
+      <button type="button" class="preset-btn" onclick="setPreset('moderate')">🟡 Moderate</button>
+      <button type="button" class="preset-btn" onclick="setPreset('aggressive')">🔴 Aggressive</button>
+    </div>
+
     <div class="calc-wrap">
       <div class="calc-form">
         <div class="form-group">
@@ -412,6 +423,20 @@
 
 <script>
   let calcMode = 'fixed';
+
+  // Preset templates: set the sliders to a conservative / moderate / aggressive scenario.
+  function setPreset(name){
+    var P = { conservative:{stake:50,slots:1,freq:0.5,wr:90,weeks:12},
+              moderate:{stake:80,slots:4,freq:0.5,wr:88,weeks:12},
+              aggressive:{stake:150,slots:4,freq:1,wr:85,weeks:12} }[name];
+    if(!P) return;
+    document.getElementById('calc-stake').value = P.stake;
+    document.getElementById('calc-slots').value = P.slots;
+    document.getElementById('calc-freq').value  = P.freq;
+    document.getElementById('calc-wr').value     = P.wr;
+    document.getElementById('calc-weeks').value  = P.weeks;
+    recalc();
+  }
 
   function switchMode(mode) {
     calcMode = mode;

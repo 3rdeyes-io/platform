@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3rd Eyes | Resource Center</title>
+<meta name="description" content="Learn how prediction markets work, how weather models generate an edge, how to read a signal, and how to trade responsibly. Plus a plain-English glossary.">
+<meta property="og:title" content="3rd Eyes - Resource Center">
+<meta property="og:description" content="Prediction markets, weather models, reading a signal, responsible trading, and a glossary - in plain English.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://3rdeyes.io/resources">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://3rdeyes.io/resources">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --green:#10d9a0; --gold:#f59e0b; --blue:#6366f1; --muted:#94a3b8; --dim:#64748b; --card:rgba(255,255,255,0.04); --border:rgba(255,255,255,0.08); }
+  body { font-family:'Inter',sans-serif; background:#050c1a; color:#e2e8f0; line-height:1.7; font-size:15px; }
+  .top-nav { position:sticky; top:0; z-index:50; background:rgba(5,12,26,.95); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:12px 5%; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  .top-nav a { color:#94a3b8; text-decoration:none; font-size:.8rem; transition:color .2s; }
+  .top-nav a:hover, .top-nav a.active { color:var(--green); }
+  .top-nav .brand { font-family:'Sora',sans-serif; font-weight:700; color:var(--green); margin-right:auto; font-size:1rem; }
+  .hero { padding:64px 5% 36px; text-align:center; background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,217,160,.08) 0%, transparent 70%); border-bottom:1px solid var(--border); }
+  .hero .label { display:inline-block; font-size:.72rem; text-transform:uppercase; letter-spacing:.12em; color:var(--green); font-weight:700; background:rgba(16,217,160,.08); border:1px solid rgba(16,217,160,.2); padding:6px 14px; border-radius:999px; margin-bottom:18px; }
+  .hero h1 { font-family:'Sora',sans-serif; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:800; margin-bottom:14px; background:linear-gradient(135deg,#10d9a0,#6366f1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero p { color:#cbd5e1; max-width:620px; margin:0 auto; font-size:1.02rem; }
+  main { max-width:760px; margin:0 auto; padding:48px 5% 24px; }
+  .toc { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:44px; }
+  .toc a { font-size:.8rem; color:var(--muted); border:1px solid var(--border); border-radius:999px; padding:6px 14px; text-decoration:none; transition:border-color .15s,color .15s; }
+  .toc a:hover { color:var(--green); border-color:var(--green); }
+  article { margin-bottom:44px; scroll-margin-top:80px; }
+  article h2 { font-family:'Sora',sans-serif; font-size:1.4rem; color:#f1f5f9; margin-bottom:14px; font-weight:700; }
+  article p { color:#cbd5e1; margin-bottom:14px; font-size:.96rem; }
+  article p a { color:var(--green); text-decoration:none; } article p a:hover { text-decoration:underline; }
+  .gloss { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:8px 24px; }
+  .gloss dt { font-family:'Sora',sans-serif; font-weight:700; color:#fff; font-size:.96rem; margin-top:18px; }
+  .gloss dd { color:var(--muted); font-size:.92rem; margin:4px 0 0; padding-bottom:16px; border-bottom:1px solid var(--border); }
+  .gloss dd:last-child { border-bottom:none; }
+  .note { background:rgba(251,191,36,.06); border:1px solid rgba(251,191,36,.2); border-radius:12px; padding:16px 18px; font-size:.88rem; color:#fde68a; line-height:1.6; }
+  .cta-row { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:8px auto 0; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:10px; text-decoration:none; font-weight:700; font-size:.94rem; }
+  .btn-primary { background:var(--green); color:#050c1a; }
+  .btn-secondary { background:rgba(255,255,255,.05); color:#e2e8f0; border:1px solid var(--border); }
+  footer { text-align:center; padding:40px 5%; border-top:1px solid var(--border); color:var(--dim); font-size:.8rem; margin-top:48px; }
+  footer a { color:var(--green); text-decoration:none; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important; } }
+  a:focus-visible, button:focus-visible { outline:2px solid var(--green); outline-offset:2px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <span class="brand">👁 3rd Eyes</span>
+  <a href="/">Home</a>
+  <a href="/start">Quick Start</a>
+  <a href="/resources" class="active">Resources</a>
+  <a href="/sizing">Sizing & Risk</a>
+  <a href="/track">Track Record</a>
+  <a href="/methodology">Methodology</a>
+</nav>
+
+<section class="hero">
+  <div class="label">Resource Center</div>
+  <h1>Understand the markets,<br>the models, and the risk.</h1>
+  <p>Plain-English explainers of how prediction markets work, where our edge comes from, how to read a signal, and how to trade responsibly. New here? Start with the basics below.</p>
+</section>
+
+<main>
+  <div class="toc">
+    <a href="#prediction-markets">Prediction markets</a>
+    <a href="#why-weather">Why weather</a>
+    <a href="#how-we-forecast">How we forecast</a>
+    <a href="#reading-a-signal">Reading a signal</a>
+    <a href="#responsible-trading">Responsible trading</a>
+    <a href="#glossary">Glossary</a>
+  </div>
+
+  <article id="prediction-markets">
+    <h2>What are prediction markets?</h2>
+    <p>A prediction market is a regulated exchange where you trade simple contracts on real-world outcomes - for example, "the high temperature in New York stays below 75&deg;F today." Each contract settles at <strong>$1 if it turns out correct</strong> and <strong>$0 if not</strong>, so the price along the way (say, 95&cent;) reflects the market's implied probability of that outcome (about 95%).</p>
+    <p>Every contract has two sides: <strong>YES</strong> (the event happens) and <strong>NO</strong> (it does not). You can take either side. <strong>Kalshi</strong> is a CFTC-regulated US exchange - the same federal regulator that oversees the major futures markets - and it lists the temperature contracts our signals focus on. The identical contracts are also carried by Coinbase and Robinhood.</p>
+  </article>
+
+  <article id="why-weather">
+    <h2>Why temperature markets?</h2>
+    <p>Daily high- and low-temperature contracts have three useful properties: they are reasonably liquid, they settle quickly (usually the same or the next day), and they are frequently mispriced. Casual traders tend to chase extreme-temperature longshots, which leaves the <strong>NO</strong> side of those longshots priced too cheaply.</p>
+    <p>That is the gap we trade. When professional weather models are confident a temperature threshold will <em>not</em> be reached, but the market still prices that outcome as a real possibility, buying NO carries positive expected value. We focus on NO because the edge is larger and the forecast is easier to get right.</p>
+  </article>
+
+  <article id="how-we-forecast">
+    <h2>How we forecast</h2>
+    <p>We run an <strong>ensemble of four independent global weather models</strong> (GFS, ECMWF, ICON, GEM) plus the high-resolution, hourly-updating <strong>HRRR</strong> model. The spread across those models is our measure of uncertainty: when they all cluster far from a market's threshold, confidence is high; when they disagree, we stay out.</p>
+    <p>A signal only fires when several checks clear at once: a sufficient temperature <strong>buffer</strong> between the forecast and the threshold, agreement across all models, HRRR confirmation, a low ensemble spread, and a pricing <strong>edge</strong> over the market. If any check fails, we do not trade - which is why a typical day produces only a handful of signals across 40+ cities. The full method is in the <a href="/methodology">methodology</a>.</p>
+  </article>
+
+  <article id="reading-a-signal">
+    <h2>Reading a signal</h2>
+    <p>Each alert gives you everything you need in one message: the <strong>city</strong>, the <strong>exact contract</strong>, the model's <strong>win-probability</strong>, the <strong>NO price</strong> to pay, and a confidence grade. To act on it, open that contract in your trading app, buy NO at or below the listed price, and you are done - most markets settle the same or the next day.</p>
+    <p>New to placing trades? The <a href="/start">quick-start guide</a> walks through it step by step, and the <a href="/sizing">sizing &amp; risk</a> page helps you choose how much to stake.</p>
+  </article>
+
+  <article id="responsible-trading">
+    <h2>Responsible trading</h2>
+    <p>These are real markets with real risk. <strong>You can lose your entire stake on any single trade.</strong> A high win rate is not a guarantee - even a long, honest record will have losing streaks, and small-edge NO positions can still go to zero on a rare-weather day.</p>
+    <div class="note">Only ever trade with discretionary funds you can afford to lose entirely. Size positions conservatively, use the built-in stop-loss, and treat the calculator as a sensitivity tool - not a forecast. Past performance does not guarantee future results. 3rd Eyes publishes research and signals only; it is not personalized investment advice.</div>
+  </article>
+
+  <article id="glossary">
+    <h2>Glossary</h2>
+    <dl class="gloss">
+      <dt>Prediction market</dt><dd>A regulated exchange for trading contracts on real-world outcomes. Each contract pays $1 if correct, $0 if not.</dd>
+      <dt>Kalshi</dt><dd>A CFTC-regulated US exchange that lists the temperature contracts our signals trade. Coinbase and Robinhood carry the same contracts.</dd>
+      <dt>Contract</dt><dd>One tradeable position on a specific outcome, e.g. "Chicago high stays below 62&deg;F today."</dd>
+      <dt>NO side / YES side</dt><dd>NO wins if the stated event does not happen; YES wins if it does. We trade NO on thresholds we are confident will not be reached.</dd>
+      <dt>Win-probability</dt><dd>Our model's calibrated estimate of the chance a contract settles in your favor.</dd>
+      <dt>Edge</dt><dd>The gap between our model's win-probability and the market's implied price. A positive edge means the market is mispricing the outcome.</dd>
+      <dt>Buffer</dt><dd>How far the forecast sits from the market's threshold, in &deg;F. A bigger buffer means a safer trade.</dd>
+      <dt>Ensemble</dt><dd>Running several independent weather models and measuring how closely they agree.</dd>
+      <dt>HRRR</dt><dd>A high-resolution, hourly-updating US weather model used to confirm the ensemble forecast.</dd>
+      <dt>Settlement</dt><dd>When a market closes and pays out based on the officially recorded temperature.</dd>
+      <dt>Stop-loss</dt><dd>An automatic exit if a position moves against you by a set margin (20&cent; below entry), to cap the loss.</dd>
+      <dt>Slot</dt><dd>One of the up-to-four concurrent positions in the compounding strategy. Each slot resets independently on a loss.</dd>
+    </dl>
+  </article>
+
+  <div class="cta-row">
+    <a href="/start" class="btn btn-primary">Start here →</a>
+    <a href="/track" class="btn btn-secondary">See the track record</a>
+  </div>
+</main>
+
+<footer>
+  <a href="/">Back to home</a> &middot; <a href="/start">Quick Start</a> &middot; <a href="/methodology">Methodology v1.0</a> &middot; <a href="mailto:support@3rdeyes.io">support@3rdeyes.io</a><br>
+  <span style="font-size:.7rem;display:inline-block;margin-top:10px;">© 2026 3rd Eyes. Research and signals only, not investment advice. Past performance does not guarantee future results.</span>
+</footer>
+
+</body>
+</html>
