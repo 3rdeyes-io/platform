@@ -1,16 +1,21 @@
 /**
- * stripe-webhook.js
- * Netlify Function - handles Stripe checkout.session.completed events.
+ * stripe-webhook.js  (Netlify Functions v2)
+ * Handles Stripe checkout.session.completed events.
+ *
+ * IMPORTANT: this is a v2 function (export default + Web Request/Response) so we can
+ * read the RAW request body via `await req.text()`. The classic v1 `event.body` was
+ * being delivered byte-different from what Stripe signed, so signature verification
+ * failed 100% of the time. req.text() returns the unmodified bytes Stripe signed.
  *
  * Flow:
  *   1. Stripe fires webhook after successful payment
- *   2. We verify the signature (prevents spoofing)
- *   3. Retrieve the session to identify the plan (Pro vs Execution Pipeline)
+ *   2. Verify the signature against the RAW body (prevents spoofing)
+ *   3. Identify the plan (Pro vs Execution Pipeline)
  *   4. Create a one-time Telegram invite link for the correct channel
  *   5. Email the invite link to the subscriber via Resend
  */
 
-const stripe = require('stripe');
+import Stripe from 'stripe';
 
 // HTML-escape any value interpolated into the welcome-email markup. The customer
 // name comes from Stripe, but we never inject raw user text into HTML.
@@ -172,51 +177,34 @@ async function logToAdmin(message) {
   }).catch(() => {});
 }
 
-/* ── Main handler ──────────────────────────────────────────────────────────── */
-exports.handler = async (event) => {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
+/* ── Main handler (v2) ─────────────────────────────────────────────────────── */
+export default async (req) => {
+  if (req.method !== 'POST') {
+    return new Response('Method Not Allowed', { status: 405 });
   }
 
-  // ── 1. Verify Stripe webhook signature ───────────────────────────────────
-  const sig = event.headers['stripe-signature'];
+  const sig = req.headers.get('stripe-signature');
   if (!sig) {
-    return { statusCode: 400, body: 'Missing stripe-signature header' };
+    return new Response('Missing stripe-signature header', { status: 400 });
   }
+
+  // RAW body, exactly as Stripe sent and signed it.
+  const rawBody = await req.text();
+  const stripeClient = Stripe(process.env.STRIPE_SECRET_KEY);
+  const secret = (process.env.STRIPE_WEBHOOK_SECRET || '').trim();
 
   let stripeEvent;
-  const stripeClient = stripe(process.env.STRIPE_SECRET_KEY);
-
-  // Stripe signs the EXACT raw request bytes. Netlify base64-encodes function
-  // request bodies (event.isBase64Encoded === true), so event.body is NOT the
-  // raw payload Stripe signed — passing it straight to constructEvent fails every
-  // time with "No signatures found matching the expected signature for payload".
-  // Decode back to the original UTF-8 bytes before verifying.
-  const rawBody = event.isBase64Encoded
-    ? Buffer.from(event.body, 'base64').toString('utf8')
-    : event.body;
-
   try {
-    stripeEvent = stripeClient.webhooks.constructEvent(
-      rawBody,
-      sig,
-      (process.env.STRIPE_WEBHOOK_SECRET || '').trim()  // trim: a trailing newline/space in the env var silently breaks verification
-    );
+    stripeEvent = stripeClient.webhooks.constructEvent(rawBody, sig, secret);
   } catch (err) {
-    // Diagnostic detail (no secrets) to pinpoint a persistent 400: tells us whether
-    // the body was base64, its length, and the secret's prefix/length.
-    const sec = process.env.STRIPE_WEBHOOK_SECRET || '';
-    console.error('Stripe signature verification failed:', err.message,
-      '| isBase64Encoded=', event.isBase64Encoded,
-      '| rawBodyLen=', rawBody ? rawBody.length : 0,
-      '| secretPrefix=', sec.slice(0, 8), '| secretLen=', sec.length);
-    return { statusCode: 400, body: `Webhook signature error: ${err.message}` };
+    console.error('Stripe signature verification failed:', err.message);
+    return new Response(`Webhook signature error: ${err.message}`, { status: 400 });
   }
 
-  // ── 2. Only handle completed checkouts ──────────────────────────────────
+  // Only handle completed checkouts.
   if (stripeEvent.type !== 'checkout.session.completed') {
     console.log(`Ignored event type: ${stripeEvent.type}`);
-    return { statusCode: 200, body: 'Ignored' };
+    return new Response('Ignored', { status: 200 });
   }
 
   const session = stripeEvent.data.object;
@@ -225,10 +213,10 @@ exports.handler = async (event) => {
 
   if (!customerEmail) {
     console.error('No customer email in session:', session.id);
-    return { statusCode: 200, body: 'No email - skipped' };
+    return new Response('No email - skipped', { status: 200 });
   }
 
-  // ── 3. Identify plan from line items ────────────────────────────────────
+  // Identify plan from line items.
   let plan = 'pro'; // default
   try {
     const fullSession = await stripeClient.checkout.sessions.retrieve(
@@ -238,8 +226,6 @@ exports.handler = async (event) => {
     const priceId = fullSession.line_items?.data?.[0]?.price?.id;
     if (priceId) plan = getPlan(priceId);
   } catch (err) {
-    // Fallback only runs if line-item retrieval failed. Pro is $49 and the Execution
-    // Pipeline is $499 (one-time), so an amount of $100+ cleanly indicates Pipeline.
     const amount = session.amount_total || 0;
     if (amount >= 10000) plan = 'pipeline';
     console.warn(`Could not retrieve line items (${err.message}), inferred plan=${plan} from amount=${amount}`);
@@ -248,18 +234,18 @@ exports.handler = async (event) => {
   const channelId = getChannelId(plan);
   if (!channelId) {
     console.error(`No channel ID configured for plan: ${plan}`);
-    return { statusCode: 500, body: `Channel not configured for plan: ${plan}` };
+    return new Response(`Channel not configured for plan: ${plan}`, { status: 500 });
   }
 
   console.log(`New ${plan} subscriber: ${customerEmail}`);
 
-  // ── 4. Create invite + send email ───────────────────────────────────────
+  // Create invite + send email.
   try {
     const inviteLink = await createTelegramInvite(channelId);
 
     await sendWelcomeEmail({
-      toEmail:    customerEmail,
-      toName:     customerName,
+      toEmail: customerEmail,
+      toName:  customerName,
       plan,
       inviteLink,
     });
@@ -273,11 +259,10 @@ exports.handler = async (event) => {
         : '')
     );
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ ok: true, plan, email: customerEmail }),
-    };
-
+    return new Response(JSON.stringify({ ok: true, plan, email: customerEmail }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } catch (err) {
     console.error('Pipeline error:', err.message);
 
@@ -287,6 +272,6 @@ exports.handler = async (event) => {
       `❌ ${err.message}`
     );
 
-    return { statusCode: 500, body: `Pipeline error: ${err.message}` };
+    return new Response(`Pipeline error: ${err.message}`, { status: 500 });
   }
 };
