@@ -267,7 +267,7 @@
       <div style="background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.18);border-radius:16px;padding:32px 28px;">
         <div style="font-size:2rem;margin-bottom:8px;">🔴</div>
         <div style="font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:700;color:#ef4444;margin-bottom:4px;">Aggressive</div>
-        <div style="font-size:.8125rem;color:var(--muted);margin-bottom:20px;font-weight:500;">Win-probability ≥ 84%</div>
+        <div style="font-size:.8125rem;color:var(--muted);margin-bottom:20px;font-weight:500;">Win-probability ≥ 85%</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>≥5°F buffer required (tighter margin)</li>
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>All ensemble members unanimous · σ ≤ 2.5°F</li>
@@ -426,7 +426,7 @@
 
   // Preset templates: set the sliders to a conservative / moderate / aggressive scenario.
   function setPreset(name){
-    var P = { conservative:{stake:50,slots:1,freq:0.5,wr:90,weeks:12},
+    var P = { conservative:{stake:50,slots:1,freq:0.5,wr:93,weeks:12},
               moderate:{stake:80,slots:4,freq:0.5,wr:88,weeks:12},
               aggressive:{stake:150,slots:4,freq:1,wr:85,weeks:12} }[name];
     if(!P) return;

@@ -1077,7 +1077,7 @@
     <div class="check-card"><span class="ck">1</span><div><div class="check-name">Models agree</div><div class="check-req">All four models point the same direction</div></div></div>
     <div class="check-card"><span class="ck">2</span><div><div class="check-name">Forecast buffer</div><div class="check-req">&ge; 2&deg;F inland / 3.5&deg;F coastal cushion vs the temperature line</div></div></div>
     <div class="check-card"><span class="ck">3</span><div><div class="check-name">Pricing edge</div><div class="check-req">Our win-probability is &ge; 2.5 points above the market price</div></div></div>
-    <div class="check-card"><span class="ck">4</span><div><div class="check-name">Win-probability floor</div><div class="check-req">&ge; 70% modeled chance to win, or we skip it</div></div></div>
+    <div class="check-card"><span class="ck">4</span><div><div class="check-name">Win-probability floor</div><div class="check-req">&ge; 85% modeled chance to win, or we skip it</div></div></div>
     <div class="check-card"><span class="ck">5</span><div><div class="check-name">Confidence grade</div><div class="check-req">A+/A/B only (tight model spread + HRRR cross-check)</div></div></div>
     <div class="check-card"><span class="ck">6</span><div><div class="check-name">Concentration cap</div><div class="check-req">No more than 2 positions in one weather region</div></div></div>
   </div>
@@ -1103,7 +1103,7 @@
     <div style="background:rgba(16,217,160,.05);border:1px solid rgba(16,217,160,.2);border-radius:14px;padding:24px;text-align:center;">
       <div style="font-size:1.6rem;margin-bottom:6px;">🟢</div>
       <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#10d9a0;margin-bottom:4px;">Safe</div>
-      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Win-probability ≥ 93%</div>
+      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Acts on <strong style="color:#cbd5e1;">HIGHEST CONFIDENCE</strong> signals (≥ 93%)</div>
       <div style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:#10d9a0;">Most selective</div>
       <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">smallest position size</div>
     </div>
@@ -1112,7 +1112,7 @@
       <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:rgba(245,158,11,.9);color:#050c1a;font-size:.65rem;font-weight:800;padding:3px 12px;border-radius:0 0 8px 8px;letter-spacing:.05em;">RECOMMENDED</div>
       <div style="font-size:1.6rem;margin-bottom:6px;margin-top:6px;">🟡</div>
       <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#f59e0b;margin-bottom:4px;">Medium</div>
-      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Win-probability ≥ 88%</div>
+      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Acts on <strong style="color:#cbd5e1;">STRONG</strong> signals &amp; up (≥ 88%)</div>
       <div style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:#f59e0b;">Balanced</div>
       <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">standard position size</div>
     </div>
@@ -1120,7 +1120,7 @@
     <div style="background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.18);border-radius:14px;padding:24px;text-align:center;">
       <div style="font-size:1.6rem;margin-bottom:6px;">🔴</div>
       <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#ef4444;margin-bottom:4px;">Aggressive</div>
-      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Win-probability ≥ 84%</div>
+      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Acts on <strong style="color:#cbd5e1;">GOOD</strong> signals &amp; up (≥ 85%)</div>
       <div style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:#ef4444;">Most active</div>
       <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">largest position size</div>
     </div>
@@ -1129,7 +1129,9 @@
 
   <p style="text-align:center;font-size:.9rem;color:#cbd5e1;max-width:600px;margin:0 auto 16px;line-height:1.6;">
     All three tiers act on the same signal stream - they differ only in how selective you are
-    and how much you stake. <strong style="color:var(--green);"><span id="vp-wr">88.0%</span> win rate, exchange-verified</strong> - see the full ledger at <a href="/track" style="color:var(--green);">/track</a>.
+    and how much you stake. Every signal is labeled with its grade
+    (<strong style="color:#10d9a0;">HIGHEST CONFIDENCE</strong> / <strong style="color:#f59e0b;">STRONG</strong> / <strong style="color:#ef4444;">GOOD</strong>),
+    so you act on the ones that match your tier. <strong style="color:var(--green);"><span id="vp-wr">88.0%</span> win rate, exchange-verified</strong> - see the full ledger at <a href="/track" style="color:var(--green);">/track</a>.
   </p>
   <p style="text-align:center;font-size:.78rem;color:var(--muted);max-width:580px;margin:0 auto 28px;line-height:1.6;">
     <strong style="color:#fbbf24;">Why "Medium" is recommended over "Safe":</strong> Safe is so strict it fires rarely; most subscribers find it too inactive. Medium takes every signal at a higher model win-probability gate with more frequent fires.
@@ -1461,6 +1463,7 @@
     </a>
   </div>
   <p style="text-align:center;font-size:.78rem;color:var(--muted);max-width:600px;margin:20px auto 0;line-height:1.6;"><strong style="color:#cbd5e1;">New here?</strong> Tap a venue to open its site and create a free account in minutes. You fund and trade in your own account - 3rd Eyes only sends the research.</p>
+  <p style="text-align:center;font-size:.78rem;color:var(--muted);max-width:620px;margin:14px auto 0;line-height:1.6;"><strong style="color:#cbd5e1;">What about Polymarket?</strong> We also surface <strong style="color:#cbd5e1;">informational</strong> Polymarket signals (it reopened to US traders in 2025, CFTC-regulated) - flagged clearly so you can act on them if you want. Because Polymarket lists its own separate markets, every signal we place is on the matching Kalshi / Coinbase / Robinhood contract. Availability can vary by state.</p>
 </section>
 
 <!-- ═══════════════════════════════════════
