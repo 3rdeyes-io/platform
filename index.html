@@ -2103,7 +2103,7 @@ window.addEventListener('scroll', () => {
     set('calc-disclaimer-trades', L.trades);
     if (bal != null) set('stat-balance', bal);
   }
-  fetch('/ledger.json').then(r => r.ok ? r.json() : null).then(d => {
+  fetch('/.netlify/functions/ledger').then(r => r.ok ? r.json() : null).then(d => {
     const L = d ? { winRate: d.winRate, wins: d.wins, losses: d.losses, trades: d.trades, net: d.net } : FB;
     apply(L, null);
     fetch('/.netlify/functions/stats').then(r => r.json()).then(s => apply(L, s && s.balance)).catch(() => {});
@@ -2185,7 +2185,7 @@ const VERIFIED_RECENT = [
 renderLedgerPreview(VERIFIED_RECENT.map(t => ({...t, date: '2026-' + t.date})));
 renderChips({});
 // Live override from the daily-refreshed ledger (recent dates are already ISO).
-fetch('/ledger.json').then(r => r.ok ? r.json() : null).then(d => {
+fetch('/.netlify/functions/ledger').then(r => r.ok ? r.json() : null).then(d => {
   if (!d) return;
   if (d.recent && d.recent.length) renderLedgerPreview(d.recent);
   renderChips(d);

@@ -87,13 +87,13 @@
   <p class="lede">This is the complete record of every weather position the 3rd Eyes
      engine has taken, reconstructed line-by-line from <strong>Kalshi's own settlement
      and fill records</strong> &mdash; the exchange's data, not ours.</p>
-  <p class="period">Live results &middot; Apr 23 &ndash; May 23, 2026</p>
+  <p class="period" id="t-period">Live results &middot; Apr 23 &ndash; May 23, 2026</p>
 
   <div class="stats">
-    <div class="stat"><div class="v g">87.8%</div><div class="k">Win rate</div></div>
-    <div class="stat"><div class="v">43&ndash;6</div><div class="k">Win &ndash; Loss</div></div>
-    <div class="stat"><div class="v">49</div><div class="k">Settled trades</div></div>
-    <div class="stat"><div class="v g">+$33.53</div><div class="k">Net P&amp;L</div></div>
+    <div class="stat"><div class="v g" id="t-wr">87.8%</div><div class="k">Win rate</div></div>
+    <div class="stat"><div class="v" id="t-wl">43&ndash;6</div><div class="k">Win &ndash; Loss</div></div>
+    <div class="stat"><div class="v" id="t-n">49</div><div class="k">Settled trades</div></div>
+    <div class="stat"><div class="v g" id="t-net">+$33.53</div><div class="k">Net P&amp;L</div></div>
   </div>
 
   <div class="verify">
@@ -121,7 +121,7 @@
           <th class="r">Net</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="t-rows">
         <tr class="w"><td class="dt">Apr 23</td><td class="mk">Miami &middot; &gt;82&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.46</td></tr>
         <tr class="w"><td class="dt">Apr 23</td><td class="mk">Chicago &middot; &gt;85&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.18</td></tr>
         <tr class="l"><td class="dt">Apr 24</td><td class="mk">Miami &middot; &gt;85&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$0.17</td></tr>
@@ -174,9 +174,9 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3">49 trades &middot; 43 wins &middot; 6 losses</td>
-          <td>87.8%</td>
-          <td class="net">+$33.53</td>
+          <td colspan="3" id="t-foot">49 trades &middot; 43 wins &middot; 6 losses</td>
+          <td id="t-foot-wr">87.8%</td>
+          <td class="net" id="t-foot-net">+$33.53</td>
         </tr>
       </tfoot>
     </table>
@@ -208,5 +208,35 @@
     <a class="home ghost" href="/">Back to home</a>
   </div>
 </div>
+
+<script>
+// Live refresh from the daily-updated ledger (served by a function, ~zero deploy
+// cost). The static table above is the fallback if this fetch ever fails.
+fetch('/.netlify/functions/ledger').then(r => r.ok ? r.json() : null).then(d => {
+  if (!d || !Array.isArray(d.rows) || !d.rows.length) return;
+  const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
+  set('t-wr', d.winRate);
+  set('t-wl', d.wins + '–' + d.losses);
+  set('t-n', d.trades);
+  set('t-net', d.net);
+  set('t-foot', d.trades + ' trades · ' + d.wins + ' wins · ' + d.losses + ' losses');
+  set('t-foot-wr', d.winRate);
+  set('t-foot-net', d.net);
+  const p = document.getElementById('t-period');
+  if (p && d.period) p.innerHTML = 'Live results &middot; ' + d.period;
+  const tb = document.getElementById('t-rows');
+  if (tb) {
+    tb.innerHTML = d.rows.map(r => {
+      const cls = r.win ? 'w' : 'l';
+      const tag = r.win ? 'WIN' : 'LOSS';
+      const net = (r.net >= 0 ? '+$' : '-$') + Math.abs(r.net).toFixed(2);
+      // r.market is already HTML-escaped by the generator (e.g. "Miami &middot; &gt;82&deg;")
+      return '<tr class="' + cls + '"><td class="dt">' + r.date + '</td><td class="mk">' + r.market +
+             '</td><td class="call">NO</td><td><span class="b ' + cls + '">' + tag +
+             '</span></td><td class="net">' + net + '</td></tr>';
+    }).join('');
+  }
+}).catch(() => {});
+</script>
 </body>
 </html>
