@@ -1432,21 +1432,44 @@
 </section>
 
 <!-- ═══════════════════════════════════════
+     WHERE TO TRADE
+═══════════════════════════════════════ -->
+<section id="where-to-trade">
+  <div class="section-header">
+    <div class="section-label">Where to trade</div>
+    <h2 class="section-title">Pick your venue.<br>Same contracts, your choice.</h2>
+    <p class="section-sub">We scan <strong style="color:#cbd5e1;">Kalshi</strong> directly. The identical temperature contracts also trade on <strong style="color:#cbd5e1;">Coinbase</strong> and <strong style="color:#cbd5e1;">Robinhood</strong> - so every signal works on whichever app you already use. All three are US-legal; liquidity and fees vary slightly.</p>
+  </div>
+  <!-- TODO(founders): swap these bare URLs for your affiliate / referral links
+       once you've joined each platform's program. -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:760px;margin:0 auto;">
+    <a href="https://kalshi.com" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.28);border-radius:16px;padding:26px 18px;text-decoration:none;">
+      <span style="font-size:1.9rem;">🔵</span>
+      <span style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;">Kalshi ↗</span>
+      <span style="font-size:.78rem;color:#93c5fd;">CFTC-regulated · we scan this directly</span>
+    </a>
+    <a href="https://www.coinbase.com/predictions" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.28);border-radius:16px;padding:26px 18px;text-decoration:none;">
+      <span style="font-size:1.9rem;">🪙</span>
+      <span style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;">Coinbase ↗</span>
+      <span style="font-size:.78rem;color:#93c5fd;">Same contracts · crypto-native</span>
+    </a>
+    <a href="https://robinhood.com" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.28);border-radius:16px;padding:26px 18px;text-decoration:none;">
+      <span style="font-size:1.9rem;">🏦</span>
+      <span style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;">Robinhood ↗</span>
+      <span style="font-size:.78rem;color:#93c5fd;">Same contracts · familiar app</span>
+    </a>
+  </div>
+  <p style="text-align:center;font-size:.78rem;color:var(--muted);max-width:600px;margin:20px auto 0;line-height:1.6;"><strong style="color:#cbd5e1;">New here?</strong> Tap a venue to open its site and create a free account in minutes. You fund and trade in your own account - 3rd Eyes only sends the research.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
      PRICING
 ═══════════════════════════════════════ -->
 <section id="pricing" style="background:rgba(255,255,255,.015);">
   <div class="section-header">
     <div class="section-label">Simple pricing</div>
     <h2 class="section-title">Start free. Go hands-free<br>when you're ready.</h2>
-    <p class="section-sub">See real signals, verify real trades, then upgrade. Add the Execution Pipeline to go fully automated: your server, your keys, one session.</p>
-    <div style="display:inline-flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px;margin-bottom:4px;">
-      <!-- TODO(founders): swap these bare URLs for your affiliate / referral links
-           once you've joined each platform's program. -->
-      <a href="https://kalshi.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:20px;padding:6px 15px;font-size:.75rem;color:#93c5fd;font-weight:600;text-decoration:none;">🔵 Kalshi - CFTC-regulated ↗</a>
-      <a href="https://www.coinbase.com/predictions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:20px;padding:6px 15px;font-size:.75rem;color:#93c5fd;font-weight:600;text-decoration:none;">🪙 Coinbase ↗</a>
-      <a href="https://robinhood.com" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:20px;padding:6px 15px;font-size:.75rem;color:#93c5fd;font-weight:600;text-decoration:none;">🏦 Robinhood ↗</a>
-    </div>
-    <p style="font-size:.75rem;color:var(--muted);margin-top:8px;"><strong style="color:#cbd5e1;">New here?</strong> Tap a venue above to open its site and create a free account in minutes. We scan <strong style="color:#cbd5e1;">Kalshi</strong> directly - and the identical contracts trade on <strong style="color:#cbd5e1;">Coinbase</strong> and <strong style="color:#cbd5e1;">Robinhood</strong>, so every signal works on whichever app you already have. All three are US-legal.</p>
+    <p class="section-sub">See real signals, verify real trades, then upgrade. Add the Execution Pipeline to go fully automated: your server, your keys, one session. New to prediction markets? See <a href="#where-to-trade" style="color:var(--green);text-decoration:none;">where to trade ↑</a>.</p>
   </div>
 
   <div class="pricing-grid" style="max-width:900px;margin:0 auto;">
@@ -1539,6 +1562,34 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
+        Is 3rd Eyes a broker, fund, or financial advisor?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-a">No. 3rd Eyes is a research and signal-publishing service - think stock screener or options-analytics tool, not a broker. We never hold your money, place trades for you, or give personalized investment advice. You trade in your own account, in your own name, and every decision is yours.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Who's eligible to trade these markets?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-a">Kalshi is open to US residents who are 18 or older, and you'll complete Kalshi's own identity verification when you sign up (a few states restrict certain markets). You'll need your own funded account on Kalshi, Coinbase, or Robinhood. 3rd Eyes only delivers research - we don't onboard you to any exchange or handle your funds.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How are profits and losses taxed?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-a">Prediction-market gains are generally reportable, and exchanges like Kalshi may issue year-end tax forms (e.g., a 1099). Tax treatment depends on your circumstances and we are not tax advisors - please consult a qualified professional. The exchange's settlement records are the source of truth, so keep your own copies.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What are the main risks I should understand?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-a">You can lose your entire stake on any trade. These are small-edge NO positions: they win often, but a single rare-weather day can take a position toward zero, and the stop-loss exits at a real (worse) price - never a guaranteed one. Past performance does not guarantee future results. Only stake discretionary funds you can afford to lose entirely, and size conservatively.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
         How much capital do I need to start?
         <span class="faq-arrow">+</span>
       </button>
@@ -1584,7 +1635,7 @@
         What is your real win rate?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a"><strong style="color:var(--green);">87.8%</strong> across 49 settled trades (43 wins, 6 losses, +$33.53 net) from Apr 23 &ndash; May 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out &mdash; nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO bets still carries real risk; past performance doesn't guarantee future results.)</div>
+      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">87.8%</strong> across <span id="faq-trades">49</span> settled trades (<span id="faq-wins">43</span> wins, <span id="faq-losses">6</span> losses, <span id="faq-net">+$33.53</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out &mdash; nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO bets still carries real risk; past performance doesn't guarantee future results.)</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -2117,6 +2168,11 @@ window.addEventListener('scroll', () => {
     set('risk-win-rate', L.winRate);
     set('calc-disclaimer-wr', L.winRate);
     set('calc-disclaimer-trades', L.trades);
+    set('faq-wr', L.winRate);
+    set('faq-trades', L.trades);
+    set('faq-wins', L.wins);
+    set('faq-losses', L.losses);
+    set('faq-net', L.net);
     if (bal != null) set('stat-balance', bal);
   }
   fetch('/.netlify/functions/ledger').then(r => r.ok ? r.json() : null).then(d => {

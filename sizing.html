@@ -118,6 +118,29 @@
     outline: none;
   }
   .form-input:focus { border-color: var(--green); }
+  /* Inline help tooltips (hover or keyboard-focus) */
+  .tip {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    width: 15px; height: 15px; border-radius: 50%;
+    border: 1px solid var(--muted); color: var(--muted);
+    font-size: .62rem; font-weight: 700; font-style: normal;
+    cursor: help; margin-left: 6px; vertical-align: middle;
+    text-transform: none; letter-spacing: 0;
+  }
+  .tip:hover, .tip:focus { border-color: var(--green); color: var(--green); outline: none; }
+  .tip::after {
+    content: attr(data-tip);
+    position: absolute; bottom: 150%; left: 50%; transform: translateX(-50%) scale(.96);
+    width: 230px; max-width: 60vw;
+    background: #0b1426; border: 1px solid var(--border); color: #cbd5e1;
+    padding: 9px 11px; border-radius: 8px;
+    font-size: .72rem; font-weight: 400; line-height: 1.5;
+    text-transform: none; letter-spacing: 0; text-align: left;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45);
+    opacity: 0; pointer-events: none; transition: opacity .15s, transform .15s;
+    z-index: 20;
+  }
+  .tip:hover::after, .tip:focus::after { opacity: 1; transform: translateX(-50%) scale(1); }
   input[type=range] {
     width: 100%; accent-color: var(--green);
     height: 4px; border-radius: 2px; background: rgba(255,255,255,.1);
@@ -151,6 +174,22 @@
     color: var(--muted); font-size: .8rem;
   }
   footer a { color: var(--green); text-decoration: none; }
+
+  /* Accessibility: honor OS "reduce motion". */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  /* Visible keyboard-focus outline. */
+  a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 </style>
 </head>
 <body>
@@ -276,7 +315,7 @@
       <h2 class="section-title">Model both strategies. See the difference.</h2>
       <p class="section-sub">Toggle between Ladder Compounding (higher ceiling, riskier) and Fixed + Bank (protected, grows by adding slots). Both use the same win rate - the difference is risk management.</p>
       <div style="max-width:680px;margin:20px auto 0;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:14px 18px;font-size:.82rem;color:#fde68a;line-height:1.55;text-align:left;">
-        <strong style="color:#fbbf24;">⚠️ Reality check on calculator defaults:</strong> Current observed trade frequency is <strong>~4-8 trades/month across all slots</strong> (Kalshi same-day liquidity is the bottleneck while we expand venue coverage). The calculator defaults model an active-liquidity regime; dial the trades-per-week slider <strong>down</strong> to see today's realistic ROI, or <strong>up</strong> to model what a more liquid future could look like. Track record is also <a href="/track" style="color:#fde68a;text-decoration:underline;">under reconstruction</a>.
+        <strong style="color:#fbbf24;">⚠️ Reality check on calculator defaults:</strong> Current observed trade frequency is <strong>~4-8 trades/month across all slots</strong> (Kalshi same-day liquidity is the bottleneck while we expand venue coverage). The calculator now <strong>defaults to that realistic pace</strong> (~0.5 trades/slot/week, 85% win rate); slide the trades-per-week or win-rate <strong>up</strong> to model a more liquid, higher-conviction future. Track record is also <a href="/track" style="color:#fde68a;text-decoration:underline;">under reconstruction</a>.
       </div>
     </div>
 
@@ -297,28 +336,29 @@
     <div class="calc-wrap">
       <div class="calc-form">
         <div class="form-group">
-          <label class="form-label">Starting stake per slot ($)</label>
+          <label class="form-label">Starting stake per slot ($)<span class="tip" tabindex="0" data-tip="Dollars placed on each active market. $80 is our modeled slot size — use only discretionary funds you can afford to lose.">i</span></label>
           <input type="number" class="form-input" id="calc-stake" value="80" min="10" max="10000" oninput="recalc()">
         </div>
         <div class="form-group">
-          <label class="form-label">Number of starting slots</label>
+          <label class="form-label">Number of starting slots<span class="tip" tabindex="0" data-tip="How many markets you hold at once. We run up to 4 concurrently — more slots spread risk but put more capital in play.">i</span></label>
           <input type="range" id="calc-slots" min="1" max="4" value="4" oninput="recalc()">
           <div class="range-labels"><span>1 slot</span><span id="slots-label">4 slots</span></div>
         </div>
         <div class="form-group">
           <label class="form-label">Trades per week (per slot)
             <span style="color:#fbbf24;font-size:.72rem;font-weight:500;">(current real frequency: ~0.5/slot/week)</span>
+            <span class="tip" tabindex="0" data-tip="Qualifying signals per slot each week. Today's real pace is ~0.5 (Kalshi same-day liquidity limits it) — that's the default. Slide up to model a more liquid future.">i</span>
           </label>
-          <input type="range" id="calc-freq" min="1" max="7" value="1" oninput="recalc()">
-          <div class="range-labels"><span>1/week</span><span id="freq-label">1/week</span></div>
+          <input type="range" id="calc-freq" min="0.5" max="7" step="0.5" value="0.5" oninput="recalc()">
+          <div class="range-labels"><span>0.5/wk</span><span id="freq-label">0.5/week</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(hypothetical - track record under reconstruction)</span></label>
-          <input type="range" id="calc-wr" min="50" max="97" value="90" oninput="recalc()">
-          <div class="range-labels"><span>50%</span><span id="wr-label">90%</span></div>
+          <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(hypothetical - track record under reconstruction)</span><span class="tip" tabindex="0" data-tip="The share of trades that win — a value YOU choose. It's hypothetical; we don't publish a live rate while the record is rebuilt. Default 85% sits conservatively under our verified figure.">i</span></label>
+          <input type="range" id="calc-wr" min="50" max="97" value="85" oninput="recalc()">
+          <div class="range-labels"><span>50%</span><span id="wr-label">85%</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Time horizon (weeks)</label>
+          <label class="form-label">Time horizon (weeks)<span class="tip" tabindex="0" data-tip="Weeks to project forward. Longer horizons compound more profit — and more variance. Every figure here is an expected value, not a guarantee.">i</span></label>
           <input type="range" id="calc-weeks" min="1" max="52" value="12" oninput="recalc()">
           <div class="range-labels"><span>1 week</span><span id="weeks-label">12 weeks</span></div>
         </div>
@@ -406,7 +446,7 @@
   function recalc() {
     const stake = parseFloat(document.getElementById('calc-stake').value) || 80;
     const slots = parseInt(document.getElementById('calc-slots').value) || 4;
-    const freq  = parseInt(document.getElementById('calc-freq').value) || 1;
+    const freq  = parseFloat(document.getElementById('calc-freq').value) || 0.5;
     const wr    = parseInt(document.getElementById('calc-wr').value) / 100;
     const weeks = parseInt(document.getElementById('calc-weeks').value) || 12;
 
