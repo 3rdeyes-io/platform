@@ -62,14 +62,14 @@ exports.handler = async (event) => {
               <tr><td style="padding:12px 16px;">
                 <p style="margin:0 0 10px;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em;">How it works</p>
                 <p style="margin:0 0 8px;color:#aaa;font-size:14px;line-height:1.6;">1. Click the button above and install Telegram if you haven't already.</p>
-                <p style="margin:0 0 8px;color:#aaa;font-size:14px;line-height:1.6;">2. Join the channel &mdash; signals post automatically when the model fires.</p>
+                <p style="margin:0 0 8px;color:#aaa;font-size:14px;line-height:1.6;">2. Join the channel - signals post automatically when the model fires.</p>
                 <p style="margin:0;color:#aaa;font-size:14px;line-height:1.6;">3. When a signal posts, go to Kalshi, find the contract, and place the trade manually.</p>
               </td></tr>
             </table>
             <hr style="border:none;border-top:1px solid #222;margin:0 0 20px;">
             <p style="margin:0;color:#555;font-size:13px;line-height:1.6;">
               Questions? Reply to this email.<br>
-              When you're ready for full coverage and Pro features &mdash;
+              When you're ready for full coverage and Pro features -
               <a href="https://3rdeyes.io/#pricing" style="color:#00d4ff;text-decoration:none;">upgrade here</a>.
             </p>
           </td>

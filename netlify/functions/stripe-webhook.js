@@ -252,7 +252,7 @@ export default async (req) => {
       const res = await kickFromChannel(channelId, userId);
       await logToAdmin(
         `🚪 <b>Subscription canceled</b>\n📧 ${who}\n` +
-        (res?.ok ? `✅ Removed from the Pro channel.` : `⚠️ Auto-remove failed (${res?.description || '?'}) — please remove manually.`)
+        (res?.ok ? `✅ Removed from the Pro channel.` : `⚠️ Auto-remove failed (${res?.description || '?'}) - please remove manually.`)
       );
     } else {
       await logToAdmin(
@@ -271,7 +271,7 @@ export default async (req) => {
     await logToAdmin(
       `💳 <b>Renewal payment failed</b>\n📧 ${who}\n` +
       `Stripe will retry over the next few days. Access is retained until the subscription ` +
-      `ultimately cancels — at which point they're removed automatically.`
+      `ultimately cancels - at which point they're removed automatically.`
     );
     return new Response('ok', { status: 200 });
   }
