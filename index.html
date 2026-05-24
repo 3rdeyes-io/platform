@@ -2083,40 +2083,32 @@ window.addEventListener('scroll', () => {
 
 <!-- ── Dynamic Stats Loader ── -->
 <script>
-fetch('/.netlify/functions/stats')
-  .then(r => r.json())
-  .then(s => {
-    // Exchange-verified track record (Apr 23 - May 23, 2026), NO-only strategy,
-    // reconstructed from Kalshi settlement + fill records. Mirrors /track.
-    const VWR = '87.8%', VWINS = '43', VLOSS = '6', VTRADES = '49';
-    const hw = document.getElementById('hero-wl');
-    const hr = document.getElementById('hero-wr');
-    if (hw) hw.textContent = VWR + ' win rate · 43-6 · +$33.53 net';
-    if (hr) hr.textContent = '';
-
-    const sw = document.getElementById('stat-win-rate');
-    const sl = document.getElementById('stat-wl-label');
-    const swins = document.getElementById('stat-wins');
-    const sloss = document.getElementById('stat-losses');
-    const sbal = document.getElementById('stat-balance');
-    if (sw) sw.textContent = VWR;
-    if (sl) sl.textContent = 'Exchange-verified · 49 settled trades';
-    if (swins) swins.textContent = VWINS;
-    if (sloss) sloss.textContent = VLOSS;
-    if (sbal) sbal.textContent = (s.balance != null ? s.balance : '-');
-
-    const fw = document.getElementById('floating-wl');
-    if (fw) fw.textContent = VWR + ' win rate (43-6)';
-
-    const rw = document.getElementById('risk-win-rate');
-    if (rw) rw.textContent = VWR;
-
-    const cwr = document.getElementById('calc-disclaimer-wr');
-    const ct  = document.getElementById('calc-disclaimer-trades');
-    if (cwr) cwr.textContent = VWR;
-    if (ct)  ct.textContent  = VTRADES;
-  })
-  .catch(() => {}); // honest fallbacks in the HTML stay put
+// Headline numbers are driven by /ledger.json, which the VPS regenerates daily
+// (after morning settlements). The FB values below are the last-known-good
+// fallback if the fetch ever fails — the page never shows blanks or fabrications.
+(function () {
+  const FB = { winRate: '87.8%', wins: 43, losses: 6, trades: 49, net: '+$33.53' };
+  function apply(L, bal) {
+    const wl = L.wins + '-' + L.losses;
+    const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
+    set('hero-wl', L.winRate + ' win rate · ' + wl + ' · ' + L.net + ' net');
+    set('hero-wr', '');
+    set('stat-win-rate', L.winRate);
+    set('stat-wl-label', 'Exchange-verified · ' + L.trades + ' settled trades');
+    set('stat-wins', L.wins);
+    set('stat-losses', L.losses);
+    set('floating-wl', L.winRate + ' win rate (' + wl + ')');
+    set('risk-win-rate', L.winRate);
+    set('calc-disclaimer-wr', L.winRate);
+    set('calc-disclaimer-trades', L.trades);
+    if (bal != null) set('stat-balance', bal);
+  }
+  fetch('/ledger.json').then(r => r.ok ? r.json() : null).then(d => {
+    const L = d ? { winRate: d.winRate, wins: d.wins, losses: d.losses, trades: d.trades, net: d.net } : FB;
+    apply(L, null);
+    fetch('/.netlify/functions/stats').then(r => r.json()).then(s => apply(L, s && s.balance)).catch(() => {});
+  }).catch(() => apply(FB, null));
+})();
 </script>
 
 <!-- ── Trade Ledger Preview Loader (slim) ── -->
@@ -2168,20 +2160,20 @@ function renderLedgerPreview(trades) {
 }
 
 function renderChips(data) {
+  const d = data || {};
   const w = document.getElementById('chip-wins');
   const l = document.getElementById('chip-losses');
   const wr = document.getElementById('chip-winrate');
   const c = document.getElementById('chip-cities');
-  // Exchange-verified totals (mirror /track): 43 W / 6 L / 87.8% over 49 settled.
-  if (w)  w.textContent  = '43 W';
-  if (l)  l.textContent  = '6 L';
-  if (wr) wr.textContent = '87.8% win rate';
-  if (c)  c.textContent  = 'Scanning 40+ · 49 settled';
+  // Exchange-verified totals (mirror /track), live from /ledger.json with fallback.
+  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 43) + ' W';
+  if (l)  l.textContent  = (d.losses != null ? d.losses : 6)  + ' L';
+  if (wr) wr.textContent = (d.winRate || '87.8%') + ' win rate';
+  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 49) + ' settled';
 }
 
-// Exchange-verified ledger (Apr 23 - May 23, 2026), NO-only strategy, reconstructed
-// from Kalshi settlement + fill records. The 5 most recent settled trades; the full
-// 49-trade ledger lives at /track. Static snapshot kept in sync with /track.
+// Fallback preview (last-known-good). The daily /ledger.json fetch below overrides
+// it so the homepage preview + chips stay current without redeploying the HTML.
 const VERIFIED_RECENT = [
   {"date":"05-23","city":"Los Angeles","threshold":"69-70°","no_price":0.90,"pl":-23.91,"outcome":"loss"},
   {"date":"05-22","city":"Los Angeles","threshold":"70-71°","no_price":0.88,"pl":9.57,"outcome":"win"},
@@ -2192,6 +2184,12 @@ const VERIFIED_RECENT = [
 // renderLedgerPreview filters by date >= LEDGER_START_DATE; feed a parseable date.
 renderLedgerPreview(VERIFIED_RECENT.map(t => ({...t, date: '2026-' + t.date})));
 renderChips({});
+// Live override from the daily-refreshed ledger (recent dates are already ISO).
+fetch('/ledger.json').then(r => r.ok ? r.json() : null).then(d => {
+  if (!d) return;
+  if (d.recent && d.recent.length) renderLedgerPreview(d.recent);
+  renderChips(d);
+}).catch(() => {});
 </script>
 
 </body>
