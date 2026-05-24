@@ -32,6 +32,21 @@
   status = 200
 
 [[redirects]]
+  from = "/prediction-markets-explained"
+  to = "/prediction-markets-explained.html"
+  status = 200
+
+[[redirects]]
+  from = "/why-we-trade-weather"
+  to = "/why-we-trade-weather.html"
+  status = 200
+
+[[redirects]]
+  from = "/trading-responsibly"
+  to = "/trading-responsibly.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction markets, explained simply | 3rd Eyes</title>
+<meta name="description" content="Never traded a prediction market? Here's the whole idea in plain English - how a contract works, what NO means, and why Kalshi isn't a casino.">
+<meta property="og:title" content="Prediction markets, explained simply">
+<meta property="og:description" content="The whole idea in plain English - contracts, the NO side, and why it isn't gambling.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://3rdeyes.io/prediction-markets-explained">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://3rdeyes.io/prediction-markets-explained">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{--green:#10d9a0;--muted:#94a3b8;--dim:#64748b;--card:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);}
+  body{font-family:'Inter',sans-serif;background:#050c1a;color:#e2e8f0;line-height:1.75;font-size:15.5px;}
+  .top-nav{position:sticky;top:0;z-index:50;background:rgba(5,12,26,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:12px 5%;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  .top-nav a{color:#94a3b8;text-decoration:none;font-size:.8rem;transition:color .2s;}
+  .top-nav a:hover,.top-nav a.active{color:var(--green);}
+  .top-nav .brand{font-family:'Sora',sans-serif;font-weight:700;color:var(--green);margin-right:auto;font-size:1rem;}
+  .wrap{max-width:680px;margin:0 auto;padding:56px 5% 24px;}
+  .eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--green);font-weight:700;}
+  h1{font-family:'Sora',sans-serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;line-height:1.2;margin:12px 0 10px;color:#f1f5f9;}
+  .meta{color:var(--dim);font-size:.85rem;margin-bottom:32px;}
+  .lede{font-size:1.1rem;color:#cbd5e1;margin-bottom:24px;}
+  article h2{font-family:'Sora',sans-serif;font-size:1.3rem;color:#fff;margin:34px 0 12px;font-weight:700;}
+  article p{color:#cbd5e1;margin-bottom:16px;}
+  article strong{color:#fff;}
+  article a{color:var(--green);text-decoration:none;} article a:hover{text-decoration:underline;}
+  .callout{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:8px;padding:16px 18px;margin:20px 0;color:#cbd5e1;font-size:.95rem;}
+  .next{border-top:1px solid var(--border);margin-top:40px;padding-top:24px;}
+  .next h3{font-family:'Sora',sans-serif;font-size:1rem;color:#fff;margin-bottom:12px;}
+  .next a{display:block;color:var(--green);text-decoration:none;margin-bottom:8px;font-size:.95rem;}
+  footer{text-align:center;padding:36px 5%;border-top:1px solid var(--border);color:var(--dim);font-size:.8rem;margin-top:40px;}
+  footer a{color:var(--green);text-decoration:none;}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}}
+  a:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:4px;}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <span class="brand">👁 3rd Eyes</span>
+  <a href="/">Home</a>
+  <a href="/start">Quick Start</a>
+  <a href="/resources" class="active">Resources</a>
+  <a href="/sizing">Sizing & Risk</a>
+  <a href="/track">Track Record</a>
+  <a href="/methodology">Methodology</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Guide &middot; Beginner</div>
+  <h1>Prediction markets, explained simply</h1>
+  <div class="meta">5 min read &middot; No experience needed</div>
+
+  <article>
+    <p class="lede">You've probably made a friendly wager before - "$5 says it rains Saturday." A prediction market is that exact idea, just on a real, regulated exchange instead of a handshake. Here's how the whole thing works.</p>
+
+    <h2>A contract is just a yes-or-no question</h2>
+    <p>Every market is a simple question with a clear deadline. For example: <strong>"Will the high temperature in New York reach 75&deg;F today?"</strong> You can take either side of that question by buying a contract.</p>
+    <p>When the day ends, the contract settles. If the answer turns out the way your contract said, it's worth <strong>$1</strong>. If not, it's worth <strong>$0</strong>. That's it - every contract lands on either a dollar or nothing.</p>
+
+    <h2>The price is just the odds</h2>
+    <p>Because each contract pays out $1 at most, the price along the way tells you the crowd's estimate of the odds. A contract trading at <strong>95&cent;</strong> means the market thinks that outcome is about <strong>95% likely</strong>. A contract at 8&cent; means the crowd thinks there's roughly an 8% chance.</p>
+    <p>So buying at 95&cent; to win $1 is a small, high-probability gain. Buying at 8&cent; to win $1 is a long shot. Same as odds anywhere - just expressed in cents.</p>
+
+    <h2>YES and NO - you pick a side</h2>
+    <p>Every question has two sides. <strong>YES</strong> wins if the thing happens. <strong>NO</strong> wins if it doesn't. If you're confident a heatwave <em>won't</em> arrive, you buy the NO side of "will it hit 95&deg;?" - and you collect when the day stays mild.</p>
+    <div class="callout">3rd Eyes almost always trades the <strong>NO</strong> side. Most days, extreme temperatures simply don't happen - so betting that they won't is the higher-percentage play. More on that in <a href="/why-we-trade-weather">why we trade the weather</a>.</div>
+
+    <h2>Where this happens (and why it isn't a casino)</h2>
+    <p>The main venue is <strong>Kalshi</strong>, a U.S. exchange regulated by the CFTC - the same federal agency that oversees the big futures markets. The identical contracts are also offered by <strong>Coinbase</strong> and <strong>Robinhood</strong>, so you can use whichever app you already have.</p>
+    <p>The key difference from gambling: a casino game is designed for the house to win, with odds fixed against you. A prediction market is a real financial exchange where prices are set by supply and demand, and outcomes are decided by real-world data - not a spinning wheel. When the crowd misprices the odds, a disciplined trader can find an edge.</p>
+
+    <h2>Where 3rd Eyes comes in</h2>
+    <p>Finding mispriced weather contracts by hand would be a full-time job. Our system runs professional weather models against every temperature market, every five minutes, and only flags the ones where the odds are clearly in your favor. You get a simple alert; you place the trade. That's the whole loop.</p>
+
+    <div class="next">
+      <h3>Keep reading</h3>
+      <a href="/why-we-trade-weather">Why we trade the weather (and only NO) &rarr;</a>
+      <a href="/trading-responsibly">How to trade without blowing up &rarr;</a>
+      <a href="/start">Quick-start guide: your first trade &rarr;</a>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <a href="/resources">&larr; Resource Center</a> &middot; <a href="/track">Track Record</a> &middot; <a href="mailto:support@3rdeyes.io">support@3rdeyes.io</a><br>
+  <span style="font-size:.7rem;display:inline-block;margin-top:10px;">© 2026 3rd Eyes. Research and signals only, not investment advice. Past performance does not guarantee future results.</span>
+</footer>
+</body>
+</html>
