@@ -610,6 +610,23 @@
   .text-white { color: #fff; }
   .divider { height: 1px; background: var(--border); margin: 0 5%; }
   .glow { box-shadow: 0 0 40px rgba(16,217,160,.15); }
+
+  /* Accessibility: honor OS "reduce motion" — disable animations/transitions for
+     users prone to motion sickness or who prefer less movement. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  /* Visible keyboard-focus outline for keyboard/screen-reader users. */
+  a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 </style>
 </head>
 <body>
@@ -626,16 +643,15 @@
     <li><a href="#explainer">What is this?</a></li>
     <li><a href="#how-it-works">How it works</a></li>
     <li><a href="#risk-tiers">Risk tiers</a></li>
-    <li><a href="#ledger">Track record</a></li>
     <li><a href="#calculator">Calculator</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="/track" style="color:var(--green);">Track ↗</a></li>
+    <li><a href="/track" style="color:var(--green);">Track record ↗</a></li>
     <li><a href="/sizing" style="color:var(--green);">Sizing ↗</a></li>
     <li><a href="/methodology" style="color:var(--green);">Methodology ↗</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:12px;">
     <a href="#pricing" class="nav-cta">Get Signals →</a>
-    <button class="hamburger" onclick="toggleMenu()">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -645,7 +661,7 @@
 <div id="mobile-menu" style="display:none;position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(5,12,26,.97);border-bottom:1px solid var(--border);padding:20px 5%;">
   <a href="#how-it-works" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">How it works</a>
   <a href="#risk-tiers" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">Risk tiers</a>
-  <a href="#ledger" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">Track record</a>
+  <a href="/track" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);">Track record ↗</a>
   <a href="#calculator" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">Calculator</a>
   <a href="#pricing" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;" onclick="toggleMenu()">Pricing</a>
   <a href="#pricing" class="btn-primary" style="margin-top:16px;justify-content:center;">Get Signals →</a>
@@ -685,10 +701,10 @@
 
   <p class="hero-sub">
     Apps like <strong style="color:#fff">Kalshi</strong>, <strong style="color:#fff">Coinbase</strong>, and <strong style="color:#fff">Robinhood</strong> let
-    you bet on tomorrow's temperature - <em>"Will Chicago stay under 62°F?"</em> Our AI runs professional
-    weather models against every one of those bets, finds the ones priced wrong, and sends you a
+    you trade tomorrow's temperature - <em>"Will Chicago stay under 62°F?"</em> Our AI runs professional
+    weather models against every one of those contracts, finds the ones priced wrong, and sends you a
     Telegram alert: <strong style="color:#fff">what to trade, how confident we are, and exactly which app to place it on.</strong>
-    <strong style="color:var(--green)">87.8% win rate across 49 settled trades</strong> (43-6, +$33.53 net), reconstructed line-by-line from Kalshi's own settlement records. <a href="/track" style="color:var(--green);">See every trade →</a>
+    <strong style="color:var(--green)">Exchange-verified track record</strong>, reconstructed line-by-line from Kalshi's settlement records - <em>past performance doesn't guarantee future results.</em> <a href="/track" style="color:var(--green);">See every trade →</a>
   </p>
 
   <form class="hero-form" onsubmit="handleSignup(event, this)">
@@ -837,8 +853,8 @@
 
     <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px 26px;">
       <div style="font-size:2rem;margin-bottom:12px;">🏛️</div>
-      <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;margin-bottom:8px;">Prediction markets are like DraftKings, but for real life.</div>
-      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">Sites like Kalshi, Coinbase, and Robinhood let you bet on real-world questions - "Will it rain Friday?" "Will Miami hit 90°?" You pick YES or NO. We tell you which bet to make - and which app to make it on.</p>
+      <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;margin-bottom:8px;">Trade real-world outcomes on regulated markets.</div>
+      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">CFTC-regulated venues like Kalshi, Coinbase, and Robinhood let you trade YES/NO contracts on real-world questions - "Will it rain Friday?" "Will Miami hit 90°?" We tell you which contract our models think is mispriced - and which app to trade it on.</p>
     </div>
 
     <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px 26px;">
@@ -1694,7 +1710,7 @@
       <h4>Product</h4>
       <a href="#how-it-works">How it works</a>
       <a href="#risk-tiers">Risk tiers</a>
-      <a href="#ledger">Track record</a>
+      <a href="/track">Track record ↗</a>
       <a href="#calculator">Calculator</a>
       <a href="#pricing">Pricing</a>
     </div>
@@ -1712,7 +1728,7 @@
       <a href="#">About</a>
       <a href="#">Blog</a>
       <a href="#">Affiliates</a>
-      <a href="#">Contact</a>
+      <a href="https://t.me/thirdeyes_signals" target="_blank" rel="noopener">Contact / Support</a>
       <a href="#">Privacy</a>
     </div>
   </div>
