@@ -1,0 +1,347 @@
+{
+ "updated": "2026-05-24T04:02:27Z",
+ "period": "Apr 23 &ndash; May 23, 2026",
+ "trades": 49,
+ "wins": 43,
+ "losses": 6,
+ "winRate": "87.8%",
+ "net": "+$33.53",
+ "recent": [
+  {
+   "date": "2026-05-23",
+   "city": "Los Angeles",
+   "threshold": "69-70\u00b0",
+   "no_price": 0.9,
+   "pl": -23.91,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-05-22",
+   "city": "Los Angeles",
+   "threshold": "70-71\u00b0",
+   "no_price": 0.88,
+   "pl": 9.57,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-05-22",
+   "city": "New York",
+   "threshold": "63-64\u00b0",
+   "no_price": 0.88,
+   "pl": -4.27,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-05-22",
+   "city": "Chicago",
+   "threshold": "&lt;64\u00b0",
+   "no_price": 0.94,
+   "pl": 4.14,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-05-22",
+   "city": "Austin",
+   "threshold": "91-92\u00b0",
+   "no_price": 0.85,
+   "pl": 0.7,
+   "outcome": "win"
+  }
+ ],
+ "rows": [
+  {
+   "date": "Apr 23",
+   "market": "Miami &middot; &gt;82&deg;",
+   "net": 0.46,
+   "win": true
+  },
+  {
+   "date": "Apr 23",
+   "market": "Chicago &middot; &gt;85&deg;",
+   "net": 0.18,
+   "win": true
+  },
+  {
+   "date": "Apr 24",
+   "market": "Miami &middot; &gt;85&deg;",
+   "net": -0.17,
+   "win": false
+  },
+  {
+   "date": "Apr 25",
+   "market": "Miami &middot; &gt;86&deg;",
+   "net": 0.44,
+   "win": true
+  },
+  {
+   "date": "Apr 26",
+   "market": "Los Angeles &middot; &gt;69&deg;",
+   "net": 0.18,
+   "win": true
+  },
+  {
+   "date": "Apr 27",
+   "market": "Los Angeles &middot; &gt;69&deg;",
+   "net": 0.37,
+   "win": true
+  },
+  {
+   "date": "Apr 28",
+   "market": "Miami &middot; &gt;87&deg;",
+   "net": 1.03,
+   "win": true
+  },
+  {
+   "date": "Apr 30",
+   "market": "Miami &middot; &gt;90&deg;",
+   "net": 0.65,
+   "win": true
+  },
+  {
+   "date": "Apr 30",
+   "market": "Denver &middot; &lt;42&deg;",
+   "net": 0.46,
+   "win": true
+  },
+  {
+   "date": "May 1",
+   "market": "Miami &middot; &gt;91&deg;",
+   "net": 0.18,
+   "win": true
+  },
+  {
+   "date": "May 1",
+   "market": "Chicago &middot; &gt;55&deg;",
+   "net": 0.18,
+   "win": true
+  },
+  {
+   "date": "May 1",
+   "market": "Los Angeles &middot; &lt;68&deg;",
+   "net": 0.27,
+   "win": true
+  },
+  {
+   "date": "May 2",
+   "market": "Denver &middot; &gt;74&deg;",
+   "net": 0.44,
+   "win": true
+  },
+  {
+   "date": "May 2",
+   "market": "Chicago &middot; &gt;58&deg;",
+   "net": 0.27,
+   "win": true
+  },
+  {
+   "date": "May 2",
+   "market": "Los Angeles &middot; &lt;65&deg;",
+   "net": 0.37,
+   "win": true
+  },
+  {
+   "date": "May 2",
+   "market": "Philadelphia &middot; &lt;60&deg;",
+   "net": 0.37,
+   "win": true
+  },
+  {
+   "date": "May 3",
+   "market": "Philadelphia &middot; &lt;60&deg;",
+   "net": 2.28,
+   "win": true
+  },
+  {
+   "date": "May 3",
+   "market": "Denver &middot; &gt;78&deg;",
+   "net": 2.35,
+   "win": true
+  },
+  {
+   "date": "May 3",
+   "market": "Chicago &middot; &gt;73&deg;",
+   "net": 0.27,
+   "win": true
+  },
+  {
+   "date": "May 4",
+   "market": "Chicago &middot; &gt;83&deg;",
+   "net": 0.87,
+   "win": true
+  },
+  {
+   "date": "May 4",
+   "market": "New York &middot; &gt;77&deg;",
+   "net": 1.28,
+   "win": true
+  },
+  {
+   "date": "May 5",
+   "market": "Austin &middot; &gt;95&deg;",
+   "net": 0.85,
+   "win": true
+  },
+  {
+   "date": "May 6",
+   "market": "Miami &middot; &gt;91&deg;",
+   "net": 1.41,
+   "win": true
+  },
+  {
+   "date": "May 6",
+   "market": "Chicago &middot; &gt;62&deg;",
+   "net": 1.31,
+   "win": true
+  },
+  {
+   "date": "May 7",
+   "market": "Los Angeles &middot; &lt;68&deg;",
+   "net": 1.75,
+   "win": true
+  },
+  {
+   "date": "May 7",
+   "market": "Miami &middot; &gt;94&deg;",
+   "net": 3.06,
+   "win": true
+  },
+  {
+   "date": "May 7",
+   "market": "Chicago &middot; &gt;65&deg;",
+   "net": 1.4,
+   "win": true
+  },
+  {
+   "date": "May 8",
+   "market": "Los Angeles &middot; &lt;68&deg;",
+   "net": -9.62,
+   "win": false
+  },
+  {
+   "date": "May 9",
+   "market": "Miami &middot; &gt;94&deg;",
+   "net": 2.28,
+   "win": true
+  },
+  {
+   "date": "May 9",
+   "market": "Los Angeles &middot; &lt;69&deg;",
+   "net": 2.28,
+   "win": true
+  },
+  {
+   "date": "May 10",
+   "market": "Miami &middot; &gt;93&deg;",
+   "net": 2.06,
+   "win": true
+  },
+  {
+   "date": "May 11",
+   "market": "Los Angeles &middot; &lt;69&deg;",
+   "net": -0.15,
+   "win": false
+  },
+  {
+   "date": "May 11",
+   "market": "Miami &middot; &gt;93&deg;",
+   "net": 1.05,
+   "win": true
+  },
+  {
+   "date": "May 12",
+   "market": "Los Angeles &middot; &lt;63&deg;",
+   "net": 2.61,
+   "win": true
+  },
+  {
+   "date": "May 13",
+   "market": "Los Angeles &middot; &lt;61&deg;",
+   "net": 0.02,
+   "win": true
+  },
+  {
+   "date": "May 18",
+   "market": "Chicago &middot; 86-87&deg;",
+   "net": 0.03,
+   "win": true
+  },
+  {
+   "date": "May 20",
+   "market": "Denver &middot; 54-55&deg;",
+   "net": -1.23,
+   "win": false
+  },
+  {
+   "date": "May 20",
+   "market": "Los Angeles &middot; 75-76&deg;",
+   "net": 2.55,
+   "win": true
+  },
+  {
+   "date": "May 20",
+   "market": "Chicago &middot; 57-58&deg;",
+   "net": 0.3,
+   "win": true
+  },
+  {
+   "date": "May 20",
+   "market": "Denver &middot; 60-61&deg;",
+   "net": 0.8,
+   "win": true
+  },
+  {
+   "date": "May 21",
+   "market": "Chicago &middot; 58-59&deg;",
+   "net": 16.47,
+   "win": true
+  },
+  {
+   "date": "May 21",
+   "market": "Austin &middot; 77-78&deg;",
+   "net": 3.52,
+   "win": true
+  },
+  {
+   "date": "May 21",
+   "market": "Los Angeles &middot; 70-71&deg;",
+   "net": 0.56,
+   "win": true
+  },
+  {
+   "date": "May 22",
+   "market": "Los Angeles &middot; 70-71&deg;",
+   "net": 9.57,
+   "win": true
+  },
+  {
+   "date": "May 22",
+   "market": "New York &middot; 63-64&deg;",
+   "net": -4.27,
+   "win": false
+  },
+  {
+   "date": "May 22",
+   "market": "Chicago &middot; &lt;64&deg;",
+   "net": 4.14,
+   "win": true
+  },
+  {
+   "date": "May 22",
+   "market": "Austin &middot; 91-92&deg;",
+   "net": 0.7,
+   "win": true
+  },
+  {
+   "date": "May 22",
+   "market": "Chicago &middot; 64-65&deg;",
+   "net": 1.26,
+   "win": true
+  },
+  {
+   "date": "May 23",
+   "market": "Los Angeles &middot; 69-70&deg;",
+   "net": -23.91,
+   "win": false
+  }
+ ]
+}
