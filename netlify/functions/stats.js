@@ -18,13 +18,13 @@ exports.handler = async (event) => {
     });
     if (!res.ok) throw new Error('VPS ' + res.status);
     const data = await res.json();
-    // Track record is being rebuilt directly from Kalshi settlement records.
-    // Until that's complete, do not expose any win/loss numbers - the prior
-    // public ledger was under-recording losses and we will not republish
-    // figures we cannot fully stand behind.
+    // Performance numbers (win rate, W/L, net) have ONE source of truth: the verified
+    // ledger served by /.netlify/functions/ledger. This stats endpoint is operational
+    // only (balance, scan timing), so strip any perf fields - it must never disagree
+    // with the ledger.
     if (endpoint === '/stats' && data && typeof data === 'object') {
       delete data.wins; delete data.losses; delete data.winRate; delete data.totalTrades;
-      data.trackRecord = 'under_reconstruction';
+      delete data.trackRecord;
     }
     return {
       statusCode: 200,
@@ -46,9 +46,8 @@ exports.handler = async (event) => {
                    : endpoint === '/calibration' ? { stations: [], summary: {} }
                    : endpoint === '/shifts'      ? { recent_shifts: [], tracked_pairs: 0 }
                    : {
-      // Fallback: VPS stats endpoint unreachable. Do not surface fabricated
-      // numbers - return the honest "under reconstruction" state.
-      trackRecord: 'under_reconstruction',
+      // Fallback: VPS stats endpoint unreachable. Operational state only; performance
+      // numbers come from the ledger function, never from here.
       balance: null, cities: 7,
       lastScan: null, lastMonitor: null,
       scanIntervalSec: 300, monitorIntervalSec: 30

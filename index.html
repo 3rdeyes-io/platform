@@ -683,7 +683,7 @@
 
   <div class="hero-badge">
     <div class="live-dot"></div>
-    Live · <span id="hero-wl">88.0% win rate · 44-6 · +$44.97 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
+    Live · <span id="hero-wl">88.7% win rate · 47-6 · +$67.00 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
   </div>
 
   <!-- ── Live operational pulse - proves the bot is actually running ── -->
@@ -1132,7 +1132,7 @@
     All three tiers act on the same signal stream - they differ only in how selective you are
     and how much you stake. Every signal is labeled with its grade
     (<strong style="color:#10d9a0;">HIGHEST CONFIDENCE</strong> / <strong style="color:#f59e0b;">STRONG</strong> / <strong style="color:#ef4444;">GOOD</strong>),
-    so you act on the ones that match your tier. <strong style="color:var(--green);"><span id="vp-wr">88.0%</span> win rate, exchange-verified</strong> - see the full ledger at <a href="/track" style="color:var(--green);">/track</a>.
+    so you act on the ones that match your tier. <strong style="color:var(--green);"><span id="vp-wr">88.7%</span> win rate, exchange-verified</strong> - see the full ledger at <a href="/track" style="color:var(--green);">/track</a>.
   </p>
   <p style="text-align:center;font-size:.78rem;color:var(--muted);max-width:580px;margin:0 auto 28px;line-height:1.6;">
     <strong style="color:#fbbf24;">Why "Medium" is recommended over "Safe":</strong> Safe is so strict it fires rarely; most subscribers find it too inactive. Medium takes every signal at a higher model win-probability gate with more frequent fires.
@@ -1640,7 +1640,7 @@
         What is your real win rate?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">88.0%</strong> across <span id="faq-trades">50</span> settled trades (<span id="faq-wins">44</span> wins, <span id="faq-losses">6</span> losses, <span id="faq-net">+$44.97</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
+      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">88.7%</strong> across <span id="faq-trades">53</span> settled trades (<span id="faq-wins">47</span> wins, <span id="faq-losses">6</span> losses, <span id="faq-net">+$67.00</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1750,7 +1750,7 @@
      FLOATING CTA BAR
 ═══════════════════════════════════════ -->
 <div class="floating-bar" id="floating-bar">
-  <span class="floating-text"><strong id="floating-wl">88.0% win rate (44-6)</strong> · Next scan in <strong id="countdown">-</strong></span>
+  <span class="floating-text"><strong id="floating-wl">88.7% win rate (47-6)</strong> · Next scan in <strong id="countdown">-</strong></span>
   <a href="#pricing" class="btn-primary" style="padding:10px 20px;font-size:.875rem;">
     Get Signals →
   </a>
@@ -2100,11 +2100,12 @@ window.addEventListener('scroll', () => {
 
 <!-- ── Dynamic Stats Loader ── -->
 <script>
-// Headline numbers are driven by /ledger.json, which the VPS regenerates daily
-// (after morning settlements). The FB values below are the last-known-good
-// fallback if the fetch ever fails - the page never shows blanks or fabrications.
+// Headline numbers come from ONE source of truth: the verified ledger on the repo's
+// `data` branch, regenerated daily by the VPS and served via /.netlify/functions/ledger.
+// The FB constant below is the single last-known-good fallback if that fetch ever fails;
+// keep it in sync with the ledger at deploy time so the page is never blank or inconsistent.
 (function () {
-  const FB = { winRate: '88.0%', wins: 44, losses: 6, trades: 50, net: '+$44.97' };
+  const FB = { winRate: '88.7%', wins: 47, losses: 6, trades: 53, net: '+$67.00' };
   function apply(L, bal) {
     const wl = L.wins + '-' + L.losses;
     const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
@@ -2126,6 +2127,7 @@ window.addEventListener('scroll', () => {
     set('vp-wr', L.winRate);
     if (bal != null) set('stat-balance', bal);
   }
+  apply(FB, null);  // paint the single fallback constant instantly; the live fetch overrides it below
   fetch('/.netlify/functions/ledger').then(r => r.ok ? r.json() : null).then(d => {
     const L = d ? { winRate: d.winRate, wins: d.wins, losses: d.losses, trades: d.trades, net: d.net } : FB;
     apply(L, null);
@@ -2189,20 +2191,20 @@ function renderChips(data) {
   const wr = document.getElementById('chip-winrate');
   const c = document.getElementById('chip-cities');
   // Exchange-verified totals (mirror /track), live from /ledger.json with fallback.
-  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 43) + ' W';
+  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 47) + ' W';
   if (l)  l.textContent  = (d.losses != null ? d.losses : 6)  + ' L';
-  if (wr) wr.textContent = (d.winRate || '88.0%') + ' win rate';
-  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 49) + ' settled';
+  if (wr) wr.textContent = (d.winRate || '88.7%') + ' win rate';
+  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 53) + ' settled';
 }
 
 // Fallback preview (last-known-good). The daily /ledger.json fetch below overrides
 // it so the homepage preview + chips stay current without redeploying the HTML.
 const VERIFIED_RECENT = [
+  {"date":"05-24","city":"Los Angeles","threshold":"64-65°","no_price":0.89,"pl":8.66,"outcome":"win"},
+  {"date":"05-24","city":"New York","threshold":"62-63°","no_price":0.93,"pl":5.60,"outcome":"win"},
+  {"date":"05-24","city":"Austin","threshold":"82-83°","no_price":0.90,"pl":7.77,"outcome":"win"},
   {"date":"05-23","city":"Los Angeles","threshold":"69-70°","no_price":0.90,"pl":-23.91,"outcome":"loss"},
-  {"date":"05-22","city":"Los Angeles","threshold":"70-71°","no_price":0.88,"pl":9.57,"outcome":"win"},
-  {"date":"05-22","city":"New York","threshold":"63-64°","no_price":0.88,"pl":-4.27,"outcome":"loss"},
-  {"date":"05-22","city":"Chicago","threshold":"&lt;64°","no_price":0.94,"pl":4.14,"outcome":"win"},
-  {"date":"05-22","city":"Austin","threshold":"91-92°","no_price":0.85,"pl":0.70,"outcome":"win"}
+  {"date":"05-23","city":"Los Angeles","threshold":"65-66°","no_price":0.86,"pl":11.44,"outcome":"win"}
 ];
 // renderLedgerPreview filters by date >= LEDGER_START_DATE; feed a parseable date.
 renderLedgerPreview(VERIFIED_RECENT.map(t => ({...t, date: '2026-' + t.date})));

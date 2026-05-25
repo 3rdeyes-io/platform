@@ -57,6 +57,11 @@
   status = 200
 
 [[redirects]]
+  from = "/ledger.json"
+  to = "/.netlify/functions/ledger"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
