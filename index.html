@@ -702,8 +702,9 @@
 
   <p class="hero-sub">
     Apps like <strong style="color:#fff">Kalshi</strong>, <strong style="color:#fff">Coinbase</strong>, and <strong style="color:#fff">Robinhood</strong> let
-    you trade tomorrow's temperature - <em>"Will Chicago stay under 62°F?"</em> Our AI runs professional
-    weather models against every one of those contracts, finds the ones priced wrong, and sends you a
+    you trade tomorrow's temperature - <em>"Will Chicago stay under 62°F?"</em> Our engine runs
+    four professional weather models - the same ones meteorologists use - against every one of those
+    contracts, finds the ones the market prices wrong, and sends you a
     Telegram alert: <strong style="color:#fff">what to trade, how confident we are, and exactly which app to place it on.</strong>
     <strong style="color:var(--green)">Exchange-verified track record</strong>, reconstructed line-by-line from Kalshi's settlement records - <em>past performance doesn't guarantee future results.</em> <a href="/track" style="color:var(--green);">See every trade →</a>
   </p>
@@ -957,7 +958,7 @@
       <div class="step-num">01</div>
       <div class="step-icon">🛰️</div>
       <div class="step-title">40 cities scanned every 5 minutes</div>
-      <div class="step-desc">Our AI continuously pulls professional-grade weather data - the same models meteorologists use - for 40 US cities. It runs 24/7 so you don't have to watch anything.</div>
+      <div class="step-desc">Our engine continuously pulls professional-grade weather data - the same models meteorologists use - for 40 US cities. It runs 24/7 so you don't have to watch anything.</div>
     </div>
     <div class="step-card">
       <div class="step-num">02</div>
@@ -1020,7 +1021,7 @@
   <div class="section-header">
     <div class="section-label">The edge</div>
     <h2 class="section-title">Why our analysis beats<br>trading on a hunch.</h2>
-    <p class="section-sub">Most people trade tomorrow's temperature with one weather app and a gut feeling. We run the same disciplined, data-driven process on every single market. Here is the difference, feature by feature.</p>
+    <p class="section-sub">Most people trade tomorrow's temperature with one weather app and a gut feeling. This isn't a single AI guess - it's a pipeline of independent checks, and every signal must clear all of them. Here is the difference, feature by feature.</p>
   </div>
 
   <div class="edge-compare">
@@ -1052,7 +1053,7 @@
     <div class="ec-row">
       <div class="ec-cell ec-dim">Position sizing</div>
       <div class="ec-cell ec-them">Whatever feels right</div>
-      <div class="ec-cell ec-us">A disciplined <b>10-slot system</b>, capped per weather region</div>
+      <div class="ec-cell ec-us">A fixed <b>fraction of your bankroll</b> per trade, capped per weather region</div>
     </div>
     <div class="ec-row">
       <div class="ec-cell ec-dim">Exits</div>
@@ -1219,9 +1220,9 @@
             <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#10d9a0,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">96%</div>
           </div>
           <div style="padding:12px 16px;">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Recommended Stake</div>
-            <div style="font-family:'JetBrains Mono',monospace;color:#fff;font-size:.9375rem;font-weight:600;">$47 / slot</div>
-            <div style="font-size:.75rem;color:#f59e0b;">~47 NO contracts</div>
+            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Suggested Size</div>
+            <div style="font-family:'JetBrains Mono',monospace;color:#fff;font-size:.9375rem;font-weight:600;">$47</div>
+            <div style="font-size:.75rem;color:#f59e0b;">~2% of bankroll</div>
           </div>
         </div>
 
@@ -1233,7 +1234,7 @@
 
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);border-radius:6px;padding:8px 12px;font-size:.75rem;color:#ef4444;">🛡️ Stop-loss: 75¢</div>
-          <div style="background:rgba(16,217,160,.08);border:1px solid rgba(16,217,160,.15);border-radius:6px;padding:8px 12px;font-size:.75rem;color:#10d9a0;">📈 ~5% return per slot</div>
+          <div style="background:rgba(16,217,160,.08);border:1px solid rgba(16,217,160,.15);border-radius:6px;padding:8px 12px;font-size:.75rem;color:#10d9a0;">📈 ~5% return on stake</div>
           <div style="background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.15);border-radius:6px;padding:8px 12px;font-size:.75rem;color:#818cf8;">⏱️ Same-day expiry</div>
         </div>
 
@@ -1255,21 +1256,21 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     COMPOUNDING CALCULATOR
+     BANKROLL & POSITION-SIZING CALCULATOR
 ═══════════════════════════════════════ -->
 <section id="calculator">
   <div class="section-header">
-    <div class="section-label">Growth simulator</div>
-    <h2 class="section-title">Want to model your<br>own scenario?</h2>
-    <p class="section-sub">Toggle between Fixed + Bank (recommended) and Ladder Compounding (riskier ceiling). Adjust stake, slots, win rate, and horizon. See the projected return and worst-case loss in real time.</p>
+    <div class="section-label">Bankroll &amp; sizing</div>
+    <h2 class="section-title">Size every trade.<br>Protect your bankroll.</h2>
+    <p class="section-sub">Set your bankroll and how much you'll risk per trade, then adjust win rate and horizon. See your suggested position size, projected growth, and worst-case loss in real time - no slots, no compounding gimmicks.</p>
   </div>
 
   <div style="max-width:620px;margin:0 auto;background:linear-gradient(135deg, rgba(16,217,160,.08), rgba(99,102,241,.04));border:1px solid rgba(16,217,160,.2);border-radius:16px;padding:36px 32px;text-align:center;">
     <div style="font-size:2.5rem;margin-bottom:12px;">📊</div>
-    <div style="font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:10px;">Open the full simulator</div>
-    <p style="font-size:.9rem;color:#94a3b8;line-height:1.6;margin-bottom:22px;">Five inputs, two strategies, deterministic expected-value math (with optional Kalshi fees). See projected total, banked profits, slot growth, and worst-case loss instantly.</p>
+    <div style="font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:10px;">Open the full calculator</div>
+    <p style="font-size:.9rem;color:#94a3b8;line-height:1.6;margin-bottom:22px;">Enter your bankroll and risk-per-trade, set a win rate and horizon, and instantly see your suggested position size, projected growth, and worst-case single-trade loss - with optional Kalshi fees.</p>
     <a href="/sizing#calculator" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#050c1a;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .2s;">
-      Open simulator <span>→</span>
+      Open calculator <span>→</span>
     </a>
   </div>
 </section>
@@ -1351,7 +1352,7 @@
   <div class="section-header">
     <div class="section-label">Who builds this</div>
     <h2 class="section-title">Built by data engineers.<br>Not influencers.</h2>
-    <p class="section-sub">3rd Eyes isn't a hype account. It's a data system - built and run by two engineers, brothers, with a combined 17 years moving and protecting production data.</p>
+    <p class="section-sub">3rd Eyes isn't a hype account - and it isn't a single AI prompt. It's an engineered pipeline: a four-model weather ensemble, per-station bias correction learned from history, an ensemble-spread filter, a +EV pricing gate, confidence grading, and a pre-set stop-loss on every trade. Built and run by two engineers, brothers, with a combined 17 years moving and protecting production data. That discipline is why the public ledger - reconstructed from Kalshi's own settlement records - shows an <strong style="color:var(--green);">88% win rate you can verify trade by trade</strong>.</p>
   </div>
 
   <div style="max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
@@ -1532,7 +1533,7 @@
         <li><div class="feat-icon">✓</div> Your own signal listener configured</li>
         <li><div class="feat-icon">✓</div> Kalshi API connection walkthrough</li>
         <li><div class="feat-icon">✓</div> Auto stop-loss logic included</li>
-        <li><div class="feat-icon">✓</div> Compounding rules configured</li>
+        <li><div class="feat-icon">✓</div> Bankroll &amp; position-sizing rules configured</li>
         <li><div class="feat-icon">✓</div> Your server · Your API keys · Your execution</li>
         <li><div class="feat-icon">✓</div> We never see or touch your funds</li>
       </ul>
@@ -1597,7 +1598,7 @@
         How much capital do I need to start?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a">You can run the full 4-slot strategy with as little as $320 ($80 per slot). We recommend starting with the full $320 to maximize the compounding effect. Kalshi requires a minimum $10 deposit. There are no additional platform fees for placing orders.</div>
+      <div class="faq-a">There's no minimum from us - Kalshi only requires a $10 deposit to start. What matters far more than the dollar amount is how you size each trade: we suggest risking a small, fixed fraction of your bankroll on each signal (commonly 1-5%, scaled by the signal's confidence grade) and never staking money you can't afford to lose. Many subscribers start with a few hundred dollars and a ~2% per-trade size. There are no platform fees for placing orders.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1608,10 +1609,10 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        How does the compounding work exactly?
+        How should I size my trades?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a">We run 4 independent slots. Each starts at $80. When slot 1 wins, its payout ($82 at 0.97 NO price) becomes the next stake for slot 1 only; slots 2, 3, and 4 are unaffected. If slot 1 loses, it resets to $80. The other slots' stakes are preserved. Over time, winning slots compound to $90, $100, $120 while maintaining a $80 floor on any loss.</div>
+      <div class="faq-a">We keep it simple: one bankroll, not a tangle of slots or compounding ladders. Decide the total you're comfortable risking (your bankroll), then stake a small fixed fraction of it on each signal - many traders use 1-5%, scaled by the signal's confidence grade. Hold no more than two positions in any one weather region, and let the pre-set stop-loss cap the downside on each trade. As your bankroll grows, the same percentage naturally puts a little more to work; if it shrinks, you automatically bet less. The <a href="/sizing" style="color:var(--green);">sizing calculator</a> does the math for you.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1717,7 +1718,7 @@
       <a href="/methodology">Signal Methodology</a>
       <a href="/track">Live Public Track Record</a>
       <a href="/sizing">Position Sizing & Risk</a>
-      <a href="/#calculator">Compounding Calculator</a>
+      <a href="/#calculator">Bankroll Calculator</a>
       <a href="/#faq">FAQ</a>
       <a href="https://kalshi.com" target="_blank" rel="noopener">Kalshi ↗</a>
     </div>

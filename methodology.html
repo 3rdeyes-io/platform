@@ -405,7 +405,7 @@
       <li><a href="#signal">Signal Generation Pipeline</a></li>
       <li><a href="#calibration">Win-Probability &amp; Calibration</a></li>
       <li><a href="#execution">Execution Framework</a></li>
-      <li><a href="#risk">Risk Management &amp; Compounding</a></li>
+      <li><a href="#risk">Risk Management &amp; Bankroll</a></li>
       <li><a href="#failure">Known Failure Modes</a></li>
       <li><a href="#track-record">Live Track Record Summary</a></li>
       <li><a href="#legal">Legal Disclosures</a></li>
@@ -604,7 +604,7 @@
     </table>
 
     <div class="warn">
-      ⚠️ <strong>Calibration Status:</strong> The prior public ledger was under-recording losses and has been taken offline. Win-probability calibration curves and current live win rate will be republished once the track record is reconstructed from Kalshi's settlement records. See <a href="/track" style="color:var(--green);">/track</a>.
+      ⚠️ <strong>Calibration Status:</strong> The full per-trade record is live and reconstructed line-by-line from Kalshi's own settlement and fill records - including every stop-loss exit counted at its realized price. Win-probability calibration curves will be expanded as the sample grows. See the exchange-verified ledger at <a href="/track" style="color:var(--green);">/track</a>.
     </div>
 
     <p>Calibration is ongoing. We will update this document at: 100 trades (v1.1), summer 2026 season end (v1.2), 500 trades (v2.0). All updates will be published at 3rdeyes.io/methodology.</p>
@@ -623,61 +623,54 @@
         <thead>
           <tr>
             <th>Tier</th>
-            <th>Slot Stake</th>
-            <th>Slots</th>
-            <th>Total Exposure</th>
+            <th>Stake per trade</th>
             <th>Signals Taken</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><span class="badge badge-safe">Safe</span></td>
-            <td>$20 - $40</td>
-            <td>1-2</td>
-            <td>$20 - $80</td>
+            <td>1 - 2% of bankroll</td>
             <td>≥ 93% win-prob</td>
           </tr>
           <tr>
             <td><span class="badge badge-med">Medium</span></td>
-            <td>$40 - $80</td>
-            <td>2-4</td>
-            <td>$80 - $320</td>
+            <td>2 - 3% of bankroll</td>
             <td>≥ 88% win-prob</td>
           </tr>
           <tr>
             <td><span class="badge badge-agg">Aggressive</span></td>
-            <td>$80 - $160</td>
-            <td>4</td>
-            <td>$320 - $640</td>
+            <td>3 - 5% of bankroll</td>
             <td>≥ 85% win-prob</td>
           </tr>
         </tbody>
       </table>
+      <p style="font-size:.85rem;margin-top:10px;opacity:.75;">All tiers manage a single bankroll - no slots. We hold no more than 2 positions in any one weather region, so correlated weather can't take out several at once.</p>
     </div>
 
     <div class="card">
-      <div class="card-title">Compounding Logic (Ladder Mode)</div>
-      <p>For subscribers using the compounding (Ladder) approach with 4 independent slots:</p>
+      <div class="card-title">Position Sizing - Fixed-Fractional</div>
+      <p>Subscribers manage a single bankroll and stake a fixed fraction of it on each signal - no slots, no progressive ladders.</p>
       <div class="formula">
-        WIN:  new_stake[slot] = payout_received   ← compound gains<br>
-        LOSS: new_stake[slot] = BASE_STAKE         ← reset to base (no progressive loss)<br>
-        SKIP: new_stake[slot] = unchanged          ← thin fills don't reset compounding
+        position  = bankroll × risk_fraction      ← e.g. 2% of $2,000 = $40<br>
+        contracts = floor(position / NO_price)<br>
+        max_loss  ≈ contracts × $0.20 (stop) + fees ≈ 21% of position
       </div>
-      <p>Each slot compounds independently. A loss in Slot 1 does not affect Slots 2-4. This contains drawdown to individual slot level.</p>
+      <p>When the bankroll grows, the same fraction naturally stakes a little more; when it shrinks, you stake less. A loss never increases the next bet - which removes the temptation to "chase" and caps the damage of any losing streak.</p>
     </div>
 
     <div class="card">
       <div class="card-title">Stop-Loss Protocol</div>
-      <p>If an active position's NO price drops to ≤$0.82 (implying 18%+ probability the threshold will be reached), the signal system flags an exit recommendation. This recovers ~82¢ of every dollar at risk, limiting max loss to ~18% of notional per position.</p>
+      <p>The stop sits a fixed 20¢ below entry. When an active position's NO price falls 20¢ under your fill (e.g., 95¢ → 75¢), the signal system flags an immediate exit. This caps the loss at roughly 20¢ per contract - about 21% of a 95¢ position - regardless of how much time is left.</p>
       <div class="formula">
-        Max loss per position ≈ stake × 0.18 + (contracts × $0.01 fee)<br>
-        Example: $80 stake @ 95¢ NO → 84 contracts → max loss ≈ $80 × 0.18 + $0.84 = ~$15.24
+        Max loss per position ≈ contracts × ($0.20 stop + $0.01 fee)<br>
+        Example: $80 @ 95¢ NO → 84 contracts → max loss ≈ 84 × $0.21 = ~$17.64
       </div>
     </div>
 
     <div class="card">
       <div class="card-title">Minimum Fill Threshold</div>
-      <p>Signals where the Kalshi orderbook cannot fill ≥$8 (thin markets, usually &lt;10 contracts at the target NO price) are flagged as <strong>SKIP</strong>. These are published for informational purposes but are excluded from the W/L track record and do not affect slot compounding.</p>
+      <p>Signals where the Kalshi orderbook cannot fill ≥$8 (thin markets, usually &lt;10 contracts at the target NO price) are flagged as <strong>SKIP</strong>. These are published for informational purposes but are excluded from the W/L track record.</p>
     </div>
 
     <div class="card">
@@ -695,7 +688,7 @@
   <!-- 6. Risk Management -->
   <div class="section" id="risk">
     <div class="section-num">§ 6</div>
-    <h2 class="section-title">Risk Management &amp; Compounding</h2>
+    <h2 class="section-title">Risk Management &amp; Bankroll Discipline</h2>
 
     <p>The 3rd Eyes framework prioritizes capital preservation over maximizing individual trade returns. This manifests in four hard rules:</p>
 
@@ -706,7 +699,7 @@
 
     <div class="card">
       <div class="card-title">Rule 2: Respect the stop-loss unconditionally</div>
-      <p>Stop-loss at 82¢ is not a suggestion. When the NO price drops to ≤82¢, the position is exiting a scenario where our model edge has deteriorated (unexpected weather development). Holding through a stop risks full position loss.</p>
+      <p>The stop - 20¢ below entry - is not a suggestion. When the NO price falls that far (e.g., 95¢ → 75¢), the position is exiting a scenario where our model edge has deteriorated (an unexpected weather development). Holding through a stop risks full position loss.</p>
     </div>
 
     <div class="card">
@@ -715,8 +708,8 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Rule 4: Slot isolation</div>
-      <p>Each of the 4 slots is financially independent. Slot 1 losing does not trigger additional exposure from Slots 2-4. Maximum simultaneous exposure = 4 × slot_stake, and each slot resets independently on loss.</p>
+      <div class="card-title">Rule 4: Fixed-fractional sizing</div>
+      <p>Every position is a small, fixed fraction of one bankroll (commonly 1-5%). A loss never increases the next stake, and no single trade can lose more than ~21% of its own position. We also cap concurrent positions in any one weather region at 2, so a single correlated weather event can't hit several at once.</p>
     </div>
   </div>
 
@@ -821,8 +814,8 @@
 
     <div class="card">
       <div class="card-title">Risk Disclosure</div>
-      <p>Trading Kalshi event contracts involves substantial risk of loss, including the possibility of total loss of all capital deployed. Past performance, once republished from Kalshi's settlement records, is not indicative of future results. Losses do occur; the stop-loss system is designed to limit, not eliminate, losses.</p>
-      <p>Hypothetical and projected performance figures (e.g., compounding calculator outputs) are for educational illustration only and do not represent actual or guaranteed trading results.</p>
+      <p>Trading Kalshi event contracts involves substantial risk of loss, including the possibility of total loss of all capital deployed. Past performance - published and exchange-verified at /track - is not indicative of future results. Losses do occur; the stop-loss system is designed to limit, not eliminate, losses.</p>
+      <p>Hypothetical and projected performance figures (e.g., bankroll calculator outputs) are for educational illustration only and do not represent actual or guaranteed trading results.</p>
     </div>
 
     <div class="card">

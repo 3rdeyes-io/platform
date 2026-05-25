@@ -236,7 +236,7 @@
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>All ensemble members unanimous · σ ≤ 1.2°F</li>
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>HRRR within 1.5°F of GFS consensus</li>
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>NO price 93-97¢ (high premium, low risk)</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>Position size: 50-60% of slot stake</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#10d9a0;flex-shrink:0;">✓</span>Position size: 1-2% of bankroll per trade</li>
         </ul>
         <div style="background:rgba(16,217,160,.08);border-radius:8px;padding:12px;text-align:center;">
           <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Track record</div>
@@ -255,7 +255,7 @@
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>All ensemble members unanimous · σ ≤ 2°F</li>
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>HRRR within 2.5°F of GFS consensus</li>
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>NO price 88-97¢</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>Position size: 70-80% of slot stake</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#f59e0b;flex-shrink:0;">✓</span>Position size: 2-3% of bankroll per trade</li>
         </ul>
         <div style="background:rgba(245,158,11,.08);border-radius:8px;padding:12px;text-align:center;">
           <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Track record</div>
@@ -273,7 +273,7 @@
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>All ensemble members unanimous · σ ≤ 2.5°F</li>
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>More frequent signals, smaller edge per trade</li>
           <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>NO price 85-97¢</li>
-          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>Position size: 85-100% of slot stake</li>
+          <li style="font-size:.875rem;display:flex;gap:10px;"><span style="color:#ef4444;flex-shrink:0;">✓</span>Position size: 3-5% of bankroll per trade</li>
         </ul>
         <div style="background:rgba(239,68,68,.08);border-radius:8px;padding:12px;text-align:center;">
           <div style="font-size:.75rem;color:var(--muted);margin-bottom:2px;">Track record</div>
@@ -298,11 +298,11 @@
           </div>
           <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
             <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#ef4444;font-weight:600;">75¢ stop</div>
-            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">20¢ below entry &middot; auto-closed, slot resets to $80.</div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">20¢ below entry &middot; position auto-closed at the stop.</div>
           </div>
           <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
-            <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#10d9a0;font-weight:600;">Other 3 slots</div>
-            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Completely unaffected. Untouched.</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:1rem;color:#10d9a0;font-weight:600;">Rest of bankroll</div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:4px;">Untouched - only this position's stake is ever at risk.</div>
           </div>
         </div>
         <p style="font-size:.8125rem;color:var(--muted);margin-top:14px;">Losses do occur. The hard position-size caps exist so a single bad trade can't erase a long run of wins. Specific historical loss figures will be republished once the track record reconstruction (see <a href="/track" style="color:var(--green);">/track</a>) is complete.</p>
@@ -316,25 +316,11 @@
   ═══════════════════════════════════════ -->
   <section id="calculator">
     <div class="section-header">
-      <div class="section-label">Growth simulator</div>
-      <h2 class="section-title">Model both strategies. See the difference.</h2>
-      <p class="section-sub">Toggle between Ladder Compounding (higher ceiling, riskier) and Fixed + Bank (protected, grows by adding slots). Both use the same win rate - the difference is risk management.</p>
+      <div class="section-label">Bankroll &amp; sizing</div>
+      <h2 class="section-title">Size your trades. Protect your bankroll.</h2>
+      <p class="section-sub">Set your bankroll and the share you'll stake per trade. We'll show your suggested position size, your worst-case loss per trade, and where steady, disciplined sizing could take your bankroll over time. One bankroll - no slots, no compounding ladders.</p>
       <div style="max-width:680px;margin:20px auto 0;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:14px 18px;font-size:.82rem;color:#fde68a;line-height:1.55;text-align:left;">
-        <strong style="color:#fbbf24;">⚠️ Reality check on calculator defaults:</strong> Current observed trade frequency is <strong>~4-8 trades/month across all slots</strong> (Kalshi same-day liquidity is the bottleneck while we expand venue coverage). The calculator now <strong>defaults to that realistic pace</strong> (~0.5 trades/slot/week, 85% win rate); slide the trades-per-week or win-rate <strong>up</strong> to model a more liquid, higher-conviction future. Track record is also <a href="/track" style="color:#fde68a;text-decoration:underline;">under reconstruction</a>.
-      </div>
-    </div>
-
-    <!-- Strategy toggle -->
-    <div style="display:flex;justify-content:center;margin-bottom:36px;">
-      <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:4px;display:inline-flex;gap:4px;">
-        <button id="tab-fixed" onclick="switchMode('fixed')"
-          style="padding:10px 24px;border-radius:8px;border:none;font-family:'Sora',sans-serif;font-weight:600;font-size:.875rem;cursor:pointer;transition:all .2s;background:var(--green);color:#050c1a;">
-          ✅ Fixed + Bank (Recommended)
-        </button>
-        <button id="tab-ladder" onclick="switchMode('ladder')"
-          style="padding:10px 24px;border-radius:8px;border:none;font-family:'Sora',sans-serif;font-weight:600;font-size:.875rem;cursor:pointer;transition:all .2s;background:transparent;color:var(--muted);">
-          ⚠️ Ladder Compounding
-        </button>
+        <strong style="color:#fbbf24;">⚠️ Reality check on defaults:</strong> Current observed frequency is <strong>~5-8 signals/week total</strong> (Kalshi same-day liquidity is the bottleneck while we expand venue coverage). The calculator defaults to that realistic pace and our <strong>exchange-verified 88% win rate</strong>; slide the inputs up or down to model your own scenario. See the live, per-trade record at <a href="/track" style="color:#fde68a;text-decoration:underline;">/track</a>. Every figure here is an expected value, not a promise.
       </div>
     </div>
 
@@ -348,38 +334,35 @@
     <div class="calc-wrap">
       <div class="calc-form">
         <div class="form-group">
-          <label class="form-label">Starting stake per slot ($)<span class="tip" tabindex="0" data-tip="Dollars placed on each active market. $80 is our modeled slot size - use only discretionary funds you can afford to lose.">i</span></label>
-          <input type="number" class="form-input" id="calc-stake" aria-label="Starting stake per slot, in dollars" value="80" min="10" max="10000" oninput="recalc()">
+          <label class="form-label">Your bankroll ($)<span class="tip" tabindex="0" data-tip="The total pool you've set aside for these trades - money you can afford to lose entirely. Never trade rent, savings, or borrowed money.">i</span></label>
+          <input type="number" class="form-input" id="calc-bankroll" aria-label="Your bankroll, in dollars" value="2000" min="50" max="1000000" oninput="recalc()">
         </div>
         <div class="form-group">
-          <label class="form-label">Number of starting slots<span class="tip" tabindex="0" data-tip="How many markets you hold at once. We run up to 4 concurrently - more slots spread risk but put more capital in play.">i</span></label>
-          <input type="range" id="calc-slots" aria-label="Number of starting slots" min="1" max="4" value="4" oninput="recalc()">
-          <div class="range-labels"><span>1 slot</span><span id="slots-label">4 slots</span></div>
+          <label class="form-label">Stake per trade (% of bankroll)<span class="tip" tabindex="0" data-tip="The share of your bankroll you put on each signal. Disciplined sizing is 1-5%. A smaller % means lower risk and longer survival through a losing streak.">i</span></label>
+          <input type="range" id="calc-stakepct" aria-label="Stake per trade, percent of bankroll" min="1" max="10" step="0.5" value="2" oninput="recalc()">
+          <div class="range-labels"><span>1%</span><span id="stakepct-label">2%</span><span>10%</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Trades per week (per slot)
-            <span style="color:#fbbf24;font-size:.72rem;font-weight:500;">(current real frequency: ~0.5/slot/week)</span>
-            <span class="tip" tabindex="0" data-tip="Qualifying signals per slot each week. Today's real pace is ~0.5 (Kalshi same-day liquidity limits it) - that's the default. Slide up to model a more liquid future.">i</span>
+          <label class="form-label">Signals you act on per week
+            <span style="color:#fbbf24;font-size:.72rem;font-weight:500;">(current real pace: ~5-8/week)</span>
+            <span class="tip" tabindex="0" data-tip="How many signals you actually trade each week. Today's real pace is ~5-8 across all cities (Kalshi same-day liquidity limits it). Slide up to model a more active future.">i</span>
           </label>
-          <input type="range" id="calc-freq" aria-label="Trades per week, per slot" min="0.5" max="7" step="0.5" value="0.5" oninput="recalc()">
-          <div class="range-labels"><span>0.5/wk</span><span id="freq-label">0.5/week</span></div>
+          <input type="range" id="calc-freq" aria-label="Signals acted on per week" min="1" max="15" step="1" value="5" oninput="recalc()">
+          <div class="range-labels"><span>1/wk</span><span id="freq-label">5/week</span><span>15/wk</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Win rate assumption <span style="color:#fbbf24;font-size:.75rem;">(hypothetical - track record under reconstruction)</span><span class="tip" tabindex="0" data-tip="The share of trades that win - a value YOU choose. It's hypothetical; we don't publish a live rate while the record is rebuilt. Default 85% sits conservatively under our verified figure.">i</span></label>
-          <input type="range" id="calc-wr" aria-label="Win rate assumption, percent" min="50" max="97" value="85" oninput="recalc()">
-          <div class="range-labels"><span>50%</span><span id="wr-label">85%</span></div>
+          <label class="form-label">Win rate <span style="color:#10d9a0;font-size:.75rem;">(our verified rate is 88%)</span><span class="tip" tabindex="0" data-tip="Share of trades that win. Our exchange-verified figure is 88% (see /track). It's an input you control - past performance doesn't guarantee future results.">i</span></label>
+          <input type="range" id="calc-wr" aria-label="Win rate, percent" min="50" max="97" value="88" oninput="recalc()">
+          <div class="range-labels"><span>50%</span><span id="wr-label">88%</span><span>97%</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Time horizon (weeks)<span class="tip" tabindex="0" data-tip="Weeks to project forward. Longer horizons compound more profit - and more variance. Every figure here is an expected value, not a guarantee.">i</span></label>
+          <label class="form-label">Time horizon (weeks)<span class="tip" tabindex="0" data-tip="Weeks to project forward. Longer horizons accumulate more expected profit - and more variance. Every figure here is an expected value, not a guarantee.">i</span></label>
           <input type="range" id="calc-weeks" aria-label="Time horizon, in weeks" min="1" max="52" value="12" oninput="recalc()">
-          <div class="range-labels"><span>1 week</span><span id="weeks-label">12 weeks</span></div>
+          <div class="range-labels"><span>1 week</span><span id="weeks-label">12 weeks</span><span>52 wk</span></div>
         </div>
 
-        <div id="mode-warning-ladder" style="display:none;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px;font-size:.8125rem;color:#fca5a5;line-height:1.6;">
-          ⚠️ <strong>Ladder mode:</strong> Each win increases your stake. A stop-loss hit at peak stake costs significantly more than at base. The "worst-case single-trade loss" reflects the maximum possible loss at your highest stake reached - not a fixed amount.
-        </div>
-        <div id="mode-warning-fixed" style="background:rgba(16,217,160,.06);border:1px solid rgba(16,217,160,.15);border-radius:10px;padding:14px;font-size:.8125rem;color:#6ee7b7;line-height:1.6;">
-          ✅ <strong>Fixed + Bank mode:</strong> Your per-slot stake never increases. Profits accumulate in your bank. New slots are funded from banked profits - not by risking more per trade. Maximum single-trade loss is capped by the stop at roughly 20¢ per contract (~21% of the position), always.
+        <div style="background:rgba(16,217,160,.06);border:1px solid rgba(16,217,160,.15);border-radius:10px;padding:14px;font-size:.8125rem;color:#6ee7b7;line-height:1.6;">
+          ✅ <strong>Fixed-fractional sizing:</strong> this models a flat stake of your chosen % on every trade. The pre-set stop caps the worst case at roughly 20¢ per contract (~21% of the position). As your bankroll grows you simply re-size to the same % - that's how disciplined bankroll management grows steadily, without ever risking more than you planned on any single trade.
         </div>
 
         <div class="form-group" style="margin-top:14px;">
@@ -392,23 +375,22 @@
         </div>
 
         <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.15);border-radius:10px;padding:14px;font-size:.75rem;color:#fbbf24;line-height:1.6;margin-top:10px;">
-          ⚠️ <strong>Hypothetical - not guaranteed.</strong> The calculator shows the <em>expected</em> outcome at the win rate <em>you</em> enter - it is a sensitivity tool, not a forecast. Our track record is under reconstruction (see <a href="/track" style="color:#fbbf24;text-decoration:underline;">/track</a>) and no live win-rate figure is currently published. Only risk discretionary funds you can afford to lose entirely.
+          ⚠️ <strong>Hypothetical - not guaranteed.</strong> The calculator shows the <em>expected</em> outcome at the win rate <em>you</em> enter - it's a sensitivity tool, not a forecast. Our live, per-trade record is at <a href="/track" style="color:#fbbf24;text-decoration:underline;">/track</a>. Variance is real; expect losing streaks. Only risk discretionary funds you can afford to lose entirely.
         </div>
       </div>
 
       <div class="calc-result">
-        <div class="result-label" id="result-mode-label">Fixed + Bank: Projected Total</div>
-        <div class="result-amount">$<span id="calc-final">0</span></div>
-        <div class="result-growth" id="calc-growth"></div>
+        <div class="result-label">Suggested size per trade</div>
+        <div class="result-amount">$<span id="calc-size">0</span></div>
+        <div class="result-growth" id="calc-sizenote"></div>
         <div class="result-breakdown">
-          <div class="breakdown-row"><span>Starting capital at risk</span><span id="bd-start">$0</span></div>
-          <div class="breakdown-row"><span>Total trades executed</span><span id="bd-trades">0</span></div>
-          <div class="breakdown-row"><span>Wins</span><span id="bd-wins" style="color:#10d9a0;">0</span></div>
-          <div class="breakdown-row"><span>Losses (stop-loss hits)</span><span id="bd-losses" style="color:#ef4444;">0</span></div>
-          <div class="breakdown-row" id="row-maxloss"><span>Worst-case single loss</span><span id="bd-maxloss" style="color:#fbbf24;">$0</span></div>
-          <div class="breakdown-row" id="row-banked"><span>Profits banked (safe)</span><span id="bd-banked" style="color:#10d9a0;">$0</span></div>
-          <div class="breakdown-row" id="row-slots-added"><span>New slots you could fund</span><span id="bd-slots-added" style="color:#818cf8;">0</span></div>
-          <div class="breakdown-row"><span style="font-weight:700;color:#fff">Total gain</span><span id="bd-gain">$0</span></div>
+          <div class="breakdown-row"><span>Your bankroll</span><span id="bd-bankroll">$0</span></div>
+          <div class="breakdown-row"><span>Worst-case loss / trade</span><span id="bd-maxloss" style="color:#fbbf24;">$0</span></div>
+          <div class="breakdown-row"><span>Signals over <span id="bd-weeks-lbl">12 wks</span></span><span id="bd-trades">0</span></div>
+          <div class="breakdown-row"><span>Expected wins</span><span id="bd-wins" style="color:#10d9a0;">0</span></div>
+          <div class="breakdown-row"><span>Expected losses (stops)</span><span id="bd-losses" style="color:#ef4444;">0</span></div>
+          <div class="breakdown-row"><span>Projected profit (expected)</span><span id="bd-gain">$0</span></div>
+          <div class="breakdown-row"><span style="font-weight:700;color:#fff">Projected bankroll</span><span id="bd-final">$0</span></div>
         </div>
       </div>
     </div>
@@ -422,141 +404,65 @@
 </footer>
 
 <script>
-  let calcMode = 'fixed';
-
-  // Preset templates: set the sliders to a conservative / moderate / aggressive scenario.
+  // Preset templates: conservative / moderate / aggressive bankroll scenarios.
   function setPreset(name){
-    var P = { conservative:{stake:50,slots:1,freq:0.5,wr:93,weeks:12},
-              moderate:{stake:80,slots:4,freq:0.5,wr:88,weeks:12},
-              aggressive:{stake:150,slots:4,freq:1,wr:85,weeks:12} }[name];
+    var P = { conservative:{bankroll:1000, pct:1, freq:3, wr:93, weeks:12},
+              moderate:    {bankroll:2000, pct:2, freq:5, wr:88, weeks:12},
+              aggressive:  {bankroll:3000, pct:4, freq:8, wr:85, weeks:12} }[name];
     if(!P) return;
-    document.getElementById('calc-stake').value = P.stake;
-    document.getElementById('calc-slots').value = P.slots;
-    document.getElementById('calc-freq').value  = P.freq;
-    document.getElementById('calc-wr').value     = P.wr;
-    document.getElementById('calc-weeks').value  = P.weeks;
+    document.getElementById('calc-bankroll').value = P.bankroll;
+    document.getElementById('calc-stakepct').value = P.pct;
+    document.getElementById('calc-freq').value     = P.freq;
+    document.getElementById('calc-wr').value        = P.wr;
+    document.getElementById('calc-weeks').value     = P.weeks;
     recalc();
   }
 
-  function switchMode(mode) {
-    calcMode = mode;
-    const tabFixed  = document.getElementById('tab-fixed');
-    const tabLadder = document.getElementById('tab-ladder');
-    const warnFixed  = document.getElementById('mode-warning-fixed');
-    const warnLadder = document.getElementById('mode-warning-ladder');
-
-    if (mode === 'fixed') {
-      tabFixed.style.background  = 'var(--green)';
-      tabFixed.style.color       = '#050c1a';
-      tabLadder.style.background = 'transparent';
-      tabLadder.style.color      = 'var(--muted)';
-      warnFixed.style.display    = 'block';
-      warnLadder.style.display   = 'none';
-      document.getElementById('row-banked').style.display     = '';
-      document.getElementById('row-slots-added').style.display = '';
-      document.getElementById('result-mode-label').textContent = 'Fixed + Bank: Projected Total';
-    } else {
-      tabLadder.style.background = '#ef4444';
-      tabLadder.style.color      = '#fff';
-      tabFixed.style.background  = 'transparent';
-      tabFixed.style.color       = 'var(--muted)';
-      warnLadder.style.display   = 'block';
-      warnFixed.style.display    = 'none';
-      document.getElementById('row-banked').style.display     = 'none';
-      document.getElementById('row-slots-added').style.display = 'none';
-      document.getElementById('result-mode-label').textContent = 'Ladder: Projected Total';
-    }
-    recalc();
-  }
-
+  // Bankroll & position sizing: flat fractional stake, deterministic expected value.
   function recalc() {
-    const stake = parseFloat(document.getElementById('calc-stake').value) || 80;
-    const slots = parseInt(document.getElementById('calc-slots').value) || 4;
-    const freq  = parseFloat(document.getElementById('calc-freq').value) || 0.5;
-    const wr    = parseInt(document.getElementById('calc-wr').value) / 100;
-    const weeks = parseInt(document.getElementById('calc-weeks').value) || 12;
+    const bankroll = parseFloat(document.getElementById('calc-bankroll').value) || 2000;
+    const pct      = parseFloat(document.getElementById('calc-stakepct').value) || 2;
+    const freq     = parseFloat(document.getElementById('calc-freq').value) || 5;
+    const wr       = parseInt(document.getElementById('calc-wr').value) / 100;
+    const weeks    = parseInt(document.getElementById('calc-weeks').value) || 12;
 
-    document.getElementById('slots-label').textContent  = slots + ' slot' + (slots > 1 ? 's' : '');
-    document.getElementById('freq-label').textContent   = freq + '/week';
-    document.getElementById('wr-label').textContent     = Math.round(wr * 100) + '%';
-    document.getElementById('weeks-label').textContent  = weeks + ' week' + (weeks > 1 ? 's' : '');
+    document.getElementById('stakepct-label').textContent = pct + '%';
+    document.getElementById('freq-label').textContent     = freq + '/week';
+    document.getElementById('wr-label').textContent       = Math.round(wr * 100) + '%';
+    document.getElementById('weeks-label').textContent    = weeks + ' week' + (weeks > 1 ? 's' : '');
+    document.getElementById('bd-weeks-lbl').textContent   = weeks + ' wk' + (weeks > 1 ? 's' : '');
 
     const NO_PRICE = 0.95, STOP_MARGIN = 0.20, SL_PRICE = NO_PRICE - STOP_MARGIN, KALSHI_FEE = 0.01;  // stop = entry - 20c (matches engine STOP_MARGIN)
     const applyFees = document.getElementById('calc-fees') ? document.getElementById('calc-fees').checked : true;
-    const startingCapital = stake * slots;
-    const totalTradesPerSlot = freq * weeks;
-    const totalTrades = totalTradesPerSlot * slots;
 
-    function tradeEcon(currentStake) {
-      const contracts = Math.max(Math.floor(currentStake / NO_PRICE), 1);
-      const cost = contracts * NO_PRICE;
-      const fee  = applyFees ? contracts * KALSHI_FEE : 0;
-      const winPayout  = contracts * 1.0;
-      const winProfit  = winPayout - cost - fee;
-      const slProceeds = contracts * SL_PRICE;
-      const lossAmt    = cost - slProceeds + fee;
-      return { contracts, cost, fee, winPayout, winProfit, lossAmt };
-    }
+    // Position = a flat fraction of the bankroll, held constant over the horizon.
+    const position  = bankroll * (pct / 100);
+    const contracts = Math.max(Math.floor(position / NO_PRICE), 1);
+    const cost      = contracts * NO_PRICE;
+    const fee       = applyFees ? contracts * KALSHI_FEE : 0;
+    const winProfit = contracts * 1.0 - cost - fee;        // payout - cost - fee
+    const lossAmt   = cost - contracts * SL_PRICE + fee;   // stop-out cost
 
-    if (calcMode === 'fixed') {
-      const econ = tradeEcon(stake);
-      const evPerTrade = wr * econ.winProfit - (1 - wr) * econ.lossAmt;
-      const expectedWins   = totalTrades * wr;
-      const expectedLosses = totalTrades * (1 - wr);
-      const totalProfit    = totalTrades * evPerTrade;
-      const finalBalance   = startingCapital + totalProfit;
+    const totalTrades    = freq * weeks;
+    const evPerTrade     = wr * winProfit - (1 - wr) * lossAmt;
+    const totalProfit    = totalTrades * evPerTrade;
+    const finalBankroll  = bankroll + totalProfit;
+    const expectedWins   = totalTrades * wr;
+    const expectedLosses = totalTrades * (1 - wr);
+    const growth = bankroll > 0 ? (totalProfit / bankroll * 100) : 0;
 
-      const bonusSlots = totalProfit > 0 ? Math.floor(totalProfit / stake) : 0;
-      const bankedSafe = Math.max(totalProfit - bonusSlots * stake, 0);
-      const activeSlots = slots + bonusSlots;
-      const growth = ((finalBalance - startingCapital) / startingCapital * 100);
-
-      document.getElementById('calc-final').textContent   = Math.max(finalBalance, 0).toFixed(0);
-      document.getElementById('calc-growth').textContent  =
-        `${growth >= 0 ? '+' : ''}${growth.toFixed(1)}% · ${activeSlots} slots · ${applyFees ? 'net of fees' : 'gross'}`;
-      document.getElementById('bd-start').textContent      = '$' + startingCapital.toFixed(0);
-      document.getElementById('bd-trades').textContent     = totalTrades.toFixed(0);
-      document.getElementById('bd-wins').textContent       = expectedWins.toFixed(1);
-      document.getElementById('bd-losses').textContent     = expectedLosses.toFixed(1);
-      document.getElementById('bd-maxloss').textContent    = '-$' + econ.lossAmt.toFixed(2);
-      document.getElementById('bd-banked').textContent     = '$' + bankedSafe.toFixed(0);
-      document.getElementById('bd-slots-added').textContent = '+' + bonusSlots + ' slot' + (bonusSlots !== 1 ? 's' : '');
-      document.getElementById('bd-gain').textContent       =
-        (totalProfit >= 0 ? '+' : '') + '$' + Math.abs(totalProfit).toFixed(0);
-    } else {
-      let totalProfit = 0;
-      let peakLoss = 0;
-      let peakStake = stake;
-
-      for (let slotIdx = 0; slotIdx < slots; slotIdx++) {
-        let curStake = stake;
-        for (let n = 0; n < totalTradesPerSlot; n++) {
-          const econ = tradeEcon(curStake);
-          totalProfit += wr * econ.winProfit - (1 - wr) * econ.lossAmt;
-          if (econ.lossAmt > peakLoss) peakLoss = econ.lossAmt;
-          if (curStake > peakStake) peakStake = curStake;
-          curStake = wr * econ.winPayout + (1 - wr) * stake;
-        }
-      }
-
-      const expectedWins   = totalTrades * wr;
-      const expectedLosses = totalTrades * (1 - wr);
-      const finalBalance   = Math.max(startingCapital + totalProfit, 0);
-      const growth = ((finalBalance - startingCapital) / startingCapital * 100);
-
-      document.getElementById('calc-final').textContent  = finalBalance.toFixed(0);
-      document.getElementById('calc-growth').textContent =
-        `${growth >= 0 ? '+' : ''}${growth.toFixed(1)}% · peak stake ~$${peakStake.toFixed(0)} · worst loss -$${peakLoss.toFixed(2)}`;
-      document.getElementById('bd-start').textContent    = '$' + startingCapital.toFixed(0);
-      document.getElementById('bd-trades').textContent   = totalTrades.toFixed(0);
-      document.getElementById('bd-wins').textContent     = expectedWins.toFixed(1);
-      document.getElementById('bd-losses').textContent   = expectedLosses.toFixed(1);
-      document.getElementById('bd-maxloss').textContent  = '-$' + peakLoss.toFixed(2);
-      document.getElementById('bd-banked').textContent   = 'N/A';
-      document.getElementById('bd-slots-added').textContent = 'N/A';
-      document.getElementById('bd-gain').textContent     =
-        (totalProfit >= 0 ? '+' : '') + '$' + Math.abs(totalProfit).toFixed(0);
-    }
+    document.getElementById('calc-size').textContent     = position.toFixed(0);
+    document.getElementById('calc-sizenote').textContent =
+      `${pct}% of $${bankroll.toFixed(0)} · ~${contracts} NO contracts @ 95¢ · ${applyFees ? 'net of fees' : 'gross'}`;
+    document.getElementById('bd-bankroll').textContent = '$' + bankroll.toFixed(0);
+    document.getElementById('bd-maxloss').textContent  = '-$' + lossAmt.toFixed(2);
+    document.getElementById('bd-trades').textContent   = totalTrades.toFixed(0);
+    document.getElementById('bd-wins').textContent     = expectedWins.toFixed(1);
+    document.getElementById('bd-losses').textContent   = expectedLosses.toFixed(1);
+    document.getElementById('bd-gain').textContent     =
+      (totalProfit >= 0 ? '+' : '-') + '$' + Math.abs(totalProfit).toFixed(0);
+    document.getElementById('bd-final').textContent    =
+      '$' + Math.max(finalBankroll, 0).toFixed(0) + ' (' + (growth >= 0 ? '+' : '') + growth.toFixed(1) + '%)';
   }
   recalc();
 </script>
