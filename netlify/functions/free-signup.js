@@ -49,7 +49,7 @@ exports.handler = async (event) => {
         <tr>
           <td style="background:linear-gradient(135deg,#00d4ff,#0077ff);padding:30px;text-align:center;">
             <p style="margin:0;font-size:32px;font-weight:900;color:#000;letter-spacing:-1px;">3<sup style="font-size:18px;">rd</sup> EYES</p>
-            <p style="margin:6px 0 0;font-size:13px;color:#003344;letter-spacing:3px;text-transform:uppercase;">AI Weather Signals</p>
+            <p style="margin:6px 0 0;font-size:13px;color:#003344;letter-spacing:3px;text-transform:uppercase;">Engineered Weather Signals</p>
           </td>
         </tr>
         <!-- Body -->

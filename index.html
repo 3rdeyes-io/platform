@@ -2076,17 +2076,25 @@ async function handleSignup(e, form) {
 
   const email = form.querySelector('input[type="email"]').value;
 
+  let ok = false;
   try {
-    await fetch('/.netlify/functions/free-signup', {
+    const resp = await fetch('/.netlify/functions/free-signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({ email }).toString()
     });
-  } catch(_) {}
+    ok = resp.ok;
+  } catch(_) { ok = false; }
 
-  form.innerHTML = `<div class="signup-success">
-    Check your email - channel link is on its way.
-  </div>`;
+  if (ok) {
+    form.innerHTML = `<div class="signup-success">
+      Check your email - channel link is on its way.
+    </div>`;
+  } else {
+    form.innerHTML = `<div class="signup-success" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:#fca5a5;">
+      Could not send the welcome email right now. Please try again in a moment, or reach us at <a href="mailto:support@3rdeyes.io" style="color:#fca5a5;text-decoration:underline;">support@3rdeyes.io</a>.
+    </div>`;
+  }
 }
 
 // ── Nav scroll effect ────────────────────────────────────────
