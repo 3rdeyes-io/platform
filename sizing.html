@@ -338,9 +338,12 @@
           <input type="number" class="form-input" id="calc-bankroll" aria-label="Your bankroll, in dollars" value="2000" min="50" max="1000000" oninput="recalc()">
         </div>
         <div class="form-group">
-          <label class="form-label">Stake per trade (% of bankroll)<span class="tip" tabindex="0" data-tip="The share of your bankroll you put on each signal. Disciplined sizing is 1-5%. A smaller % means lower risk and longer survival through a losing streak.">i</span></label>
-          <input type="range" id="calc-stakepct" aria-label="Stake per trade, percent of bankroll" min="1" max="10" step="0.5" value="2" oninput="recalc()">
-          <div class="range-labels"><span>1%</span><span id="stakepct-label">2%</span><span>10%</span></div>
+          <label class="form-label">Stake per trade (% of bankroll)<span class="tip" tabindex="0" data-tip="The share of your bankroll you put on each signal. There's no single right answer - it depends on your risk comfort, bankroll size, and how many positions you want to hold at once. The slider goes to 50% so you can model any approach.">i</span></label>
+          <input type="range" id="calc-stakepct" aria-label="Stake per trade, percent of bankroll" min="1" max="50" step="0.5" value="2" oninput="recalc()">
+          <div class="range-labels"><span>1%</span><span id="stakepct-label">2%</span><span>50%</span></div>
+          <div id="stakepct-guidance" style="margin-top:10px;padding:10px 12px;font-size:.75rem;line-height:1.6;border-radius:8px;background:rgba(255,255,255,.025);border:1px solid var(--border);color:#94a3b8;">
+            What different levels look like: <strong style="color:#cbd5e1;">1-5%</strong> conservative (easily survives losing streaks); <strong style="color:#cbd5e1;">5-15%</strong> moderate (common on small bankrolls and when running multiple positions at once); <strong style="color:#cbd5e1;">15-30%</strong> aggressive (single losses are felt); <strong style="color:#cbd5e1;">30-50%</strong> high (one bad day dents the stack meaningfully). Pick what fits your risk comfort.
+          </div>
         </div>
         <div class="form-group">
           <label class="form-label">Signals you act on per week
@@ -349,6 +352,11 @@
           </label>
           <input type="range" id="calc-freq" aria-label="Signals acted on per week" min="1" max="15" step="1" value="5" oninput="recalc()">
           <div class="range-labels"><span>1/wk</span><span id="freq-label">5/week</span><span>15/wk</span></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Avg NO entry price (¢) <span style="color:#94a3b8;font-size:.72rem;font-weight:500;">(verified avg ≈ 90¢)</span><span class="tip" tabindex="0" data-tip="The average price you pay per NO contract. Our engine accepts 82-98¢; our verified ledger averages ~90¢. Lower entries mean more profit per win (the stop is still a flat 20¢ per contract). This is the single biggest assumption affecting projected returns.">i</span></label>
+          <input type="range" id="calc-entry" aria-label="Average NO entry price, cents" min="82" max="98" step="1" value="90" oninput="recalc()">
+          <div class="range-labels"><span>82¢</span><span id="entry-label">90¢</span><span>98¢</span></div>
         </div>
         <div class="form-group">
           <label class="form-label">Win rate <span style="color:#10d9a0;font-size:.75rem;">(our verified rate is 88%)</span><span class="tip" tabindex="0" data-tip="Share of trades that win. Our exchange-verified figure is 88% (see /track). It's an input you control - past performance doesn't guarantee future results.">i</span></label>
@@ -362,7 +370,7 @@
         </div>
 
         <div style="background:rgba(16,217,160,.06);border:1px solid rgba(16,217,160,.15);border-radius:10px;padding:14px;font-size:.8125rem;color:#6ee7b7;line-height:1.6;">
-          ✅ <strong>Fixed-fractional sizing:</strong> this models a flat stake of your chosen % on every trade. The pre-set stop caps the worst case at roughly 20¢ per contract (~21% of the position). As your bankroll grows you simply re-size to the same % - that's how disciplined bankroll management grows steadily, without ever risking more than you planned on any single trade.
+          ✅ <strong>Fixed-fractional sizing:</strong> this models a flat stake of your chosen % on every trade. The pre-set stop caps the worst case at roughly 20¢ per contract (about 20-24% of position depending on your entry price). As your bankroll grows you simply re-size to the same % - that's how disciplined bankroll management grows steadily, without ever risking more than you planned on any single trade.
         </div>
 
         <div class="form-group" style="margin-top:14px;">
@@ -371,7 +379,7 @@
               style="width:16px;height:16px;accent-color:var(--green);cursor:pointer;">
             Show net-of-fees (Kalshi $0.01/contract)
           </label>
-          <div style="font-size:.72rem;color:var(--muted);margin-top:4px;">At 95¢ NO: gross +$0.05/contract → net +$0.04/contract after fee. At 97¢ NO: gross +$0.03 → net +$0.02.</div>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:4px;">At 90¢ NO: gross +$0.10/contract → net +$0.09 after fee. At 95¢ NO: gross +$0.05 → net +$0.04. The lower your entry, the more profit per win.</div>
         </div>
 
         <div style="background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.15);border-radius:10px;padding:14px;font-size:.75rem;color:#fbbf24;line-height:1.6;margin-top:10px;">
@@ -406,15 +414,16 @@
 <script>
   // Preset templates: conservative / moderate / aggressive bankroll scenarios.
   function setPreset(name){
-    var P = { conservative:{bankroll:1000, pct:1, freq:3, wr:93, weeks:12},
-              moderate:    {bankroll:2000, pct:2, freq:5, wr:88, weeks:12},
-              aggressive:  {bankroll:3000, pct:4, freq:8, wr:85, weeks:12} }[name];
+    var P = { conservative:{bankroll:1000, pct:1, freq:3, wr:93, weeks:12, entry:93},
+              moderate:    {bankroll:2000, pct:2, freq:5, wr:88, weeks:12, entry:90},
+              aggressive:  {bankroll:3000, pct:4, freq:8, wr:85, weeks:12, entry:88} }[name];
     if(!P) return;
     document.getElementById('calc-bankroll').value = P.bankroll;
     document.getElementById('calc-stakepct').value = P.pct;
     document.getElementById('calc-freq').value     = P.freq;
     document.getElementById('calc-wr').value        = P.wr;
     document.getElementById('calc-weeks').value     = P.weeks;
+    document.getElementById('calc-entry').value     = P.entry;
     recalc();
   }
 
@@ -432,7 +441,13 @@
     document.getElementById('weeks-label').textContent    = weeks + ' week' + (weeks > 1 ? 's' : '');
     document.getElementById('bd-weeks-lbl').textContent   = weeks + ' wk' + (weeks > 1 ? 's' : '');
 
-    const NO_PRICE = 0.95, STOP_MARGIN = 0.20, SL_PRICE = NO_PRICE - STOP_MARGIN, KALSHI_FEE = 0.01;  // stop = entry - 20c (matches engine STOP_MARGIN)
+    // Entry price is user-controlled (slider); stop margin is the engine constant.
+    const entryCents = parseInt(document.getElementById('calc-entry').value) || 90;
+    const NO_PRICE = entryCents / 100;
+    const STOP_MARGIN = 0.20;
+    const SL_PRICE = NO_PRICE - STOP_MARGIN;
+    const KALSHI_FEE = 0.01;
+    document.getElementById('entry-label').textContent = entryCents + '¢';
     const applyFees = document.getElementById('calc-fees') ? document.getElementById('calc-fees').checked : true;
 
     // Position = a flat fraction of the bankroll, held constant over the horizon.
@@ -453,7 +468,7 @@
 
     document.getElementById('calc-size').textContent     = position.toFixed(0);
     document.getElementById('calc-sizenote').textContent =
-      `${pct}% of $${bankroll.toFixed(0)} · ~${contracts} NO contracts @ 95¢ · ${applyFees ? 'net of fees' : 'gross'}`;
+      `${pct}% of $${bankroll.toFixed(0)} · ~${contracts} NO contracts @ ${entryCents}¢ · ${applyFees ? 'net of fees' : 'gross'}`;
     document.getElementById('bd-bankroll').textContent = '$' + bankroll.toFixed(0);
     document.getElementById('bd-maxloss').textContent  = '-$' + lossAmt.toFixed(2);
     document.getElementById('bd-trades').textContent   = totalTrades.toFixed(0);
