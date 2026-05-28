@@ -1,12 +1,20 @@
 {
- "updated": "2026-05-26",
- "period": "Apr 23 - May 26, 2026",
- "trades": 57,
+ "updated": "2026-05-27",
+ "period": "Apr 23 - May 27, 2026",
+ "trades": 58,
  "wins": 51,
- "losses": 6,
- "winRate": "89.5%",
- "net": "+$72.60",
+ "losses": 7,
+ "winRate": "87.9%",
+ "net": "+$55.61",
  "recent": [
+  {
+   "date": "2026-05-27",
+   "city": "Chicago",
+   "threshold": "81-82\u00b0",
+   "no_price": 0.91,
+   "pl": -16.99,
+   "outcome": "loss"
+  },
   {
    "date": "2026-05-26",
    "city": "Chicago",
@@ -37,14 +45,6 @@
    "threshold": "88-89\u00b0",
    "no_price": 0.91,
    "pl": 4.09,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-05-24",
-   "city": "Los Angeles",
-   "threshold": "64-65\u00b0",
-   "no_price": 0.89,
-   "pl": 8.66,
    "outcome": "win"
   }
  ],
@@ -390,6 +390,12 @@
    "market": "Chicago &middot; 89-90&deg;",
    "net": 0.62,
    "win": true
+  },
+  {
+   "date": "May 27",
+   "market": "Chicago &middot; 81-82&deg;",
+   "net": -16.99,
+   "win": false
   }
  ]
 }
