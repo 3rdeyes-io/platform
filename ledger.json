@@ -1,12 +1,28 @@
 {
- "updated": "2026-05-28",
- "period": "Apr 23 - May 28, 2026",
- "trades": 60,
- "wins": 53,
+ "updated": "2026-05-29",
+ "period": "Apr 23 - May 29, 2026",
+ "trades": 62,
+ "wins": 55,
  "losses": 7,
- "winRate": "88.3%",
- "net": "+$60.08",
+ "winRate": "88.7%",
+ "net": "+$67.58",
  "recent": [
+  {
+   "date": "2026-05-29",
+   "city": "Denver",
+   "threshold": "85-86\u00b0",
+   "no_price": 0.91,
+   "pl": 0.08,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-05-29",
+   "city": "Los Angeles",
+   "threshold": "66-67\u00b0",
+   "no_price": 0.88,
+   "pl": 7.42,
+   "outcome": "win"
+  },
   {
    "date": "2026-05-28",
    "city": "Denver",
@@ -30,22 +46,6 @@
    "no_price": 0.91,
    "pl": -16.99,
    "outcome": "loss"
-  },
-  {
-   "date": "2026-05-26",
-   "city": "Chicago",
-   "threshold": "89-90\u00b0",
-   "no_price": 0.94,
-   "pl": 0.62,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-05-25",
-   "city": "Chicago",
-   "threshold": "86-87\u00b0",
-   "no_price": 0.82,
-   "pl": 0.84,
-   "outcome": "win"
   }
  ],
  "rows": [
@@ -407,6 +407,18 @@
    "date": "May 28",
    "market": "Los Angeles &middot; &lt;65&deg;",
    "net": 0.05,
+   "win": true
+  },
+  {
+   "date": "May 29",
+   "market": "Denver &middot; 85-86&deg;",
+   "net": 0.08,
+   "win": true
+  },
+  {
+   "date": "May 29",
+   "market": "Los Angeles &middot; 66-67&deg;",
+   "net": 7.42,
    "win": true
   }
  ]
