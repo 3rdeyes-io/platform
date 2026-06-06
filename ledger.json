@@ -1,12 +1,20 @@
 {
- "updated": "2026-06-04",
- "period": "Apr 23 - Jun 4, 2026",
- "trades": 69,
- "wins": 61,
+ "updated": "2026-06-05",
+ "period": "Apr 23 - Jun 5, 2026",
+ "trades": 70,
+ "wins": 62,
  "losses": 8,
- "winRate": "88.4%",
- "net": "+$85.13",
+ "winRate": "88.6%",
+ "net": "+$85.83",
  "recent": [
+  {
+   "date": "2026-06-05",
+   "city": "Austin",
+   "threshold": "89-90\u00b0",
+   "no_price": 0.94,
+   "pl": 0.7,
+   "outcome": "win"
+  },
   {
    "date": "2026-06-04",
    "city": "Miami",
@@ -38,14 +46,6 @@
    "no_price": 0.94,
    "pl": -16.86,
    "outcome": "loss"
-  },
-  {
-   "date": "2026-06-02",
-   "city": "Denver",
-   "threshold": "83-84\u00b0",
-   "no_price": 0.94,
-   "pl": 0.28,
-   "outcome": "win"
   }
  ],
  "rows": [
@@ -461,6 +461,12 @@
    "date": "Jun 4",
    "market": "Austin &middot; 90-91&deg;",
    "net": 8.66,
+   "win": true
+  },
+  {
+   "date": "Jun 5",
+   "market": "Austin &middot; 89-90&deg;",
+   "net": 0.7,
    "win": true
   }
  ]
