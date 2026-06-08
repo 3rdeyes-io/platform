@@ -640,12 +640,9 @@
     3rd Eyes
   </a>
   <ul class="nav-links">
-    <li><a href="#explainer">What is this?</a></li>
-    <li><a href="#how-it-works">How it works</a></li>
-    <li><a href="#risk-tiers">Risk tiers</a></li>
-    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#three-steps">How it works</a></li>
+    <li><a href="#ledger">Proof</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="/start" style="color:var(--green);">Quick Start ↗</a></li>
     <li><a href="/track" style="color:var(--green);">Track Record ↗</a></li>
     <li><a href="/sizing" style="color:var(--green);">Sizing & Risk ↗</a></li>
     <li><a href="/methodology" style="color:var(--green);">Methodology ↗</a></li>
@@ -660,10 +657,10 @@
 
 <!-- Mobile menu -->
 <div id="mobile-menu" style="display:none;position:fixed;top:64px;left:0;right:0;z-index:99;background:rgba(5,12,26,.97);border-bottom:1px solid var(--border);padding:20px 5%;">
-  <a href="#how-it-works" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">How it works</a>
-  <a href="#risk-tiers" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">Risk tiers</a>
+  <a href="#three-steps" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">How it works</a>
+  <a href="#ledger" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">Proof</a>
   <a href="/track" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);">Track Record ↗</a>
-  <a href="#calculator" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);" onclick="toggleMenu()">Calculator</a>
+  <a href="/sizing" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;border-bottom:1px solid var(--border);">Sizing & Risk ↗</a>
   <a href="#pricing" style="display:block;padding:12px 0;color:#e2e8f0;text-decoration:none;" onclick="toggleMenu()">Pricing</a>
   <a href="#pricing" class="btn-primary" style="margin-top:16px;justify-content:center;">Get Signals →</a>
 </div>
@@ -683,7 +680,7 @@
 
   <div class="hero-badge">
     <div class="live-dot"></div>
-    Live · <span id="hero-wl">88.7% win rate · 47-6 · +$67.00 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
+    Live · <span id="hero-wl">87.5% win rate · 63-9 · +$67.38 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
   </div>
 
   <!-- ── Live operational pulse - proves the bot is actually running ── -->
@@ -698,15 +695,14 @@
     </span>
   </div>
 
-  <h1>Trade the sky.<br><span>See what the market can't.</span></h1>
+  <h1>Tomorrow's high temperature<br><span>is a market. We trade it.</span></h1>
 
   <p class="hero-sub">
-    Apps like <strong style="color:#fff">Kalshi</strong>, <strong style="color:#fff">Coinbase</strong>, and <strong style="color:#fff">Robinhood</strong> let
-    you trade tomorrow's temperature - <em>"Will Chicago stay under 62°F?"</em> Our engine runs
-    four professional weather models - the same ones meteorologists use - against every one of those
-    contracts, finds the ones the market prices wrong, and sends you a
-    Telegram alert: <strong style="color:#fff">what to trade, how confident we are, and exactly which app to place it on.</strong>
-    <strong style="color:var(--green)">Exchange-verified track record</strong>, reconstructed line-by-line from Kalshi's settlement records - <em>past performance doesn't guarantee future results.</em> <a href="/track" style="color:var(--green);">See every trade →</a>
+    On apps like <strong style="color:#fff">Kalshi</strong>, you can bet on tomorrow's high temperature in major US cities.
+    We run the <strong style="color:#fff">same forecast models the pros use</strong>, spot the bets the market priced wrong,
+    and text you exactly <strong style="color:#fff">what to buy and where</strong>. <strong style="color:var(--green)">Around 9 in 10 of our trades have won</strong>,
+    and every single trade is public and verifiable on the exchange. <a href="/track" style="color:var(--green);">See the record →</a>
+    <span style="display:block;margin-top:10px;font-size:.85rem;color:var(--muted);">Past performance doesn't guarantee future results. Prediction-market trading carries real risk.</span>
   </p>
 
   <form class="hero-form" onsubmit="handleSignup(event, this)">
@@ -758,521 +754,6 @@
 
   </div>
   <p style="text-align:center;font-size:.88rem;color:#cbd5e1;margin:28px auto 0;max-width:560px;line-height:1.6;">No charts. No forecasting. No trading experience. <strong style="color:#fff;">If you can read a message and tap a button, you can do this.</strong></p>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     PLAIN-ENGLISH EXPLAINER (for first-time visitors)
-═══════════════════════════════════════ -->
-<section id="explainer" style="background:linear-gradient(180deg, rgba(99,102,241,.025) 0%, transparent 100%);border-top:1px solid var(--border);">
-  <div class="section-header">
-    <div class="section-label">First time here?</div>
-    <h2 class="section-title">Wait, what is this<br>in plain English?</h2>
-    <p class="section-sub">No trading background needed. Here's the whole thing in 30 seconds.</p>
-  </div>
-
-  <!-- Animated flow scene (with video auto-swap) -->
-  <div style="max-width:920px;margin:0 auto 40px;padding:0 20px;">
-
-    <!-- Real explainer video - auto-shown if /videos/explainer.mp4 exists.
-         Drop your MP4 there to swap. Suggested specs: 20-40 sec, 1280×720, MP4 H.264, <8MB. -->
-    <video id="explainer-video"
-           autoplay muted loop playsinline preload="metadata"
-           style="display:none;width:100%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#0a1424;">
-      <source src="/videos/explainer.mp4" type="video/mp4">
-      <source src="/videos/explainer.webm" type="video/webm">
-      Your browser doesn't support inline video.
-    </video>
-
-    <!-- Fallback CSS-animated scene (shown if no video file present) -->
-    <div id="explainer-css-scene" class="explainer-scene">
-      <!-- Stage 1: City forecast -->
-      <div class="scene-stage scene-1">
-        <div class="scene-icon">🌤️</div>
-        <div class="scene-title">It's Tuesday.</div>
-        <div class="scene-sub">Our model predicts Chicago tops out at <strong style="color:var(--green);">51°F</strong> today.</div>
-      </div>
-      <!-- Arrow -->
-      <div class="scene-arrow scene-arrow-1">→</div>
-      <!-- Stage 2: Kalshi market -->
-      <div class="scene-stage scene-2">
-        <div class="scene-icon">🎯</div>
-        <div class="scene-title">Kalshi is pricing a contract:</div>
-        <div class="scene-sub">"Will Chicago hit <strong>62°F</strong>?"<br>The NO side costs <strong style="color:var(--green);">88¢</strong>.</div>
-      </div>
-      <!-- Arrow -->
-      <div class="scene-arrow scene-arrow-2">→</div>
-      <!-- Stage 3: Telegram alert -->
-      <div class="scene-stage scene-3">
-        <div class="scene-icon">📱</div>
-        <div class="scene-title">You get a Telegram alert.</div>
-        <div class="scene-sub">"NO @ 88¢ · Chicago · 11° buffer · 96% win-prob."<br>You tap "Buy" on Kalshi.</div>
-      </div>
-      <!-- Arrow -->
-      <div class="scene-arrow scene-arrow-3">→</div>
-      <!-- Stage 4: Result -->
-      <div class="scene-stage scene-4">
-        <div class="scene-icon">✅</div>
-        <div class="scene-title">8 PM: temp closes at 50°F.</div>
-        <div class="scene-sub">You were right. <strong style="color:var(--green);">+$9.90</strong> - about a <strong style="color:var(--green);">12% return</strong> on your $80, in a single day.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Auto-swap script: if the video loads, show it and hide the CSS scene. -->
-  <script>
-  (function() {
-    var v   = document.getElementById('explainer-video');
-    var css = document.getElementById('explainer-css-scene');
-    if (!v) return;
-    var swapped = false;
-    function showVideo() {
-      if (swapped) return;
-      swapped = true;
-      v.style.display = 'block';
-      if (css) css.style.display = 'none';
-    }
-    function keepCss() {
-      v.style.display = 'none';
-      if (css) css.style.display = '';
-    }
-    v.addEventListener('loadeddata', showVideo);
-    v.addEventListener('canplay',    showVideo);
-    v.addEventListener('error',      keepCss);
-    // <source> children fire error on individual sources too
-    Array.prototype.forEach.call(v.querySelectorAll('source'), function(s) {
-      s.addEventListener('error', function() {
-        if (!swapped && v.networkState === 3) keepCss(); // NETWORK_NO_SOURCE
-      });
-    });
-    // Safety fallback - if nothing loads in 2.5s, stay on CSS scene
-    setTimeout(function() { if (!swapped) keepCss(); }, 2500);
-  })();
-  </script>
-
-  <!-- 3 plain-English cards -->
-  <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:0 20px;">
-
-    <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px 26px;">
-      <div style="font-size:2rem;margin-bottom:12px;">🏛️</div>
-      <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;margin-bottom:8px;">Trade real-world outcomes on regulated markets.</div>
-      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">CFTC-regulated venues like Kalshi, Coinbase, and Robinhood let you trade YES/NO contracts on real-world questions - "Will it rain Friday?" "Will Miami hit 90°?" We tell you which contract our models think is mispriced - and which app to trade it on.</p>
-    </div>
-
-    <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px 26px;">
-      <div style="font-size:2rem;margin-bottom:12px;">🛰️</div>
-      <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;margin-bottom:8px;">Most people guess. We don't.</div>
-      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">Most traders glance at a weather app and trade on a hunch. We pull the actual government weather computers (the ones that run hurricane warnings) and run dozens of independent forecasts across four major models. When the crowd's price is mathematically wrong, we see it 24 hours ahead.</p>
-    </div>
-
-    <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:24px 26px;">
-      <div style="font-size:2rem;margin-bottom:12px;">📲</div>
-      <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;margin-bottom:8px;">We message you. You decide. Done.</div>
-      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">When the math is in your favor, you get a Telegram message: city, price, why we like it, suggested stake. You open the Kalshi app and tap one button. Your money stays in your account; we never touch it.</p>
-    </div>
-
-  </div>
-
-  <!-- Reassurance block -->
-  <div style="max-width:760px;margin:40px auto 0;padding:0 20px;">
-    <div style="background:rgba(16,217,160,.05);border:1px solid rgba(16,217,160,.2);border-radius:14px;padding:22px 26px;text-align:center;">
-      <p style="font-size:.95rem;color:#cbd5e1;line-height:1.7;margin:0;">
-        <strong style="color:#fff;">You don't need to be a trader.</strong> If you can read a phone notification and tap a button, you can use 3rd Eyes. Start with whatever amount you're comfortable with - even $20 to test the waters - and place a few trades a week. The free tier sends sample signals so you can verify the track record before paying anything.
-      </p>
-    </div>
-  </div>
-</section>
-
-<style>
-/* ── Explainer animated scene ── */
-.explainer-scene {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-  gap: 8px;
-  align-items: center;
-  max-width: 100%;
-}
-.scene-stage {
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 20px 14px;
-  text-align: center;
-  min-height: 160px;
-  opacity: .75;
-  transform: scale(1);
-  cursor: pointer;
-  transition: opacity .2s, transform .2s, border-color .2s, box-shadow .2s, background .2s;
-}
-.scene-icon { font-size: 2rem; margin-bottom: 10px; line-height: 1; }
-.scene-title {
-  font-family: 'Sora', sans-serif;
-  font-weight: 700;
-  color: #fff;
-  font-size: .9rem;
-  margin-bottom: 6px;
-}
-.scene-sub {
-  color: var(--muted);
-  font-size: .8rem;
-  line-height: 1.5;
-}
-.scene-arrow {
-  color: var(--green);
-  font-size: 1.5rem;
-  font-weight: 700;
-  opacity: .55;
-  transition: opacity .2s, transform .2s;
-}
-
-/* Hover-driven highlight - instant response, no waiting */
-.scene-1:hover { opacity: 1; transform: scale(1.02); border-color: rgba(16,217,160,.5); box-shadow: 0 8px 30px rgba(16,217,160,.18); background: rgba(16,217,160,.06); }
-.scene-2:hover { opacity: 1; transform: scale(1.02); border-color: rgba(99,102,241,.5); box-shadow: 0 8px 30px rgba(99,102,241,.18); background: rgba(99,102,241,.06); }
-.scene-3:hover { opacity: 1; transform: scale(1.02); border-color: rgba(245,158,11,.5); box-shadow: 0 8px 30px rgba(245,158,11,.18); background: rgba(245,158,11,.06); }
-.scene-4:hover { opacity: 1; transform: scale(1.02); border-color: rgba(16,217,160,.55); box-shadow: 0 10px 36px rgba(16,217,160,.22); background: rgba(16,217,160,.07); }
-.scene-1:hover ~ .scene-arrow-1, .scene-2:hover ~ .scene-arrow-2, .scene-3:hover ~ .scene-arrow-3 { opacity: 1; transform: translateX(3px); }
-
-@media (max-width: 760px) {
-  .explainer-scene {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-  .scene-arrow { transform: rotate(90deg); justify-self: center; padding: 2px 0; }
-  .scene-stage { min-height: auto; padding: 16px 14px; }
-}
-</style>
-
-
-<!-- ═══════════════════════════════════════
-     HOW IT WORKS
-═══════════════════════════════════════ -->
-<section id="how-it-works">
-  <div class="section-header">
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">From weather forecast<br>to trade alert - automatically.</h2>
-    <p class="section-sub">Every step is logged and published. You always know exactly why a signal fired - or didn't.</p>
-  </div>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">01</div>
-      <div class="step-icon">🛰️</div>
-      <div class="step-title">40 cities scanned every 5 minutes</div>
-      <div class="step-desc">Our engine continuously pulls professional-grade weather data - the same models meteorologists use - for 40 US cities. It runs 24/7 so you don't have to watch anything.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">02</div>
-      <div class="step-icon">🔬</div>
-      <div class="step-title">Every forecast model must agree</div>
-      <div class="step-desc">We run dozens of independent weather simulations across four major forecast models (GFS, ECMWF, ICON, GEM). Every single one must predict the temperature stays safely away from the threshold. One disagreement kills the trade. No signal fires on a split verdict.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">03</div>
-      <div class="step-icon">📏</div>
-      <div class="step-title">Safety margin + price check</div>
-      <div class="step-desc">The forecast must clear the threshold by a comfortable margin (≥3°F inland, ≥5°F coastal) - not just barely. The contract price must also be in the right range. All checks pass → a calibrated win-probability is assigned.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">04</div>
-      <div class="step-icon">⚡</div>
-      <div class="step-title">Alert hits your Telegram instantly</div>
-      <div class="step-desc">You get the city, contract, direction, win-probability, and plain-English reasoning - exactly why the model fired. Place the trade manually on your platform, or let the pipeline handle it automatically.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">05</div>
-      <div class="step-icon">🛡️</div>
-      <div class="step-title">Live monitoring + automatic stop-loss</div>
-      <div class="step-desc">Open positions are watched in real time. You get an alert if a trade moves against you, and an auto-close triggers if it drops below the stop-loss threshold. Each trade is independent - one loss doesn't affect the others.</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     THE EDGE (data-driven comparison)
-═══════════════════════════════════════ -->
-<section id="the-edge" style="border-top:1px solid var(--border);">
-  <style>
-    .edge-compare{max-width:940px;margin:28px auto 0;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
-    .ec-row{display:grid;grid-template-columns:1fr 1.1fr 1.3fr;}
-    .ec-row + .ec-row{border-top:1px solid var(--border);}
-    .ec-cell{padding:13px 16px;font-size:.86rem;line-height:1.45;}
-    .ec-head{background:rgba(255,255,255,.04);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
-    .ec-dim{color:#cbd5e1;font-weight:600;border-right:1px solid var(--border);}
-    .ec-them{color:#8b97a7;border-right:1px solid var(--border);}
-    .ec-us{color:#d8fff4;background:rgba(16,217,160,.06);}
-    .ec-us b{color:var(--green);}
-    .ec-head.ec-us{color:var(--green);background:rgba(16,217,160,.10);}
-    .checks-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:940px;margin:22px auto 0;}
-    .check-card{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.02);}
-    .check-card .ck{width:24px;height:24px;border-radius:50%;background:rgba(16,217,160,.15);color:var(--green);font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-    .check-name{font-weight:700;color:#fff;font-size:.9rem;}
-    .check-req{font-size:.78rem;color:var(--muted);margin-top:2px;line-height:1.4;}
-    @media(max-width:680px){
-      .ec-row{grid-template-columns:1fr;}
-      .ec-cell{border-right:none !important;}
-      .ec-dim{background:rgba(255,255,255,.04);}
-      .ec-head{display:none;}
-      .ec-them::before{content:"Most bettors: ";color:#64748b;font-weight:700;}
-      .ec-us::before{content:"3rd Eyes: ";color:var(--green);font-weight:700;}
-      .checks-grid{grid-template-columns:1fr;}
-    }
-  </style>
-  <div class="section-header">
-    <div class="section-label">The edge</div>
-    <h2 class="section-title">Why our analysis beats<br>trading on a hunch.</h2>
-    <p class="section-sub">Most people trade tomorrow's temperature with one weather app and a gut feeling. This isn't a single AI guess - it's a pipeline of independent checks, and every signal must clear all of them. Here is the difference, feature by feature.</p>
-  </div>
-
-  <div class="edge-compare">
-    <div class="ec-row">
-      <div class="ec-cell ec-head ec-dim">What matters</div>
-      <div class="ec-cell ec-head ec-them">Most weather bettors</div>
-      <div class="ec-cell ec-head ec-us">3rd Eyes</div>
-    </div>
-    <div class="ec-row">
-      <div class="ec-cell ec-dim">Weather models</div>
-      <div class="ec-cell ec-them">One phone weather app</div>
-      <div class="ec-cell ec-us"><b>4 global supercomputer models</b> (GFS, ECMWF, ICON, GEM) + HRRR</div>
-    </div>
-    <div class="ec-row">
-      <div class="ec-cell ec-dim">Forecast uncertainty</div>
-      <div class="ec-cell ec-them">Ignored</div>
-      <div class="ec-cell ec-us">Measured as <b>model spread</b> (&sigma;); we sit out when the models disagree</div>
-    </div>
-    <div class="ec-row">
-      <div class="ec-cell ec-dim">Local station bias</div>
-      <div class="ec-cell ec-them">Ignored</div>
-      <div class="ec-cell ec-us"><b>Per-station bias correction</b> learned from observed history</div>
-    </div>
-    <div class="ec-row">
-      <div class="ec-cell ec-dim">When to trade</div>
-      <div class="ec-cell ec-them">Gut feeling</div>
-      <div class="ec-cell ec-us">Only when our win-probability beats the market price by <b>&ge; 2.5 points</b> (+EV)</div>
-    </div>
-    <div class="ec-row">
-      <div class="ec-cell ec-dim">Position sizing</div>
-      <div class="ec-cell ec-them">Whatever feels right</div>
-      <div class="ec-cell ec-us">A fixed <b>fraction of your bankroll</b> per trade, capped per weather region</div>
-    </div>
-    <div class="ec-row">
-      <div class="ec-cell ec-dim">Exits</div>
-      <div class="ec-cell ec-them">Panic or hope</div>
-      <div class="ec-cell ec-us">A <b>pre-set stop-loss</b> on every position</div>
-    </div>
-    <div class="ec-row">
-      <div class="ec-cell ec-dim">Where to trade</div>
-      <div class="ec-cell ec-them">One app</div>
-      <div class="ec-cell ec-us">US-legal <b>Kalshi, Coinbase, Robinhood &amp; Polymarket</b></div>
-    </div>
-    <div class="ec-row">
-      <div class="ec-cell ec-dim">Reporting</div>
-      <div class="ec-cell ec-them">None</div>
-      <div class="ec-cell ec-us">Rebuilt from <b>exchange settlement records</b> (independently verifiable)</div>
-    </div>
-  </div>
-
-  <h3 style="text-align:center;margin:42px 0 0;font-size:1.1rem;color:#fff;font-weight:700;">Every signal must clear all six checks</h3>
-  <p style="text-align:center;font-size:.82rem;color:var(--muted);margin-top:6px;">If even one fails, we do not trade. That is why a typical day produces only a handful of signals out of 40+ cities scanned.</p>
-  <div class="checks-grid">
-    <div class="check-card"><span class="ck">1</span><div><div class="check-name">Models agree</div><div class="check-req">All four models point the same direction</div></div></div>
-    <div class="check-card"><span class="ck">2</span><div><div class="check-name">Forecast buffer</div><div class="check-req">&ge; 2&deg;F inland / 3.5&deg;F coastal cushion vs the temperature line</div></div></div>
-    <div class="check-card"><span class="ck">3</span><div><div class="check-name">Pricing edge</div><div class="check-req">Our win-probability is &ge; 2.5 points above the market price</div></div></div>
-    <div class="check-card"><span class="ck">4</span><div><div class="check-name">Win-probability floor</div><div class="check-req">&ge; 85% modeled chance to win, or we skip it</div></div></div>
-    <div class="check-card"><span class="ck">5</span><div><div class="check-name">Confidence grade</div><div class="check-req">A+/A/B only (tight model spread + HRRR cross-check)</div></div></div>
-    <div class="check-card"><span class="ck">6</span><div><div class="check-name">Concentration cap</div><div class="check-req">No more than 2 positions in one weather region</div></div></div>
-  </div>
-
-  <p style="text-align:center;font-size:.72rem;color:var(--muted);margin:24px auto 0;max-width:620px;line-height:1.55;">
-    This describes our analysis method, not a performance guarantee. Our win/loss record is verified directly from Kalshi's settlement records (see <a href="/track" style="color:var(--green);">/track</a>). Prediction-market trades carry real risk - never stake more than you can afford to lose.
-  </p>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     RISK TIERS
-═══════════════════════════════════════ -->
-<section id="risk-tiers" style="background:rgba(255,255,255,.015);">
-  <div class="section-header">
-    <div class="section-label">Risk levels</div>
-    <h2 class="section-title">Same signal. You choose<br>how much to trade.</h2>
-    <p class="section-sub">Every subscriber gets the same alerts at the same time. The only difference is which signals you act on - and how much you put in per trade.</p>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:920px;margin:0 auto 32px;">
-
-    <div style="background:rgba(16,217,160,.05);border:1px solid rgba(16,217,160,.2);border-radius:14px;padding:24px;text-align:center;">
-      <div style="font-size:1.6rem;margin-bottom:6px;">🟢</div>
-      <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#10d9a0;margin-bottom:4px;">Safe</div>
-      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Acts on <strong style="color:#cbd5e1;">HIGHEST CONFIDENCE</strong> signals (≥ 93%)</div>
-      <div style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:#10d9a0;">Most selective</div>
-      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">smallest position size</div>
-    </div>
-
-    <div style="background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.25);border-radius:14px;padding:24px;text-align:center;position:relative;">
-      <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:rgba(245,158,11,.9);color:#050c1a;font-size:.65rem;font-weight:800;padding:3px 12px;border-radius:0 0 8px 8px;letter-spacing:.05em;">RECOMMENDED</div>
-      <div style="font-size:1.6rem;margin-bottom:6px;margin-top:6px;">🟡</div>
-      <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#f59e0b;margin-bottom:4px;">Medium</div>
-      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Acts on <strong style="color:#cbd5e1;">STRONG</strong> signals &amp; up (≥ 88%)</div>
-      <div style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:#f59e0b;">Balanced</div>
-      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">standard position size</div>
-    </div>
-
-    <div style="background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.18);border-radius:14px;padding:24px;text-align:center;">
-      <div style="font-size:1.6rem;margin-bottom:6px;">🔴</div>
-      <div style="font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:700;color:#ef4444;margin-bottom:4px;">Aggressive</div>
-      <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Acts on <strong style="color:#cbd5e1;">GOOD</strong> signals &amp; up (≥ 85%)</div>
-      <div style="font-family:'Sora',sans-serif;font-size:.95rem;font-weight:700;color:#ef4444;">Most active</div>
-      <div style="font-size:.7rem;color:var(--muted);margin-top:2px;">largest position size</div>
-    </div>
-
-  </div>
-
-  <p style="text-align:center;font-size:.9rem;color:#cbd5e1;max-width:600px;margin:0 auto 16px;line-height:1.6;">
-    All three tiers act on the same signal stream - they differ only in how selective you are
-    and how much you stake. Every signal is labeled with its grade
-    (<strong style="color:#10d9a0;">HIGHEST CONFIDENCE</strong> / <strong style="color:#f59e0b;">STRONG</strong> / <strong style="color:#ef4444;">GOOD</strong>),
-    so you act on the ones that match your tier. <strong style="color:var(--green);"><span id="vp-wr">88.7%</span> win rate, exchange-verified</strong> - see the full ledger at <a href="/track" style="color:var(--green);">/track</a>.
-  </p>
-  <p style="text-align:center;font-size:.78rem;color:var(--muted);max-width:580px;margin:0 auto 28px;line-height:1.6;">
-    <strong style="color:#fbbf24;">Why "Medium" is recommended over "Safe":</strong> Safe is so strict it fires rarely; most subscribers find it too inactive. Medium takes every signal at a higher model win-probability gate with more frequent fires.
-  </p>
-
-  <div style="text-align:center;">
-    <a href="/sizing" style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,217,160,.08);border:1px solid rgba(16,217,160,.25);color:var(--green);padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s;">
-      See full tier specs, stop-loss mechanics &amp; sizing rules <span>→</span>
-    </a>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     SAMPLE TRADE CARD
-═══════════════════════════════════════ -->
-<section id="trade-card">
-  <div class="section-header">
-    <div class="section-label">Trade transparency</div>
-    <h2 class="section-title">This is exactly what you<br>get in your Telegram.</h2>
-    <p class="section-sub">Every signal includes the raw model outputs. You see exactly why the trade was taken, not just "buy this." Here's what a typical signal looks like.</p>
-  </div>
-
-  <div style="max-width:680px;margin:0 auto;">
-    <!-- Telegram-style card -->
-    <div style="background:#17212b;border-radius:16px;overflow:hidden;font-family:'Inter',sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.5);">
-      <!-- Telegram header -->
-      <div style="background:#242f3d;padding:14px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.05);">
-        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10d9a0,#6366f1);display:flex;align-items:center;justify-content:center;font-size:.875rem;font-weight:700;color:#fff;">3E</div>
-        <div>
-          <div style="font-weight:600;color:#fff;font-size:.9375rem;">3rd Eyes Signals</div>
-          <div style="font-size:.75rem;color:#6c8a9f;">@thirdeyes_signals · Pro Channel</div>
-        </div>
-        <div style="margin-left:auto;font-size:.75rem;color:#6c8a9f;">Sample signal</div>
-      </div>
-      <!-- Signal body -->
-      <div style="padding:24px 20px;line-height:1.7;">
-        <div style="font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:4px;">🚨 SIGNAL FIRED: Los Angeles, CA</div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:.875rem;color:#10d9a0;margin-bottom:10px;">KXHIGHLAX-26MAY23 · NO 65-66°F band</div>
-        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(16,217,160,.15);border:1px solid rgba(16,217,160,.4);color:#6ee7b7;font-size:.72rem;font-weight:700;padding:4px 11px;border-radius:100px;margin-bottom:18px;">🟢 STRONG SIGNAL · wins ~9 in 10</div>
-
-        <!-- Big clear BUY action - this is what users actually do -->
-        <div style="background:linear-gradient(135deg, rgba(16,217,160,.18), rgba(16,217,160,.08));border:1px solid rgba(16,217,160,.45);border-radius:12px;padding:18px 20px;margin-bottom:20px;">
-          <div style="font-size:.7rem;color:#6ee7b7;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:6px;">👉 What to do</div>
-          <div style="font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;line-height:1.2;">
-            BUY <span style="color:#10d9a0;">NO @ 86¢</span>
-          </div>
-          <div style="font-size:.85rem;color:#cbd5e1;margin-top:6px;">
-            💵 On a $100 trade: <strong style="color:#10d9a0;">about +$15 if it wins.</strong> Wins about 9 times out of 10.
-          </div>
-          <div style="font-size:.8rem;color:#94a3b8;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);">
-            🟢 Trade on <strong style="color:#cbd5e1;">Kalshi</strong> (search <code style="background:rgba(255,255,255,.06);padding:2px 6px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#10d9a0;">KXHIGHLAX-26MAY23</code>) · <strong style="color:#cbd5e1;">Coinbase</strong> · <strong style="color:#cbd5e1;">Robinhood</strong> - same market, your choice of app.
-          </div>
-        </div>
-
-        <details style="margin-bottom:18px;">
-          <summary style="cursor:pointer;font-size:.78rem;color:#6c8a9f;text-transform:uppercase;letter-spacing:.06em;font-weight:600;list-style:none;display:flex;align-items:center;gap:6px;user-select:none;">
-            <span style="display:inline-block;transition:transform .2s;">▸</span>
-            Why this trade fires (model details)
-          </summary>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.07);border-radius:10px;overflow:hidden;margin-bottom:20px;">
-          <div style="padding:12px 16px;border-right:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Model Ensemble</div>
-            <div style="font-family:'JetBrains Mono',monospace;color:#fff;font-size:.9375rem;font-weight:600;">70.2°F</div>
-            <div style="font-size:.75rem;color:#10d9a0;">All members agree · σ 1.2°F</div>
-          </div>
-          <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.07);">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">HRRR Model</div>
-            <div style="font-family:'JetBrains Mono',monospace;color:#fff;font-size:.9375rem;font-weight:600;">70.6°F</div>
-            <div style="font-size:.75rem;color:#10d9a0;">Divergence: 0.4°F ✓</div>
-          </div>
-          <div style="padding:12px 16px;border-right:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Kalshi Band</div>
-            <div style="font-family:'JetBrains Mono',monospace;color:#fff;font-size:.9375rem;font-weight:600;">65-66°F</div>
-            <div style="font-size:.75rem;color:#10d9a0;">Buffer: 4.2°F clear ✓</div>
-          </div>
-          <div style="padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.07);">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">NO Price</div>
-            <div style="font-family:'JetBrains Mono',monospace;color:#fff;font-size:.9375rem;font-weight:600;">86¢</div>
-            <div style="font-size:.75rem;color:#10d9a0;">Within range 82-98¢ ✓</div>
-          </div>
-          <div style="padding:12px 16px;border-right:1px solid rgba(255,255,255,.07);">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Win-Probability</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:1.25rem;font-weight:800;background:linear-gradient(135deg,#10d9a0,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">92%</div>
-          </div>
-          <div style="padding:12px 16px;">
-            <div style="font-size:.7rem;color:#6c8a9f;margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;">Suggested Size</div>
-            <div style="font-family:'JetBrains Mono',monospace;color:#fff;font-size:.9375rem;font-weight:600;">$75</div>
-            <div style="font-size:.75rem;color:#f59e0b;">~3% of bankroll</div>
-          </div>
-        </div>
-
-        <div style="background:rgba(16,217,160,.07);border:1px solid rgba(16,217,160,.15);border-radius:8px;padding:14px 16px;margin-bottom:16px;">
-          <div style="font-size:.75rem;color:#6c8a9f;margin-bottom:4px;">Why this trade fires:</div>
-          <div style="font-size:.875rem;color:#cbd5e1;line-height:1.6;">Onshore marine flow capped the Los Angeles high near 70°F, with every model member clustered there - a comfortable margin clear of the 65-66°F band. For the high to settle inside that exact 1°F window was very unlikely, so a NO on the band had a wide cushion. HRRR confirms.</div>
-        </div>
-        </details>
-
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.15);border-radius:6px;padding:8px 12px;font-size:.75rem;color:#ef4444;">🛡️ Stop-loss: 66¢</div>
-          <div style="background:rgba(16,217,160,.08);border:1px solid rgba(16,217,160,.15);border-radius:6px;padding:8px 12px;font-size:.75rem;color:#10d9a0;">📈 ~15% return on stake</div>
-          <div style="background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.15);border-radius:6px;padding:8px 12px;font-size:.75rem;color:#818cf8;">⏱️ Same-day expiry</div>
-        </div>
-
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05);font-size:.75rem;color:#4a5568;line-height:1.5;">
-          This signal is published simultaneously to all Pro subscribers. It is impersonal market research, not personalized financial advice. You make your own trading decision.
-        </div>
-      </div>
-    </div>
-
-    <!-- Result callout -->
-    <div style="margin-top:16px;background:rgba(16,217,160,.06);border:1px solid rgba(16,217,160,.15);border-radius:12px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <div>
-        <div style="font-weight:700;color:#fff;font-size:.9375rem;">Result: ✓ WIN, verified on Kalshi</div>
-        <div style="font-size:.8125rem;color:var(--muted);margin-top:4px;">Los Angeles' high landed outside the 65-66°F band on May 23 - a clean NO win.</div>
-      </div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:800;color:#10d9a0;">+$11.44</div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     BANKROLL & POSITION-SIZING CALCULATOR
-═══════════════════════════════════════ -->
-<section id="calculator">
-  <div class="section-header">
-    <div class="section-label">Bankroll &amp; sizing</div>
-    <h2 class="section-title">Size every trade.<br>Protect your bankroll.</h2>
-    <p class="section-sub">Set your bankroll and how much you'll risk per trade, then adjust win rate and horizon. See your suggested position size, projected growth, and worst-case loss in real time - no slots, no compounding gimmicks.</p>
-  </div>
-
-  <div style="max-width:620px;margin:0 auto;background:linear-gradient(135deg, rgba(16,217,160,.08), rgba(99,102,241,.04));border:1px solid rgba(16,217,160,.2);border-radius:16px;padding:36px 32px;text-align:center;">
-    <div style="font-size:2.5rem;margin-bottom:12px;">📊</div>
-    <div style="font-family:'Sora',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:10px;">Open the full calculator</div>
-    <p style="font-size:.9rem;color:#94a3b8;line-height:1.6;margin-bottom:22px;">Enter your bankroll and risk-per-trade, set a win rate and horizon, and instantly see your suggested position size, projected growth, and worst-case single-trade loss - with optional Kalshi fees.</p>
-    <a href="/sizing#calculator" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#050c1a;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .2s;">
-      Open calculator <span>→</span>
-    </a>
-  </div>
 </section>
 
 
@@ -1387,94 +868,13 @@
 </section>
 
 <!-- ═══════════════════════════════════════
-     WHAT YOU GET
-═══════════════════════════════════════ -->
-<section id="what-you-get">
-  <div class="section-header">
-    <div class="section-label">No fluff</div>
-    <h2 class="section-title">Here's exactly<br>what you get.</h2>
-    <p class="section-sub">$49/month, cancel anytime. The whole deal - nothing hidden.</p>
-  </div>
-
-  <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px;">
-
-    <div style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:22px 24px;">
-      <div style="font-size:1.5rem;flex-shrink:0;line-height:1;">📊</div>
-      <div>
-        <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.02rem;margin-bottom:4px;">Every weather market, scored for you</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.6;margin:0;">We rank every Kalshi temperature market by our model's win-probability. You see exactly how likely each trade is to land - and you decide which ones to take. (Same contracts trade on Coinbase and Robinhood.)</p>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:22px 24px;">
-      <div style="font-size:1.5rem;flex-shrink:0;line-height:1;">⚡</div>
-      <div>
-        <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.02rem;margin-bottom:4px;">Real-time alerts on the standout setups</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.6;margin:0;">The moment our model flags a strong one, it hits your Telegram - the market, the price, the win-probability, and the exact app to open.</p>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:22px 24px;">
-      <div style="font-size:1.5rem;flex-shrink:0;line-height:1;">📲</div>
-      <div>
-        <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.02rem;margin-bottom:4px;">About 60 seconds to place a trade</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.6;margin:0;">Open Kalshi, Coinbase, or Robinhood, tap Buy. No charts, no forecasting, no spreadsheets - if you can read a message and tap a button, you can use this.</p>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:22px 24px;">
-      <div style="font-size:1.5rem;flex-shrink:0;line-height:1;">🔍</div>
-      <div>
-        <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.02rem;margin-bottom:4px;">Proof before you pay</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.6;margin:0;">Every trade we've ever made - wins and losses - is on a public ledger you can check yourself. The free tier sends sample signals, so you verify us before paying a cent.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <p style="text-align:center;font-size:.72rem;color:var(--muted);max-width:600px;margin:22px auto 0;line-height:1.6;">Trading prediction markets carries risk - only stake what you can afford to lose. Some weeks are quieter than others; we'd rather skip than send a weak trade. Signals are impersonal market research, not financial advice.</p>
-</section>
-
-<!-- ═══════════════════════════════════════
-     WHERE TO TRADE
-═══════════════════════════════════════ -->
-<section id="where-to-trade">
-  <div class="section-header">
-    <div class="section-label">Where to trade</div>
-    <h2 class="section-title">Pick your venue.<br>Same contracts, your choice.</h2>
-    <p class="section-sub">We scan <strong style="color:#cbd5e1;">Kalshi</strong> directly. The identical temperature contracts also trade on <strong style="color:#cbd5e1;">Coinbase</strong> and <strong style="color:#cbd5e1;">Robinhood</strong> - so every signal works on whichever app you already use. All three are US-legal; liquidity and fees vary slightly.</p>
-  </div>
-  <!-- TODO(founders): swap these bare URLs for your affiliate / referral links
-       once you've joined each platform's program. -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:760px;margin:0 auto;">
-    <a href="https://kalshi.com" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.28);border-radius:16px;padding:26px 18px;text-decoration:none;">
-      <span style="font-size:1.9rem;">🔵</span>
-      <span style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;">Kalshi ↗</span>
-      <span style="font-size:.78rem;color:#93c5fd;">CFTC-regulated · we scan this directly</span>
-    </a>
-    <a href="https://www.coinbase.com/predictions" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.28);border-radius:16px;padding:26px 18px;text-decoration:none;">
-      <span style="font-size:1.9rem;">🪙</span>
-      <span style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;">Coinbase ↗</span>
-      <span style="font-size:.78rem;color:#93c5fd;">Same contracts · crypto-native</span>
-    </a>
-    <a href="https://robinhood.com" target="_blank" rel="noopener" style="display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.28);border-radius:16px;padding:26px 18px;text-decoration:none;">
-      <span style="font-size:1.9rem;">🏦</span>
-      <span style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.05rem;">Robinhood ↗</span>
-      <span style="font-size:.78rem;color:#93c5fd;">Same contracts · familiar app</span>
-    </a>
-  </div>
-  <p style="text-align:center;font-size:.78rem;color:var(--muted);max-width:600px;margin:20px auto 0;line-height:1.6;"><strong style="color:#cbd5e1;">New here?</strong> Tap a venue to open its site and create a free account in minutes. You fund and trade in your own account - 3rd Eyes only sends the research.</p>
-  <p style="text-align:center;font-size:.78rem;color:var(--muted);max-width:620px;margin:14px auto 0;line-height:1.6;"><strong style="color:#cbd5e1;">What about Polymarket?</strong> We also surface <strong style="color:#cbd5e1;">informational</strong> Polymarket signals (it reopened to US traders in 2025, CFTC-regulated) - flagged clearly so you can act on them if you want. Because Polymarket lists its own separate markets, every signal we place is on the matching Kalshi / Coinbase / Robinhood contract. Availability can vary by state.</p>
-</section>
-
-<!-- ═══════════════════════════════════════
      PRICING
 ═══════════════════════════════════════ -->
 <section id="pricing" style="background:rgba(255,255,255,.015);">
   <div class="section-header">
     <div class="section-label">Simple pricing</div>
     <h2 class="section-title">Start free. Go hands-free<br>when you're ready.</h2>
-    <p class="section-sub">See real signals, verify real trades, then upgrade. Add the Execution Pipeline to go fully automated: your server, your keys, one session. New to prediction markets? See <a href="#where-to-trade" style="color:var(--green);text-decoration:none;">where to trade ↑</a>.</p>
+    <p class="section-sub">See real signals, verify real trades, then upgrade. Add the Execution Pipeline to go fully automated: your server, your keys, one session. New to prediction markets? See our <a href="/start" style="color:var(--green);text-decoration:none;">quick-start guide ↗</a>.</p>
   </div>
 
   <div class="pricing-grid" style="max-width:900px;margin:0 auto;">
@@ -1640,7 +1040,7 @@
         What is your real win rate?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">88.7%</strong> across <span id="faq-trades">53</span> settled trades (<span id="faq-wins">47</span> wins, <span id="faq-losses">6</span> losses, <span id="faq-net">+$67.00</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
+      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">87.5%</strong> across <span id="faq-trades">72</span> settled trades (<span id="faq-wins">63</span> wins, <span id="faq-losses">9</span> losses, <span id="faq-net">+$67.38</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1705,10 +1105,10 @@
     </div>
     <div class="footer-col">
       <h4>Product</h4>
-      <a href="#how-it-works">How it works</a>
-      <a href="#risk-tiers">Risk tiers</a>
+      <a href="#three-steps">How it works</a>
+      <a href="#ledger">Proof</a>
       <a href="/track">Track Record ↗</a>
-      <a href="#calculator">Calculator</a>
+      <a href="/sizing">Sizing & Risk ↗</a>
       <a href="#pricing">Pricing</a>
     </div>
     <div class="footer-col">
@@ -1718,7 +1118,7 @@
       <a href="/methodology">Signal Methodology</a>
       <a href="/track">Live Public Track Record</a>
       <a href="/sizing">Position Sizing & Risk</a>
-      <a href="/#calculator">Bankroll Calculator</a>
+      <a href="/sizing#calculator">Bankroll Calculator</a>
       <a href="/#faq">FAQ</a>
       <a href="https://kalshi.com" target="_blank" rel="noopener">Kalshi ↗</a>
     </div>
@@ -1750,7 +1150,7 @@
      FLOATING CTA BAR
 ═══════════════════════════════════════ -->
 <div class="floating-bar" id="floating-bar">
-  <span class="floating-text"><strong id="floating-wl">88.7% win rate (47-6)</strong> · Next scan in <strong id="countdown">-</strong></span>
+  <span class="floating-text"><strong id="floating-wl">87.5% win rate (63-9)</strong> · Next scan in <strong id="countdown">-</strong></span>
   <a href="#pricing" class="btn-primary" style="padding:10px 20px;font-size:.875rem;">
     Get Signals →
   </a>
@@ -2113,7 +1513,7 @@ window.addEventListener('scroll', () => {
 // The FB constant below is the single last-known-good fallback if that fetch ever fails;
 // keep it in sync with the ledger at deploy time so the page is never blank or inconsistent.
 (function () {
-  const FB = { winRate: '88.7%', wins: 47, losses: 6, trades: 53, net: '+$67.00' };
+  const FB = { winRate: '87.5%', wins: 63, losses: 9, trades: 72, net: '+$67.38' };
   function apply(L, bal) {
     const wl = L.wins + '-' + L.losses;
     const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
@@ -2199,10 +1599,10 @@ function renderChips(data) {
   const wr = document.getElementById('chip-winrate');
   const c = document.getElementById('chip-cities');
   // Exchange-verified totals (mirror /track), live from /ledger.json with fallback.
-  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 47) + ' W';
-  if (l)  l.textContent  = (d.losses != null ? d.losses : 6)  + ' L';
-  if (wr) wr.textContent = (d.winRate || '88.7%') + ' win rate';
-  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 53) + ' settled';
+  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 63) + ' W';
+  if (l)  l.textContent  = (d.losses != null ? d.losses : 9)  + ' L';
+  if (wr) wr.textContent = (d.winRate || '87.5%') + ' win rate';
+  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 72) + ' settled';
 }
 
 // Fallback preview (last-known-good). The daily /ledger.json fetch below overrides
