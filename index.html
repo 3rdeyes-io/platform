@@ -1460,7 +1460,12 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.edge-card, .step-card, .proof-card, .price-card').forEach(el => {
+// NOTE: .price-card is deliberately EXCLUDED. It's the conversion-critical
+// pricing/subscribe section; the "Get Signals" CTAs anchor-jump straight to it,
+// and a scroll-reveal fade left the cards stuck at opacity:0 on an instant jump
+// (cards present but invisible -> users thought the button "did nothing"). The
+// money cards must always be visible, no animation dependency.
+document.querySelectorAll('.edge-card, .step-card, .proof-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity .5s ease, transform .5s ease';
