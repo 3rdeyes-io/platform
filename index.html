@@ -726,85 +726,61 @@
 </section>
 
 
+
+
+
 <!-- ═══════════════════════════════════════
-     ANIMATED DEMO (self-contained CSS/JS; no deps)
+     HOW IT WORKS - 3 steps + video slot
+     Drop /videos/demo.mp4 to auto-show the demo video above the steps.
 ═══════════════════════════════════════ -->
-<section id="demo" style="padding:48px 5% 56px;border-top:1px solid var(--border);text-align:center;">
-  <style>
-    #demo .de-eyebrow{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin:0 0 8px;}
-    #demo .de-title{font-family:'Sora',sans-serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:800;color:#fff;margin:0 0 30px;line-height:1.15;}
-    #demo .de-steps{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;max-width:760px;margin:0 auto 28px;}
-    #demo .de-step{flex:1 1 150px;max-width:180px;font-size:.78rem;line-height:1.45;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:11px 12px;transition:all .35s ease;}
-    #demo .de-n{display:inline-flex;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--muted);font-weight:700;font-size:.72rem;align-items:center;justify-content:center;margin-bottom:7px;transition:all .35s ease;}
-    #demo .de-step.on{color:#fff;border-color:rgba(16,217,160,.5);background:rgba(16,217,160,.08);}
-    #demo .de-step.on .de-n{background:var(--green);color:#04140f;}
-    #demo .de-phone{max-width:300px;margin:0 auto;background:#0d1622;border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:10px;box-shadow:0 24px 70px rgba(0,0,0,.55);}
-    #demo .de-screen{background:#17212b;border-radius:16px;overflow:hidden;min-height:336px;display:flex;flex-direction:column;}
-    #demo .de-tghead{display:flex;align-items:center;gap:9px;padding:11px 13px;background:#242f3d;border-bottom:1px solid rgba(255,255,255,.05);}
-    #demo .de-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#10d9a0,#6366f1);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff;flex:0 0 auto;}
-    #demo .de-tgname{font-size:.82rem;font-weight:600;color:#fff;text-align:left;line-height:1.2;}
-    #demo .de-tgsub{font-size:.62rem;color:#6c8a9f;}
-    #demo .de-body{padding:13px;display:flex;flex-direction:column;gap:9px;text-align:left;flex:1;}
-    #demo .de-bubble{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease;font-size:.78rem;line-height:1.55;color:#dfe7ee;background:#202b38;border-radius:11px;padding:9px 12px;max-width:94%;}
-    #demo .de-bubble.on{opacity:1;transform:translateY(0);}
-    #demo .de-bubble.alert{background:linear-gradient(135deg,rgba(16,217,160,.2),rgba(16,217,160,.08));border:1px solid rgba(16,217,160,.4);color:#eafff7;}
-    #demo .de-bubble.win{background:rgba(16,217,160,.12);border:1px solid rgba(16,217,160,.3);color:#6ee7b7;font-weight:600;}
-    #demo .de-mono{font-family:'JetBrains Mono',monospace;color:#10d9a0;}
-    #demo .de-buy{margin-top:8px;display:inline-flex;align-items:center;gap:6px;background:#10d9a0;color:#04140f;font-weight:800;font-size:.74rem;padding:6px 16px;border-radius:8px;}
-    #demo[data-step="3"] .de-finger{display:inline-block;animation:de-tap 1s ease-in-out infinite;}
-    #demo .de-finger{display:inline-block;}
-    @keyframes de-tap{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    #demo .de-cap{font-size:.78rem;color:var(--muted);margin:18px auto 0;max-width:420px;}
-    @media (prefers-reduced-motion: reduce){ #demo .de-bubble{transition:none;} #demo .de-finger{animation:none;} }
-  </style>
+<section id="demo" style="padding:52px 5%;border-top:1px solid var(--border);background:rgba(16,217,160,.025);">
+  <p style="text-align:center;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin:0 0 8px;">How it works</p>
+  <h2 style="text-align:center;font-family:'Sora',sans-serif;font-size:clamp(1.5rem,4vw,2.1rem);font-weight:800;color:#fff;margin:0 0 30px;line-height:1.15;">Your first trade, in 3 simple steps.</h2>
 
-  <p class="de-eyebrow">How it works</p>
-  <h2 class="de-title">Watch it work, in 15 seconds.</h2>
-
-  <div class="de-steps">
-    <div class="de-step"><div class="de-n">1</div>Our models read tomorrow's weather</div>
-    <div class="de-step"><div class="de-n">2</div>We spot a market priced wrong</div>
-    <div class="de-step"><div class="de-n">3</div>You get the exact trade on Telegram</div>
-    <div class="de-step"><div class="de-n">4</div>It settles, verified on Kalshi</div>
+  <!-- Video slot: stays hidden until /videos/demo.mp4 is present, then auto-plays above the steps. -->
+  <div id="demo-video-wrap" style="display:none;max-width:760px;margin:0 auto 36px;">
+    <video id="demo-video" muted loop playsinline preload="metadata"
+           style="width:100%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#0a1424;display:block;">
+      <source src="/videos/demo.mp4" type="video/mp4">
+    </video>
   </div>
 
-  <div id="de-demo" class="de-phone" data-step="1">
-    <div class="de-screen">
-      <div class="de-tghead">
-        <div class="de-av">3E</div>
-        <div>
-          <div class="de-tgname">3rd Eyes Signals</div>
-          <div class="de-tgsub">@thirdeyes_signals</div>
-        </div>
-      </div>
-      <div class="de-body">
-        <div class="de-bubble">🌡️ Our models agree: Chicago's high tops out near <span class="de-mono">51°F</span> today.</div>
-        <div class="de-bubble">🎯 Kalshi is pricing <em>"Chicago above 62°F?"</em> with NO at <span class="de-mono">95¢</span>. That looks mispriced.</div>
-        <div class="de-bubble alert">🚨 <strong>BUY NO @ <span class="de-mono">95¢</span></strong><br>Chicago · 96% win-probability<span class="de-buy">Buy <span class="de-finger">👆</span></span></div>
-        <div class="de-bubble win">✅ Settled: Chicago hit 50°F. WON <span class="de-mono">+$11.44</span>, verified on Kalshi.</div>
-      </div>
+  <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;">
+
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:26px 22px;text-align:center;">
+      <div style="font-size:2.1rem;margin-bottom:10px;line-height:1;">📲</div>
+      <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.02rem;margin-bottom:6px;">1 · Get the alert</div>
+      <p style="color:var(--muted);font-size:.87rem;line-height:1.6;margin:0;">A Telegram message lands - the city, the price, our win-probability, and the exact market link to open.</p>
     </div>
-  </div>
 
-  <p class="de-cap">No charts, no forecasting. If you can read a message and tap a button, you can do this.</p>
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:26px 22px;text-align:center;">
+      <div style="font-size:2.1rem;margin-bottom:10px;line-height:1;">👆</div>
+      <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.02rem;margin-bottom:6px;">2 · Open the market</div>
+      <p style="color:var(--muted);font-size:.87rem;line-height:1.6;margin:0;">Tap our link straight to the exact contract on Kalshi (or find it on Coinbase / Robinhood) - you're on it in seconds.</p>
+    </div>
+
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:26px 22px;text-align:center;">
+      <div style="font-size:2.1rem;margin-bottom:10px;line-height:1;">✅</div>
+      <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.02rem;margin-bottom:6px;">3 · Tap Buy</div>
+      <p style="color:var(--muted);font-size:.87rem;line-height:1.6;margin:0;">Place the trade, set it down, get on with your day. We tell you the result when it settles.</p>
+    </div>
+
+  </div>
+  <p style="text-align:center;font-size:.88rem;color:#cbd5e1;margin:28px auto 0;max-width:560px;line-height:1.6;">No charts. No forecasting. No trading experience. <strong style="color:#fff;">If you can read a message and tap a button, you can do this.</strong></p>
 
   <script>
+  // Reveal the demo video ONLY if /videos/demo.mp4 actually exists and loads.
+  // Until you upload it, visitors just see the clean 3 steps (no broken player).
   (function(){
-    var demo = document.getElementById('de-demo'); if(!demo) return;
-    var bubbles = [].slice.call(demo.querySelectorAll('.de-bubble'));
-    var caps    = [].slice.call(document.querySelectorAll('#demo .de-step'));
-    function render(step){
-      demo.setAttribute('data-step', step);
-      bubbles.forEach(function(b,i){ b.classList.toggle('on', (i+1) <= step); });
-      caps.forEach(function(c,i){ c.classList.toggle('on', (i+1) === step); });
-    }
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){ render(4); return; }
-    var s = 1; render(s);
-    setInterval(function(){ s = s >= 4 ? 1 : s + 1; render(s); }, 2300);
+    var v = document.getElementById('demo-video');
+    var wrap = document.getElementById('demo-video-wrap');
+    if (!v || !wrap) return;
+    v.addEventListener('loadeddata', function(){ wrap.style.display = 'block'; v.play().catch(function(){}); });
+    v.addEventListener('error', function(){ wrap.style.display = 'none'; });
+    try { v.load(); } catch(e){}
   })();
   </script>
 </section>
-
 
 
 <!-- ═══════════════════════════════════════
