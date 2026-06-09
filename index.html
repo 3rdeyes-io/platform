@@ -1635,10 +1635,10 @@ function renderChips(data) {
   const wr = document.getElementById('chip-winrate');
   const c = document.getElementById('chip-cities');
   // Exchange-verified totals (mirror /track), live from /ledger.json with fallback.
-  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 63) + ' W';
+  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 64) + ' W';
   if (l)  l.textContent  = (d.losses != null ? d.losses : 9)  + ' L';
-  if (wr) wr.textContent = (d.winRate || '87.5%') + ' win rate';
-  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 72) + ' settled';
+  if (wr) wr.textContent = (d.winRate || '87.7%') + ' win rate';
+  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 73) + ' settled';
 }
 
 // Fallback preview (last-known-good). The daily /ledger.json fetch below overrides
