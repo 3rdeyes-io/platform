@@ -1,50 +1,50 @@
 {
- "updated": "2026-06-07",
- "period": "Apr 23 - Jun 7, 2026",
- "trades": 73,
- "wins": 64,
+ "updated": "2026-06-10",
+ "period": "Apr 23 - Jun 10, 2026",
+ "trades": 77,
+ "wins": 68,
  "losses": 9,
- "winRate": "87.7%",
- "net": "+$68.43",
+ "winRate": "88.3%",
+ "net": "+$91.77",
  "recent": [
+  {
+   "date": "2026-06-10",
+   "city": "TMIN",
+   "threshold": "92-93\u00b0",
+   "no_price": 0.95,
+   "pl": 19.97,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-10",
+   "city": "Denver",
+   "threshold": "90-91\u00b0",
+   "no_price": 0.84,
+   "pl": 0.75,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-10",
+   "city": "TBOS",
+   "threshold": "82-83\u00b0",
+   "no_price": 0.95,
+   "pl": 0.19,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-10",
+   "city": "TATL",
+   "threshold": "92-93\u00b0",
+   "no_price": 0.95,
+   "pl": 2.43,
+   "outcome": "win"
+  },
   {
    "date": "2026-06-07",
    "city": "Austin",
    "threshold": "87-88\u00b0",
    "no_price": 0.93,
    "pl": 1.05,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-06",
-   "city": "New York",
-   "threshold": "&lt;87\u00b0",
-   "no_price": 0.94,
-   "pl": 4.74,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-06",
-   "city": "New York",
-   "threshold": "87-88\u00b0",
-   "no_price": 0.88,
-   "pl": -23.19,
-   "outcome": "loss"
-  },
-  {
-   "date": "2026-06-05",
-   "city": "Austin",
-   "threshold": "89-90\u00b0",
-   "no_price": 0.94,
-   "pl": 0.7,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-04",
-   "city": "Miami",
-   "threshold": "&gt;86\u00b0",
-   "no_price": 0.94,
-   "pl": 5.32,
    "outcome": "win"
   }
  ],
@@ -485,6 +485,30 @@
    "date": "Jun 7",
    "market": "Austin &middot; 87-88&deg;",
    "net": 1.05,
+   "win": true
+  },
+  {
+   "date": "Jun 10",
+   "market": "TMIN &middot; ",
+   "net": 19.97,
+   "win": true
+  },
+  {
+   "date": "Jun 10",
+   "market": "Denver &middot; 90-91&deg;",
+   "net": 0.75,
+   "win": true
+  },
+  {
+   "date": "Jun 10",
+   "market": "TBOS &middot; ",
+   "net": 0.19,
+   "win": true
+  },
+  {
+   "date": "Jun 10",
+   "market": "TATL &middot; ",
+   "net": 2.43,
    "win": true
   }
  ]
