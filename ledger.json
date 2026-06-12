@@ -1,50 +1,50 @@
 {
- "updated": "2026-06-10",
- "period": "Apr 23 - Jun 10, 2026",
- "trades": 77,
- "wins": 68,
- "losses": 9,
- "winRate": "88.3%",
- "net": "+$91.77",
+ "updated": "2026-06-12",
+ "period": "Apr 23 - Jun 12, 2026",
+ "trades": 82,
+ "wins": 72,
+ "losses": 10,
+ "winRate": "87.8%",
+ "net": "+$83.32",
  "recent": [
   {
-   "date": "2026-06-10",
-   "city": "TMIN",
-   "threshold": "92-93\u00b0",
-   "no_price": 0.95,
-   "pl": 19.97,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-10",
-   "city": "Denver",
+   "date": "2026-06-12",
+   "city": "New York",
    "threshold": "90-91\u00b0",
-   "no_price": 0.84,
-   "pl": 0.75,
+   "no_price": 0.83,
+   "pl": -14.49,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-06-11",
+   "city": "Chicago",
+   "threshold": "88-89\u00b0",
+   "no_price": 0.93,
+   "pl": 2.62,
    "outcome": "win"
   },
   {
-   "date": "2026-06-10",
-   "city": "TBOS",
-   "threshold": "82-83\u00b0",
-   "no_price": 0.95,
-   "pl": 0.19,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-10",
+   "date": "2026-06-11",
    "city": "TATL",
-   "threshold": "92-93\u00b0",
+   "threshold": "95-96\u00b0",
    "no_price": 0.95,
    "pl": 2.43,
    "outcome": "win"
   },
   {
-   "date": "2026-06-07",
-   "city": "Austin",
-   "threshold": "87-88\u00b0",
-   "no_price": 0.93,
-   "pl": 1.05,
+   "date": "2026-06-11",
+   "city": "Denver",
+   "threshold": "80-81\u00b0",
+   "no_price": 0.85,
+   "pl": 0.71,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-11",
+   "city": "TDAL",
+   "threshold": "99-100\u00b0",
+   "no_price": 0.95,
+   "pl": 0.28,
    "outcome": "win"
   }
  ],
@@ -510,6 +510,36 @@
    "market": "TATL &middot; ",
    "net": 2.43,
    "win": true
+  },
+  {
+   "date": "Jun 11",
+   "market": "Chicago &middot; 88-89&deg;",
+   "net": 2.62,
+   "win": true
+  },
+  {
+   "date": "Jun 11",
+   "market": "TATL &middot; ",
+   "net": 2.43,
+   "win": true
+  },
+  {
+   "date": "Jun 11",
+   "market": "Denver &middot; 80-81&deg;",
+   "net": 0.71,
+   "win": true
+  },
+  {
+   "date": "Jun 11",
+   "market": "TDAL &middot; ",
+   "net": 0.28,
+   "win": true
+  },
+  {
+   "date": "Jun 12",
+   "market": "New York &middot; 90-91&deg;",
+   "net": -14.49,
+   "win": false
   }
  ]
 }
