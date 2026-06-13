@@ -1,12 +1,28 @@
 {
  "updated": "2026-06-12",
  "period": "Apr 23 - Jun 12, 2026",
- "trades": 82,
- "wins": 72,
- "losses": 10,
- "winRate": "87.8%",
- "net": "+$83.32",
+ "trades": 89,
+ "wins": 77,
+ "losses": 12,
+ "winRate": "86.5%",
+ "net": "+$78.09",
  "recent": [
+  {
+   "date": "2026-06-12",
+   "city": "TSATX",
+   "threshold": "94-95\u00b0",
+   "no_price": 0.93,
+   "pl": -4.83,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-06-12",
+   "city": "New York",
+   "threshold": "&lt;90\u00b0",
+   "no_price": 0.94,
+   "pl": -9.1,
+   "outcome": "loss"
+  },
   {
    "date": "2026-06-12",
    "city": "New York",
@@ -16,35 +32,19 @@
    "outcome": "loss"
   },
   {
-   "date": "2026-06-11",
-   "city": "Chicago",
-   "threshold": "88-89\u00b0",
-   "no_price": 0.93,
-   "pl": 2.62,
+   "date": "2026-06-12",
+   "city": "TPHX",
+   "threshold": "109-110\u00b0",
+   "no_price": 0.86,
+   "pl": 2.76,
    "outcome": "win"
   },
   {
-   "date": "2026-06-11",
-   "city": "TATL",
-   "threshold": "95-96\u00b0",
-   "no_price": 0.95,
-   "pl": 2.43,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-11",
-   "city": "Denver",
-   "threshold": "80-81\u00b0",
-   "no_price": 0.85,
-   "pl": 0.71,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-11",
+   "date": "2026-06-12",
    "city": "TDAL",
-   "threshold": "99-100\u00b0",
-   "no_price": 0.95,
-   "pl": 0.28,
+   "threshold": "95-96\u00b0",
+   "no_price": 0.93,
+   "pl": 3.47,
    "outcome": "win"
   }
  ],
@@ -537,9 +537,51 @@
   },
   {
    "date": "Jun 12",
+   "market": "TSATX &middot; ",
+   "net": -4.83,
+   "win": false
+  },
+  {
+   "date": "Jun 12",
+   "market": "New York &middot; &lt;90&deg;",
+   "net": -9.1,
+   "win": false
+  },
+  {
+   "date": "Jun 12",
    "market": "New York &middot; 90-91&deg;",
    "net": -14.49,
    "win": false
+  },
+  {
+   "date": "Jun 12",
+   "market": "TPHX &middot; ",
+   "net": 2.76,
+   "win": true
+  },
+  {
+   "date": "Jun 12",
+   "market": "TDAL &middot; ",
+   "net": 3.47,
+   "win": true
+  },
+  {
+   "date": "Jun 12",
+   "market": "Miami &middot; &gt;93&deg;",
+   "net": 1.82,
+   "win": true
+  },
+  {
+   "date": "Jun 12",
+   "market": "TATL &middot; ",
+   "net": 0.37,
+   "win": true
+  },
+  {
+   "date": "Jun 12",
+   "market": "TMIN &middot; ",
+   "net": 0.28,
+   "win": true
   }
  ]
 }
