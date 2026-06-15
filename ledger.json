@@ -1,12 +1,44 @@
 {
- "updated": "2026-06-13",
- "period": "Apr 23 - Jun 13, 2026",
- "trades": 92,
- "wins": 79,
+ "updated": "2026-06-14",
+ "period": "Apr 23 - Jun 14, 2026",
+ "trades": 96,
+ "wins": 83,
  "losses": 13,
- "winRate": "85.9%",
- "net": "+$81.41",
+ "winRate": "86.5%",
+ "net": "+$87.79",
  "recent": [
+  {
+   "date": "2026-06-14",
+   "city": "TATL",
+   "threshold": "93-94\u00b0",
+   "no_price": 0.94,
+   "pl": 2.19,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-14",
+   "city": "TSATX",
+   "threshold": "92-93\u00b0",
+   "no_price": 0.83,
+   "pl": 0.48,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-14",
+   "city": "Denver",
+   "threshold": "62-63\u00b0",
+   "no_price": 0.94,
+   "pl": 2.19,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-14",
+   "city": "TBOS",
+   "threshold": "87-88\u00b0",
+   "no_price": 0.91,
+   "pl": 1.52,
+   "outcome": "win"
+  },
   {
    "date": "2026-06-13",
    "city": "TOKC",
@@ -14,38 +46,6 @@
    "no_price": 0.96,
    "pl": 1.46,
    "outcome": "win"
-  },
-  {
-   "date": "2026-06-13",
-   "city": "TSATX",
-   "threshold": "94-95\u00b0",
-   "no_price": 0.95,
-   "pl": -0.33,
-   "outcome": "loss"
-  },
-  {
-   "date": "2026-06-13",
-   "city": "TDAL",
-   "threshold": "97-98\u00b0",
-   "no_price": 0.94,
-   "pl": 2.19,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-12",
-   "city": "TSATX",
-   "threshold": "94-95\u00b0",
-   "no_price": 0.93,
-   "pl": -4.83,
-   "outcome": "loss"
-  },
-  {
-   "date": "2026-06-12",
-   "city": "New York",
-   "threshold": "&lt;90\u00b0",
-   "no_price": 0.94,
-   "pl": -9.1,
-   "outcome": "loss"
   }
  ],
  "rows": [
@@ -599,6 +599,30 @@
    "date": "Jun 13",
    "market": "TDAL &middot; ",
    "net": 2.19,
+   "win": true
+  },
+  {
+   "date": "Jun 14",
+   "market": "TATL &middot; ",
+   "net": 2.19,
+   "win": true
+  },
+  {
+   "date": "Jun 14",
+   "market": "TSATX &middot; ",
+   "net": 0.48,
+   "win": true
+  },
+  {
+   "date": "Jun 14",
+   "market": "Denver &middot; 62-63&deg;",
+   "net": 2.19,
+   "win": true
+  },
+  {
+   "date": "Jun 14",
+   "market": "TBOS &middot; ",
+   "net": 1.52,
    "win": true
   }
  ]
