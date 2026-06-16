@@ -1,12 +1,28 @@
 {
- "updated": "2026-06-14",
- "period": "Apr 23 - Jun 14, 2026",
- "trades": 96,
- "wins": 83,
+ "updated": "2026-06-15",
+ "period": "Apr 23 - Jun 15, 2026",
+ "trades": 98,
+ "wins": 85,
  "losses": 13,
- "winRate": "86.5%",
- "net": "+$87.79",
+ "winRate": "86.7%",
+ "net": "+$89.82",
  "recent": [
+  {
+   "date": "2026-06-15",
+   "city": "Philadelphia",
+   "threshold": "82-83\u00b0",
+   "no_price": 0.9,
+   "pl": 0.09,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-15",
+   "city": "TSATX",
+   "threshold": "87-88\u00b0",
+   "no_price": 0.96,
+   "pl": 1.94,
+   "outcome": "win"
+  },
   {
    "date": "2026-06-14",
    "city": "TATL",
@@ -29,22 +45,6 @@
    "threshold": "62-63\u00b0",
    "no_price": 0.94,
    "pl": 2.19,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-14",
-   "city": "TBOS",
-   "threshold": "87-88\u00b0",
-   "no_price": 0.91,
-   "pl": 1.52,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-13",
-   "city": "TOKC",
-   "threshold": "99-100\u00b0",
-   "no_price": 0.96,
-   "pl": 1.46,
    "outcome": "win"
   }
  ],
@@ -623,6 +623,18 @@
    "date": "Jun 14",
    "market": "TBOS &middot; ",
    "net": 1.52,
+   "win": true
+  },
+  {
+   "date": "Jun 15",
+   "market": "Philadelphia &middot; 82-83&deg;",
+   "net": 0.09,
+   "win": true
+  },
+  {
+   "date": "Jun 15",
+   "market": "TSATX &middot; ",
+   "net": 1.94,
    "win": true
   }
  ]
