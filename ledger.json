@@ -1,50 +1,50 @@
 {
- "updated": "2026-06-15",
- "period": "Apr 23 - Jun 15, 2026",
- "trades": 98,
- "wins": 85,
- "losses": 13,
- "winRate": "86.7%",
- "net": "+$89.82",
+ "updated": "2026-06-16",
+ "period": "Apr 23 - Jun 16, 2026",
+ "trades": 103,
+ "wins": 89,
+ "losses": 14,
+ "winRate": "86.4%",
+ "net": "+$92.25",
  "recent": [
   {
-   "date": "2026-06-15",
-   "city": "Philadelphia",
-   "threshold": "82-83\u00b0",
-   "no_price": 0.9,
+   "date": "2026-06-16",
+   "city": "TPHX",
+   "threshold": "113-114\u00b0",
+   "no_price": 0.86,
+   "pl": 1.69,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-16",
+   "city": "TSATX",
+   "threshold": "89-90\u00b0",
+   "no_price": 0.91,
+   "pl": -0.33,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-06-16",
+   "city": "TDAL",
+   "threshold": "94-95\u00b0",
+   "no_price": 0.95,
    "pl": 0.09,
    "outcome": "win"
   },
   {
-   "date": "2026-06-15",
-   "city": "TSATX",
-   "threshold": "87-88\u00b0",
-   "no_price": 0.96,
-   "pl": 1.94,
+   "date": "2026-06-16",
+   "city": "Philadelphia",
+   "threshold": "83-84\u00b0",
+   "no_price": 0.93,
+   "pl": 0.39,
    "outcome": "win"
   },
   {
-   "date": "2026-06-14",
+   "date": "2026-06-16",
    "city": "TATL",
-   "threshold": "93-94\u00b0",
-   "no_price": 0.94,
-   "pl": 2.19,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-14",
-   "city": "TSATX",
-   "threshold": "92-93\u00b0",
-   "no_price": 0.83,
-   "pl": 0.48,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-14",
-   "city": "Denver",
-   "threshold": "62-63\u00b0",
-   "no_price": 0.94,
-   "pl": 2.19,
+   "threshold": "80-81\u00b0",
+   "no_price": 0.9,
+   "pl": 0.59,
    "outcome": "win"
   }
  ],
@@ -635,6 +635,36 @@
    "date": "Jun 15",
    "market": "TSATX &middot; ",
    "net": 1.94,
+   "win": true
+  },
+  {
+   "date": "Jun 16",
+   "market": "TPHX &middot; ",
+   "net": 1.69,
+   "win": true
+  },
+  {
+   "date": "Jun 16",
+   "market": "TSATX &middot; ",
+   "net": -0.33,
+   "win": false
+  },
+  {
+   "date": "Jun 16",
+   "market": "TDAL &middot; ",
+   "net": 0.09,
+   "win": true
+  },
+  {
+   "date": "Jun 16",
+   "market": "Philadelphia &middot; 83-84&deg;",
+   "net": 0.39,
+   "win": true
+  },
+  {
+   "date": "Jun 16",
+   "market": "TATL &middot; ",
+   "net": 0.59,
    "win": true
   }
  ]
