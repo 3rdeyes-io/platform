@@ -1,12 +1,36 @@
 {
- "updated": "2026-06-17",
- "period": "Apr 23 - Jun 17, 2026",
- "trades": 104,
- "wins": 90,
+ "updated": "2026-06-18",
+ "period": "Apr 23 - Jun 18, 2026",
+ "trades": 108,
+ "wins": 94,
  "losses": 14,
- "winRate": "86.5%",
- "net": "+$92.62",
+ "winRate": "87.0%",
+ "net": "+$95.31",
  "recent": [
+  {
+   "date": "2026-06-18",
+   "city": "Chicago",
+   "threshold": "77-78\u00b0",
+   "no_price": 0.96,
+   "pl": 0.15,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-18",
+   "city": "New York",
+   "threshold": "83-84\u00b0",
+   "no_price": 0.94,
+   "pl": 0.28,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-18",
+   "city": "TDAL",
+   "threshold": "100-101\u00b0",
+   "no_price": 0.94,
+   "pl": 2.19,
+   "outcome": "win"
+  },
   {
    "date": "2026-06-17",
    "city": "TPHX",
@@ -16,35 +40,11 @@
    "outcome": "win"
   },
   {
-   "date": "2026-06-16",
-   "city": "TPHX",
-   "threshold": "113-114\u00b0",
-   "no_price": 0.86,
-   "pl": 1.69,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-16",
-   "city": "TSATX",
-   "threshold": "89-90\u00b0",
-   "no_price": 0.91,
-   "pl": -0.33,
-   "outcome": "loss"
-  },
-  {
-   "date": "2026-06-16",
-   "city": "TDAL",
-   "threshold": "94-95\u00b0",
-   "no_price": 0.95,
-   "pl": 0.09,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-16",
-   "city": "Philadelphia",
-   "threshold": "83-84\u00b0",
+   "date": "2026-06-17",
+   "city": "Chicago",
+   "threshold": "73-74\u00b0",
    "no_price": 0.93,
-   "pl": 0.39,
+   "pl": 0.07,
    "outcome": "win"
   }
  ],
@@ -671,6 +671,30 @@
    "date": "Jun 17",
    "market": "TPHX &middot; ",
    "net": 0.37,
+   "win": true
+  },
+  {
+   "date": "Jun 17",
+   "market": "Chicago &middot; 73-74&deg;",
+   "net": 0.07,
+   "win": true
+  },
+  {
+   "date": "Jun 18",
+   "market": "Chicago &middot; 77-78&deg;",
+   "net": 0.15,
+   "win": true
+  },
+  {
+   "date": "Jun 18",
+   "market": "New York &middot; 83-84&deg;",
+   "net": 0.28,
+   "win": true
+  },
+  {
+   "date": "Jun 18",
+   "market": "TDAL &middot; ",
+   "net": 2.19,
    "win": true
   }
  ]
