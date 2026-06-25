@@ -489,7 +489,7 @@
   },
   {
    "date": "Jun 10",
-   "market": "TMIN &middot; ",
+   "market": "Minneapolis &middot; 92-93&deg;",
    "net": 19.97,
    "win": true
   },
@@ -501,13 +501,13 @@
   },
   {
    "date": "Jun 10",
-   "market": "TBOS &middot; ",
+   "market": "Boston &middot; 82-83&deg;",
    "net": 0.19,
    "win": true
   },
   {
    "date": "Jun 10",
-   "market": "TATL &middot; ",
+   "market": "Atlanta &middot; 92-93&deg;",
    "net": 2.43,
    "win": true
   },
@@ -519,7 +519,7 @@
   },
   {
    "date": "Jun 11",
-   "market": "TATL &middot; ",
+   "market": "Atlanta &middot; 95-96&deg;",
    "net": 2.43,
    "win": true
   },
@@ -531,13 +531,13 @@
   },
   {
    "date": "Jun 11",
-   "market": "TDAL &middot; ",
+   "market": "Dallas &middot; 99-100&deg;",
    "net": 0.28,
    "win": true
   },
   {
    "date": "Jun 12",
-   "market": "TSATX &middot; ",
+   "market": "San Antonio &middot; 94-95&deg;",
    "net": -4.83,
    "win": false
   },
@@ -555,13 +555,13 @@
   },
   {
    "date": "Jun 12",
-   "market": "TPHX &middot; ",
+   "market": "Phoenix &middot; 109-110&deg;",
    "net": 2.76,
    "win": true
   },
   {
    "date": "Jun 12",
-   "market": "TDAL &middot; ",
+   "market": "Dallas &middot; 95-96&deg;",
    "net": 3.47,
    "win": true
   },
@@ -573,43 +573,43 @@
   },
   {
    "date": "Jun 12",
-   "market": "TATL &middot; ",
+   "market": "Atlanta &middot; 96-97&deg;",
    "net": 0.37,
    "win": true
   },
   {
    "date": "Jun 12",
-   "market": "TMIN &middot; ",
+   "market": "Minneapolis &middot; 84-85&deg;",
    "net": 0.28,
    "win": true
   },
   {
    "date": "Jun 13",
-   "market": "TOKC &middot; ",
+   "market": "Oklahoma City &middot; 99-100&deg;",
    "net": 1.46,
    "win": true
   },
   {
    "date": "Jun 13",
-   "market": "TSATX &middot; ",
+   "market": "San Antonio &middot; 94-95&deg;",
    "net": -0.33,
    "win": false
   },
   {
    "date": "Jun 13",
-   "market": "TDAL &middot; ",
+   "market": "Dallas &middot; 97-98&deg;",
    "net": 2.19,
    "win": true
   },
   {
    "date": "Jun 14",
-   "market": "TATL &middot; ",
+   "market": "Atlanta &middot; 93-94&deg;",
    "net": 2.19,
    "win": true
   },
   {
    "date": "Jun 14",
-   "market": "TSATX &middot; ",
+   "market": "San Antonio &middot; 92-93&deg;",
    "net": 0.48,
    "win": true
   },
@@ -621,7 +621,7 @@
   },
   {
    "date": "Jun 14",
-   "market": "TBOS &middot; ",
+   "market": "Boston &middot; 87-88&deg;",
    "net": 1.52,
    "win": true
   },
@@ -633,25 +633,25 @@
   },
   {
    "date": "Jun 15",
-   "market": "TSATX &middot; ",
+   "market": "San Antonio &middot; 87-88&deg;",
    "net": 1.94,
    "win": true
   },
   {
    "date": "Jun 16",
-   "market": "TPHX &middot; ",
+   "market": "Phoenix &middot; 113-114&deg;",
    "net": 1.69,
    "win": true
   },
   {
    "date": "Jun 16",
-   "market": "TSATX &middot; ",
+   "market": "San Antonio &middot; 89-90&deg;",
    "net": -0.33,
    "win": false
   },
   {
    "date": "Jun 16",
-   "market": "TDAL &middot; ",
+   "market": "Dallas &middot; 94-95&deg;",
    "net": 0.09,
    "win": true
   },
@@ -663,13 +663,13 @@
   },
   {
    "date": "Jun 16",
-   "market": "TATL &middot; ",
+   "market": "Atlanta &middot; 80-81&deg;",
    "net": 0.59,
    "win": true
   },
   {
    "date": "Jun 17",
-   "market": "TPHX &middot; ",
+   "market": "Phoenix &middot; 113-114&deg;",
    "net": 0.37,
    "win": true
   },
@@ -693,25 +693,25 @@
   },
   {
    "date": "Jun 18",
-   "market": "TDAL &middot; ",
+   "market": "Dallas &middot; 100-101&deg;",
    "net": 2.19,
    "win": true
   },
   {
    "date": "Jun 19",
-   "market": "TOKC &middot; ",
+   "market": "Oklahoma City &middot; 87-88&deg;",
    "net": 3.45,
    "win": true
   },
   {
    "date": "Jun 19",
-   "market": "TATL &middot; ",
+   "market": "Atlanta &middot; 88-89&deg;",
    "net": -37.01,
    "win": false
   },
   {
    "date": "Jun 19",
-   "market": "TBOS &middot; ",
+   "market": "Boston &middot; 87-88&deg;",
    "net": 1.72,
    "win": true
   }
