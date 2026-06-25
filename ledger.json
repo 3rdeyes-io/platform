@@ -1,12 +1,20 @@
 {
- "updated": "2026-06-19",
- "period": "Apr 23 - Jun 19, 2026",
- "trades": 111,
- "wins": 96,
+ "updated": "2026-06-24",
+ "period": "Apr 23 - Jun 24, 2026",
+ "trades": 112,
+ "wins": 97,
  "losses": 15,
- "winRate": "86.5%",
- "net": "+$63.47",
+ "winRate": "86.6%",
+ "net": "+$154.90",
  "recent": [
+  {
+   "date": "2026-06-24",
+   "city": "New York",
+   "threshold": "84-85\u00b0",
+   "no_price": 0,
+   "pl": 91.43,
+   "outcome": "win"
+  },
   {
    "date": "2026-06-19",
    "city": "TOKC",
@@ -37,14 +45,6 @@
    "threshold": "77-78\u00b0",
    "no_price": 0.96,
    "pl": 0.15,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-18",
-   "city": "New York",
-   "threshold": "83-84\u00b0",
-   "no_price": 0.94,
-   "pl": 0.28,
    "outcome": "win"
   }
  ],
@@ -713,6 +713,12 @@
    "date": "Jun 19",
    "market": "Boston &middot; 87-88&deg;",
    "net": 1.72,
+   "win": true
+  },
+  {
+   "date": "Jun 24",
+   "market": "New York &middot; 84-85&deg;",
+   "net": 91.43,
    "win": true
   }
  ]
