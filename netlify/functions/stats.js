@@ -1,5 +1,8 @@
-// Live stats proxy - fetches from VPS stats server
-const VPS = 'http://198.211.100.161:8765';
+// Live stats proxy - fetches from the VPS stats server (operational data only).
+// Source the origin from an env var so the raw IP isn't hardcoded in the repo and so
+// an HTTPS hostname can be swapped in (Netlify env: VPS_STATS_URL) without a code change.
+// This is a server-side call (function -> VPS), so there is no browser mixed-content.
+const VPS = process.env.VPS_STATS_URL || 'http://198.211.100.161:8765';
 
 exports.handler = async (event) => {
   const path = (event.path || '').replace('/.netlify/functions/stats', '') || '/stats';

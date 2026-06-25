@@ -11,9 +11,11 @@ exports.handler = async (event) => {
 
   // Parse form body (application/x-www-form-urlencoded)
   const params = new URLSearchParams(event.body);
-  const email = params.get('email') || '';
+  const email = (params.get('email') || '').trim();
 
-  if (!email || !email.includes('@')) {
+  // Real validation (was just includes('@'), which accepted "@", "a@", etc. and was
+  // passed straight to Resend `to:`). Basic shape + length guard.
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
     return { statusCode: 400, body: 'Invalid email' };
   }
 
