@@ -1,12 +1,36 @@
 {
- "updated": "2026-06-26",
- "period": "Apr 23 - Jun 26, 2026",
- "trades": 118,
- "wins": 103,
+ "updated": "2026-06-27",
+ "period": "Apr 23 - Jun 27, 2026",
+ "trades": 121,
+ "wins": 106,
  "losses": 15,
- "winRate": "87.3%",
- "net": "+$429.53",
+ "winRate": "87.6%",
+ "net": "+$657.41",
  "recent": [
+  {
+   "date": "2026-06-27",
+   "city": "Philadelphia",
+   "threshold": "83-84\u00b0",
+   "no_price": 0,
+   "pl": 75.98,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-27",
+   "city": "TDAL",
+   "threshold": "101-102\u00b0",
+   "no_price": 0,
+   "pl": 75.98,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-27",
+   "city": "New York",
+   "threshold": "82-83\u00b0",
+   "no_price": 0,
+   "pl": 75.92,
+   "outcome": "win"
+  },
   {
    "date": "2026-06-26",
    "city": "Philadelphia",
@@ -21,30 +45,6 @@
    "threshold": "76-77\u00b0",
    "no_price": 0,
    "pl": 76.34,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-25",
-   "city": "TDAL",
-   "threshold": "97-98\u00b0",
-   "no_price": 0,
-   "pl": 21.41,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-25",
-   "city": "Philadelphia",
-   "threshold": "90-91\u00b0",
-   "no_price": 0,
-   "pl": 7.4,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-25",
-   "city": "TOKC",
-   "threshold": "95-96\u00b0",
-   "no_price": 0,
-   "pl": 75.92,
    "outcome": "win"
   }
  ],
@@ -755,6 +755,24 @@
    "date": "Jun 26",
    "market": "Chicago &middot; 76-77&deg;",
    "net": 76.34,
+   "win": true
+  },
+  {
+   "date": "Jun 27",
+   "market": "Philadelphia &middot; 83-84&deg;",
+   "net": 75.98,
+   "win": true
+  },
+  {
+   "date": "Jun 27",
+   "market": "Dallas &middot; 101-102&deg;",
+   "net": 75.98,
+   "win": true
+  },
+  {
+   "date": "Jun 27",
+   "market": "New York &middot; 82-83&deg;",
+   "net": 75.92,
    "win": true
   }
  ]
