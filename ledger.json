@@ -1,12 +1,36 @@
 {
- "updated": "2026-06-28",
- "period": "Apr 24 - Jun 28, 2026",
- "trades": 123,
- "wins": 109,
+ "updated": "2026-06-29",
+ "period": "Apr 25 - Jun 29, 2026",
+ "trades": 125,
+ "wins": 111,
  "losses": 14,
- "winRate": "88.6%",
- "net": "+$934.16",
+ "winRate": "88.8%",
+ "net": "+$1095.99",
  "recent": [
+  {
+   "date": "2026-06-29",
+   "city": "TBOS",
+   "threshold": "82-83\u00b0",
+   "no_price": 0,
+   "pl": 90.13,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-29",
+   "city": "TMIN",
+   "threshold": "100-101\u00b0",
+   "no_price": 0,
+   "pl": 5.84,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-06-29",
+   "city": "Los Angeles",
+   "threshold": "&lt;70\u00b0",
+   "no_price": 0,
+   "pl": 75.51,
+   "outcome": "win"
+  },
   {
    "date": "2026-06-28",
    "city": "TDAL",
@@ -22,39 +46,9 @@
    "no_price": 0,
    "pl": 78.97,
    "outcome": "win"
-  },
-  {
-   "date": "2026-06-28",
-   "city": "TBOS",
-   "threshold": "77-78\u00b0",
-   "no_price": 0,
-   "pl": 76.42,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-28",
-   "city": "TATL",
-   "threshold": "&lt;90\u00b0",
-   "no_price": 0,
-   "pl": 91.91,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-06-27",
-   "city": "Philadelphia",
-   "threshold": "83-84\u00b0",
-   "no_price": 0,
-   "pl": 75.98,
-   "outcome": "win"
   }
  ],
  "rows": [
-  {
-   "date": "Apr 24",
-   "market": "Miami &middot; &gt;85&deg;",
-   "net": 9.65,
-   "win": true
-  },
   {
    "date": "Apr 25",
    "market": "Miami &middot; &gt;86&deg;",
@@ -785,6 +779,24 @@
    "date": "Jun 28",
    "market": "Atlanta &middot; 90&deg;",
    "net": 91.91,
+   "win": true
+  },
+  {
+   "date": "Jun 29",
+   "market": "Boston &middot; 82-83&deg;",
+   "net": 90.13,
+   "win": true
+  },
+  {
+   "date": "Jun 29",
+   "market": "Minneapolis &middot; 100-101&deg;",
+   "net": 5.84,
+   "win": true
+  },
+  {
+   "date": "Jun 29",
+   "market": "Los Angeles &middot; &lt;70&deg;",
+   "net": 75.51,
    "win": true
   }
  ]
