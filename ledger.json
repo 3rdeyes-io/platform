@@ -1,12 +1,28 @@
 {
- "updated": "2026-07-03",
- "period": "Apr 30 - Jul 3, 2026",
- "trades": 130,
- "wins": 116,
+ "updated": "2026-07-04",
+ "period": "Apr 30 - Jul 4, 2026",
+ "trades": 131,
+ "wins": 117,
  "losses": 14,
- "winRate": "89.2%",
- "net": "+$1548.36",
+ "winRate": "89.3%",
+ "net": "+$1704.81",
  "recent": [
+  {
+   "date": "2026-07-04",
+   "city": "Chicago",
+   "threshold": "89-90\u00b0",
+   "no_price": 0,
+   "pl": 75.51,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-04",
+   "city": "TOKC",
+   "threshold": "&lt;98\u00b0",
+   "no_price": 0,
+   "pl": 81.4,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-03",
    "city": "TMIN",
@@ -30,22 +46,6 @@
    "no_price": 0,
    "pl": 79.09,
    "outcome": "win"
-  },
-  {
-   "date": "2026-07-01",
-   "city": "TDAL",
-   "threshold": "102-103\u00b0",
-   "no_price": 0,
-   "pl": 91.18,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-01",
-   "city": "Denver",
-   "threshold": "92-93\u00b0",
-   "no_price": 0,
-   "pl": 75.92,
-   "outcome": "win"
   }
  ],
  "rows": [
@@ -53,12 +53,6 @@
    "date": "Apr 30",
    "market": "Miami &middot; &gt;90&deg;",
    "net": 0.65,
-   "win": true
-  },
-  {
-   "date": "Apr 30",
-   "market": "Denver &middot; &lt;42&deg;",
-   "net": 0.46,
    "win": true
   },
   {
@@ -827,6 +821,18 @@
    "date": "Jul 3",
    "market": "Minneapolis &middot; 89-90&deg;",
    "net": 75.99,
+   "win": true
+  },
+  {
+   "date": "Jul 4",
+   "market": "Chicago &middot; 89-90&deg;",
+   "net": 75.51,
+   "win": true
+  },
+  {
+   "date": "Jul 4",
+   "market": "Oklahoma City &middot; 98&deg;",
+   "net": 81.4,
    "win": true
   }
  ]
