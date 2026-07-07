@@ -1,12 +1,44 @@
 {
- "updated": "2026-07-05",
- "period": "May 1 - Jul 5, 2026",
- "trades": 130,
- "wins": 116,
+ "updated": "2026-07-06",
+ "period": "May 3 - Jul 6, 2026",
+ "trades": 129,
+ "wins": 115,
  "losses": 14,
- "winRate": "89.2%",
- "net": "+$1796.00",
+ "winRate": "89.1%",
+ "net": "+$2051.84",
  "recent": [
+  {
+   "date": "2026-07-06",
+   "city": "TMIN",
+   "threshold": "85-86\u00b0",
+   "no_price": 0,
+   "pl": 77.14,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-06",
+   "city": "TATL",
+   "threshold": "93-94\u00b0",
+   "no_price": 0,
+   "pl": 83.79,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-06",
+   "city": "New York",
+   "threshold": "79-80\u00b0",
+   "no_price": 0,
+   "pl": 15.68,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-06",
+   "city": "Austin",
+   "threshold": "&lt;94\u00b0",
+   "no_price": 0,
+   "pl": 80.86,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-05",
    "city": "TBOS",
@@ -14,71 +46,9 @@
    "no_price": 0,
    "pl": 15.27,
    "outcome": "win"
-  },
-  {
-   "date": "2026-07-05",
-   "city": "Chicago",
-   "threshold": "81-82\u00b0",
-   "no_price": 0,
-   "pl": 77.02,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-04",
-   "city": "Chicago",
-   "threshold": "89-90\u00b0",
-   "no_price": 0,
-   "pl": 75.51,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-04",
-   "city": "TOKC",
-   "threshold": "&lt;98\u00b0",
-   "no_price": 0,
-   "pl": 81.4,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-03",
-   "city": "TMIN",
-   "threshold": "89-90\u00b0",
-   "no_price": 0,
-   "pl": 75.99,
-   "outcome": "win"
   }
  ],
  "rows": [
-  {
-   "date": "May 1",
-   "market": "Miami &middot; &gt;91&deg;",
-   "net": 0.18,
-   "win": true
-  },
-  {
-   "date": "May 2",
-   "market": "Denver &middot; &gt;74&deg;",
-   "net": 0.44,
-   "win": true
-  },
-  {
-   "date": "May 2",
-   "market": "Chicago &middot; &gt;58&deg;",
-   "net": 0.27,
-   "win": true
-  },
-  {
-   "date": "May 2",
-   "market": "Los Angeles &middot; &lt;65&deg;",
-   "net": 0.37,
-   "win": true
-  },
-  {
-   "date": "May 2",
-   "market": "Philadelphia &middot; &lt;60&deg;",
-   "net": 0.37,
-   "win": true
-  },
   {
    "date": "May 3",
    "market": "Philadelphia &middot; &lt;60&deg;",
@@ -827,6 +797,30 @@
    "date": "Jul 5",
    "market": "Chicago &middot; 81-82&deg;",
    "net": 77.02,
+   "win": true
+  },
+  {
+   "date": "Jul 6",
+   "market": "Minneapolis &middot; 85-86&deg;",
+   "net": 77.14,
+   "win": true
+  },
+  {
+   "date": "Jul 6",
+   "market": "Atlanta &middot; 93-94&deg;",
+   "net": 83.79,
+   "win": true
+  },
+  {
+   "date": "Jul 6",
+   "market": "New York &middot; 79-80&deg;",
+   "net": 15.68,
+   "win": true
+  },
+  {
+   "date": "Jul 6",
+   "market": "Austin &middot; &lt;94&deg;",
+   "net": 80.86,
    "win": true
   }
  ]
