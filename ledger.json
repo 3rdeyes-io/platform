@@ -1,50 +1,50 @@
 {
- "updated": "2026-07-06",
- "period": "May 3 - Jul 6, 2026",
- "trades": 129,
- "wins": 115,
+ "updated": "2026-07-07",
+ "period": "May 3 - Jul 7, 2026",
+ "trades": 132,
+ "wins": 118,
  "losses": 14,
- "winRate": "89.1%",
- "net": "+$2051.84",
+ "winRate": "89.4%",
+ "net": "+$2367.60",
  "recent": [
+  {
+   "date": "2026-07-07",
+   "city": "TBOS",
+   "threshold": "71-72\u00b0",
+   "no_price": 0,
+   "pl": 77.84,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-07",
+   "city": "Austin",
+   "threshold": "94-95\u00b0",
+   "no_price": 0,
+   "pl": 81.82,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-07",
+   "city": "New York",
+   "threshold": "77-78\u00b0",
+   "no_price": 0,
+   "pl": 75.46,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-07",
+   "city": "Denver",
+   "threshold": "91-92\u00b0",
+   "no_price": 0,
+   "pl": 80.91,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-06",
    "city": "TMIN",
    "threshold": "85-86\u00b0",
    "no_price": 0,
    "pl": 77.14,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-06",
-   "city": "TATL",
-   "threshold": "93-94\u00b0",
-   "no_price": 0,
-   "pl": 83.79,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-06",
-   "city": "New York",
-   "threshold": "79-80\u00b0",
-   "no_price": 0,
-   "pl": 15.68,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-06",
-   "city": "Austin",
-   "threshold": "&lt;94\u00b0",
-   "no_price": 0,
-   "pl": 80.86,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-05",
-   "city": "TBOS",
-   "threshold": "85-86\u00b0",
-   "no_price": 0,
-   "pl": 15.27,
    "outcome": "win"
   }
  ],
@@ -59,12 +59,6 @@
    "date": "May 3",
    "market": "Denver &middot; &gt;78&deg;",
    "net": 2.35,
-   "win": true
-  },
-  {
-   "date": "May 3",
-   "market": "Chicago &middot; &gt;73&deg;",
-   "net": 0.27,
    "win": true
   },
   {
@@ -821,6 +815,30 @@
    "date": "Jul 6",
    "market": "Austin &middot; &lt;94&deg;",
    "net": 80.86,
+   "win": true
+  },
+  {
+   "date": "Jul 7",
+   "market": "Boston &middot; 71-72&deg;",
+   "net": 77.84,
+   "win": true
+  },
+  {
+   "date": "Jul 7",
+   "market": "Austin &middot; 94-95&deg;",
+   "net": 81.82,
+   "win": true
+  },
+  {
+   "date": "Jul 7",
+   "market": "New York &middot; 77-78&deg;",
+   "net": 75.46,
+   "win": true
+  },
+  {
+   "date": "Jul 7",
+   "market": "Denver &middot; 91-92&deg;",
+   "net": 80.91,
    "win": true
   }
  ]
