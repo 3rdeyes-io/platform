@@ -680,7 +680,7 @@
 
   <div class="hero-badge">
     <div class="live-dot"></div>
-    Live · <span id="hero-wl">89.6% win rate · 121-14 · +$2760.09 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
+    Live · <span id="hero-wl">89.6% win rate · 121-14 · +$2924.64 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
   </div>
 
   <!-- ── Live operational pulse - proves the bot is actually running ── -->
@@ -1070,7 +1070,7 @@
         What is your real win rate?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">89.6%</strong> across <span id="faq-trades">135</span> settled trades (<span id="faq-wins">121</span> wins, <span id="faq-losses">14</span> losses, <span id="faq-net">+$2760.09</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
+      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">89.6%</strong> across <span id="faq-trades">135</span> settled trades (<span id="faq-wins">121</span> wins, <span id="faq-losses">14</span> losses, <span id="faq-net">+$2924.64</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1548,7 +1548,7 @@ window.addEventListener('scroll', () => {
 // The FB constant below is the single last-known-good fallback if that fetch ever fails;
 // keep it in sync with the ledger at deploy time so the page is never blank or inconsistent.
 (function () {
-  const FB = { winRate: '89.6%', wins: 121, losses: 14, trades: 135, net: '+$2760.09' };
+  const FB = { winRate: '89.6%', wins: 121, losses: 14, trades: 135, net: '+$2924.64' };
   function apply(L, bal) {
     const wl = L.wins + '-' + L.losses;
     const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
