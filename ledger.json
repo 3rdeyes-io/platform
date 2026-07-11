@@ -1,12 +1,36 @@
 {
- "updated": "2026-07-09",
- "period": "May 4 - Jul 9, 2026",
+ "updated": "2026-07-10",
+ "period": "May 6 - Jul 10, 2026",
  "trades": 135,
  "wins": 121,
  "losses": 14,
  "winRate": "89.6%",
- "net": "+$2760.09",
+ "net": "+$2924.64",
  "recent": [
+  {
+   "date": "2026-07-10",
+   "city": "TMIN",
+   "threshold": "83-84\u00b0",
+   "no_price": 0,
+   "pl": 76.0,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-10",
+   "city": "Philadelphia",
+   "threshold": "92-93\u00b0",
+   "no_price": 0,
+   "pl": 82.34,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-10",
+   "city": "TBOS",
+   "threshold": "91-92\u00b0",
+   "no_price": 0,
+   "pl": 9.21,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-09",
    "city": "Denver",
@@ -22,51 +46,9 @@
    "no_price": 0,
    "pl": 76.05,
    "outcome": "win"
-  },
-  {
-   "date": "2026-07-09",
-   "city": "Philadelphia",
-   "threshold": "87-88\u00b0",
-   "no_price": 0,
-   "pl": 77.64,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-08",
-   "city": "TOKC",
-   "threshold": "&lt;97\u00b0",
-   "no_price": 0,
-   "pl": 76.59,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-08",
-   "city": "TMIN",
-   "threshold": "84-85\u00b0",
-   "no_price": 0,
-   "pl": 76.73,
-   "outcome": "win"
   }
  ],
  "rows": [
-  {
-   "date": "May 4",
-   "market": "Chicago &middot; &gt;83&deg;",
-   "net": 0.87,
-   "win": true
-  },
-  {
-   "date": "May 4",
-   "market": "New York &middot; &gt;77&deg;",
-   "net": 1.28,
-   "win": true
-  },
-  {
-   "date": "May 5",
-   "market": "Austin &middot; &gt;95&deg;",
-   "net": 0.85,
-   "win": true
-  },
   {
    "date": "May 6",
    "market": "Miami &middot; &gt;91&deg;",
@@ -857,6 +839,24 @@
    "date": "Jul 9",
    "market": "Philadelphia &middot; 87-88&deg;",
    "net": 77.64,
+   "win": true
+  },
+  {
+   "date": "Jul 10",
+   "market": "Minneapolis &middot; 83-84&deg;",
+   "net": 76.0,
+   "win": true
+  },
+  {
+   "date": "Jul 10",
+   "market": "Philadelphia &middot; 92-93&deg;",
+   "net": 82.34,
+   "win": true
+  },
+  {
+   "date": "Jul 10",
+   "market": "Boston &middot; 91-92&deg;",
+   "net": 9.21,
    "win": true
   }
  ]
