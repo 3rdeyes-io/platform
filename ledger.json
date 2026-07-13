@@ -1,12 +1,28 @@
 {
- "updated": "2026-07-11",
- "period": "May 6 - Jul 11, 2026",
- "trades": 140,
- "wins": 126,
+ "updated": "2026-07-12",
+ "period": "May 8 - Jul 12, 2026",
+ "trades": 137,
+ "wins": 123,
  "losses": 14,
- "winRate": "90.0%",
- "net": "+$3304.87",
+ "winRate": "89.8%",
+ "net": "+$3463.33",
  "recent": [
+  {
+   "date": "2026-07-12",
+   "city": "Philadelphia",
+   "threshold": "90-91\u00b0",
+   "no_price": 0,
+   "pl": 76.4,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-12",
+   "city": "TOKC",
+   "threshold": "94-95\u00b0",
+   "no_price": 0,
+   "pl": 90.99,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-11",
    "city": "Austin",
@@ -30,55 +46,9 @@
    "no_price": 0,
    "pl": 91.49,
    "outcome": "win"
-  },
-  {
-   "date": "2026-07-11",
-   "city": "TDC",
-   "threshold": "&lt;82\u00b0",
-   "no_price": 0,
-   "pl": 58.8,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-11",
-   "city": "TATL",
-   "threshold": "87-88\u00b0",
-   "no_price": 0,
-   "pl": 77.9,
-   "outcome": "win"
   }
  ],
  "rows": [
-  {
-   "date": "May 6",
-   "market": "Miami &middot; &gt;91&deg;",
-   "net": 1.41,
-   "win": true
-  },
-  {
-   "date": "May 6",
-   "market": "Chicago &middot; &gt;62&deg;",
-   "net": 1.31,
-   "win": true
-  },
-  {
-   "date": "May 7",
-   "market": "Los Angeles &middot; &lt;68&deg;",
-   "net": 1.75,
-   "win": true
-  },
-  {
-   "date": "May 7",
-   "market": "Miami &middot; &gt;94&deg;",
-   "net": 3.06,
-   "win": true
-  },
-  {
-   "date": "May 7",
-   "market": "Chicago &middot; &gt;65&deg;",
-   "net": 1.4,
-   "win": true
-  },
   {
    "date": "May 8",
    "market": "Los Angeles &middot; &lt;68&deg;",
@@ -887,6 +857,18 @@
    "date": "Jul 11",
    "market": "Atlanta &middot; 87-88&deg;",
    "net": 77.9,
+   "win": true
+  },
+  {
+   "date": "Jul 12",
+   "market": "Philadelphia &middot; 90-91&deg;",
+   "net": 76.4,
+   "win": true
+  },
+  {
+   "date": "Jul 12",
+   "market": "Oklahoma City &middot; 94-95&deg;",
+   "net": 90.99,
    "win": true
   }
  ]
