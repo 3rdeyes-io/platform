@@ -1,50 +1,50 @@
 {
- "updated": "2026-07-15",
- "period": "May 11 - Jul 15, 2026",
- "trades": 142,
- "wins": 129,
+ "updated": "2026-07-16",
+ "period": "May 11 - Jul 16, 2026",
+ "trades": 146,
+ "wins": 133,
  "losses": 13,
- "winRate": "90.8%",
- "net": "+$4197.94",
+ "winRate": "91.1%",
+ "net": "+$4417.20",
  "recent": [
+  {
+   "date": "2026-07-16",
+   "city": "TDC",
+   "threshold": "103-104\u00b0",
+   "no_price": 0,
+   "pl": 74.32,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-16",
+   "city": "TSATX",
+   "threshold": "&lt;83\u00b0",
+   "no_price": 0,
+   "pl": 64.01,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-16",
+   "city": "Denver",
+   "threshold": "95-96\u00b0",
+   "no_price": 0,
+   "pl": 77.02,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-16",
+   "city": "TOKC",
+   "threshold": "94-95\u00b0",
+   "no_price": 0,
+   "pl": 3.91,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-15",
    "city": "TPHX",
    "threshold": "&lt;104\u00b0",
    "no_price": 0,
    "pl": 78.3,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-15",
-   "city": "TDAL",
-   "threshold": "93-94\u00b0",
-   "no_price": 0,
-   "pl": 77.64,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-14",
-   "city": "TSATX",
-   "threshold": "87-88\u00b0",
-   "no_price": 0,
-   "pl": 91.94,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-14",
-   "city": "Austin",
-   "threshold": "85-86\u00b0",
-   "no_price": 0,
-   "pl": 75.64,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-14",
-   "city": "Denver",
-   "threshold": "99-100\u00b0",
-   "no_price": 0,
-   "pl": 9.79,
    "outcome": "win"
   }
  ],
@@ -899,6 +899,30 @@
    "date": "Jul 15",
    "market": "Dallas &middot; 93-94&deg;",
    "net": 77.64,
+   "win": true
+  },
+  {
+   "date": "Jul 16",
+   "market": "Washington DC &middot; 103-104&deg;",
+   "net": 74.32,
+   "win": true
+  },
+  {
+   "date": "Jul 16",
+   "market": "San Antonio &middot; 83&deg;",
+   "net": 64.01,
+   "win": true
+  },
+  {
+   "date": "Jul 16",
+   "market": "Denver &middot; 95-96&deg;",
+   "net": 77.02,
+   "win": true
+  },
+  {
+   "date": "Jul 16",
+   "market": "Oklahoma City &middot; 94-95&deg;",
+   "net": 3.91,
    "win": true
   }
  ]
