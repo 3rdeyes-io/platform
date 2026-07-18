@@ -1,12 +1,28 @@
 {
- "updated": "2026-07-16",
- "period": "May 11 - Jul 16, 2026",
- "trades": 146,
+ "updated": "2026-07-17",
+ "period": "May 18 - Jul 17, 2026",
+ "trades": 145,
  "wins": 133,
- "losses": 13,
- "winRate": "91.1%",
- "net": "+$4417.20",
+ "losses": 12,
+ "winRate": "91.7%",
+ "net": "+$4571.27",
  "recent": [
+  {
+   "date": "2026-07-17",
+   "city": "TBOS",
+   "threshold": "88-89\u00b0",
+   "no_price": 0,
+   "pl": 81.01,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-17",
+   "city": "TOKC",
+   "threshold": "91-92\u00b0",
+   "no_price": 0,
+   "pl": 75.54,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-16",
    "city": "TDC",
@@ -30,43 +46,9 @@
    "no_price": 0,
    "pl": 77.02,
    "outcome": "win"
-  },
-  {
-   "date": "2026-07-16",
-   "city": "TOKC",
-   "threshold": "94-95\u00b0",
-   "no_price": 0,
-   "pl": 3.91,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-15",
-   "city": "TPHX",
-   "threshold": "&lt;104\u00b0",
-   "no_price": 0,
-   "pl": 78.3,
-   "outcome": "win"
   }
  ],
  "rows": [
-  {
-   "date": "May 11",
-   "market": "Los Angeles &middot; &lt;69&deg;",
-   "net": -0.15,
-   "win": false
-  },
-  {
-   "date": "May 12",
-   "market": "Los Angeles &middot; &lt;63&deg;",
-   "net": 2.61,
-   "win": true
-  },
-  {
-   "date": "May 13",
-   "market": "Los Angeles &middot; &lt;61&deg;",
-   "net": 0.02,
-   "win": true
-  },
   {
    "date": "May 18",
    "market": "Chicago &middot; 86-87&deg;",
@@ -923,6 +905,18 @@
    "date": "Jul 16",
    "market": "Oklahoma City &middot; 94-95&deg;",
    "net": 3.91,
+   "win": true
+  },
+  {
+   "date": "Jul 17",
+   "market": "Boston &middot; 88-89&deg;",
+   "net": 81.01,
+   "win": true
+  },
+  {
+   "date": "Jul 17",
+   "market": "Oklahoma City &middot; 91-92&deg;",
+   "net": 75.54,
    "win": true
   }
  ]
