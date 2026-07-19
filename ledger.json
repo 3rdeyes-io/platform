@@ -1,50 +1,50 @@
 {
- "updated": "2026-07-17",
- "period": "May 18 - Jul 17, 2026",
- "trades": 145,
- "wins": 133,
+ "updated": "2026-07-18",
+ "period": "May 18 - Jul 18, 2026",
+ "trades": 150,
+ "wins": 138,
  "losses": 12,
- "winRate": "91.7%",
- "net": "+$4571.27",
+ "winRate": "92.0%",
+ "net": "+$4917.02",
  "recent": [
   {
-   "date": "2026-07-17",
-   "city": "TBOS",
-   "threshold": "88-89\u00b0",
+   "date": "2026-07-18",
+   "city": "TPHX",
+   "threshold": "101-102\u00b0",
    "no_price": 0,
-   "pl": 81.01,
+   "pl": 77.84,
    "outcome": "win"
   },
   {
-   "date": "2026-07-17",
-   "city": "TOKC",
-   "threshold": "91-92\u00b0",
-   "no_price": 0,
-   "pl": 75.54,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-16",
-   "city": "TDC",
-   "threshold": "103-104\u00b0",
-   "no_price": 0,
-   "pl": 74.32,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-16",
-   "city": "TSATX",
-   "threshold": "&lt;83\u00b0",
-   "no_price": 0,
-   "pl": 64.01,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-16",
+   "date": "2026-07-18",
    "city": "Denver",
-   "threshold": "95-96\u00b0",
+   "threshold": "97-98\u00b0",
    "no_price": 0,
-   "pl": 77.02,
+   "pl": 1.94,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-18",
+   "city": "New York",
+   "threshold": "&gt;86\u00b0",
+   "no_price": 0,
+   "pl": 90.14,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-18",
+   "city": "TDAL",
+   "threshold": "99-100\u00b0",
+   "no_price": 0,
+   "pl": 79.55,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-18",
+   "city": "TOKC",
+   "threshold": "96-97\u00b0",
+   "no_price": 0,
+   "pl": 96.28,
    "outcome": "win"
   }
  ],
@@ -917,6 +917,36 @@
    "date": "Jul 17",
    "market": "Oklahoma City &middot; 91-92&deg;",
    "net": 75.54,
+   "win": true
+  },
+  {
+   "date": "Jul 18",
+   "market": "Phoenix &middot; 101-102&deg;",
+   "net": 77.84,
+   "win": true
+  },
+  {
+   "date": "Jul 18",
+   "market": "Denver &middot; 97-98&deg;",
+   "net": 1.94,
+   "win": true
+  },
+  {
+   "date": "Jul 18",
+   "market": "New York &middot; &gt;86&deg;",
+   "net": 90.14,
+   "win": true
+  },
+  {
+   "date": "Jul 18",
+   "market": "Dallas &middot; 99-100&deg;",
+   "net": 79.55,
+   "win": true
+  },
+  {
+   "date": "Jul 18",
+   "market": "Oklahoma City &middot; 96-97&deg;",
+   "net": 96.28,
    "win": true
   }
  ]
