@@ -1,12 +1,28 @@
 {
- "updated": "2026-07-19",
- "period": "May 18 - Jul 19, 2026",
- "trades": 154,
- "wins": 142,
+ "updated": "2026-07-20",
+ "period": "May 18 - Jul 20, 2026",
+ "trades": 156,
+ "wins": 144,
  "losses": 12,
- "winRate": "92.2%",
- "net": "+$5162.37",
+ "winRate": "92.3%",
+ "net": "+$5273.02",
  "recent": [
+  {
+   "date": "2026-07-20",
+   "city": "TDAL",
+   "threshold": "105-106\u00b0",
+   "no_price": 0,
+   "pl": 91.18,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-20",
+   "city": "TPHX",
+   "threshold": "100-101\u00b0",
+   "no_price": 0,
+   "pl": 19.47,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-19",
    "city": "TDAL",
@@ -29,22 +45,6 @@
    "threshold": "88-89\u00b0",
    "no_price": 0,
    "pl": 78.65,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-19",
-   "city": "New York",
-   "threshold": "86-87\u00b0",
-   "no_price": 0,
-   "pl": 11.68,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-18",
-   "city": "TPHX",
-   "threshold": "101-102\u00b0",
-   "no_price": 0,
-   "pl": 77.84,
    "outcome": "win"
   }
  ],
@@ -971,6 +971,18 @@
    "date": "Jul 19",
    "market": "New York &middot; 86-87&deg;",
    "net": 11.68,
+   "win": true
+  },
+  {
+   "date": "Jul 20",
+   "market": "Dallas &middot; 105-106&deg;",
+   "net": 91.18,
+   "win": true
+  },
+  {
+   "date": "Jul 20",
+   "market": "Phoenix &middot; 100-101&deg;",
+   "net": 19.47,
    "win": true
   }
  ]
