@@ -1,50 +1,50 @@
 {
- "updated": "2026-07-20",
- "period": "May 18 - Jul 20, 2026",
- "trades": 156,
- "wins": 144,
+ "updated": "2026-07-21",
+ "period": "May 18 - Jul 21, 2026",
+ "trades": 161,
+ "wins": 149,
  "losses": 12,
- "winRate": "92.3%",
- "net": "+$5273.02",
+ "winRate": "92.5%",
+ "net": "+$5610.21",
  "recent": [
   {
-   "date": "2026-07-20",
-   "city": "TDAL",
-   "threshold": "105-106\u00b0",
+   "date": "2026-07-21",
+   "city": "New York",
+   "threshold": "85-86\u00b0",
    "no_price": 0,
-   "pl": 91.18,
+   "pl": 91.6,
    "outcome": "win"
   },
   {
-   "date": "2026-07-20",
-   "city": "TPHX",
-   "threshold": "100-101\u00b0",
+   "date": "2026-07-21",
+   "city": "Chicago",
+   "threshold": "90-91\u00b0",
    "no_price": 0,
-   "pl": 19.47,
+   "pl": 75.64,
    "outcome": "win"
   },
   {
-   "date": "2026-07-19",
-   "city": "TDAL",
-   "threshold": "101-102\u00b0",
-   "no_price": 0,
-   "pl": 78.97,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-19",
-   "city": "TATL",
-   "threshold": "96-97\u00b0",
-   "no_price": 0,
-   "pl": 76.05,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-19",
+   "date": "2026-07-21",
    "city": "Philadelphia",
-   "threshold": "88-89\u00b0",
+   "threshold": "81-82\u00b0",
    "no_price": 0,
-   "pl": 78.65,
+   "pl": 79.32,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-21",
+   "city": "TATL",
+   "threshold": "94-95\u00b0",
+   "no_price": 0,
+   "pl": 77.84,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-21",
+   "city": "Denver",
+   "threshold": "89-90\u00b0",
+   "no_price": 0,
+   "pl": 12.79,
    "outcome": "win"
   }
  ],
@@ -983,6 +983,36 @@
    "date": "Jul 20",
    "market": "Phoenix &middot; 100-101&deg;",
    "net": 19.47,
+   "win": true
+  },
+  {
+   "date": "Jul 21",
+   "market": "New York &middot; 85-86&deg;",
+   "net": 91.6,
+   "win": true
+  },
+  {
+   "date": "Jul 21",
+   "market": "Chicago &middot; 90-91&deg;",
+   "net": 75.64,
+   "win": true
+  },
+  {
+   "date": "Jul 21",
+   "market": "Philadelphia &middot; 81-82&deg;",
+   "net": 79.32,
+   "win": true
+  },
+  {
+   "date": "Jul 21",
+   "market": "Atlanta &middot; 94-95&deg;",
+   "net": 77.84,
+   "win": true
+  },
+  {
+   "date": "Jul 21",
+   "market": "Denver &middot; 89-90&deg;",
+   "net": 12.79,
    "win": true
   }
  ]
