@@ -1,12 +1,36 @@
 {
- "updated": "2026-07-21",
- "period": "May 18 - Jul 21, 2026",
- "trades": 161,
- "wins": 149,
+ "updated": "2026-07-22",
+ "period": "May 18 - Jul 22, 2026",
+ "trades": 164,
+ "wins": 152,
  "losses": 12,
- "winRate": "92.5%",
- "net": "+$5610.21",
+ "winRate": "92.7%",
+ "net": "+$5858.25",
  "recent": [
+  {
+   "date": "2026-07-22",
+   "city": "TSATX",
+   "threshold": "98-99\u00b0",
+   "no_price": 0,
+   "pl": 77.19,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-22",
+   "city": "TBOS",
+   "threshold": "80-81\u00b0",
+   "no_price": 0,
+   "pl": 79.36,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-22",
+   "city": "Denver",
+   "threshold": "90-91\u00b0",
+   "no_price": 0,
+   "pl": 91.49,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-21",
    "city": "New York",
@@ -21,30 +45,6 @@
    "threshold": "90-91\u00b0",
    "no_price": 0,
    "pl": 75.64,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-21",
-   "city": "Philadelphia",
-   "threshold": "81-82\u00b0",
-   "no_price": 0,
-   "pl": 79.32,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-21",
-   "city": "TATL",
-   "threshold": "94-95\u00b0",
-   "no_price": 0,
-   "pl": 77.84,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-21",
-   "city": "Denver",
-   "threshold": "89-90\u00b0",
-   "no_price": 0,
-   "pl": 12.79,
    "outcome": "win"
   }
  ],
@@ -1013,6 +1013,24 @@
    "date": "Jul 21",
    "market": "Denver &middot; 89-90&deg;",
    "net": 12.79,
+   "win": true
+  },
+  {
+   "date": "Jul 22",
+   "market": "San Antonio &middot; 98-99&deg;",
+   "net": 77.19,
+   "win": true
+  },
+  {
+   "date": "Jul 22",
+   "market": "Boston &middot; 80-81&deg;",
+   "net": 79.36,
+   "win": true
+  },
+  {
+   "date": "Jul 22",
+   "market": "Denver &middot; 90-91&deg;",
+   "net": 91.49,
    "win": true
   }
  ]
