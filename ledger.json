@@ -1,12 +1,36 @@
 {
- "updated": "2026-07-24",
- "period": "May 20 - Jul 24, 2026",
- "trades": 168,
- "wins": 156,
+ "updated": "2026-07-25",
+ "period": "May 20 - Jul 25, 2026",
+ "trades": 171,
+ "wins": 159,
  "losses": 12,
- "winRate": "92.9%",
- "net": "+$6188.59",
+ "winRate": "93.0%",
+ "net": "+$6270.02",
  "recent": [
+  {
+   "date": "2026-07-25",
+   "city": "TBOS",
+   "threshold": "80-81\u00b0",
+   "no_price": 0,
+   "pl": 57.38,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-25",
+   "city": "TMIN",
+   "threshold": "98-99\u00b0",
+   "no_price": 0,
+   "pl": 6.53,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-25",
+   "city": "Philadelphia",
+   "threshold": "89-90\u00b0",
+   "no_price": 0,
+   "pl": 17.52,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-24",
    "city": "TATL",
@@ -21,30 +45,6 @@
    "threshold": "85-86\u00b0",
    "no_price": 0,
    "pl": 76.44,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-23",
-   "city": "TBOS",
-   "threshold": "84-85\u00b0",
-   "no_price": 0,
-   "pl": 90.14,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-23",
-   "city": "TDAL",
-   "threshold": "104-105\u00b0",
-   "no_price": 0,
-   "pl": 76.05,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-23",
-   "city": "TPHX",
-   "threshold": "106-107\u00b0",
-   "no_price": 0,
-   "pl": 7.79,
    "outcome": "win"
   }
  ],
@@ -1055,6 +1055,24 @@
    "date": "Jul 24",
    "market": "Boston &middot; 85-86&deg;",
    "net": 76.44,
+   "win": true
+  },
+  {
+   "date": "Jul 25",
+   "market": "Boston &middot; 80-81&deg;",
+   "net": 57.38,
+   "win": true
+  },
+  {
+   "date": "Jul 25",
+   "market": "Minneapolis &middot; 98-99&deg;",
+   "net": 6.53,
+   "win": true
+  },
+  {
+   "date": "Jul 25",
+   "market": "Philadelphia &middot; 89-90&deg;",
+   "net": 17.52,
    "win": true
   }
  ]
