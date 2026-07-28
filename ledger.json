@@ -1,12 +1,28 @@
 {
- "updated": "2026-07-26",
- "period": "May 20 - Jul 26, 2026",
- "trades": 174,
- "wins": 162,
- "losses": 12,
- "winRate": "93.1%",
- "net": "+$6539.26",
+ "updated": "2026-07-27",
+ "period": "May 22 - Jul 27, 2026",
+ "trades": 169,
+ "wins": 159,
+ "losses": 10,
+ "winRate": "94.1%",
+ "net": "+$6697.39",
  "recent": [
+  {
+   "date": "2026-07-27",
+   "city": "TDC",
+   "threshold": "93-94\u00b0",
+   "no_price": 0,
+   "pl": 90.15,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-27",
+   "city": "Miami",
+   "threshold": "&gt;94\u00b0",
+   "no_price": 0,
+   "pl": 75.66,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-26",
    "city": "Miami",
@@ -30,55 +46,9 @@
    "no_price": 0,
    "pl": 35.26,
    "outcome": "win"
-  },
-  {
-   "date": "2026-07-26",
-   "city": "TMIN",
-   "threshold": "94-95\u00b0",
-   "no_price": 0,
-   "pl": 76.0,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-26",
-   "city": "TLV",
-   "threshold": "115-116\u00b0",
-   "no_price": 0,
-   "pl": 1.9,
-   "outcome": "win"
   }
  ],
  "rows": [
-  {
-   "date": "May 20",
-   "market": "Denver &middot; 54-55&deg;",
-   "net": -1.23,
-   "win": false
-  },
-  {
-   "date": "May 20",
-   "market": "Los Angeles &middot; 75-76&deg;",
-   "net": 2.55,
-   "win": true
-  },
-  {
-   "date": "May 21",
-   "market": "Chicago &middot; 58-59&deg;",
-   "net": 16.47,
-   "win": true
-  },
-  {
-   "date": "May 21",
-   "market": "Austin &middot; 77-78&deg;",
-   "net": 3.52,
-   "win": true
-  },
-  {
-   "date": "May 21",
-   "market": "Los Angeles &middot; 70-71&deg;",
-   "net": 0.56,
-   "win": true
-  },
   {
    "date": "May 22",
    "market": "Los Angeles &middot; 70-71&deg;",
@@ -88,25 +58,13 @@
   {
    "date": "May 22",
    "market": "New York &middot; 63-64&deg;",
-   "net": -4.27,
-   "win": false
+   "net": 11.88,
+   "win": true
   },
   {
    "date": "May 22",
    "market": "Chicago &middot; &lt;64&deg;",
    "net": 4.14,
-   "win": true
-  },
-  {
-   "date": "May 22",
-   "market": "Austin &middot; 91-92&deg;",
-   "net": 0.7,
-   "win": true
-  },
-  {
-   "date": "May 22",
-   "market": "Chicago &middot; 64-65&deg;",
-   "net": 1.26,
    "win": true
   },
   {
@@ -1091,6 +1049,18 @@
    "date": "Jul 26",
    "market": "Las Vegas &middot; 115-116&deg;",
    "net": 1.9,
+   "win": true
+  },
+  {
+   "date": "Jul 27",
+   "market": "Washington DC &middot; 93-94&deg;",
+   "net": 90.15,
+   "win": true
+  },
+  {
+   "date": "Jul 27",
+   "market": "Miami &middot; &gt;94&deg;",
+   "net": 75.66,
    "win": true
   }
  ]
