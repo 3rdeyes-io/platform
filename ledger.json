@@ -1,50 +1,50 @@
 {
- "updated": "2026-07-27",
- "period": "May 22 - Jul 27, 2026",
- "trades": 169,
+ "updated": "2026-07-28",
+ "period": "May 22 - Jul 28, 2026",
+ "trades": 176,
  "wins": 159,
- "losses": 10,
- "winRate": "94.1%",
- "net": "+$6697.39",
+ "losses": 17,
+ "winRate": "90.3%",
+ "net": "+$162.38",
  "recent": [
+  {
+   "date": "2026-07-28",
+   "city": "TDC",
+   "threshold": "88-89\u00b0",
+   "no_price": 0.93,
+   "pl": -16.12,
+   "outcome": "loss"
+  },
   {
    "date": "2026-07-27",
    "city": "TDC",
    "threshold": "93-94\u00b0",
-   "no_price": 0,
-   "pl": 90.15,
+   "no_price": 0.96,
+   "pl": 1.83,
    "outcome": "win"
+  },
+  {
+   "date": "2026-07-27",
+   "city": "Denver",
+   "threshold": "&lt;93\u00b0",
+   "no_price": 0.86,
+   "pl": -14.27,
+   "outcome": "loss"
   },
   {
    "date": "2026-07-27",
    "city": "Miami",
    "threshold": "&gt;94\u00b0",
-   "no_price": 0,
-   "pl": 75.66,
+   "no_price": 0.94,
+   "pl": 2.34,
    "outcome": "win"
   },
   {
    "date": "2026-07-26",
    "city": "Miami",
    "threshold": "&gt;94\u00b0",
-   "no_price": 0,
-   "pl": 75.92,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-26",
-   "city": "Chicago",
-   "threshold": "&lt;89\u00b0",
-   "no_price": 0,
-   "pl": 81.26,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-26",
-   "city": "TDAL",
-   "threshold": "106-107\u00b0",
-   "no_price": 0,
-   "pl": 35.26,
+   "no_price": 0.95,
+   "pl": 1.82,
    "outcome": "win"
   }
  ],
@@ -448,620 +448,662 @@
   {
    "date": "Jun 24",
    "market": "New York &middot; 84-85&deg;",
-   "net": 91.43,
+   "net": 2.25,
    "win": true
   },
   {
    "date": "Jun 25",
    "market": "Dallas &middot; 97-98&deg;",
-   "net": 21.41,
+   "net": 0.51,
    "win": true
   },
   {
    "date": "Jun 25",
    "market": "Philadelphia &middot; 90-91&deg;",
-   "net": 7.4,
+   "net": 0.18,
    "win": true
   },
   {
    "date": "Jun 25",
    "market": "Oklahoma City &middot; 95-96&deg;",
-   "net": 75.92,
+   "net": 1.82,
    "win": true
   },
   {
    "date": "Jun 25",
    "market": "Boston &middot; 85-86&deg;",
-   "net": 15.49,
+   "net": 0.45,
    "win": true
   },
   {
    "date": "Jun 26",
    "market": "Philadelphia &middot; 91-92&deg;",
-   "net": 78.07,
+   "net": 3.45,
    "win": true
   },
   {
    "date": "Jun 26",
    "market": "Chicago &middot; 76-77&deg;",
-   "net": 76.34,
+   "net": 1.46,
    "win": true
   },
   {
    "date": "Jun 27",
    "market": "Philadelphia &middot; 83-84&deg;",
-   "net": 75.98,
+   "net": 1.88,
    "win": true
   },
   {
    "date": "Jun 27",
    "market": "Dallas &middot; 101-102&deg;",
-   "net": 75.98,
+   "net": 1.88,
    "win": true
   },
   {
    "date": "Jun 27",
    "market": "New York &middot; 82-83&deg;",
-   "net": 75.92,
+   "net": 1.82,
    "win": true
   },
   {
    "date": "Jun 28",
    "market": "Dallas &middot; 102-103&deg;",
-   "net": 20.27,
+   "net": 0.72,
    "win": true
   },
   {
    "date": "Jun 28",
    "market": "Philadelphia &middot; 85-86&deg;",
-   "net": 78.97,
+   "net": 2.71,
    "win": true
   },
   {
    "date": "Jun 28",
    "market": "Boston &middot; 77-78&deg;",
-   "net": 76.42,
+   "net": 1.54,
    "win": true
   },
   {
    "date": "Jun 28",
    "market": "Atlanta &middot; 90&deg;",
-   "net": 91.91,
+   "net": 3.59,
    "win": true
   },
   {
    "date": "Jun 29",
    "market": "Boston &middot; 82-83&deg;",
-   "net": 90.13,
+   "net": 1.81,
    "win": true
   },
   {
    "date": "Jun 29",
    "market": "Minneapolis &middot; 100-101&deg;",
-   "net": 5.84,
+   "net": 0.14,
    "win": true
   },
   {
    "date": "Jun 29",
    "market": "Los Angeles &middot; &lt;70&deg;",
-   "net": 75.51,
+   "net": 2.19,
    "win": true
   },
   {
    "date": "Jun 30",
    "market": "Denver &middot; 95-96&deg;",
-   "net": 1.93,
+   "net": 0.07,
    "win": true
   },
   {
    "date": "Jun 30",
    "market": "Dallas &middot; 101-102&deg;",
-   "net": 0.7,
+   "net": 0.02,
    "win": true
   },
   {
    "date": "Jul 1",
    "market": "Dallas &middot; 102-103&deg;",
-   "net": 91.18,
+   "net": 2.82,
    "win": true
   },
   {
    "date": "Jul 1",
    "market": "Denver &middot; 92-93&deg;",
-   "net": 75.92,
+   "net": 1.82,
    "win": true
   },
   {
    "date": "Jul 1",
    "market": "Boston &middot; 99-100&deg;",
-   "net": 76.34,
+   "net": 1.46,
    "win": true
   },
   {
    "date": "Jul 1",
    "market": "Austin &middot; &lt;93&deg;",
-   "net": 14.73,
+   "net": 1.13,
    "win": true
   },
   {
    "date": "Jul 2",
    "market": "Miami &middot; &gt;94&deg;",
-   "net": 38.51,
+   "net": 1.81,
    "win": true
   },
   {
    "date": "Jul 2",
    "market": "Denver &middot; 93-94&deg;",
-   "net": 79.09,
+   "net": 4.33,
    "win": true
   },
   {
    "date": "Jul 3",
    "market": "Minneapolis &middot; 89-90&deg;",
-   "net": 75.99,
+   "net": 1.93,
    "win": true
   },
   {
    "date": "Jul 4",
    "market": "Chicago &middot; 89-90&deg;",
-   "net": 75.51,
+   "net": 2.19,
    "win": true
   },
   {
    "date": "Jul 4",
    "market": "Oklahoma City &middot; 98&deg;",
-   "net": 81.4,
+   "net": 6.6,
    "win": true
   },
   {
    "date": "Jul 5",
    "market": "Boston &middot; 85-86&deg;",
-   "net": 15.27,
+   "net": 0.68,
    "win": true
   },
   {
    "date": "Jul 5",
    "market": "Chicago &middot; 81-82&deg;",
-   "net": 77.02,
+   "net": 2.62,
    "win": true
   },
   {
    "date": "Jul 6",
    "market": "Minneapolis &middot; 85-86&deg;",
-   "net": 77.14,
+   "net": 2.74,
    "win": true
   },
   {
    "date": "Jul 6",
    "market": "Atlanta &middot; 93-94&deg;",
-   "net": 83.79,
+   "net": 5.49,
    "win": true
   },
   {
    "date": "Jul 6",
    "market": "New York &middot; 79-80&deg;",
-   "net": 15.68,
+   "net": 0.32,
    "win": true
   },
   {
    "date": "Jul 6",
    "market": "Austin &middot; &lt;94&deg;",
-   "net": 80.86,
+   "net": 6.94,
    "win": true
   },
   {
    "date": "Jul 7",
    "market": "Boston &middot; 71-72&deg;",
-   "net": 77.84,
+   "net": 4.04,
    "win": true
   },
   {
    "date": "Jul 7",
+   "market": "Minneapolis &middot; 86&deg;",
+   "net": -13.21,
+   "win": false
+  },
+  {
+   "date": "Jul 7",
    "market": "Austin &middot; 94-95&deg;",
-   "net": 81.82,
+   "net": 8.02,
    "win": true
   },
   {
    "date": "Jul 7",
    "market": "New York &middot; 77-78&deg;",
-   "net": 75.46,
+   "net": 1.54,
    "win": true
   },
   {
    "date": "Jul 7",
    "market": "Denver &middot; 91-92&deg;",
-   "net": 80.91,
+   "net": 6.99,
    "win": true
   },
   {
    "date": "Jul 8",
    "market": "Oklahoma City &middot; 97&deg;",
-   "net": 76.59,
+   "net": 2.99,
    "win": true
   },
   {
    "date": "Jul 8",
    "market": "Minneapolis &middot; 84-85&deg;",
-   "net": 76.73,
+   "net": 3.13,
    "win": true
   },
   {
    "date": "Jul 9",
    "market": "Denver &middot; 84-85&deg;",
-   "net": 90.11,
+   "net": 1.79,
    "win": true
   },
   {
    "date": "Jul 9",
    "market": "Washington DC &middot; 91-92&deg;",
-   "net": 76.05,
+   "net": 1.95,
    "win": true
   },
   {
    "date": "Jul 9",
    "market": "Philadelphia &middot; 87-88&deg;",
-   "net": 77.64,
+   "net": 3.84,
    "win": true
   },
   {
    "date": "Jul 10",
    "market": "Minneapolis &middot; 83-84&deg;",
-   "net": 76.0,
+   "net": 1.9,
    "win": true
   },
   {
    "date": "Jul 10",
    "market": "Philadelphia &middot; 92-93&deg;",
-   "net": 82.34,
+   "net": 7.64,
    "win": true
   },
   {
    "date": "Jul 10",
    "market": "Boston &middot; 91-92&deg;",
-   "net": 9.21,
+   "net": 0.71,
    "win": true
   },
   {
    "date": "Jul 11",
    "market": "Austin &middot; 97-98&deg;",
-   "net": 75.62,
+   "net": 2.3,
    "win": true
   },
   {
    "date": "Jul 11",
    "market": "Boston &middot; 85-86&deg;",
-   "net": 76.42,
+   "net": 1.54,
    "win": true
   },
   {
    "date": "Jul 11",
    "market": "Oklahoma City &middot; 93&deg;",
-   "net": 91.49,
+   "net": 2.19,
    "win": true
   },
   {
    "date": "Jul 11",
    "market": "Washington DC &middot; 82&deg;",
-   "net": 58.8,
+   "net": 1.2,
    "win": true
   },
   {
    "date": "Jul 11",
    "market": "Atlanta &middot; 87-88&deg;",
-   "net": 77.9,
+   "net": 4.1,
    "win": true
   },
   {
    "date": "Jul 12",
+   "market": "Austin &middot; 96-97&deg;",
+   "net": -29.67,
+   "win": false
+  },
+  {
+   "date": "Jul 12",
    "market": "Philadelphia &middot; 90-91&deg;",
-   "net": 76.4,
+   "net": 1.52,
    "win": true
   },
   {
    "date": "Jul 12",
    "market": "Oklahoma City &middot; 94-95&deg;",
-   "net": 90.99,
+   "net": 2.63,
    "win": true
   },
   {
    "date": "Jul 13",
    "market": "Austin &middot; 95-96&deg;",
-   "net": 77.87,
+   "net": 4.07,
    "win": true
   },
   {
    "date": "Jul 13",
    "market": "Atlanta &middot; 87-88&deg;",
-   "net": 75.66,
+   "net": 2.34,
    "win": true
   },
   {
    "date": "Jul 13",
    "market": "Philadelphia &middot; 89-90&deg;",
-   "net": 80.07,
+   "net": 5.25,
    "win": true
   },
   {
    "date": "Jul 13",
    "market": "Washington DC &middot; 82-83&deg;",
-   "net": 75.61,
+   "net": 2.29,
    "win": true
   },
   {
    "date": "Jul 13",
    "market": "Dallas &middot; 93-94&deg;",
-   "net": 90.14,
+   "net": 1.82,
    "win": true
   },
   {
    "date": "Jul 14",
+   "market": "Atlanta &middot; 85-86&deg;",
+   "net": -22.1,
+   "win": false
+  },
+  {
+   "date": "Jul 14",
+   "market": "New York &middot; 90-91&deg;",
+   "net": -13.4,
+   "win": false
+  },
+  {
+   "date": "Jul 14",
    "market": "San Antonio &middot; 87-88&deg;",
-   "net": 91.94,
+   "net": 3.62,
    "win": true
   },
   {
    "date": "Jul 14",
    "market": "Austin &middot; 85-86&deg;",
-   "net": 75.64,
+   "net": 2.32,
    "win": true
   },
   {
    "date": "Jul 14",
    "market": "Denver &middot; 99-100&deg;",
-   "net": 9.79,
+   "net": 0.19,
    "win": true
   },
   {
    "date": "Jul 15",
    "market": "Phoenix &middot; 104&deg;",
-   "net": 78.3,
+   "net": 3.68,
    "win": true
   },
   {
    "date": "Jul 15",
    "market": "Dallas &middot; 93-94&deg;",
-   "net": 77.64,
+   "net": 3.84,
    "win": true
   },
   {
    "date": "Jul 16",
    "market": "Washington DC &middot; 103-104&deg;",
-   "net": 74.32,
+   "net": 2.25,
    "win": true
   },
   {
    "date": "Jul 16",
    "market": "San Antonio &middot; 83&deg;",
-   "net": 64.01,
+   "net": 1.97,
    "win": true
   },
   {
    "date": "Jul 16",
    "market": "Denver &middot; 95-96&deg;",
-   "net": 77.02,
+   "net": 2.62,
    "win": true
   },
   {
    "date": "Jul 16",
    "market": "Oklahoma City &middot; 94-95&deg;",
-   "net": 3.91,
+   "net": 0.07,
    "win": true
   },
   {
    "date": "Jul 17",
    "market": "Boston &middot; 88-89&deg;",
-   "net": 81.01,
+   "net": 6.21,
    "win": true
   },
   {
    "date": "Jul 17",
    "market": "Oklahoma City &middot; 91-92&deg;",
-   "net": 75.54,
+   "net": 2.22,
    "win": true
   },
   {
    "date": "Jul 18",
    "market": "Phoenix &middot; 101-102&deg;",
-   "net": 77.84,
+   "net": 4.04,
    "win": true
   },
   {
    "date": "Jul 18",
    "market": "Denver &middot; 97-98&deg;",
-   "net": 1.94,
+   "net": 0.06,
    "win": true
   },
   {
    "date": "Jul 18",
    "market": "New York &middot; &gt;86&deg;",
-   "net": 90.14,
+   "net": 1.82,
    "win": true
   },
   {
    "date": "Jul 18",
    "market": "Dallas &middot; 99-100&deg;",
-   "net": 79.55,
+   "net": 5.71,
    "win": true
   },
   {
    "date": "Jul 18",
    "market": "Oklahoma City &middot; 96-97&deg;",
-   "net": 96.28,
+   "net": 6.84,
    "win": true
   },
   {
    "date": "Jul 19",
    "market": "Dallas &middot; 101-102&deg;",
-   "net": 78.97,
+   "net": 2.75,
    "win": true
   },
   {
    "date": "Jul 19",
    "market": "Atlanta &middot; 96-97&deg;",
-   "net": 76.05,
+   "net": 1.95,
    "win": true
   },
   {
    "date": "Jul 19",
    "market": "Philadelphia &middot; 88-89&deg;",
-   "net": 78.65,
+   "net": 4.73,
    "win": true
   },
   {
    "date": "Jul 19",
    "market": "New York &middot; 86-87&deg;",
-   "net": 11.68,
+   "net": 0.28,
    "win": true
   },
   {
    "date": "Jul 20",
    "market": "Dallas &middot; 105-106&deg;",
-   "net": 91.18,
+   "net": 2.82,
    "win": true
   },
   {
    "date": "Jul 20",
    "market": "Phoenix &middot; 100-101&deg;",
-   "net": 19.47,
+   "net": 0.47,
    "win": true
   },
   {
    "date": "Jul 21",
    "market": "New York &middot; 85-86&deg;",
-   "net": 91.6,
+   "net": 2.3,
    "win": true
   },
   {
    "date": "Jul 21",
    "market": "Chicago &middot; 90-91&deg;",
-   "net": 75.64,
+   "net": 2.32,
    "win": true
   },
   {
    "date": "Jul 21",
    "market": "Philadelphia &middot; 81-82&deg;",
-   "net": 79.32,
+   "net": 4.56,
    "win": true
   },
   {
    "date": "Jul 21",
    "market": "Atlanta &middot; 94-95&deg;",
-   "net": 77.84,
+   "net": 4.04,
    "win": true
   },
   {
    "date": "Jul 21",
    "market": "Denver &middot; 89-90&deg;",
-   "net": 12.79,
+   "net": 0.84,
    "win": true
   },
   {
    "date": "Jul 22",
    "market": "San Antonio &middot; 98-99&deg;",
-   "net": 77.19,
+   "net": 2.79,
    "win": true
   },
   {
    "date": "Jul 22",
    "market": "Boston &middot; 80-81&deg;",
-   "net": 79.36,
+   "net": 4.6,
    "win": true
   },
   {
    "date": "Jul 22",
    "market": "Denver &middot; 90-91&deg;",
-   "net": 91.49,
+   "net": 2.19,
    "win": true
   },
   {
    "date": "Jul 23",
    "market": "Boston &middot; 84-85&deg;",
-   "net": 90.14,
+   "net": 1.82,
    "win": true
   },
   {
    "date": "Jul 23",
    "market": "Dallas &middot; 104-105&deg;",
-   "net": 76.05,
+   "net": 1.95,
    "win": true
   },
   {
    "date": "Jul 23",
    "market": "Phoenix &middot; 106-107&deg;",
-   "net": 7.79,
+   "net": 0.19,
    "win": true
   },
   {
    "date": "Jul 24",
    "market": "Atlanta &middot; 89-90&deg;",
-   "net": 79.95,
+   "net": 5.99,
    "win": true
   },
   {
    "date": "Jul 24",
    "market": "Boston &middot; 85-86&deg;",
-   "net": 76.44,
+   "net": 1.56,
    "win": true
   },
   {
    "date": "Jul 25",
+   "market": "Atlanta &middot; 90-91&deg;",
+   "net": -20.56,
+   "win": false
+  },
+  {
+   "date": "Jul 25",
    "market": "Boston &middot; 80-81&deg;",
-   "net": 57.38,
+   "net": 1.45,
    "win": true
   },
   {
    "date": "Jul 25",
    "market": "Minneapolis &middot; 98-99&deg;",
-   "net": 6.53,
+   "net": 0.26,
    "win": true
   },
   {
    "date": "Jul 25",
    "market": "Philadelphia &middot; 89-90&deg;",
-   "net": 17.52,
+   "net": 0.42,
    "win": true
   },
   {
    "date": "Jul 26",
    "market": "Miami &middot; &gt;94&deg;",
-   "net": 75.92,
+   "net": 1.82,
    "win": true
   },
   {
    "date": "Jul 26",
    "market": "Chicago &middot; &lt;89&deg;",
-   "net": 81.26,
+   "net": 6.46,
    "win": true
   },
   {
    "date": "Jul 26",
    "market": "Dallas &middot; 106-107&deg;",
-   "net": 35.26,
+   "net": 0.7,
    "win": true
   },
   {
    "date": "Jul 26",
    "market": "Minneapolis &middot; 94-95&deg;",
-   "net": 76.0,
+   "net": 1.96,
    "win": true
   },
   {
    "date": "Jul 26",
    "market": "Las Vegas &middot; 115-116&deg;",
-   "net": 1.9,
+   "net": 0.08,
    "win": true
   },
   {
    "date": "Jul 27",
    "market": "Washington DC &middot; 93-94&deg;",
-   "net": 90.15,
+   "net": 1.83,
    "win": true
   },
   {
    "date": "Jul 27",
+   "market": "Denver &middot; &lt;93&deg;",
+   "net": -14.27,
+   "win": false
+  },
+  {
+   "date": "Jul 27",
    "market": "Miami &middot; &gt;94&deg;",
-   "net": 75.66,
+   "net": 2.34,
    "win": true
+  },
+  {
+   "date": "Jul 28",
+   "market": "Washington DC &middot; 88-89&deg;",
+   "net": -16.12,
+   "win": false
   }
  ]
 }
