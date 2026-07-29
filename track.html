@@ -100,16 +100,14 @@
 
   <div class="eyebrow">Exchange-verified track record</div>
   <h1>Every trade. Wins, losses, and stop-outs alike.</h1>
-  <p class="lede">This is the complete record of every weather position the 3rd Eyes
-     engine has taken, reconstructed line-by-line from <strong>Kalshi's own settlement
-     and fill records</strong> - the exchange's data, not ours.</p>
-  <p class="period" id="t-period">Live results &middot; May 22 - Jul 27, 2026</p>
+  <p class="lede">The complete record of every position since our v1.0 methodology launch on Apr 23, 2026, reconstructed line-by-line from <strong>Kalshi's own settlement and fill records</strong> - the exchange's data, not ours. Earlier experimental trades and sub-$8 thin-market SKIPs are excluded and documented in the <a href="/methodology" style="color:var(--green);">methodology</a>.</p>
+  <p class="period" id="t-period">Live results &middot; Apr 23 - Jul 28, 2026</p>
 
   <div class="stats">
-    <div class="stat"><div class="v g" id="t-wr">94.1%</div><div class="k">Win rate</div></div>
-    <div class="stat"><div class="v" id="t-wl">159-10</div><div class="k">Win - Loss</div></div>
-    <div class="stat"><div class="v" id="t-n">169</div><div class="k">Settled trades</div></div>
-    <div class="stat"><div class="v g" id="t-net">+$6697.39</div><div class="k">Net P&amp;L</div></div>
+    <div class="stat"><div class="v g" id="t-wr">90.4%</div><div class="k">Win rate</div></div>
+    <div class="stat"><div class="v" id="t-wl">198-21</div><div class="k">Win - Loss</div></div>
+    <div class="stat"><div class="v" id="t-n">219</div><div class="k">Settled trades</div></div>
+    <div class="stat"><div class="v g" id="t-net">+$208.42</div><div class="k">Net P&amp;L</div></div>
   </div>
 
   <div class="verify">
@@ -123,8 +121,7 @@
 
   <p class="secnote">Every position is a <strong>NO</strong> bet: the engine fades
      temperature bands the market has priced too high. The edge per trade is small by
-     design - we win often and keep losses tight. Position sizes during this live
-     validation window were modest (roughly $10-$90 per trade).</p>
+     design - we win often and keep losses tight. Position sizes during this live validation window were modest - about $32 average, from roughly $660 of working capital that recycles across trades daily (about $5,700 total staked). The net above works out to roughly +32% on capital over the window, averaging near 10% a month - with high month-to-month variance and no guarantee it persists.</p>
 
   <div class="tablewrap">
     <table>
@@ -182,10 +179,8 @@
         <tr class="w"><td class="dt">May 21</td><td class="mk">Austin &middot; 77-78&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.52</td></tr>
         <tr class="w"><td class="dt">May 21</td><td class="mk">Los Angeles &middot; 70-71&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.56</td></tr>
         <tr class="w"><td class="dt">May 22</td><td class="mk">Los Angeles &middot; 70-71&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$9.57</td></tr>
-        <tr class="l"><td class="dt">May 22</td><td class="mk">New York &middot; 63-64&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$4.27</td></tr>
+        <tr class="w"><td class="dt">May 22</td><td class="mk">New York &middot; 63-64&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$11.88</td></tr>
         <tr class="w"><td class="dt">May 22</td><td class="mk">Chicago &middot; &lt;64&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.14</td></tr>
-        <tr class="w"><td class="dt">May 22</td><td class="mk">Austin &middot; 91-92&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.70</td></tr>
-        <tr class="w"><td class="dt">May 22</td><td class="mk">Chicago &middot; 64-65&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.26</td></tr>
         <tr class="l"><td class="dt">May 23</td><td class="mk">Los Angeles &middot; 69-70&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$23.91</td></tr>
         <tr class="w"><td class="dt">May 23</td><td class="mk">Los Angeles &middot; 65-66&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$11.44</td></tr>
         <tr class="w"><td class="dt">May 24</td><td class="mk">Los Angeles &middot; 64-65&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$8.66</td></tr>
@@ -211,50 +206,160 @@
         <tr class="w"><td class="dt">Jun 6</td><td class="mk">New York &middot; &lt;87&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.74</td></tr>
         <tr class="l"><td class="dt">Jun 6</td><td class="mk">New York &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$23.19</td></tr>
         <tr class="w"><td class="dt">Jun 7</td><td class="mk">Austin &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.05</td></tr>
-        <tr class="w"><td class="dt">Jun 10</td><td class="mk">TMIN &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$19.97</td></tr>
+        <tr class="w"><td class="dt">Jun 10</td><td class="mk">Minneapolis &middot; 92-93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$19.97</td></tr>
         <tr class="w"><td class="dt">Jun 10</td><td class="mk">Denver &middot; 90-91&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.75</td></tr>
-        <tr class="w"><td class="dt">Jun 10</td><td class="mk">TBOS &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.19</td></tr>
-        <tr class="w"><td class="dt">Jun 10</td><td class="mk">TATL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.43</td></tr>
+        <tr class="w"><td class="dt">Jun 10</td><td class="mk">Boston &middot; 82-83&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.19</td></tr>
+        <tr class="w"><td class="dt">Jun 10</td><td class="mk">Atlanta &middot; 92-93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.43</td></tr>
         <tr class="w"><td class="dt">Jun 11</td><td class="mk">Chicago &middot; 88-89&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.62</td></tr>
-        <tr class="w"><td class="dt">Jun 11</td><td class="mk">TATL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.43</td></tr>
+        <tr class="w"><td class="dt">Jun 11</td><td class="mk">Atlanta &middot; 95-96&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.43</td></tr>
         <tr class="w"><td class="dt">Jun 11</td><td class="mk">Denver &middot; 80-81&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.71</td></tr>
-        <tr class="w"><td class="dt">Jun 11</td><td class="mk">TDAL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.28</td></tr>
-        <tr class="l"><td class="dt">Jun 12</td><td class="mk">TSATX &middot; </td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$4.83</td></tr>
+        <tr class="w"><td class="dt">Jun 11</td><td class="mk">Dallas &middot; 99-100&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.28</td></tr>
+        <tr class="l"><td class="dt">Jun 12</td><td class="mk">San Antonio &middot; 94-95&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$4.83</td></tr>
         <tr class="l"><td class="dt">Jun 12</td><td class="mk">New York &middot; &lt;90&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$9.10</td></tr>
         <tr class="l"><td class="dt">Jun 12</td><td class="mk">New York &middot; 90-91&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$14.49</td></tr>
-        <tr class="w"><td class="dt">Jun 12</td><td class="mk">TPHX &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.76</td></tr>
-        <tr class="w"><td class="dt">Jun 12</td><td class="mk">TDAL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.47</td></tr>
+        <tr class="w"><td class="dt">Jun 12</td><td class="mk">Phoenix &middot; 109-110&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.76</td></tr>
+        <tr class="w"><td class="dt">Jun 12</td><td class="mk">Dallas &middot; 95-96&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.47</td></tr>
         <tr class="w"><td class="dt">Jun 12</td><td class="mk">Miami &middot; &gt;93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.82</td></tr>
-        <tr class="w"><td class="dt">Jun 12</td><td class="mk">TATL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.37</td></tr>
-        <tr class="w"><td class="dt">Jun 12</td><td class="mk">TMIN &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.28</td></tr>
-        <tr class="w"><td class="dt">Jun 13</td><td class="mk">TOKC &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.46</td></tr>
-        <tr class="l"><td class="dt">Jun 13</td><td class="mk">TSATX &middot; </td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$0.33</td></tr>
-        <tr class="w"><td class="dt">Jun 13</td><td class="mk">TDAL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
-        <tr class="w"><td class="dt">Jun 14</td><td class="mk">TATL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
-        <tr class="w"><td class="dt">Jun 14</td><td class="mk">TSATX &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.48</td></tr>
+        <tr class="w"><td class="dt">Jun 12</td><td class="mk">Atlanta &middot; 96-97&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.37</td></tr>
+        <tr class="w"><td class="dt">Jun 12</td><td class="mk">Minneapolis &middot; 84-85&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.28</td></tr>
+        <tr class="w"><td class="dt">Jun 13</td><td class="mk">Oklahoma City &middot; 99-100&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.46</td></tr>
+        <tr class="l"><td class="dt">Jun 13</td><td class="mk">San Antonio &middot; 94-95&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$0.33</td></tr>
+        <tr class="w"><td class="dt">Jun 13</td><td class="mk">Dallas &middot; 97-98&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
+        <tr class="w"><td class="dt">Jun 14</td><td class="mk">Atlanta &middot; 93-94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
+        <tr class="w"><td class="dt">Jun 14</td><td class="mk">San Antonio &middot; 92-93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.48</td></tr>
         <tr class="w"><td class="dt">Jun 14</td><td class="mk">Denver &middot; 62-63&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
-        <tr class="w"><td class="dt">Jun 14</td><td class="mk">TBOS &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.52</td></tr>
+        <tr class="w"><td class="dt">Jun 14</td><td class="mk">Boston &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.52</td></tr>
         <tr class="w"><td class="dt">Jun 15</td><td class="mk">Philadelphia &middot; 82-83&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.09</td></tr>
-        <tr class="w"><td class="dt">Jun 15</td><td class="mk">TSATX &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.94</td></tr>
-        <tr class="w"><td class="dt">Jun 16</td><td class="mk">TPHX &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.69</td></tr>
-        <tr class="l"><td class="dt">Jun 16</td><td class="mk">TSATX &middot; </td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$0.33</td></tr>
-        <tr class="w"><td class="dt">Jun 16</td><td class="mk">TDAL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.09</td></tr>
+        <tr class="w"><td class="dt">Jun 15</td><td class="mk">San Antonio &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.94</td></tr>
+        <tr class="w"><td class="dt">Jun 16</td><td class="mk">Phoenix &middot; 113-114&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.69</td></tr>
+        <tr class="l"><td class="dt">Jun 16</td><td class="mk">San Antonio &middot; 89-90&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$0.33</td></tr>
+        <tr class="w"><td class="dt">Jun 16</td><td class="mk">Dallas &middot; 94-95&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.09</td></tr>
         <tr class="w"><td class="dt">Jun 16</td><td class="mk">Philadelphia &middot; 83-84&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.39</td></tr>
-        <tr class="w"><td class="dt">Jun 16</td><td class="mk">TATL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.59</td></tr>
-        <tr class="w"><td class="dt">Jun 17</td><td class="mk">TPHX &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.37</td></tr>
+        <tr class="w"><td class="dt">Jun 16</td><td class="mk">Atlanta &middot; 80-81&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.59</td></tr>
+        <tr class="w"><td class="dt">Jun 17</td><td class="mk">Phoenix &middot; 113-114&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.37</td></tr>
         <tr class="w"><td class="dt">Jun 17</td><td class="mk">Chicago &middot; 73-74&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.07</td></tr>
         <tr class="w"><td class="dt">Jun 18</td><td class="mk">Chicago &middot; 77-78&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.15</td></tr>
         <tr class="w"><td class="dt">Jun 18</td><td class="mk">New York &middot; 83-84&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.28</td></tr>
-        <tr class="w"><td class="dt">Jun 18</td><td class="mk">TDAL &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
-        <tr class="w"><td class="dt">Jun 19</td><td class="mk">TOKC &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.45</td></tr>
-        <tr class="l"><td class="dt">Jun 19</td><td class="mk">TATL &middot; </td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$37.01</td></tr>
-        <tr class="w"><td class="dt">Jun 19</td><td class="mk">TBOS &middot; </td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.72</td></tr>
+        <tr class="w"><td class="dt">Jun 18</td><td class="mk">Dallas &middot; 100-101&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
+        <tr class="w"><td class="dt">Jun 19</td><td class="mk">Oklahoma City &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.45</td></tr>
+        <tr class="l"><td class="dt">Jun 19</td><td class="mk">Atlanta &middot; 88-89&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$37.01</td></tr>
+        <tr class="w"><td class="dt">Jun 19</td><td class="mk">Boston &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.72</td></tr>
+        <tr class="w"><td class="dt">Jun 24</td><td class="mk">New York &middot; 84-85&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.25</td></tr>
+        <tr class="w"><td class="dt">Jun 25</td><td class="mk">Dallas &middot; 97-98&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.51</td></tr>
+        <tr class="w"><td class="dt">Jun 25</td><td class="mk">Philadelphia &middot; 90-91&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.18</td></tr>
+        <tr class="w"><td class="dt">Jun 25</td><td class="mk">Oklahoma City &middot; 95-96&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.82</td></tr>
+        <tr class="w"><td class="dt">Jun 25</td><td class="mk">Boston &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.45</td></tr>
+        <tr class="w"><td class="dt">Jun 26</td><td class="mk">Philadelphia &middot; 91-92&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.45</td></tr>
+        <tr class="w"><td class="dt">Jun 26</td><td class="mk">Chicago &middot; 76-77&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.46</td></tr>
+        <tr class="w"><td class="dt">Jun 27</td><td class="mk">Philadelphia &middot; 83-84&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.88</td></tr>
+        <tr class="w"><td class="dt">Jun 27</td><td class="mk">Dallas &middot; 101-102&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.88</td></tr>
+        <tr class="w"><td class="dt">Jun 27</td><td class="mk">New York &middot; 82-83&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.82</td></tr>
+        <tr class="w"><td class="dt">Jun 28</td><td class="mk">Dallas &middot; 102-103&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.72</td></tr>
+        <tr class="w"><td class="dt">Jun 28</td><td class="mk">Philadelphia &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.71</td></tr>
+        <tr class="w"><td class="dt">Jun 28</td><td class="mk">Boston &middot; 77-78&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.54</td></tr>
+        <tr class="w"><td class="dt">Jun 28</td><td class="mk">Atlanta &middot; 90&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.59</td></tr>
+        <tr class="w"><td class="dt">Jun 29</td><td class="mk">Boston &middot; 82-83&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.81</td></tr>
+        <tr class="w"><td class="dt">Jun 29</td><td class="mk">Minneapolis &middot; 100-101&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.14</td></tr>
+        <tr class="w"><td class="dt">Jun 29</td><td class="mk">Los Angeles &middot; &lt;70&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
+        <tr class="w"><td class="dt">Jun 30</td><td class="mk">Denver &middot; 95-96&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.07</td></tr>
+        <tr class="w"><td class="dt">Jun 30</td><td class="mk">Dallas &middot; 101-102&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.02</td></tr>
+        <tr class="w"><td class="dt">Jul 1</td><td class="mk">Dallas &middot; 102-103&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.82</td></tr>
+        <tr class="w"><td class="dt">Jul 1</td><td class="mk">Denver &middot; 92-93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.82</td></tr>
+        <tr class="w"><td class="dt">Jul 1</td><td class="mk">Boston &middot; 99-100&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.46</td></tr>
+        <tr class="w"><td class="dt">Jul 1</td><td class="mk">Austin &middot; &lt;93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.13</td></tr>
+        <tr class="w"><td class="dt">Jul 2</td><td class="mk">Miami &middot; &gt;94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.81</td></tr>
+        <tr class="w"><td class="dt">Jul 2</td><td class="mk">Denver &middot; 93-94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.33</td></tr>
+        <tr class="w"><td class="dt">Jul 3</td><td class="mk">Minneapolis &middot; 89-90&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.93</td></tr>
+        <tr class="w"><td class="dt">Jul 4</td><td class="mk">Chicago &middot; 89-90&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
+        <tr class="w"><td class="dt">Jul 4</td><td class="mk">Oklahoma City &middot; 98&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$6.60</td></tr>
+        <tr class="w"><td class="dt">Jul 5</td><td class="mk">Boston &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.68</td></tr>
+        <tr class="w"><td class="dt">Jul 5</td><td class="mk">Chicago &middot; 81-82&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.62</td></tr>
+        <tr class="w"><td class="dt">Jul 6</td><td class="mk">Minneapolis &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.74</td></tr>
+        <tr class="w"><td class="dt">Jul 6</td><td class="mk">Atlanta &middot; 93-94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$5.49</td></tr>
+        <tr class="w"><td class="dt">Jul 6</td><td class="mk">New York &middot; 79-80&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.32</td></tr>
+        <tr class="w"><td class="dt">Jul 6</td><td class="mk">Austin &middot; &lt;94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$6.94</td></tr>
+        <tr class="w"><td class="dt">Jul 7</td><td class="mk">Boston &middot; 71-72&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.04</td></tr>
+        <tr class="l"><td class="dt">Jul 7</td><td class="mk">Minneapolis &middot; 86&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$13.21</td></tr>
+        <tr class="w"><td class="dt">Jul 7</td><td class="mk">Austin &middot; 94-95&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$8.02</td></tr>
+        <tr class="w"><td class="dt">Jul 7</td><td class="mk">New York &middot; 77-78&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.54</td></tr>
+        <tr class="w"><td class="dt">Jul 7</td><td class="mk">Denver &middot; 91-92&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$6.99</td></tr>
+        <tr class="w"><td class="dt">Jul 8</td><td class="mk">Oklahoma City &middot; 97&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.99</td></tr>
+        <tr class="w"><td class="dt">Jul 8</td><td class="mk">Minneapolis &middot; 84-85&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.13</td></tr>
+        <tr class="w"><td class="dt">Jul 9</td><td class="mk">Denver &middot; 84-85&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.79</td></tr>
+        <tr class="w"><td class="dt">Jul 9</td><td class="mk">Washington DC &middot; 91-92&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.95</td></tr>
+        <tr class="w"><td class="dt">Jul 9</td><td class="mk">Philadelphia &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.84</td></tr>
+        <tr class="w"><td class="dt">Jul 10</td><td class="mk">Minneapolis &middot; 83-84&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.90</td></tr>
+        <tr class="w"><td class="dt">Jul 10</td><td class="mk">Philadelphia &middot; 92-93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$7.64</td></tr>
+        <tr class="w"><td class="dt">Jul 10</td><td class="mk">Boston &middot; 91-92&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.71</td></tr>
+        <tr class="w"><td class="dt">Jul 11</td><td class="mk">Austin &middot; 97-98&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.30</td></tr>
+        <tr class="w"><td class="dt">Jul 11</td><td class="mk">Boston &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.54</td></tr>
+        <tr class="w"><td class="dt">Jul 11</td><td class="mk">Oklahoma City &middot; 93&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
+        <tr class="w"><td class="dt">Jul 11</td><td class="mk">Washington DC &middot; 82&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.20</td></tr>
+        <tr class="w"><td class="dt">Jul 11</td><td class="mk">Atlanta &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.10</td></tr>
+        <tr class="l"><td class="dt">Jul 12</td><td class="mk">Austin &middot; 96-97&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$29.67</td></tr>
+        <tr class="w"><td class="dt">Jul 12</td><td class="mk">Philadelphia &middot; 90-91&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.52</td></tr>
+        <tr class="w"><td class="dt">Jul 12</td><td class="mk">Oklahoma City &middot; 94-95&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.63</td></tr>
+        <tr class="w"><td class="dt">Jul 13</td><td class="mk">Austin &middot; 95-96&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.07</td></tr>
+        <tr class="w"><td class="dt">Jul 13</td><td class="mk">Atlanta &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.34</td></tr>
+        <tr class="w"><td class="dt">Jul 13</td><td class="mk">Philadelphia &middot; 89-90&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$5.25</td></tr>
+        <tr class="w"><td class="dt">Jul 13</td><td class="mk">Washington DC &middot; 82-83&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.29</td></tr>
+        <tr class="w"><td class="dt">Jul 13</td><td class="mk">Dallas &middot; 93-94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.82</td></tr>
+        <tr class="l"><td class="dt">Jul 14</td><td class="mk">Atlanta &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$22.10</td></tr>
+        <tr class="l"><td class="dt">Jul 14</td><td class="mk">New York &middot; 90-91&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$13.40</td></tr>
+        <tr class="w"><td class="dt">Jul 14</td><td class="mk">San Antonio &middot; 87-88&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.62</td></tr>
+        <tr class="w"><td class="dt">Jul 14</td><td class="mk">Austin &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.32</td></tr>
+        <tr class="w"><td class="dt">Jul 14</td><td class="mk">Denver &middot; 99-100&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.19</td></tr>
+        <tr class="w"><td class="dt">Jul 15</td><td class="mk">Phoenix &middot; 104&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.68</td></tr>
+        <tr class="w"><td class="dt">Jul 15</td><td class="mk">Dallas &middot; 93-94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$3.84</td></tr>
+        <tr class="w"><td class="dt">Jul 16</td><td class="mk">Washington DC &middot; 103-104&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.25</td></tr>
+        <tr class="w"><td class="dt">Jul 16</td><td class="mk">San Antonio &middot; 83&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.97</td></tr>
+        <tr class="w"><td class="dt">Jul 16</td><td class="mk">Denver &middot; 95-96&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.62</td></tr>
+        <tr class="w"><td class="dt">Jul 16</td><td class="mk">Oklahoma City &middot; 94-95&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.07</td></tr>
+        <tr class="w"><td class="dt">Jul 17</td><td class="mk">Boston &middot; 88-89&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$6.21</td></tr>
+        <tr class="w"><td class="dt">Jul 17</td><td class="mk">Oklahoma City &middot; 91-92&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.22</td></tr>
+        <tr class="w"><td class="dt">Jul 18</td><td class="mk">Phoenix &middot; 101-102&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.04</td></tr>
+        <tr class="w"><td class="dt">Jul 18</td><td class="mk">Denver &middot; 97-98&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.06</td></tr>
+        <tr class="w"><td class="dt">Jul 18</td><td class="mk">New York &middot; &gt;86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.82</td></tr>
+        <tr class="w"><td class="dt">Jul 18</td><td class="mk">Dallas &middot; 99-100&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$5.71</td></tr>
+        <tr class="w"><td class="dt">Jul 18</td><td class="mk">Oklahoma City &middot; 96-97&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$6.84</td></tr>
+        <tr class="w"><td class="dt">Jul 19</td><td class="mk">Dallas &middot; 101-102&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.75</td></tr>
+        <tr class="w"><td class="dt">Jul 19</td><td class="mk">Atlanta &middot; 96-97&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.95</td></tr>
+        <tr class="w"><td class="dt">Jul 19</td><td class="mk">Philadelphia &middot; 88-89&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.73</td></tr>
+        <tr class="w"><td class="dt">Jul 19</td><td class="mk">New York &middot; 86-87&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.28</td></tr>
+        <tr class="w"><td class="dt">Jul 20</td><td class="mk">Dallas &middot; 105-106&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.82</td></tr>
+        <tr class="w"><td class="dt">Jul 20</td><td class="mk">Phoenix &middot; 100-101&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.47</td></tr>
+        <tr class="w"><td class="dt">Jul 21</td><td class="mk">New York &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.30</td></tr>
+        <tr class="w"><td class="dt">Jul 21</td><td class="mk">Chicago &middot; 90-91&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.32</td></tr>
+        <tr class="w"><td class="dt">Jul 21</td><td class="mk">Philadelphia &middot; 81-82&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.56</td></tr>
+        <tr class="w"><td class="dt">Jul 21</td><td class="mk">Atlanta &middot; 94-95&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.04</td></tr>
+        <tr class="w"><td class="dt">Jul 21</td><td class="mk">Denver &middot; 89-90&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.84</td></tr>
+        <tr class="w"><td class="dt">Jul 22</td><td class="mk">San Antonio &middot; 98-99&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.79</td></tr>
+        <tr class="w"><td class="dt">Jul 22</td><td class="mk">Boston &middot; 80-81&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$4.60</td></tr>
+        <tr class="w"><td class="dt">Jul 22</td><td class="mk">Denver &middot; 90-91&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.19</td></tr>
+        <tr class="w"><td class="dt">Jul 23</td><td class="mk">Boston &middot; 84-85&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.82</td></tr>
+        <tr class="w"><td class="dt">Jul 23</td><td class="mk">Dallas &middot; 104-105&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.95</td></tr>
+        <tr class="w"><td class="dt">Jul 23</td><td class="mk">Phoenix &middot; 106-107&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.19</td></tr>
+        <tr class="w"><td class="dt">Jul 24</td><td class="mk">Atlanta &middot; 89-90&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$5.99</td></tr>
+        <tr class="w"><td class="dt">Jul 24</td><td class="mk">Boston &middot; 85-86&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.56</td></tr>
+        <tr class="l"><td class="dt">Jul 25</td><td class="mk">Atlanta &middot; 90-91&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$20.56</td></tr>
+        <tr class="w"><td class="dt">Jul 25</td><td class="mk">Boston &middot; 80-81&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.45</td></tr>
+        <tr class="w"><td class="dt">Jul 25</td><td class="mk">Minneapolis &middot; 98-99&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.26</td></tr>
+        <tr class="w"><td class="dt">Jul 25</td><td class="mk">Philadelphia &middot; 89-90&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.42</td></tr>
+        <tr class="w"><td class="dt">Jul 26</td><td class="mk">Miami &middot; &gt;94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.82</td></tr>
+        <tr class="w"><td class="dt">Jul 26</td><td class="mk">Chicago &middot; &lt;89&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$6.46</td></tr>
+        <tr class="w"><td class="dt">Jul 26</td><td class="mk">Dallas &middot; 106-107&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.70</td></tr>
+        <tr class="w"><td class="dt">Jul 26</td><td class="mk">Minneapolis &middot; 94-95&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.96</td></tr>
+        <tr class="w"><td class="dt">Jul 26</td><td class="mk">Las Vegas &middot; 115-116&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$0.08</td></tr>
+        <tr class="w"><td class="dt">Jul 27</td><td class="mk">Washington DC &middot; 93-94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$1.83</td></tr>
+        <tr class="l"><td class="dt">Jul 27</td><td class="mk">Denver &middot; &lt;93&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$14.27</td></tr>
+        <tr class="w"><td class="dt">Jul 27</td><td class="mk">Miami &middot; &gt;94&deg;</td><td class="call">NO</td><td><span class="b w">WIN</span></td><td class="net">+$2.34</td></tr>
+        <tr class="l"><td class="dt">Jul 28</td><td class="mk">Washington DC &middot; 88-89&deg;</td><td class="call">NO</td><td><span class="b l">LOSS</span></td><td class="net">-$16.12</td></tr>
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3" id="t-foot">169 trades &middot; 159 wins &middot; 10 losses</td>
-          <td id="t-foot-wr">94.1%</td>
-          <td class="net" id="t-foot-net">+$6697.39</td>
+          <td colspan="3" id="t-foot">219 trades &middot; 198 wins &middot; 21 losses</td>
+          <td id="t-foot-wr">90.4%</td>
+          <td class="net" id="t-foot-net">+$208.42</td>
         </tr>
       </tfoot>
     </table>

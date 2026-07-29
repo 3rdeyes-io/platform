@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to 3rd Eyes | You're In</title>
+  <meta name="description" content="Payment confirmed - your 3rd Eyes access is being set up.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #0a0a0a;
+      background: #050c1a;
       color: #e0e0e0;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -18,8 +21,8 @@
       padding: 20px;
     }
     .card {
-      background: #111;
-      border: 1px solid #222;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 16px;
       padding: 52px 44px;
       max-width: 560px;
@@ -32,7 +35,7 @@
       color: #fff;
       margin-bottom: 8px;
     }
-    h1 span { color: #00d4ff; }
+    h1 span { color: #10d9a0; }
     .sub {
       color: #666;
       font-size: 14px;
@@ -55,7 +58,7 @@
       padding: 16px;
     }
     .step-num {
-      background: #00d4ff;
+      background: #10d9a0;
       color: #000;
       font-weight: 800;
       font-size: 13px;
@@ -70,11 +73,11 @@
     }
     .step-text { font-size: 14px; color: #ccc; line-height: 1.6; }
     .step-text strong { color: #fff; display: block; margin-bottom: 2px; font-size: 15px; }
-    a.step-link { color: #00d4ff; text-decoration: none; }
+    a.step-link { color: #10d9a0; text-decoration: none; }
     a.step-link:hover { text-decoration: underline; }
     .btn {
       display: inline-block;
-      background: #00d4ff;
+      background: #10d9a0;
       color: #000;
       font-weight: 700;
       padding: 14px 32px;
@@ -102,7 +105,7 @@
       font-size: 12px;
       color: #444;
     }
-    #countdown { color: #00d4ff; }
+    #countdown { color: #10d9a0; }
   </style>
 </head>
 <body>
@@ -140,16 +143,18 @@
     <a class="btn" href="https://t.me/thirdeyes_signals">Need help? Message support on Telegram</a>
     <a class="btn-outline" href="/">← Back to 3rdeyes.io</a>
 
-    <p class="redirect-note">Redirecting to homepage in <span id="countdown">15</span>s</p>
+    <p class="redirect-note">Redirecting to homepage in <span id="countdown">30</span>s &middot; <a href="#" id="stay" style="color:#10d9a0;text-decoration:none;">stay on this page</a></p>
   </div>
 
   <script>
-    var t = 15;
+    var stay = false;
+    document.getElementById('stay').addEventListener('click', function(e){ e.preventDefault(); stay = true; document.querySelector('.redirect-note').textContent = 'Take your time.'; });
+    var t = 30;
     var el = document.getElementById('countdown');
     var iv = setInterval(function() {
       t--;
       el.textContent = t;
-      if (t <= 0) { clearInterval(iv); window.location.href = '/'; }
+      if (t <= 0) { clearInterval(iv); if (!stay) window.location.href = '/'; }
     }, 1000);
   </script>
 </body>

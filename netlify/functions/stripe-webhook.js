@@ -325,20 +325,34 @@ export default async (req) => {
 
   if (plan === 'pipeline' && session.customer) {
     try {
-      let pmId = null;
-      if (session.payment_intent) {
-        const pi = await stripeClient.paymentIntents.retrieve(session.payment_intent);
-        pmId = pi.payment_method || null;
-      }
-      const proSub = await stripeClient.subscriptions.create({
-        customer:           session.customer,
-        items:              [{ price: process.env.STRIPE_PRO_PRICE_ID }],
-        trial_period_days:  30,
-        ...(pmId ? { default_payment_method: pmId } : {}),
-        metadata:           { email: customerEmail, plan: 'pipeline' },
+      // IDEMPOTENCY GUARD: Stripe retries webhooks on any non-2xx (e.g. a later email
+      // step failing) - without this check a retry would create a SECOND trialing Pro
+      // subscription for the same buyer.
+      const existing = await stripeClient.subscriptions.list({
+        customer: session.customer, status: 'all', limit: 10,
       });
-      subId = proSub.id;
-      console.log(`Pipeline: created trialing Pro subscription ${subId} for ${customerEmail}`);
+      const dup = existing.data.find(s =>
+        ['trialing', 'active'].includes(s.status) &&
+        s.items.data.some(i => i.price.id === process.env.STRIPE_PRO_PRICE_ID));
+      if (dup) {
+        console.log(`Pipeline: Pro sub ${dup.id} already exists for ${customerEmail} - skipping create (webhook retry)`);
+        subId = dup.id;
+      } else {
+        let pmId = null;
+        if (session.payment_intent) {
+          const pi = await stripeClient.paymentIntents.retrieve(session.payment_intent);
+          pmId = pi.payment_method || null;
+        }
+        const proSub = await stripeClient.subscriptions.create({
+          customer:           session.customer,
+          items:              [{ price: process.env.STRIPE_PRO_PRICE_ID }],
+          trial_period_days:  30,
+          ...(pmId ? { default_payment_method: pmId } : {}),
+          metadata:           { email: customerEmail, plan: 'pipeline' },
+        });
+        subId = proSub.id;
+        console.log(`Pipeline: created trialing Pro subscription ${subId} for ${customerEmail}`);
+      }
     } catch (e) {
       console.error('Pipeline Pro-subscription create failed:', e.message);
       await logToAdmin(

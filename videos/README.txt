@@ -3,7 +3,7 @@
 
 Drop your finished explainer video into THIS folder named exactly:
 
-    explainer.mp4      (primary — required)
+    demo.mp4      (primary — required)
     explainer.webm     (optional — smaller files for modern browsers)
 
 The site auto-detects on every page load. No code change needed.

@@ -17,6 +17,8 @@ export default async () => {
   try {
     const r = await fetch(RAW, {
       headers: { Accept: "application/json" },
+      // fail fast if GitHub raw stalls (mirrors stats.js) instead of burning function time
+      signal: AbortSignal.timeout(3000),
       // bust GitHub's own ~5-min raw cache only as much as needed
     });
     if (!r.ok) {

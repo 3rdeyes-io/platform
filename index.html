@@ -627,6 +627,8 @@
     outline-offset: 2px;
     border-radius: 4px;
   }
+  /* clearance so the fixed floating bar never covers the footer/CTAs */
+  body { padding-bottom: 64px; }
 </style>
 </head>
 <body>
@@ -680,7 +682,7 @@
 
   <div class="hero-badge">
     <div class="live-dot"></div>
-    Live · <span id="hero-wl">94.1% win rate · 159-10 · +$6697.39 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
+    Live · <span id="hero-wl">90.4% win rate · 198-21 · +$208.42 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
   </div>
 
   <!-- ── Live operational pulse - proves the bot is actually running ── -->
@@ -700,12 +702,13 @@
   <p class="hero-sub">
     On apps like <strong style="color:#fff">Kalshi</strong>, you can bet on tomorrow's high temperature in major US cities.
     We run the <strong style="color:#fff">same forecast models the pros use</strong>, spot the bets the market priced wrong,
-    and text you exactly <strong style="color:#fff">what to buy and where</strong>. <strong style="color:var(--green)">Around 7 in 8 of our trades have won</strong>,
+    and text you exactly <strong style="color:#fff">what to buy and where</strong>. <strong style="color:var(--green)">About 9 in 10 of our trades have won</strong>,
     and every single trade is public and verifiable on the exchange. <a href="/track" style="color:var(--green);">See the record →</a>
     <span style="display:block;margin-top:10px;font-size:.85rem;color:var(--muted);">Past performance doesn't guarantee future results. Prediction-market trading carries real risk.</span>
   </p>
 
   <form class="hero-form" onsubmit="handleSignup(event, this)">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0;" aria-hidden="true">
     <div class="hero-form-row">
       <input type="email" name="email" placeholder="your@email.com" required class="hero-email-input" aria-label="Email address">
       <button type="submit" class="btn-primary hero-form-btn">
@@ -859,7 +862,7 @@
   <div class="section-header">
     <div class="section-label">Who builds this</div>
     <h2 class="section-title">Built by data engineers.<br>Not influencers.</h2>
-    <p class="section-sub">3rd Eyes isn't a hype account - and it isn't a single AI prompt. It's an engineered pipeline: a four-model weather ensemble, per-station bias correction learned from history, an ensemble-spread filter, a +EV pricing gate, confidence grading, and a pre-set stop-loss on every trade. Built and run by two engineers, brothers, with a combined 17 years moving and protecting production data. That discipline is why the public ledger - reconstructed from Kalshi's own settlement records - shows a win rate of <strong style="color:var(--green);" id="founders-wr">86.5%</strong> you can verify trade by trade.</p>
+    <p class="section-sub">3rd Eyes isn't a hype account - and it isn't a single AI prompt. It's an engineered pipeline: a four-model weather ensemble, per-station bias correction learned from history, an ensemble-spread filter, a +EV pricing gate, confidence grading, and a pre-set stop-loss on every trade. Built and run by two engineers, brothers, with a combined 17 years moving and protecting production data. That discipline is why the public ledger - reconstructed from Kalshi's own settlement records - shows a win rate of <strong style="color:var(--green);" id="founders-wr">90.4%</strong> you can verify trade by trade.</p>
   </div>
 
   <div style="max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
@@ -1070,7 +1073,14 @@
         What is your real win rate?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">94.1%</strong> across <span id="faq-trades">169</span> settled trades (<span id="faq-wins">159</span> wins, <span id="faq-losses">10</span> losses, <span id="faq-net">+$6697.39</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
+      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">90.4%</strong> across <span id="faq-trades">219</span> settled trades (<span id="faq-wins">198</span> wins, <span id="faq-losses">21</span> losses, <span id="faq-net">+$208.42</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        After the $499 Execution Pipeline, do I still pay monthly?
+        <span class="faq-arrow">+</span>
+      </button>
+      <div class="faq-a">Yes. The $499 is a <strong>one-time setup</strong>: a live 1-on-1 session where we configure your own auto-execution listener on your server with your Kalshi API keys. It includes your <strong>first month of Pro free</strong>; after that, signals keep flowing through a standard Pro subscription at <strong>$49/mo</strong>, cancel anytime. Without an active Pro subscription the pipeline has no signals to execute. Nothing here is a promise of profit or a timeline to "recoup" anything - returns depend on market conditions, your sizing, and variance; see the <a href="/track" style="color:var(--green);">verified record</a> and <a href="/sizing" style="color:var(--green);">sizing guide</a> for the honest numbers.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1154,9 +1164,6 @@
     </div>
     <div class="footer-col">
       <h4>Company</h4>
-      <a href="#">About</a>
-      <a href="#">Blog</a>
-      <a href="#">Affiliates</a>
       <a href="https://t.me/thirdeyes_signals" target="_blank" rel="noopener">Contact / Support</a>
       <a href="mailto:support@3rdeyes.io">support@3rdeyes.io</a>
       <a href="/privacy">Privacy</a>
@@ -1180,7 +1187,7 @@
      FLOATING CTA BAR
 ═══════════════════════════════════════ -->
 <div class="floating-bar" id="floating-bar">
-  <span class="floating-text"><strong id="floating-wl">94.1% win rate (159-10)</strong> · Next scan in <strong id="countdown">-</strong></span>
+  <span class="floating-text"><strong id="floating-wl">90.4% win rate (198-21)</strong> · Next scan in <strong id="countdown">-</strong></span>
   <a href="#plans" class="btn-primary" style="padding:10px 20px;font-size:.875rem;">
     Get Signals →
   </a>
@@ -1397,6 +1404,8 @@ function toggleFaq(btn) {
 function toggleMenu() {
   const m = document.getElementById('mobile-menu');
   m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  var hb = document.querySelector('.hamburger');
+  if (hb) hb.setAttribute('aria-expanded', m.style.display === 'block' ? 'true' : 'false');
 }
 
 // ── Live operational pulse + countdown ──────────────────────
@@ -1548,7 +1557,7 @@ window.addEventListener('scroll', () => {
 // The FB constant below is the single last-known-good fallback if that fetch ever fails;
 // keep it in sync with the ledger at deploy time so the page is never blank or inconsistent.
 (function () {
-  const FB = { winRate: '94.1%', wins: 159, losses: 10, trades: 169, net: '+$6697.39' };
+  const FB = { winRate: '90.4%', wins: 198, losses: 21, trades: 219, net: '+$208.42' };
   function apply(L, bal) {
     const wl = L.wins + '-' + L.losses;
     const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
@@ -1635,20 +1644,20 @@ function renderChips(data) {
   const wr = document.getElementById('chip-winrate');
   const c = document.getElementById('chip-cities');
   // Exchange-verified totals (mirror /track), live from /ledger.json with fallback.
-  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 159) + ' W';
-  if (l)  l.textContent  = (d.losses != null ? d.losses : 10)  + ' L';
-  if (wr) wr.textContent = (d.winRate || '94.1%') + ' win rate';
-  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 169) + ' settled';
+  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 198) + ' W';
+  if (l)  l.textContent  = (d.losses != null ? d.losses : 21)  + ' L';
+  if (wr) wr.textContent = (d.winRate || '90.4%') + ' win rate';
+  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 219) + ' settled';
 }
 
 // Fallback preview (last-known-good). The daily /ledger.json fetch below overrides
 // it so the homepage preview + chips stay current without redeploying the HTML.
 const VERIFIED_RECENT = [
-  {"date":"05-24","city":"Los Angeles","threshold":"64-65°","no_price":0.89,"pl":8.66,"outcome":"win"},
-  {"date":"05-24","city":"New York","threshold":"62-63°","no_price":0.93,"pl":5.60,"outcome":"win"},
-  {"date":"05-24","city":"Austin","threshold":"82-83°","no_price":0.90,"pl":7.77,"outcome":"win"},
-  {"date":"05-23","city":"Los Angeles","threshold":"69-70°","no_price":0.90,"pl":-23.91,"outcome":"loss"},
-  {"date":"05-23","city":"Los Angeles","threshold":"65-66°","no_price":0.86,"pl":11.44,"outcome":"win"}
+  {"date": "07-28", "city": "TDC", "threshold": "88-89°", "no_price": 0.93, "pl": -16.12, "outcome": "loss"},
+  {"date": "07-27", "city": "TDC", "threshold": "93-94°", "no_price": 0.96, "pl": 1.83, "outcome": "win"},
+  {"date": "07-27", "city": "Denver", "threshold": "&lt;93°", "no_price": 0.86, "pl": -14.27, "outcome": "loss"},
+  {"date": "07-27", "city": "Miami", "threshold": "&gt;94°", "no_price": 0.94, "pl": 2.34, "outcome": "win"},
+  {"date": "07-26", "city": "Miami", "threshold": "&gt;94°", "no_price": 0.95, "pl": 1.82, "outcome": "win"}
 ];
 // renderLedgerPreview filters by date >= LEDGER_START_DATE; feed a parseable date.
 renderLedgerPreview(VERIFIED_RECENT.map(t => ({...t, date: '2026-' + t.date})));

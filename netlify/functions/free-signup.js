@@ -9,13 +9,25 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
+  // Abuse guards: this is a public unauthenticated endpoint that triggers an outbound
+  // Resend email per call (spam / quota-burn vector).
+  // 1) Origin/Referer must be our own site (browsers always send one from the form).
+  const src = (event.headers && (event.headers.origin || event.headers.referer)) || '';
+  if (src && !/^https:\/\/(www\.)?3rdeyes\.io/.test(src)) {
+    return { statusCode: 403, body: 'Forbidden' };
+  }
   // Parse form body (application/x-www-form-urlencoded)
   const params = new URLSearchParams(event.body);
+  // 2) Honeypot: hidden "website" field is left empty by humans, filled by bots.
+  //    Return 200 so the bot thinks it worked and moves on.
+  if ((params.get('website') || '').trim() !== '') {
+    return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+  }
   const email = (params.get('email') || '').trim();
 
   // Real validation (was just includes('@'), which accepted "@", "a@", etc. and was
   // passed straight to Resend `to:`). Basic shape + length guard.
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254 || email.endsWith('@example.com')) {
     return { statusCode: 400, body: 'Invalid email' };
   }
 
