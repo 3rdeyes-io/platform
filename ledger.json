@@ -1,12 +1,28 @@
 {
- "updated": "2026-07-28",
- "period": "Apr 23 - Jul 28, 2026",
- "trades": 216,
- "wins": 196,
+ "updated": "2026-07-29",
+ "period": "Apr 23 - Jul 29, 2026",
+ "trades": 215,
+ "wins": 195,
  "losses": 20,
  "winRate": "90.7%",
- "net": "+$181.93",
+ "net": "+$182.49",
  "recent": [
+  {
+   "date": "2026-07-29",
+   "city": "New York",
+   "threshold": "76-77\u00b0",
+   "no_price": 0.93,
+   "pl": 2.8,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-29",
+   "city": "TDC",
+   "threshold": "89-90\u00b0",
+   "no_price": 0.93,
+   "pl": 2.74,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-28",
    "city": "TDC",
@@ -29,22 +45,6 @@
    "threshold": "86-87\u00b0",
    "no_price": 0.95,
    "pl": 1.95,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-28",
-   "city": "TATL",
-   "threshold": "99-100\u00b0",
-   "no_price": 0.91,
-   "pl": 3.62,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-28",
-   "city": "Austin",
-   "threshold": "103-104\u00b0",
-   "no_price": 0.93,
-   "pl": 0.52,
    "outcome": "win"
   }
  ],
@@ -305,24 +305,6 @@
    "date": "May 21",
    "market": "Los Angeles &middot; 70-71&deg;",
    "net": 0.56,
-   "win": true
-  },
-  {
-   "date": "May 25",
-   "market": "Chicago &middot; 86-87&deg;",
-   "net": 0.84,
-   "win": true
-  },
-  {
-   "date": "May 25",
-   "market": "Austin &middot; 93-94&deg;",
-   "net": 0.05,
-   "win": true
-  },
-  {
-   "date": "May 25",
-   "market": "Chicago &middot; 88-89&deg;",
-   "net": 4.09,
    "win": true
   },
   {
@@ -1343,6 +1325,18 @@
    "date": "Jul 28",
    "market": "San Antonio &middot; 103-104&deg;",
    "net": 0.23,
+   "win": true
+  },
+  {
+   "date": "Jul 29",
+   "market": "New York &middot; 76-77&deg;",
+   "net": 2.8,
+   "win": true
+  },
+  {
+   "date": "Jul 29",
+   "market": "Washington DC &middot; 89-90&deg;",
+   "net": 2.74,
    "win": true
   }
  ]
