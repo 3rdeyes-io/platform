@@ -1,12 +1,28 @@
 {
- "updated": "2026-07-29",
- "period": "Apr 23 - Jul 29, 2026",
- "trades": 215,
- "wins": 195,
+ "updated": "2026-07-30",
+ "period": "Apr 23 - Jul 30, 2026",
+ "trades": 217,
+ "wins": 197,
  "losses": 20,
- "winRate": "90.7%",
- "net": "+$182.49",
+ "winRate": "90.8%",
+ "net": "+$182.79",
  "recent": [
+  {
+   "date": "2026-07-30",
+   "city": "TDC",
+   "threshold": "83-84\u00b0",
+   "no_price": 0.87,
+   "pl": 0.24,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-30",
+   "city": "Philadelphia",
+   "threshold": "86-87\u00b0",
+   "no_price": 0.94,
+   "pl": 0.06,
+   "outcome": "win"
+  },
   {
    "date": "2026-07-29",
    "city": "New York",
@@ -30,22 +46,6 @@
    "no_price": 0.93,
    "pl": -16.12,
    "outcome": "loss"
-  },
-  {
-   "date": "2026-07-28",
-   "city": "TPHX",
-   "threshold": "113-114\u00b0",
-   "no_price": 0.94,
-   "pl": 2.34,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-28",
-   "city": "Denver",
-   "threshold": "86-87\u00b0",
-   "no_price": 0.95,
-   "pl": 1.95,
-   "outcome": "win"
   }
  ],
  "rows": [
@@ -1337,6 +1337,18 @@
    "date": "Jul 29",
    "market": "Washington DC &middot; 89-90&deg;",
    "net": 2.74,
+   "win": true
+  },
+  {
+   "date": "Jul 30",
+   "market": "Washington DC &middot; 83-84&deg;",
+   "net": 0.24,
+   "win": true
+  },
+  {
+   "date": "Jul 30",
+   "market": "Philadelphia &middot; 86-87&deg;",
+   "net": 0.06,
    "win": true
   }
  ]
