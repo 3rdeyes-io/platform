@@ -684,7 +684,7 @@
 
   <div class="hero-badge">
     <div class="live-dot"></div>
-    Live · <span id="hero-wl">90.7% win rate · 195-20 · +$182.49 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
+    Live · <span id="hero-wl">90.8% win rate · 197-20 · +$182.79 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
   </div>
 
   <!-- ── Live operational pulse - proves the bot is actually running ── -->
@@ -1075,7 +1075,7 @@
         What is your real win rate?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">90.7%</strong> across <span id="faq-trades">215</span> settled trades (<span id="faq-wins">195</span> wins, <span id="faq-losses">20</span> losses, <span id="faq-net">+$182.49</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
+      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">90.8%</strong> across <span id="faq-trades">217</span> settled trades (<span id="faq-wins">197</span> wins, <span id="faq-losses">20</span> losses, <span id="faq-net">+$182.79</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1189,7 +1189,7 @@
      FLOATING CTA BAR
 ═══════════════════════════════════════ -->
 <div class="floating-bar" id="floating-bar">
-  <span class="floating-text"><strong id="floating-wl">90.7% win rate (195-20)</strong> · Next scan in <strong id="countdown">-</strong></span>
+  <span class="floating-text"><strong id="floating-wl">90.8% win rate (197-20)</strong> · Next scan in <strong id="countdown">-</strong></span>
   <a href="#plans" class="btn-primary" style="padding:10px 20px;font-size:.875rem;">
     Get Signals →
   </a>
@@ -1559,7 +1559,7 @@ window.addEventListener('scroll', () => {
 // The FB constant below is the single last-known-good fallback if that fetch ever fails;
 // keep it in sync with the ledger at deploy time so the page is never blank or inconsistent.
 (function () {
-  const FB = { winRate: '90.7%', wins: 195, losses: 20, trades: 215, net: '+$182.49' };
+  const FB = { winRate: '90.8%', wins: 197, losses: 20, trades: 217, net: '+$182.79' };
   function apply(L, bal) {
     const wl = L.wins + '-' + L.losses;
     const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
@@ -1646,10 +1646,10 @@ function renderChips(data) {
   const wr = document.getElementById('chip-winrate');
   const c = document.getElementById('chip-cities');
   // Exchange-verified totals (mirror /track), live from /ledger.json with fallback.
-  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 195) + ' W';
+  if (w)  w.textContent  = (d.wins   != null ? d.wins   : 197) + ' W';
   if (l)  l.textContent  = (d.losses != null ? d.losses : 20)  + ' L';
-  if (wr) wr.textContent = (d.winRate || '90.7%') + ' win rate';
-  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 215) + ' settled';
+  if (wr) wr.textContent = (d.winRate || '90.8%') + ' win rate';
+  if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 217) + ' settled';
 }
 
 // Fallback preview (last-known-good). The daily /ledger.json fetch below overrides
