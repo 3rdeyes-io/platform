@@ -1,51 +1,51 @@
 {
- "updated": "2026-07-30",
- "period": "Apr 23 - Jul 30, 2026",
- "trades": 217,
- "wins": 197,
- "losses": 20,
- "winRate": "90.8%",
- "net": "+$182.79",
+ "updated": "2026-08-01",
+ "period": "Apr 23 - Aug 1, 2026",
+ "trades": 222,
+ "wins": 201,
+ "losses": 21,
+ "winRate": "90.5%",
+ "net": "+$178.11",
  "recent": [
   {
-   "date": "2026-07-30",
-   "city": "TDC",
-   "threshold": "83-84\u00b0",
-   "no_price": 0.87,
-   "pl": 0.24,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-30",
-   "city": "Philadelphia",
-   "threshold": "86-87\u00b0",
-   "no_price": 0.94,
-   "pl": 0.06,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-29",
-   "city": "New York",
-   "threshold": "76-77\u00b0",
-   "no_price": 0.93,
-   "pl": 2.8,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-29",
-   "city": "TDC",
-   "threshold": "89-90\u00b0",
-   "no_price": 0.93,
-   "pl": 2.74,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-07-28",
-   "city": "TDC",
-   "threshold": "88-89\u00b0",
-   "no_price": 0.93,
-   "pl": -16.12,
+   "date": "2026-08-01",
+   "city": "Austin",
+   "threshold": "96-97\u00b0",
+   "no_price": 0.92,
+   "pl": -5.82,
    "outcome": "loss"
+  },
+  {
+   "date": "2026-07-31",
+   "city": "TBOS",
+   "threshold": "82-83\u00b0",
+   "no_price": 0.96,
+   "pl": 0.04,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-31",
+   "city": "TPHX",
+   "threshold": "118-119\u00b0",
+   "no_price": 0.95,
+   "pl": 0.21,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-31",
+   "city": "Chicago",
+   "threshold": "78-79\u00b0",
+   "no_price": 0.95,
+   "pl": 0.42,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-07-31",
+   "city": "TOKC",
+   "threshold": "98-99\u00b0",
+   "no_price": 0.92,
+   "pl": 0.47,
+   "outcome": "win"
   }
  ],
  "rows": [
@@ -1350,6 +1350,36 @@
    "market": "Philadelphia &middot; 86-87&deg;",
    "net": 0.06,
    "win": true
+  },
+  {
+   "date": "Jul 31",
+   "market": "Boston &middot; 82-83&deg;",
+   "net": 0.04,
+   "win": true
+  },
+  {
+   "date": "Jul 31",
+   "market": "Phoenix &middot; 118-119&deg;",
+   "net": 0.21,
+   "win": true
+  },
+  {
+   "date": "Jul 31",
+   "market": "Chicago &middot; 78-79&deg;",
+   "net": 0.42,
+   "win": true
+  },
+  {
+   "date": "Jul 31",
+   "market": "Oklahoma City &middot; 98-99&deg;",
+   "net": 0.47,
+   "win": true
+  },
+  {
+   "date": "Aug 1",
+   "market": "Austin &middot; 96-97&deg;",
+   "net": -5.82,
+   "win": false
   }
  ]
 }
