@@ -531,7 +531,7 @@
   <div class="section" id="execution">
     <div class="section-num">SECTION 05</div>
     <h2 class="section-title">Execution Framework</h2>
-    <p>Orders are placed as limits with a defined time-to-live and a deterministic idempotency key, and only the quantity that actually fills is booked. Position sizing is flat by design. Exits are probability-based rather than price-based: a held position's win probability is recomputed from the live forecast every cycle, and we exit when the thesis breaks rather than when the price wobbles.</p>
+    <p>Entries are placed as limit orders with duplicate-order protection, and positions are sized on a fixed, disciplined schedule rather than by conviction. Open positions are re-evaluated continuously against fresh model data, and exits are driven by whether the original thesis still holds - not by short-term price movement. The framework is designed so that a single bad day cannot undo a long run of small wins.</p>
     <div class="warn" style="border-left-color:#10d9a0;background:rgba(16,217,160,.05);color:#a7f3d0;">
       <strong>Full detail is included with the Execution Pipeline tier.</strong>
       The exit thresholds, the calibration study behind them, the band-market exit rule, and the sizing counterfactual that drove the flat-stake decision are documented in full for members. 
