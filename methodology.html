@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3rd Eyes Signal Methodology v1.0</title>
-<meta name="description" content="How 3rd Eyes finds mispriced weather bets: a 4-model meteorological ensemble (GFS, ECMWF, ICON, GEM) plus HRRR, per-station bias correction, and +EV edge gating. The full v1.0 methodology.">
+<meta name="description" content="How 3rd Eyes finds mispriced weather bets: a 4-model meteorological ensemble (GFS, ECMWF, ICON, GEM) plus HRRR, per-station bias correction, and +EV edge gating. Public methodology overview; full operational detail is included with the Execution Pipeline tier.">
 <meta property="og:title" content="3rd Eyes - Signal Methodology">
 <meta property="og:description" content="A 4-model weather ensemble finds the temperature contracts the market prices wrong. Read the full methodology.">
 <meta property="og:type" content="article">
@@ -503,191 +503,44 @@
 
   <!-- 3. Signal Generation -->
   <div class="section" id="signal">
-    <div class="section-num">§ 3</div>
+    <div class="section-num">SECTION 03</div>
     <h2 class="section-title">Signal Generation Pipeline</h2>
-
-    <p>The signal pipeline runs automatically every 5 minutes, scanning open Kalshi weather markets and evaluating each against current NWP model output.</p>
-
-    <div class="flow">
-      <div class="flow-step">
-        <div class="flow-label">Step 1</div>
-        <div class="flow-val">Market Scan</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-label">Step 2</div>
-        <div class="flow-val">NWP Pull</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-label">Step 3</div>
-        <div class="flow-val">Buffer Check</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-label">Step 4</div>
-        <div class="flow-val">Multi-Model OK</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-label">Step 5</div>
-        <div class="flow-val">Score + Publish</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Step 1: Market Scan</div>
-      <p>Fetch open temperature markets from Kalshi (<code>KXHIGH*</code>/<code>KXLOW*</code> series via the Kalshi API). The same contracts are mirrored on Coinbase and Robinhood, so a Kalshi signal is tradeable on any of the three. Filter for markets resolving within the next 96 hours with adequate liquidity.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Step 2: NWP Temperature Pull</div>
-      <p>For each market, extract the forecast high temperature for the relevant city, date, and hour from the multi-model ensemble mean (GFS, ECMWF, ICON, GEM - all markets) and HRRR (markets resolving ≤36h).</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Step 3: Buffer Calculation</div>
-      <p>Compute the temperature buffer: the gap between the forecast high and the Kalshi threshold:</p>
-      <div class="formula">
-        buffer = | forecast high - market threshold |<br>
-        A signal is published only when the buffer clears a calibrated<br>
-        minimum. Exact thresholds are proprietary.
-      </div>
-      <p>A positive buffer means the model forecasts the threshold will NOT be reached. Larger buffer = higher confidence = higher win-probability.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Step 4: Multi-Model Confirmation</div>
-      <p>For ≤36h markets, HRRR must independently agree with the ensemble. For Day 2-4 markets, the model ensemble spread must fall within a calibrated tolerance; high spread = uncertain = no signal.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Step 5: Win-Probability &amp; Publish</div>
-      <p>Compute a calibrated win-probability, check orderbook depth for minimum fill ≥$8, and publish signal via Telegram with full reasoning: city, threshold, model mean, HRRR (if applicable), buffer, win-probability, and suggested position sizing.</p>
+    <p>Every candidate market runs through a fixed sequence of gates covering liquidity, price window, ensemble agreement geometry, a raw-model safety re-check, a minimum separation buffer, an ensemble-spread ceiling, HRRR confirmation, calibrated win-probability and edge bounds, and concentration limits. A candidate must clear every gate; any single failure drops the trade regardless of how strong the rest look.</p>
+    <div class="warn" style="border-left-color:#10d9a0;background:rgba(16,217,160,.05);color:#a7f3d0;">
+      <strong>Full detail is included with the Execution Pipeline tier.</strong>
+      The exact gate order, the thresholds for each, and the reasoning behind them (including why we reject an edge that looks <em>too</em> good) are documented in full for members. 
+      Members: <a href="/methodology-full" style="color:#10d9a0;">open the full methodology</a>.
+      Not a member yet? See <a href="/#pricing" style="color:#10d9a0;">pricing</a>. Our
+      <a href="/track" style="color:#10d9a0;">verified track record</a> stays public for everyone.
     </div>
   </div>
 
-  <!-- 4. Calibration -->
   <div class="section" id="calibration">
-    <div class="section-num">§ 4</div>
+    <div class="section-num">SECTION 04</div>
     <h2 class="section-title">Win-Probability &amp; Calibration</h2>
-
-    <p>Each signal carries a calibrated win-probability - the model's estimate of the chance the NO side resolves correctly. It is derived from a Normal distribution fitted to the multi-model ensemble, with the spread deliberately widened for forecast lead time so the number stays honest rather than overconfident. This win-probability directly informs suggested position sizing across our three risk tiers.</p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Win-Probability</th>
-          <th>Buffer (°F)</th>
-          <th>Model Spread</th>
-          <th>Interpretation</th>
-          <th>Suggested Tier</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong style="color:#10d9a0;">≥ 93%</strong></td>
-          <td>≥ 3°F</td>
-          <td>&lt; 2°F σ</td>
-          <td>High conviction: every model clears, low uncertainty</td>
-          <td><span class="badge badge-safe">Safe</span> <span class="badge badge-med">Medium</span> <span class="badge badge-agg">Aggressive</span></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#f59e0b;">88 - 93%</strong></td>
-          <td>1.5 - 3°F</td>
-          <td>&lt; 3°F σ</td>
-          <td>Moderate conviction: good buffer, manageable spread</td>
-          <td><span class="badge badge-med">Medium</span> <span class="badge badge-agg">Aggressive</span></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#94a3b8;">84 - 88%</strong></td>
-          <td>0.5 - 1.5°F</td>
-          <td>&lt; 4°F σ</td>
-          <td>Lower conviction: edge exists but thinner; smallest size only</td>
-          <td><span class="badge badge-agg">Aggressive only</span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="warn">
-      ⚠️ <strong>Calibration Status:</strong> The full per-trade record is live and reconstructed line-by-line from Kalshi's own settlement and fill records - including every stop-loss exit counted at its realized price. Win-probability calibration curves will be expanded as the sample grows. See the exchange-verified ledger at <a href="/track" style="color:var(--green);">/track</a>.
+    <p>Win probability is computed from a distribution centred on the bias-corrected ensemble mean and evaluated against the strike geometry, then capped so no signal is ever presented as a certainty. The distribution width is learned per city from ground truth: we score every historical forecast against the official NOAA daily climate record and retrain weekly.</p>
+    <div class="warn" style="border-left-color:#10d9a0;background:rgba(16,217,160,.05);color:#a7f3d0;">
+      <strong>Full detail is included with the Execution Pipeline tier.</strong>
+      The full formula, the per-city width training procedure, the lead-time term, and the rolling bias-correction mechanics are documented in full for members. 
+      Members: <a href="/methodology-full" style="color:#10d9a0;">open the full methodology</a>.
+      Not a member yet? See <a href="/#pricing" style="color:#10d9a0;">pricing</a>. Our
+      <a href="/track" style="color:#10d9a0;">verified track record</a> stays public for everyone.
     </div>
-
-    <p>Calibration is ongoing. The live record is past the 200-trade mark (219 settled as of Jul 28, 2026); the full v1.1 calibration write-up follows the summer 2026 season, with v2.0 at 500 trades. The per-trade ledger at <a href="/track" style="color:var(--green);">/track</a> is always current; this document is updated at each milestone.</p>
   </div>
 
-  <!-- 5. Execution -->
   <div class="section" id="execution">
-    <div class="section-num">§ 5</div>
+    <div class="section-num">SECTION 05</div>
     <h2 class="section-title">Execution Framework</h2>
-
-    <p>Signals are published via Telegram. Subscribers execute trades independently on Kalshi (US residents) or equivalent platforms (international). 3rd Eyes never touches subscriber funds.</p>
-
-    <div class="card">
-      <div class="card-title">Position Sizing - Risk Tiers</div>
-      <table>
-        <thead>
-          <tr>
-            <th>Tier</th>
-            <th>Stake per trade</th>
-            <th>Signals Taken</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="badge badge-safe">Safe</span></td>
-            <td>1 - 2% of bankroll</td>
-            <td>≥ 93% win-prob</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-med">Medium</span></td>
-            <td>2 - 3% of bankroll</td>
-            <td>≥ 88% win-prob</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-agg">Aggressive</span></td>
-            <td>3 - 5% of bankroll</td>
-            <td>≥ 85% win-prob</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="font-size:.85rem;margin-top:10px;opacity:.75;">All tiers manage a single bankroll - no slots. We hold no more than 2 positions in any one weather region, so correlated weather can't take out several at once.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Position Sizing - Fixed-Fractional</div>
-      <p>Subscribers manage a single bankroll and stake a fixed fraction of it on each signal - no slots, no progressive ladders.</p>
-      <div class="formula">
-        position  = bankroll × risk_fraction      ← e.g. 2% of $2,000 = $40<br>
-        contracts = floor(position / NO_price)<br>
-        max_loss  ≈ contracts × $0.20 (stop) + fees ≈ 21% of position
-      </div>
-      <p>When the bankroll grows, the same fraction naturally stakes a little more; when it shrinks, you stake less. A loss never increases the next bet - which removes the temptation to "chase" and caps the damage of any losing streak.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Stop-Loss Protocol</div>
-      <p>The stop sits a fixed 20¢ below entry. When an active position's NO price falls 20¢ under your fill (e.g., 95¢ → 75¢), the signal system flags an immediate exit. This caps the loss at roughly 20¢ per contract - about 21% of a 95¢ position - regardless of how much time is left.</p>
-      <div class="formula">
-        Max loss per position ≈ contracts × ($0.20 stop + $0.01 fee)<br>
-        Example: $80 @ 95¢ NO → 84 contracts → max loss ≈ 84 × $0.21 = ~$17.64
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Minimum Fill Threshold</div>
-      <p>Signals where the Kalshi orderbook cannot fill ≥$8 (thin markets, usually &lt;10 contracts at the target NO price) are flagged as <strong>SKIP</strong>. These are published for informational purposes but are excluded from the W/L track record.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Kalshi Fee Structure</div>
-      <p>Kalshi charges a flat $0.01 per contract fee on fills. This fee applies to both entry and exit (stop-loss) fills.</p>
-      <div class="formula">
-        Net profit per win = payout - entry_cost - (contracts × $0.01)<br>
-        Example: 84 contracts @ 95¢ NO → win payout $84 - cost $79.80 - fee $0.84 = net +$3.36<br>
-        Example: 84 contracts @ 97¢ NO → win payout $84 - cost $81.48 - fee $0.84 = net +$1.68
-      </div>
-      <p>At high NO prices (95¢+), the fee is material (25-50% of gross profit). Always check net-of-fees EV before sizing up.</p>
+    <p>Orders are placed as limits with a defined time-to-live and a deterministic idempotency key, and only the quantity that actually fills is booked. Position sizing is flat by design. Exits are probability-based rather than price-based: a held position's win probability is recomputed from the live forecast every cycle, and we exit when the thesis breaks rather than when the price wobbles.</p>
+    <div class="warn" style="border-left-color:#10d9a0;background:rgba(16,217,160,.05);color:#a7f3d0;">
+      <strong>Full detail is included with the Execution Pipeline tier.</strong>
+      The exit thresholds, the calibration study behind them, the band-market exit rule, and the sizing counterfactual that drove the flat-stake decision are documented in full for members. 
+      Members: <a href="/methodology-full" style="color:#10d9a0;">open the full methodology</a>.
+      Not a member yet? See <a href="/#pricing" style="color:#10d9a0;">pricing</a>. Our
+      <a href="/track" style="color:#10d9a0;">verified track record</a> stays public for everyone.
     </div>
   </div>
 
-  <!-- 6. Risk Management -->
   <div class="section" id="risk">
     <div class="section-num">§ 6</div>
     <h2 class="section-title">Risk Management &amp; Bankroll Discipline</h2>
