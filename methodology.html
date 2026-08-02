@@ -155,6 +155,10 @@
     text-transform: uppercase;
     letter-spacing: .12em;
     margin-bottom: 8px;
+    /* keep the section mark glued to its number: wide letter-spacing on a monospace
+       font otherwise renders "§  1" as two detached glyphs */
+    white-space: nowrap;
+    font-variant-ligatures: none;
   }
 
   .section-title {
@@ -416,7 +420,7 @@
 
   <!-- 1. Overview -->
   <div class="section" id="overview">
-    <div class="section-num">§ 1</div>
+    <div class="section-num">&sect; 1</div>
     <h2 class="section-title">Executive Overview</h2>
 
     <p>3rd Eyes publishes meteorological signals for US weather prediction markets - <strong>Kalshi</strong>, and the identical contracts carried by <strong>Coinbase</strong> and <strong>Robinhood</strong> - focused on daily high- and low-temperature contracts. The core insight is that weather models, particularly a multi-model forecast ensemble and HRRR short-range radar assimilation, can identify temperature outcomes with sufficient confidence to generate positive expected value (EV) on binary contracts.</p>
@@ -433,7 +437,7 @@
 
   <!-- 2. Models -->
   <div class="section" id="models">
-    <div class="section-num">§ 2</div>
+    <div class="section-num">&sect; 2</div>
     <h2 class="section-title">Data Sources: Multi-Model Ensemble + HRRR</h2>
 
     <div class="card">
@@ -503,7 +507,7 @@
 
   <!-- 3. Signal Generation -->
   <div class="section" id="signal">
-    <div class="section-num">SECTION 03</div>
+    <div class="section-num">&sect; 3</div>
     <h2 class="section-title">Signal Generation Pipeline</h2>
     <p>Every candidate market runs through a fixed sequence of gates covering liquidity, price window, ensemble agreement geometry, a raw-model safety re-check, a minimum separation buffer, an ensemble-spread ceiling, HRRR confirmation, calibrated win-probability and edge bounds, and concentration limits. A candidate must clear every gate; any single failure drops the trade regardless of how strong the rest look.</p>
     <div class="warn" style="border-left-color:#10d9a0;background:rgba(16,217,160,.05);color:#a7f3d0;">
@@ -516,7 +520,7 @@
   </div>
 
   <div class="section" id="calibration">
-    <div class="section-num">SECTION 04</div>
+    <div class="section-num">&sect; 4</div>
     <h2 class="section-title">Win-Probability &amp; Calibration</h2>
     <p>Win probability is computed from a distribution centred on the bias-corrected ensemble mean and evaluated against the strike geometry, then capped so no signal is ever presented as a certainty. Crucially, the model's confidence is not a fixed assumption: it is continuously re-learned from our own measured forecast accuracy, so the engine becomes more certain only where it has earned that certainty, and stays cautious where it has not.</p>
     <div class="warn" style="border-left-color:#10d9a0;background:rgba(16,217,160,.05);color:#a7f3d0;">
@@ -529,7 +533,7 @@
   </div>
 
   <div class="section" id="execution">
-    <div class="section-num">SECTION 05</div>
+    <div class="section-num">&sect; 5</div>
     <h2 class="section-title">Execution Framework</h2>
     <p>Entries are placed as limit orders with duplicate-order protection, and positions are sized on a fixed, disciplined schedule rather than by conviction. Open positions are re-evaluated continuously against fresh model data, and exits are driven by whether the original thesis still holds - not by short-term price movement. The framework is designed so that a single bad day cannot undo a long run of small wins.</p>
     <div class="warn" style="border-left-color:#10d9a0;background:rgba(16,217,160,.05);color:#a7f3d0;">
@@ -542,7 +546,7 @@
   </div>
 
   <div class="section" id="risk">
-    <div class="section-num">§ 6</div>
+    <div class="section-num">&sect; 6</div>
     <h2 class="section-title">Risk Management &amp; Bankroll Discipline</h2>
 
     <p>The 3rd Eyes framework prioritizes capital preservation over maximizing individual trade returns. This manifests in four hard rules:</p>
@@ -570,7 +574,7 @@
 
   <!-- 7. Failure Modes -->
   <div class="section" id="failure">
-    <div class="section-num">§ 7</div>
+    <div class="section-num">&sect; 7</div>
     <h2 class="section-title">Known Failure Modes</h2>
 
     <p>We are transparent about the conditions under which this methodology underperforms or fails. Every subscriber should understand these risks before placing any position.</p>
@@ -637,7 +641,7 @@
 
   <!-- 8. Track Record -->
   <div class="section" id="track-record">
-    <div class="section-num">§ 8</div>
+    <div class="section-num">&sect; 8</div>
     <h2 class="section-title">Track Record</h2>
 
     <p>The full per-trade record is published and updated daily at <a href="/track" style="color:var(--green);">/track</a>, reconstructed line-by-line from Kalshi's own settlement and fill records. Every win, every loss, every stop-loss exit at its realized price.</p>
@@ -660,7 +664,7 @@
 
   <!-- 9. Legal -->
   <div class="section" id="legal">
-    <div class="section-num">§ 9</div>
+    <div class="section-num">&sect; 9</div>
     <h2 class="section-title">Legal Disclosures</h2>
 
     <div class="card">
