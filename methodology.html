@@ -518,7 +518,7 @@
   <div class="section" id="calibration">
     <div class="section-num">SECTION 04</div>
     <h2 class="section-title">Win-Probability &amp; Calibration</h2>
-    <p>Win probability is computed from a distribution centred on the bias-corrected ensemble mean and evaluated against the strike geometry, then capped so no signal is ever presented as a certainty. The distribution width is learned per city from ground truth: we score every historical forecast against the official NOAA daily climate record and retrain weekly.</p>
+    <p>Win probability is computed from a distribution centred on the bias-corrected ensemble mean and evaluated against the strike geometry, then capped so no signal is ever presented as a certainty. Crucially, the model's confidence is not a fixed assumption: it is continuously re-learned from our own measured forecast accuracy, so the engine becomes more certain only where it has earned that certainty, and stays cautious where it has not.</p>
     <div class="warn" style="border-left-color:#10d9a0;background:rgba(16,217,160,.05);color:#a7f3d0;">
       <strong>Full detail is included with the Execution Pipeline tier.</strong>
       The full formula, the per-city width training procedure, the lead-time term, and the rolling bias-correction mechanics are documented in full for members. 
