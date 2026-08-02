@@ -292,16 +292,6 @@
     border: 1px solid var(--border);
   }
   .btn-secondary:hover { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.05); }
-
-  /* ── Live Stats Bar ── */
-  .stats-strip {
-    display: flex; gap: 0; border-radius: 16px; overflow: hidden;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.03);
-    backdrop-filter: blur(20px);
-    animation: fadeUp .6s .4s ease both;
-    width: 100%; max-width: 700px;
-  }
   .stat-cell {
     flex: 1; padding: 20px 24px; text-align: center;
     border-right: 1px solid var(--border);
@@ -315,17 +305,6 @@
   .stat-val.green { color: var(--green); }
   .stat-val.white { color: #fff; }
   .stat-lbl { display: block; font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-
-  /* ── Live Ticker ── */
-  .ticker-wrap {
-    overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    background: rgba(16,217,160,.04); padding: 12px 0;
-  }
-  .ticker-inner {
-    display: flex; gap: 48px; animation: tickerScroll 30s linear infinite;
-    white-space: nowrap; width: max-content;
-  }
-  .ticker-inner:hover { animation-play-state: paused; }
   .tick-item {
     display: inline-flex; align-items: center; gap: 8px;
     font-size: .8125rem; font-family: 'JetBrains Mono', monospace;
@@ -351,12 +330,6 @@
   }
   .section-header { text-align: center; margin-bottom: 64px; }
   .section-header .section-sub { margin: 0 auto; }
-
-  /* ── How it Works ── */
-  .steps-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden;
-  }
   .step-card {
     background: rgba(5,12,26,.95); padding: 32px 24px;
     position: relative; transition: background .2s;
@@ -369,25 +342,6 @@
   .step-icon { font-size: 1.75rem; margin-bottom: 16px; display: block; }
   .step-title { font-family: 'Sora',sans-serif; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
   .step-desc { font-size: .875rem; color: var(--muted); line-height: 1.6; }
-
-  /* ── Edge section ── */
-  .edge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .edge-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px;
-    transition: all .3s; position: relative; overflow: hidden;
-  }
-  .edge-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--green), var(--blue));
-    transform: scaleX(0); transform-origin: left; transition: transform .4s;
-  }
-  .edge-card:hover { border-color: rgba(16,217,160,.3); transform: translateY(-2px); }
-  .edge-card:hover::before { transform: scaleX(1); }
-  .edge-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
-  .edge-title { font-family: 'Sora',sans-serif; font-size: 1.125rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-  .edge-desc { font-size: .875rem; color: #94a3b8; line-height: 1.7; }
-  .edge-metric { font-family: 'JetBrains Mono',monospace; color: var(--green); font-size: .8125rem; margin-top: 12px; font-weight: 500; }
 
   /* ── Track Record ── */
   .record-table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--border); }
@@ -413,13 +367,6 @@
   .conf-a-plus { color: var(--green); font-weight: 700; }
   .conf-a { color: #60a5fa; font-weight: 600; }
   .conf-b { color: #fbbf24; font-weight: 600; }
-
-  /* ── Calculator ── */
-  .calc-wrap {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-    align-items: start;
-  }
-  .calc-form { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
   .form-group { margin-bottom: 24px; }
   .form-label { display: block; font-size: .8125rem; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .5px; }
   .form-input {
@@ -435,11 +382,6 @@
     cursor: pointer;
   }
   .range-labels { display: flex; justify-content: space-between; font-size: .75rem; color: var(--muted); margin-top: 6px; }
-  .calc-result {
-    background: linear-gradient(135deg, rgba(16,217,160,.1), rgba(59,130,246,.05));
-    border: 1px solid rgba(16,217,160,.2); border-radius: 20px; padding: 32px;
-    text-align: center;
-  }
   .result-label { font-size: .8125rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
   .result-amount {
     font-family: 'Sora', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem);
@@ -496,20 +438,6 @@
   .btn-plan-green { background: var(--green); color: #050c1a; }
   .btn-plan-green:hover { background: var(--green-d); box-shadow: 0 6px 24px rgba(16,217,160,.35); }
 
-  /* ── Social proof ── */
-  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-  .proof-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px;
-    transition: all .3s;
-  }
-  .proof-card:hover { border-color: rgba(16,217,160,.2); }
-  .proof-stars { color: #fbbf24; font-size: 1.25rem; margin-bottom: 14px; }
-  .proof-text { font-size: .9375rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 20px; }
-  .proof-author { display: flex; align-items: center; gap: 12px; }
-  .proof-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--blue)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .875rem; color: #050c1a; }
-  .proof-name { font-weight: 600; font-size: .875rem; color: #fff; }
-  .proof-handle { font-size: .75rem; color: var(--muted); }
-
   /* ── FAQ ── */
   .faq-list { max-width: 760px; margin: 0 auto; }
   .faq-item { border-bottom: 1px solid var(--border); }
@@ -542,13 +470,6 @@
   .comparison-wrap {
     display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
   }
-  .comp-col { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
-  .comp-col.them { opacity: .6; }
-  .comp-col.us { border-color: rgba(16,217,160,.3); background: rgba(16,217,160,.04); }
-  .comp-header { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 20px; }
-  .comp-item { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: .875rem; color: #94a3b8; }
-  .comp-item:last-child { border-bottom: none; }
-  .comp-item .ci { flex-shrink: 0; font-size: 1rem; }
 
   /* ── Floating CTA ── */
   .floating-bar {
@@ -575,15 +496,12 @@
     .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
     .price-card.featured { transform: none; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
-    .calc-wrap { grid-template-columns: 1fr; }
     .comparison-wrap { grid-template-columns: 1fr; }
   }
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
     section { padding: 72px 5%; }
-    .edge-grid { grid-template-columns: 1fr; }
-    .steps-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     .floating-bar {
@@ -676,37 +594,18 @@
 <section class="hero" id="hero">
   <div class="rain-container" id="rain"></div>
 
-  <!-- Logo mark - the third eye, large, centred -->
-  <div style="margin-bottom:28px;animation:fadeUp .5s ease both;">
-    <img src="logo-mark.svg" alt="3rd Eyes"
-         style="width:160px;height:160px;filter:drop-shadow(0 0 40px rgba(245,158,11,0.45)) drop-shadow(0 0 80px rgba(16,217,160,0.25));">
-  </div>
-
   <div class="hero-badge">
     <div class="live-dot"></div>
-    Live · <span id="hero-wl">90.5% win rate · 201-21 · +$178.11 net</span><span id="hero-wr"></span> · <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track →</a>
+    Live &middot; <span id="hero-wl">90.6% win rate &middot; 211-22 &middot; +$218.24 net</span><span id="hero-wr"></span> &middot; <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track &rarr;</a>
   </div>
 
-  <!-- ── Live operational pulse - proves the bot is actually running ── -->
-  <div class="live-pulse" id="live-pulse" title="System status - auto-refreshes from the production server">
-    <span class="pulse-dot" id="pulse-dot"></span>
-    <span class="pulse-text">
-      Last signal scan
-      <strong id="last-scan-rel">checking…</strong>
-      <span class="pulse-divider">·</span>
-      Next in
-      <strong id="next-scan">-</strong>
-    </span>
-  </div>
-
-  <h1>Tomorrow's high temperature<br><span>is a market. We trade it.</span></h1>
+  <h1>We find mispriced weather bets<br><span>and text you what to buy.</span></h1>
 
   <p class="hero-sub">
-    On apps like <strong style="color:#fff">Kalshi</strong>, you can bet on tomorrow's high temperature in major US cities.
-    We run the <strong style="color:#fff">same forecast models the pros use</strong>, spot the bets the market priced wrong,
-    and text you exactly <strong style="color:#fff">what to buy and where</strong>. <strong style="color:var(--green)">About 9 in 10 of our trades have won</strong>,
-    and every single trade is public and verifiable on the exchange. <a href="/track" style="color:var(--green);">See the record →</a>
-    <span style="display:block;margin-top:10px;font-size:.85rem;color:var(--muted);">Past performance doesn't guarantee future results. Prediction-market trading carries real risk.</span>
+    On <strong style="color:#fff">Kalshi</strong> you can trade tomorrow's high temperature.
+    We run a four-model forecast ensemble, find the contracts the market priced wrong, and send you
+    the exact trade. <strong style="color:var(--green)">211 of our 233 trades have won</strong> - and every
+    single one is public on the exchange.
   </p>
 
   <form class="hero-form" onsubmit="handleSignup(event, this)">
@@ -714,20 +613,32 @@
     <div class="hero-form-row">
       <input type="email" name="email" placeholder="your@email.com" required class="hero-email-input" aria-label="Email address">
       <button type="submit" class="btn-primary hero-form-btn">
-        Get Free Signals →
+        Get Free Signals &rarr;
       </button>
     </div>
-    <p class="hero-form-note">No credit card · Free tier · Cancel anytime</p>
+    <p class="hero-form-note">Free tier &middot; No credit card &middot; Cancel anytime</p>
   </form>
 
   <div class="hero-ctas">
-    <a href="/track" class="btn-secondary">
-      See the verified track record →
-    </a>
-    <a href="/methodology" class="btn-secondary" style="background:transparent;border-color:rgba(255,255,255,0.12);">
-      Read methodology
-    </a>
+    <a href="/track" class="btn-secondary">See every trade &rarr;</a>
   </div>
+
+  <!-- Secondary proof, deliberately BELOW the fold-defining block: the pulse is
+       reassurance for people already interested, not a first-impression element. -->
+  <div class="live-pulse" id="live-pulse" title="System status - auto-refreshes from the production server">
+    <span class="pulse-dot" id="pulse-dot"></span>
+    <span class="pulse-text">
+      Last signal scan
+      <strong id="last-scan-rel">checking&hellip;</strong>
+      <span class="pulse-divider">&middot;</span>
+      Next in
+      <strong id="next-scan">-</strong>
+    </span>
+  </div>
+
+  <p style="margin-top:18px;font-size:.8rem;color:var(--muted);max-width:520px;margin-left:auto;margin-right:auto;">
+    Past performance doesn't guarantee future results. Prediction-market trading carries real risk of loss.
+  </p>
 </section>
 
 
