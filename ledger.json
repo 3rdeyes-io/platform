@@ -1,11 +1,11 @@
 {
  "updated": "2026-08-01",
  "period": "Apr 23 - Aug 1, 2026",
- "trades": 242,
- "wins": 219,
- "losses": 23,
- "winRate": "90.5%",
- "net": "+$243.29",
+ "trades": 233,
+ "wins": 211,
+ "losses": 22,
+ "winRate": "90.6%",
+ "net": "+$218.24",
  "recent": [
   {
    "date": "2026-08-01",
@@ -410,24 +410,6 @@
    "win": true
   },
   {
-   "date": "May 29",
-   "market": "Denver &middot; 85-86&deg;",
-   "net": 0.08,
-   "win": true
-  },
-  {
-   "date": "May 29",
-   "market": "Los Angeles &middot; 66-67&deg;",
-   "net": 7.42,
-   "win": true
-  },
-  {
-   "date": "May 30",
-   "market": "Miami &middot; &gt;92&deg;",
-   "net": 3.87,
-   "win": true
-  },
-  {
    "date": "May 30",
    "market": "Miami &middot; &gt;92&deg;",
    "net": 3.87,
@@ -437,18 +419,6 @@
    "date": "May 31",
    "market": "Denver &middot; 83-84&deg;",
    "net": 15.44,
-   "win": true
-  },
-  {
-   "date": "May 31",
-   "market": "Denver &middot; 83-84&deg;",
-   "net": 15.44,
-   "win": true
-  },
-  {
-   "date": "Jun 2",
-   "market": "Denver &middot; 83-84&deg;",
-   "net": 0.28,
    "win": true
   },
   {
@@ -468,30 +438,6 @@
    "market": "Miami &middot; &gt;89&deg;",
    "net": -16.86,
    "win": false
-  },
-  {
-   "date": "Jun 3",
-   "market": "Austin &middot; &lt;86&deg;",
-   "net": 0.84,
-   "win": true
-  },
-  {
-   "date": "Jun 3",
-   "market": "Miami &middot; &gt;89&deg;",
-   "net": -16.86,
-   "win": false
-  },
-  {
-   "date": "Jun 4",
-   "market": "Miami &middot; &gt;86&deg;",
-   "net": 5.32,
-   "win": true
-  },
-  {
-   "date": "Jun 4",
-   "market": "Austin &middot; 90-91&deg;",
-   "net": 8.66,
-   "win": true
   },
   {
    "date": "Jun 4",
