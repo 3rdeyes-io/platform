@@ -1,12 +1,28 @@
 {
- "updated": "2026-08-01",
- "period": "Apr 23 - Aug 1, 2026",
- "trades": 238,
- "wins": 216,
+ "updated": "2026-08-02",
+ "period": "Apr 23 - Aug 2, 2026",
+ "trades": 240,
+ "wins": 218,
  "losses": 22,
  "winRate": "90.8%",
- "net": "+$222.70",
+ "net": "+$224.15",
  "recent": [
+  {
+   "date": "2026-08-02",
+   "city": "TDAL",
+   "threshold": "99-100\u00b0",
+   "no_price": 0.95,
+   "pl": 0.61,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-08-02",
+   "city": "TDC",
+   "threshold": "&lt;84\u00b0",
+   "no_price": 0.83,
+   "pl": 0.84,
+   "outcome": "win"
+  },
   {
    "date": "2026-08-01",
    "city": "Austin",
@@ -29,22 +45,6 @@
    "threshold": "&lt;97\u00b0",
    "no_price": 0.88,
    "pl": 0.11,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-01",
-   "city": "Philadelphia",
-   "threshold": "92-93\u00b0",
-   "no_price": 0.96,
-   "pl": 0.07,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-01",
-   "city": "TMIN",
-   "threshold": "87-88\u00b0",
-   "no_price": 0.84,
-   "pl": 1.02,
    "outcome": "win"
   }
  ],
@@ -1475,6 +1475,18 @@
    "date": "Aug 1",
    "market": "Atlanta &middot; 88-89&deg;",
    "net": 1.44,
+   "win": true
+  },
+  {
+   "date": "Aug 2",
+   "market": "Dallas &middot; 99-100&deg;",
+   "net": 0.61,
+   "win": true
+  },
+  {
+   "date": "Aug 2",
+   "market": "Washington DC &middot; 84&deg;",
+   "net": 0.84,
    "win": true
   }
  ]
