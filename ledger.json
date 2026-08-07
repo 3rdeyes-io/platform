@@ -1,12 +1,28 @@
 {
- "updated": "2026-08-05",
- "period": "Apr 23 - Aug 5, 2026",
- "trades": 251,
- "wins": 228,
- "losses": 23,
- "winRate": "90.8%",
- "net": "+$235.22",
+ "updated": "2026-08-06",
+ "period": "Apr 23 - Aug 6, 2026",
+ "trades": 253,
+ "wins": 229,
+ "losses": 24,
+ "winRate": "90.5%",
+ "net": "+$227.43",
  "recent": [
+  {
+   "date": "2026-08-06",
+   "city": "TBOS",
+   "threshold": "&lt;87\u00b0",
+   "no_price": 0.96,
+   "pl": -7.86,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-08-06",
+   "city": "Chicago",
+   "threshold": "82-83\u00b0",
+   "no_price": 0.92,
+   "pl": 0.07,
+   "outcome": "win"
+  },
   {
    "date": "2026-08-05",
    "city": "TATL",
@@ -29,22 +45,6 @@
    "threshold": "88-89\u00b0",
    "no_price": 0.83,
    "pl": 2.2,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-05",
-   "city": "TBOS",
-   "threshold": "81-82\u00b0",
-   "no_price": 0.96,
-   "pl": 1.64,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-04",
-   "city": "TBOS",
-   "threshold": "81-82\u00b0",
-   "no_price": 0.93,
-   "pl": 0.85,
    "outcome": "win"
   }
  ],
@@ -1553,6 +1553,18 @@
    "date": "Aug 5",
    "market": "Boston &middot; 81-82&deg;",
    "net": 1.64,
+   "win": true
+  },
+  {
+   "date": "Aug 6",
+   "market": "Boston &middot; 87&deg;",
+   "net": -7.86,
+   "win": false
+  },
+  {
+   "date": "Aug 6",
+   "market": "Chicago &middot; 82-83&deg;",
+   "net": 0.07,
    "win": true
   }
  ]
