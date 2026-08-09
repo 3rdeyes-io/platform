@@ -1,51 +1,51 @@
 {
- "updated": "2026-08-07",
- "period": "Apr 23 - Aug 7, 2026",
- "trades": 257,
- "wins": 232,
- "losses": 25,
- "winRate": "90.3%",
- "net": "+$242.07",
+ "updated": "2026-08-09",
+ "period": "Apr 23 - Aug 9, 2026",
+ "trades": 263,
+ "wins": 237,
+ "losses": 26,
+ "winRate": "90.1%",
+ "net": "+$261.14",
  "recent": [
   {
-   "date": "2026-08-07",
-   "city": "TOKC",
-   "threshold": "&lt;98\u00b0",
+   "date": "2026-08-09",
+   "city": "TATL",
+   "threshold": "88-89\u00b0",
    "no_price": 0.9,
-   "pl": -0.6,
+   "pl": -0.93,
    "outcome": "loss"
   },
   {
-   "date": "2026-08-07",
+   "date": "2026-08-08",
    "city": "TMIN",
    "threshold": "86-87\u00b0",
-   "no_price": 0.94,
-   "pl": 2.63,
+   "no_price": 0.92,
+   "pl": 3.13,
    "outcome": "win"
   },
   {
-   "date": "2026-08-07",
+   "date": "2026-08-08",
    "city": "Philadelphia",
    "threshold": "95-96\u00b0",
-   "no_price": 0.84,
-   "pl": 8.48,
+   "no_price": 0.89,
+   "pl": 4.33,
    "outcome": "win"
   },
   {
-   "date": "2026-08-07",
-   "city": "TBOS",
-   "threshold": "88-89\u00b0",
-   "no_price": 0.91,
-   "pl": 4.13,
+   "date": "2026-08-08",
+   "city": "TDAL",
+   "threshold": "97-98\u00b0",
+   "no_price": 0.89,
+   "pl": 4.33,
    "outcome": "win"
   },
   {
-   "date": "2026-08-06",
+   "date": "2026-08-08",
    "city": "TBOS",
-   "threshold": "&lt;87\u00b0",
-   "no_price": 0.96,
-   "pl": -7.86,
-   "outcome": "loss"
+   "threshold": "87-88\u00b0",
+   "no_price": 0.89,
+   "pl": 4.08,
+   "outcome": "win"
   }
  ],
  "rows": [
@@ -1590,6 +1590,42 @@
    "market": "Boston &middot; 88-89&deg;",
    "net": 4.13,
    "win": true
+  },
+  {
+   "date": "Aug 8",
+   "market": "Minneapolis &middot; 86-87&deg;",
+   "net": 3.13,
+   "win": true
+  },
+  {
+   "date": "Aug 8",
+   "market": "Philadelphia &middot; 95-96&deg;",
+   "net": 4.33,
+   "win": true
+  },
+  {
+   "date": "Aug 8",
+   "market": "Dallas &middot; 97-98&deg;",
+   "net": 4.33,
+   "win": true
+  },
+  {
+   "date": "Aug 8",
+   "market": "Boston &middot; 87-88&deg;",
+   "net": 4.08,
+   "win": true
+  },
+  {
+   "date": "Aug 8",
+   "market": "Oklahoma City &middot; 98-99&deg;",
+   "net": 4.13,
+   "win": true
+  },
+  {
+   "date": "Aug 9",
+   "market": "Atlanta &middot; 88-89&deg;",
+   "net": -0.93,
+   "win": false
   }
  ]
 }
