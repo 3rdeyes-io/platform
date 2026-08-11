@@ -1,12 +1,28 @@
 {
- "updated": "2026-08-09",
- "period": "Apr 23 - Aug 9, 2026",
- "trades": 265,
- "wins": 238,
+ "updated": "2026-08-10",
+ "period": "Apr 23 - Aug 10, 2026",
+ "trades": 267,
+ "wins": 240,
  "losses": 27,
- "winRate": "89.8%",
- "net": "+$262.96",
+ "winRate": "89.9%",
+ "net": "+$263.41",
  "recent": [
+  {
+   "date": "2026-08-10",
+   "city": "Philadelphia",
+   "threshold": "96-97\u00b0",
+   "no_price": 0.94,
+   "pl": 0.39,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-08-10",
+   "city": "TATL",
+   "threshold": "&lt;88\u00b0",
+   "no_price": 0.94,
+   "pl": 0.06,
+   "outcome": "win"
+  },
   {
    "date": "2026-08-09",
    "city": "TMIN",
@@ -29,22 +45,6 @@
    "threshold": "&lt;87\u00b0",
    "no_price": 0.94,
    "pl": 2.8,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-08",
-   "city": "TMIN",
-   "threshold": "86-87\u00b0",
-   "no_price": 0.92,
-   "pl": 3.13,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-08",
-   "city": "Philadelphia",
-   "threshold": "95-96\u00b0",
-   "no_price": 0.89,
-   "pl": 4.33,
    "outcome": "win"
   }
  ],
@@ -1637,6 +1637,18 @@
    "date": "Aug 9",
    "market": "Boston &middot; 87&deg;",
    "net": 2.8,
+   "win": true
+  },
+  {
+   "date": "Aug 10",
+   "market": "Philadelphia &middot; 96-97&deg;",
+   "net": 0.39,
+   "win": true
+  },
+  {
+   "date": "Aug 10",
+   "market": "Atlanta &middot; 88&deg;",
+   "net": 0.06,
    "win": true
   }
  ]
