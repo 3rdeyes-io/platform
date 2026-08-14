@@ -1,50 +1,50 @@
 {
- "updated": "2026-08-12",
- "period": "Apr 23 - Aug 12, 2026",
- "trades": 275,
- "wins": 247,
+ "updated": "2026-08-13",
+ "period": "Apr 23 - Aug 13, 2026",
+ "trades": 280,
+ "wins": 252,
  "losses": 28,
- "winRate": "89.8%",
- "net": "+$276.44",
+ "winRate": "90.0%",
+ "net": "+$280.40",
  "recent": [
   {
-   "date": "2026-08-12",
-   "city": "TPHX",
-   "threshold": "104-105\u00b0",
-   "no_price": 0.87,
-   "pl": 5.25,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-12",
-   "city": "Chicago",
-   "threshold": "84-85\u00b0",
-   "no_price": 0.89,
-   "pl": 1.7,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-12",
-   "city": "TDC",
-   "threshold": "85-86\u00b0",
-   "no_price": 0.92,
-   "pl": 0.53,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-12",
-   "city": "TATL",
-   "threshold": "&lt;89\u00b0",
-   "no_price": 0.94,
-   "pl": 2.34,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-12",
+   "date": "2026-08-13",
    "city": "Denver",
-   "threshold": "89-90\u00b0",
-   "no_price": 0.93,
-   "pl": 0.33,
+   "threshold": "84-85\u00b0",
+   "no_price": 0.9,
+   "pl": 1.12,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-08-13",
+   "city": "TPHX",
+   "threshold": "103-104\u00b0",
+   "no_price": 0.96,
+   "pl": 1.46,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-08-13",
+   "city": "TDC",
+   "threshold": "87-88\u00b0",
+   "no_price": 0.94,
+   "pl": 0.28,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-08-13",
+   "city": "TBOS",
+   "threshold": "&lt;81\u00b0",
+   "no_price": 0.89,
+   "pl": 1.03,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-08-13",
+   "city": "TMIN",
+   "threshold": "86-87\u00b0",
+   "no_price": 0.92,
+   "pl": 0.07,
    "outcome": "win"
   }
  ],
@@ -1697,6 +1697,36 @@
    "date": "Aug 12",
    "market": "Denver &middot; 89-90&deg;",
    "net": 0.33,
+   "win": true
+  },
+  {
+   "date": "Aug 13",
+   "market": "Denver &middot; 84-85&deg;",
+   "net": 1.12,
+   "win": true
+  },
+  {
+   "date": "Aug 13",
+   "market": "Phoenix &middot; 103-104&deg;",
+   "net": 1.46,
+   "win": true
+  },
+  {
+   "date": "Aug 13",
+   "market": "Washington DC &middot; 87-88&deg;",
+   "net": 0.28,
+   "win": true
+  },
+  {
+   "date": "Aug 13",
+   "market": "Boston &middot; 81&deg;",
+   "net": 1.03,
+   "win": true
+  },
+  {
+   "date": "Aug 13",
+   "market": "Minneapolis &middot; 86-87&deg;",
+   "net": 0.07,
    "win": true
   }
  ]
