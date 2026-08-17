@@ -1,12 +1,20 @@
 {
- "updated": "2026-08-14",
- "period": "Apr 23 - Aug 14, 2026",
- "trades": 281,
- "wins": 253,
+ "updated": "2026-08-15",
+ "period": "Apr 23 - Aug 15, 2026",
+ "trades": 282,
+ "wins": 254,
  "losses": 28,
- "winRate": "90.0%",
- "net": "+$281.86",
+ "winRate": "90.1%",
+ "net": "+$284.48",
  "recent": [
+  {
+   "date": "2026-08-15",
+   "city": "TOKC",
+   "threshold": "105-106\u00b0",
+   "no_price": 0.93,
+   "pl": 2.62,
+   "outcome": "win"
+  },
   {
    "date": "2026-08-14",
    "city": "TLV",
@@ -37,14 +45,6 @@
    "threshold": "87-88\u00b0",
    "no_price": 0.94,
    "pl": 0.28,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-13",
-   "city": "TBOS",
-   "threshold": "&lt;81\u00b0",
-   "no_price": 0.89,
-   "pl": 1.03,
    "outcome": "win"
   }
  ],
@@ -1733,6 +1733,12 @@
    "date": "Aug 14",
    "market": "Las Vegas &middot; 89&deg;",
    "net": 1.46,
+   "win": true
+  },
+  {
+   "date": "Aug 15",
+   "market": "Oklahoma City &middot; 105-106&deg;",
+   "net": 2.62,
    "win": true
   }
  ]
