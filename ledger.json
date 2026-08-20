@@ -1,12 +1,20 @@
 {
- "updated": "2026-08-17",
- "period": "Apr 23 - Aug 17, 2026",
- "trades": 285,
- "wins": 256,
+ "updated": "2026-08-19",
+ "period": "Apr 23 - Aug 19, 2026",
+ "trades": 286,
+ "wins": 257,
  "losses": 29,
- "winRate": "89.8%",
- "net": "+$250.50",
+ "winRate": "89.9%",
+ "net": "+$257.71",
  "recent": [
+  {
+   "date": "2026-08-19",
+   "city": "TBOS",
+   "threshold": "&lt;84\u00b0",
+   "no_price": 0.83,
+   "pl": 7.21,
+   "outcome": "win"
+  },
   {
    "date": "2026-08-17",
    "city": "TDAL",
@@ -37,14 +45,6 @@
    "threshold": "105-106\u00b0",
    "no_price": 0.93,
    "pl": 2.62,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-14",
-   "city": "TLV",
-   "threshold": "&lt;89\u00b0",
-   "no_price": 0.96,
-   "pl": 1.46,
    "outcome": "win"
   }
  ],
@@ -531,7 +531,7 @@
   },
   {
    "date": "Jun 12",
-   "market": "New York &middot; &lt;90&deg;",
+   "market": "New York &middot; 90&deg;",
    "net": -9.1,
    "win": false
   },
@@ -555,7 +555,7 @@
   },
   {
    "date": "Jun 12",
-   "market": "Miami &middot; &gt;93&deg;",
+   "market": "Miami &middot; 93&deg;",
    "net": 1.82,
    "win": true
   },
@@ -1758,6 +1758,12 @@
    "market": "Washington DC &middot; 94-95&deg;",
    "net": -37.16,
    "win": false
+  },
+  {
+   "date": "Aug 19",
+   "market": "Boston &middot; 84&deg;",
+   "net": 7.21,
+   "win": true
   }
  ]
 }
