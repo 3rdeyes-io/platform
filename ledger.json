@@ -1,12 +1,28 @@
 {
- "updated": "2026-08-21",
- "period": "Apr 23 - Aug 21, 2026",
- "trades": 292,
- "wins": 262,
- "losses": 30,
- "winRate": "89.7%",
- "net": "+$247.28",
+ "updated": "2026-08-22",
+ "period": "Apr 23 - Aug 22, 2026",
+ "trades": 294,
+ "wins": 263,
+ "losses": 31,
+ "winRate": "89.5%",
+ "net": "+$246.30",
  "recent": [
+  {
+   "date": "2026-08-22",
+   "city": "TDC",
+   "threshold": "81-82\u00b0",
+   "no_price": 0.92,
+   "pl": -1.35,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-08-22",
+   "city": "TBOS",
+   "threshold": "75-76\u00b0",
+   "no_price": 0.95,
+   "pl": 0.37,
+   "outcome": "win"
+  },
   {
    "date": "2026-08-21",
    "city": "TOKC",
@@ -29,22 +45,6 @@
    "threshold": "85-86\u00b0",
    "no_price": 0.92,
    "pl": 0.09,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-20",
-   "city": "TBOS",
-   "threshold": "&lt;81\u00b0",
-   "no_price": 0.91,
-   "pl": 3.45,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-20",
-   "city": "TOKC",
-   "threshold": "&lt;100\u00b0",
-   "no_price": 0.85,
-   "pl": 2.85,
    "outcome": "win"
   }
  ],
@@ -1799,6 +1799,18 @@
    "date": "Aug 21",
    "market": "Minneapolis &middot; 85-86&deg;",
    "net": 0.09,
+   "win": true
+  },
+  {
+   "date": "Aug 22",
+   "market": "Washington DC &middot; 81-82&deg;",
+   "net": -1.35,
+   "win": false
+  },
+  {
+   "date": "Aug 22",
+   "market": "Boston &middot; 75-76&deg;",
+   "net": 0.37,
    "win": true
   }
  ]
