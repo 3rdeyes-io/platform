@@ -1,12 +1,20 @@
 {
- "updated": "2026-08-23",
- "period": "Apr 23 - Aug 23, 2026",
- "trades": 295,
+ "updated": "2026-08-25",
+ "period": "Apr 23 - Aug 25, 2026",
+ "trades": 296,
  "wins": 264,
  "losses": 31,
  "winRate": "89.5%",
  "net": "+$247.76",
  "recent": [
+  {
+   "date": "2026-08-25",
+   "city": "TOKC",
+   "threshold": "&lt;97\u00b0",
+   "no_price": 0.91,
+   "pl": 0.0,
+   "outcome": "loss"
+  },
   {
    "date": "2026-08-23",
    "city": "TBOS",
@@ -38,14 +46,6 @@
    "no_price": 0.86,
    "pl": -20.79,
    "outcome": "loss"
-  },
-  {
-   "date": "2026-08-21",
-   "city": "TBOS",
-   "threshold": "77-78\u00b0",
-   "no_price": 0.95,
-   "pl": 1.35,
-   "outcome": "win"
   }
  ],
  "rows": [
@@ -1818,6 +1818,12 @@
    "market": "Boston &middot; 81-82&deg;",
    "net": 1.46,
    "win": true
+  },
+  {
+   "date": "Aug 25",
+   "market": "Oklahoma City &middot; 97&deg;",
+   "net": 0.0,
+   "win": false
   }
  ]
 }
