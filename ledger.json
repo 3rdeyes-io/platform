@@ -1,12 +1,36 @@
 {
- "updated": "2026-08-29",
- "period": "Apr 23 - Aug 29, 2026",
- "trades": 302,
- "wins": 268,
- "losses": 33,
- "winRate": "89.0%",
- "net": "+$213.57",
+ "updated": "2026-08-30",
+ "period": "Apr 23 - Aug 30, 2026",
+ "trades": 305,
+ "wins": 269,
+ "losses": 35,
+ "winRate": "88.5%",
+ "net": "+$189.34",
  "recent": [
+  {
+   "date": "2026-08-30",
+   "city": "TOKC",
+   "threshold": "104-105\u00b0",
+   "no_price": 0.82,
+   "pl": -1.62,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-08-30",
+   "city": "TDC",
+   "threshold": "87-88\u00b0",
+   "no_price": 0.91,
+   "pl": -22.78,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-08-29",
+   "city": "TPHX",
+   "threshold": "&lt;106\u00b0",
+   "no_price": 0.96,
+   "pl": 0.17,
+   "outcome": "win"
+  },
   {
    "date": "2026-08-29",
    "city": "TOKC",
@@ -22,30 +46,6 @@
    "no_price": 0.9,
    "pl": 3.93,
    "outcome": "win"
-  },
-  {
-   "date": "2026-08-27",
-   "city": "TATL",
-   "threshold": "92-93\u00b0",
-   "no_price": 0.94,
-   "pl": 0.51,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-27",
-   "city": "TSATX",
-   "threshold": "97-98\u00b0",
-   "no_price": 0.95,
-   "pl": 1.82,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-08-26",
-   "city": "TDAL",
-   "threshold": "&lt;100\u00b0",
-   "no_price": 0.83,
-   "pl": -23.78,
-   "outcome": "loss"
   }
  ],
  "rows": [
@@ -1857,9 +1857,27 @@
   },
   {
    "date": "Aug 29",
+   "market": "Phoenix &middot; 106&deg;",
+   "net": 0.17,
+   "win": true
+  },
+  {
+   "date": "Aug 29",
    "market": "Oklahoma City &middot; 104-105&deg;",
    "net": 4.33,
    "win": true
+  },
+  {
+   "date": "Aug 30",
+   "market": "Oklahoma City &middot; 104-105&deg;",
+   "net": -1.62,
+   "win": false
+  },
+  {
+   "date": "Aug 30",
+   "market": "Washington DC &middot; 87-88&deg;",
+   "net": -22.78,
+   "win": false
   }
  ]
 }
