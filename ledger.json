@@ -1,12 +1,20 @@
 {
- "updated": "2026-09-02",
- "period": "Apr 23 - Sep 2, 2026",
- "trades": 311,
- "wins": 274,
+ "updated": "2026-09-03",
+ "period": "Apr 23 - Sep 3, 2026",
+ "trades": 312,
+ "wins": 275,
  "losses": 35,
  "winRate": "88.7%",
- "net": "+$190.52",
+ "net": "+$190.59",
  "recent": [
+  {
+   "date": "2026-09-03",
+   "city": "TOKC",
+   "threshold": "101-102\u00b0",
+   "no_price": 0.93,
+   "pl": 0.07,
+   "outcome": "win"
+  },
   {
    "date": "2026-09-02",
    "city": "TATL",
@@ -38,14 +46,6 @@
    "no_price": 0.95,
    "pl": 0.0,
    "outcome": "loss"
-  },
-  {
-   "date": "2026-08-31",
-   "city": "TBOS",
-   "threshold": "79-80\u00b0",
-   "no_price": 0.96,
-   "pl": 0.22,
-   "outcome": "win"
   }
  ],
  "rows": [
@@ -1913,6 +1913,12 @@
    "date": "Sep 2",
    "market": "Atlanta &middot; 93-94&deg;",
    "net": 0.02,
+   "win": true
+  },
+  {
+   "date": "Sep 3",
+   "market": "Oklahoma City &middot; 101-102&deg;",
+   "net": 0.07,
    "win": true
   }
  ]
