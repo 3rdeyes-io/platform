@@ -1,51 +1,51 @@
 {
- "updated": "2026-09-03",
- "period": "Apr 23 - Sep 3, 2026",
- "trades": 312,
- "wins": 275,
- "losses": 35,
- "winRate": "88.7%",
- "net": "+$190.59",
+ "updated": "2026-09-04",
+ "period": "Apr 23 - Sep 4, 2026",
+ "trades": 317,
+ "wins": 279,
+ "losses": 36,
+ "winRate": "88.6%",
+ "net": "+$201.16",
  "recent": [
   {
-   "date": "2026-09-03",
+   "date": "2026-09-04",
    "city": "TOKC",
    "threshold": "101-102\u00b0",
-   "no_price": 0.93,
-   "pl": 0.07,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-09-02",
-   "city": "TATL",
-   "threshold": "93-94\u00b0",
-   "no_price": 0.95,
-   "pl": 0.02,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-09-01",
-   "city": "TBOS",
-   "threshold": "74-75\u00b0",
-   "no_price": 0.92,
-   "pl": 0.26,
-   "outcome": "win"
-  },
-  {
-   "date": "2026-09-01",
-   "city": "TOKC",
-   "threshold": "103-104\u00b0",
    "no_price": 0.88,
-   "pl": 0.34,
+   "pl": -0.97,
+   "outcome": "loss"
+  },
+  {
+   "date": "2026-09-04",
+   "city": "TBOS",
+   "threshold": "86-87\u00b0",
+   "no_price": 0.89,
+   "pl": 4.13,
    "outcome": "win"
   },
   {
-   "date": "2026-08-31",
+   "date": "2026-09-04",
+   "city": "TDAL",
+   "threshold": "&lt;93\u00b0",
+   "no_price": 0.94,
+   "pl": 0.06,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-09-04",
+   "city": "TDC",
+   "threshold": "97-98\u00b0",
+   "no_price": 0.88,
+   "pl": 4.73,
+   "outcome": "win"
+  },
+  {
+   "date": "2026-09-03",
    "city": "TPHX",
-   "threshold": "99-100\u00b0",
-   "no_price": 0.95,
-   "pl": 0.0,
-   "outcome": "loss"
+   "threshold": "105-106\u00b0",
+   "no_price": 0.93,
+   "pl": 2.62,
+   "outcome": "win"
   }
  ],
  "rows": [
@@ -1917,8 +1917,38 @@
   },
   {
    "date": "Sep 3",
+   "market": "Phoenix &middot; 105-106&deg;",
+   "net": 2.62,
+   "win": true
+  },
+  {
+   "date": "Sep 3",
    "market": "Oklahoma City &middot; 101-102&deg;",
    "net": 0.07,
+   "win": true
+  },
+  {
+   "date": "Sep 4",
+   "market": "Oklahoma City &middot; 101-102&deg;",
+   "net": -0.97,
+   "win": false
+  },
+  {
+   "date": "Sep 4",
+   "market": "Boston &middot; 86-87&deg;",
+   "net": 4.13,
+   "win": true
+  },
+  {
+   "date": "Sep 4",
+   "market": "Dallas &middot; 93&deg;",
+   "net": 0.06,
+   "win": true
+  },
+  {
+   "date": "Sep 4",
+   "market": "Washington DC &middot; 97-98&deg;",
+   "net": 4.73,
    "win": true
   }
  ]
