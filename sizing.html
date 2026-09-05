@@ -291,7 +291,7 @@
       <div>
         <div style="font-family:'Sora',sans-serif;font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:12px;">What happens if a trade goes wrong?</div>
         <p style="font-size:.9375rem;color:#94a3b8;line-height:1.7;margin-bottom:16px;">
-          Every position is monitored every 30 seconds, and the stop sits a fixed <strong>20¢ below your entry</strong> - wide enough to ride out intraday noise but not a genuine forecast miss. On a 95¢ buy: a slip to <strong style="color:#fbbf24;">~85¢</strong> fires an immediate Telegram alert, and a fall to <strong style="color:#ef4444;">75¢</strong> auto-closes the position - capping the loss at roughly 20¢ per contract (~21%), regardless of how much time is left.
+          Every position is monitored every 30 seconds, and the stop sits a fixed <strong>20¢ below your entry</strong> - wide enough to ride out intraday noise but not a genuine forecast miss. On a 95¢ buy: a slip to <strong style="color:#fbbf24;">~85¢</strong> fires an immediate Telegram alert, and a fall to <strong style="color:#ef4444;">75¢</strong> triggers an automatic exit attempt. <strong style="color:#fbbf24;">The stop is a target, not a guarantee.</strong> In fast-moving or thin markets the exit fills at whatever price is available, and a market can gap straight through it. Our own published ledger includes losses that exceeded the intended stop, including full-position losses. Size every position assuming it can go to zero.
         </p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
           <div style="background:rgba(99,102,241,.08);border-radius:8px;padding:14px;text-align:center;">
@@ -322,7 +322,7 @@
       <h2 class="section-title">Size your trades. Protect your bankroll.</h2>
       <p class="section-sub">Set your bankroll and the share you'll stake per trade. We'll show your suggested position size, your worst-case loss per trade, and where steady, disciplined sizing could take your bankroll over time. One bankroll - no slots, no compounding ladders.</p>
       <div style="max-width:680px;margin:20px auto 0;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:14px 18px;font-size:.82rem;color:#fde68a;line-height:1.55;text-align:left;">
-        <strong style="color:#fbbf24;">⚠️ Reality check on defaults:</strong> Current observed frequency is <strong>~5-8 signals/week total</strong> (Kalshi same-day liquidity is the bottleneck while we expand venue coverage). The calculator defaults to that realistic pace and our <strong>exchange-verified <span id="sz-wr1">90.4%</span> win rate</strong>; slide the inputs up or down to model your own scenario. See the live, per-trade record at <a href="/track" style="color:#fde68a;text-decoration:underline;">/track</a>. Every figure here is an expected value, not a promise.
+        <strong style="color:#fbbf24;">⚠️ Reality check on defaults:</strong> Current observed frequency is <strong>~5-8 signals/week total</strong> (Kalshi same-day liquidity is the bottleneck while we expand venue coverage). The calculator defaults to that realistic pace and our <strong>exchange-verified <span id="sz-wr1">verified</span> win rate</strong>; slide the inputs up or down to model your own scenario. See the live, per-trade record at <a href="/track" style="color:#fde68a;text-decoration:underline;">/track</a>. Every figure here is an expected value, not a promise.
       </div>
     </div>
 
@@ -341,10 +341,10 @@
         </div>
         <div class="form-group">
           <label class="form-label">Stake per trade (% of bankroll)<span class="tip" tabindex="0" data-tip="The share of your bankroll you put on each signal. There's no single right answer - it depends on your risk comfort, bankroll size, and how many positions you want to hold at once. The slider goes to 50% so you can model any approach.">i</span></label>
-          <input type="range" id="calc-stakepct" aria-label="Stake per trade, percent of bankroll" min="1" max="50" step="0.5" value="2" oninput="recalc()">
+          <input type="range" id="calc-stakepct" aria-label="Stake per trade, percent of bankroll" min="1" max="10" step="0.5" value="2" oninput="recalc()">
           <div class="range-labels"><span>1%</span><span id="stakepct-label">2%</span><span>50%</span></div>
           <div id="stakepct-guidance" style="margin-top:10px;padding:10px 12px;font-size:.75rem;line-height:1.6;border-radius:8px;background:rgba(255,255,255,.025);border:1px solid var(--border);color:#94a3b8;">
-            What different levels look like: <strong style="color:#cbd5e1;">1-5%</strong> conservative (easily survives losing streaks); <strong style="color:#cbd5e1;">5-15%</strong> moderate (common on small bankrolls and when running multiple positions at once); <strong style="color:#cbd5e1;">15-30%</strong> aggressive (single losses are felt); <strong style="color:#cbd5e1;">30-50%</strong> high (one bad day dents the stack meaningfully). Pick what fits your risk comfort.
+            Suggested range: <strong style="color:#cbd5e1;">1-5% per trade</strong>. Our own ledger includes full-position losses despite the stop system, so at 10% or more per trade a single such loss removes a tenth of your bankroll, and losing streaks do happen. We do not model stakes above 10% because we do not consider them survivable at this strategy's loss profile.
           </div>
         </div>
         <div class="form-group">
@@ -357,13 +357,13 @@
         </div>
         <div class="form-group">
           <label class="form-label">Avg NO entry price (¢) <span style="color:#94a3b8;font-size:.72rem;font-weight:500;">(verified avg ≈ 90¢)</span><span class="tip" tabindex="0" data-tip="The average price you pay per NO contract. Our engine accepts 82-98¢; our verified ledger averages ~90¢. Lower entries mean more profit per win (the stop is still a flat 20¢ per contract). This is the single biggest assumption affecting projected returns.">i</span></label>
-          <input type="range" id="calc-entry" aria-label="Average NO entry price, cents" min="82" max="98" step="1" value="90" oninput="recalc()">
+          <input type="range" id="calc-entry" aria-label="Average NO entry price, cents" min="82" max="98" step="1" value="85" oninput="recalc()">
           <div class="range-labels"><span>82¢</span><span id="entry-label">90¢</span><span>98¢</span></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Win rate <span style="color:#10d9a0;font-size:.75rem;">(our verified rate is <span id="sz-wr2">90.4%</span>)</span><span class="tip" tabindex="0" data-tip="Share of trades that win. Our exchange-verified figure is 90.4% (see /track). It's an input you control - past performance doesn't guarantee future results.">i</span></label>
-          <input type="range" id="calc-wr" aria-label="Win rate, percent" min="50" max="97" value="90" oninput="recalc()">
-          <div class="range-labels"><span>50%</span><span id="wr-label">90%</span><span>97%</span></div>
+          <label class="form-label">Win rate <span style="color:#10d9a0;font-size:.75rem;">(default is set deliberately below our verified rate, <span id="sz-wr2">published at /track</span>)</span><span class="tip" tabindex="0" data-tip="Share of trades that win. Our exchange-verified figure is published live at /track (see /track). It's an input you control - past performance doesn't guarantee future results.">i</span></label>
+          <input type="range" id="calc-wr" aria-label="Win rate, percent" min="50" max="97" value="85" oninput="recalc()">
+          <div class="range-labels"><span>50%</span><span id="wr-label">85%</span><span>97%</span></div>
         </div>
         <div class="form-group">
           <label class="form-label">Time horizon (weeks)<span class="tip" tabindex="0" data-tip="Weeks to project forward. Longer horizons accumulate more expected profit - and more variance. Every figure here is an expected value, not a guarantee.">i</span></label>
@@ -416,9 +416,9 @@
 <script>
   // Preset templates: conservative / moderate / aggressive bankroll scenarios.
   function setPreset(name){
-    var P = { conservative:{bankroll:1000, pct:1, freq:3, wr:93, weeks:12, entry:93},
-              moderate:    {bankroll:2000, pct:2, freq:5, wr:88, weeks:12, entry:90},
-              aggressive:  {bankroll:3000, pct:4, freq:8, wr:85, weeks:12, entry:88} }[name];
+    var P = { conservative:{bankroll:1000, pct:1, freq:3, wr:85, weeks:12, entry:93},
+              moderate:    {bankroll:2000, pct:2, freq:5, wr:83, weeks:12, entry:90},
+              aggressive:  {bankroll:3000, pct:4, freq:8, wr:80, weeks:12, entry:88} }[name];
     if(!P) return;
     document.getElementById('calc-bankroll').value = P.bankroll;
     document.getElementById('calc-stakepct').value = P.pct;

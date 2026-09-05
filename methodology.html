@@ -490,7 +490,7 @@
 
     <div class="card">
       <div class="card-title">Rule 4: Fixed-fractional sizing</div>
-      <p>Every position is a small, fixed fraction of one bankroll (commonly 1-5%). A loss never increases the next stake, and no single trade can lose more than ~21% of its own position. We also cap concurrent positions in any one weather region at 2, so a single correlated weather event can't hit several at once.</p>
+      <p>Every position is a small, fixed fraction of one bankroll (commonly 1-5%). A loss never increases the next stake. The stop limits losses in orderly markets but not in gapping or illiquid ones: assume the worst case on any position is a total loss of that position's stake. We also cap concurrent positions in any one weather region at 2, so a single correlated weather event can't hit several at once.</p>
     </div>
   </div>
 

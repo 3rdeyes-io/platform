@@ -595,7 +595,7 @@
 
   <div class="hero-badge">
     <div class="live-dot"></div>
-    Live &middot; <span id="hero-wl">90.6% win rate &middot; 211-22 &middot; +$218.24 net</span><span id="hero-wr"></span> &middot; <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track &rarr;</a>
+    Live &middot; <span id="hero-wl">exchange-verified track record</span><span id="hero-wr"></span> &middot; <a href="/track" style="color:var(--green);text-decoration:none;">exchange-verified /track &rarr;</a>
   </div>
 
   <h1>We find mispriced weather trades<br><span>and show you exactly what to buy.</span></h1>
@@ -603,8 +603,7 @@
   <p class="hero-sub">
     On <strong style="color:#fff">Kalshi</strong> you can trade tomorrow's high temperature.
     We run a four-model forecast ensemble, find the contracts the market priced wrong, and send you
-    the exact trade. <strong style="color:var(--green)">211 of our 233 trades have won</strong> - and every
-    single one is public on the exchange.
+    the exact trade. <strong style="color:var(--green)" id="hero-proof">Every trade we take is published on the exchange</strong> - wins, losses and stop-outs alike.
   </p>
 
   <form class="hero-form" onsubmit="handleSignup(event, this)">
@@ -774,7 +773,7 @@
   <div class="section-header">
     <div class="section-label">Who builds this</div>
     <h2 class="section-title">Built by data engineers.<br>Not influencers.</h2>
-    <p class="section-sub">3rd Eyes isn't a hype account - and it isn't a single AI prompt. It's an engineered pipeline: a four-model weather ensemble, per-station bias correction learned from history, an ensemble-spread filter, a +EV pricing gate, confidence grading, and a pre-set stop-loss on every trade. Built and run by two engineers, brothers, with a combined 17 years moving and protecting production data. That discipline is why the public ledger - reconstructed from Kalshi's own settlement records - shows a win rate of <strong style="color:var(--green);" id="founders-wr">90.4%</strong> you can verify trade by trade.</p>
+    <p class="section-sub">3rd Eyes isn't a hype account - and it isn't a single AI prompt. It's an engineered pipeline: a four-model weather ensemble, per-station bias correction learned from history, an ensemble-spread filter, a +EV pricing gate, confidence grading, and a pre-set stop-loss on every trade. Built and run by two engineers, brothers, with a combined 17 years moving and protecting production data. That discipline is why the public ledger - reconstructed from Kalshi's own settlement records - shows a win rate of <strong style="color:var(--green);" id="founders-wr">the rate published at /track</strong> you can verify trade by trade.</p>
   </div>
 
   <div style="max-width:920px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
@@ -785,7 +784,7 @@
       <div style="font-family:'Sora',sans-serif;font-weight:700;color:#fff;font-size:1.2rem;">Anil Sharma</div>
       <div style="font-size:.82rem;color:var(--green);font-weight:600;margin:3px 0 1px;">Data &amp; Models · Co-founder</div>
       <div style="font-size:.78rem;color:var(--muted);margin-bottom:14px;">Reynoldsburg, OH · 7+ yrs data engineering</div>
-      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">Databricks Certified Data Engineer and Anthropic Certified Claude Architect. Builds the forecast pipeline - multi-model weather ingestion, the scoring engine, and the signal logic that finds mispriced contracts. Day job: enterprise data engineering (Spark, Azure Synapse, SAP Datasphere).</p>
+      <p style="color:var(--muted);font-size:.9rem;line-height:1.65;margin:0;">Databricks Certified Data Engineer. Builds the forecast pipeline - multi-model weather ingestion, the scoring engine, and the signal logic that finds mispriced contracts. Day job: enterprise data engineering (Spark, Azure Synapse, SAP Datasphere).</p>
     </div>
 
     <!-- Founder 2 -->
@@ -971,7 +970,7 @@
         Can I use this if I'm outside the US?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a">Yes. Every signal is for a <strong>Kalshi</strong> temperature contract - Kalshi is CFTC-regulated and legal for US residents. The identical contracts are also carried by <strong>Coinbase</strong> and <strong>Robinhood</strong>, so you can place any signal on whichever of the three apps you already use. Liquidity and fees differ slightly per platform; the signal works on all three.</div>
+      <div class="faq-a">Probably not. Our signals reference US-regulated <strong>Kalshi</strong> contracts (also carried by <strong>Coinbase</strong> and <strong>Robinhood</strong>), and all three require US residency and identity verification. If you are outside the US you most likely cannot trade these markets. The free channel, the methodology and the verified track record remain open to everyone for research and education.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -985,7 +984,7 @@
         What is your real win rate?
         <span class="faq-arrow">+</span>
       </button>
-      <div class="faq-a"><strong style="color:var(--green);" id="faq-wr">90.5%</strong> across <span id="faq-trades">222</span> settled trades (<span id="faq-wins">201</span> wins, <span id="faq-losses">21</span> losses, <span id="faq-net">+$178.11</span> net) since our v1.0 methodology launch on Apr 23, 2026. Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
+      <div class="faq-a"><span id="faq-stats">Our current verified win rate, trade count and net P&amp;L are published live at <a href="/track" style="color:var(--green);">/track</a>, covering every trade since our v1.0 methodology launch on Apr 23, 2026.</span> Every figure is reconstructed line-by-line from Kalshi's own settlement and fill records, with stop-loss exits counted at the real price we got out - nothing hidden or rounded up. See the full per-trade ledger at <a href="/track" style="color:var(--green);">/track</a>. (Note: a high win rate on small-edge NO positions still carries real risk; past performance doesn't guarantee future results.)</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -1049,7 +1048,7 @@
         <img src="logo.svg" alt="3rd Eyes" style="width:36px;height:36px;border-radius:8px;">
         3rd Eyes
       </a>
-      <p>We see what the market can't. Multi-model meteorological signals for weather prediction markets. Backed by the same models the NWS uses to forecast hurricanes.</p>
+      <p>We see what the market can't. Multi-model meteorological signals for weather prediction markets. Built on NOAA and NWS operational forecast models.</p>
       <div style="display:flex;gap:12px;margin-top:20px;">
         <a href="https://x.com/3rdEyesIO" style="color:var(--muted);text-decoration:none;font-size:1.25rem;" title="X / Twitter">𝕏</a>
         <a href="https://t.me/thirdeyes_signals" style="color:var(--muted);text-decoration:none;font-size:1.25rem;" title="Telegram">📡</a>
@@ -1099,7 +1098,7 @@
      FLOATING CTA BAR
 ═══════════════════════════════════════ -->
 <div class="floating-bar" id="floating-bar">
-  <span class="floating-text"><strong id="floating-wl">90.5% win rate (201-21)</strong> · Next scan in <strong id="countdown">-</strong></span>
+  <span class="floating-text"><strong id="floating-wl">Verified track record</strong> · Next scan in <strong id="countdown">-</strong></span>
   <a href="#plans" class="btn-primary" style="padding:10px 20px;font-size:.875rem;">
     Get Signals →
   </a>
@@ -1469,7 +1468,10 @@ window.addEventListener('scroll', () => {
 // The FB constant below is the single last-known-good fallback if that fetch ever fails;
 // keep it in sync with the ledger at deploy time so the page is never blank or inconsistent.
 (function () {
-  const FB = { winRate: '90.5%', wins: 201, losses: 21, trades: 222, net: '+$178.11' };
+  // No hardcoded performance figures: a stale number is worse than no number.
+  // Every stat renders from the live ledger only; if the fetch fails we show text
+  // that points at /track instead of a figure that has silently decayed.
+  const FB = { winRate: null, wins: null, losses: null, trades: null, net: null };
   function apply(L, bal) {
     const wl = L.wins + '-' + L.losses;
     const set = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
@@ -1558,7 +1560,7 @@ function renderChips(data) {
   // Exchange-verified totals (mirror /track), live from /ledger.json with fallback.
   if (w)  w.textContent  = (d.wins   != null ? d.wins   : 201) + ' W';
   if (l)  l.textContent  = (d.losses != null ? d.losses : 21)  + ' L';
-  if (wr) wr.textContent = (d.winRate || '90.5%') + ' win rate';
+  if (wr && d.winRate) wr.textContent = d.winRate + ' win rate';
   if (c)  c.textContent  = 'Scanning 40+ · ' + (d.trades != null ? d.trades : 222) + ' settled';
 }
 

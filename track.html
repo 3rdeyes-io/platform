@@ -103,14 +103,19 @@
   <div class="eyebrow">Exchange-verified track record</div>
   <h1>Every trade. Wins, losses, and stop-outs alike.</h1>
   <p class="lede">The complete record of every position since our v1.0 methodology launch on Apr 23, 2026, reconstructed line-by-line from <strong>Kalshi's own settlement and fill records</strong> - the exchange's data, not ours. Earlier experimental trades and sub-$8 thin-market SKIPs are excluded and documented in the <a href="/methodology" style="color:var(--green);">methodology</a>.</p>
-  <p class="period" id="t-period">Live results &middot; Apr 23 - Aug 1, 2026</p>
+  <p class="period" id="t-period">Live results &middot; reconstructed from Kalshi settlement records</p>
 
   <div class="stats">
-    <div class="stat"><div class="v g" id="t-wr">90.5%</div><div class="k">Win rate</div></div>
-    <div class="stat"><div class="v" id="t-wl">201-21</div><div class="k">Win - Loss</div></div>
-    <div class="stat"><div class="v" id="t-n">222</div><div class="k">Settled trades</div></div>
-    <div class="stat"><div class="v g" id="t-net">+$178.11</div><div class="k">Net P&amp;L</div></div>
+    <div class="stat"><div class="v g" id="t-wr">-</div><div class="k">Win rate</div></div>
+    <div class="stat"><div class="v" id="t-wl">-</div><div class="k">Win - Loss</div></div>
+    <div class="stat"><div class="v" id="t-n">-</div><div class="k">Settled trades</div></div>
+    <div class="stat"><div class="v g" id="t-net">-</div><div class="k">Net P&amp;L</div></div>
   </div>
+
+  <!-- Rolling recent-performance line. Computed in JS from the same ledger rows, so a
+       losing stretch surfaces automatically instead of being averaged away by the
+       lifetime figure. Never hand-typed, therefore it cannot go stale. -->
+  <p class="secnote" id="t-recent" style="margin:14px 0 0;"></p>
 
   <div class="verify">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#10d9a0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#10d9a0" stroke-width="2"/></svg>
@@ -359,9 +364,9 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3" id="t-foot">222 trades &middot; 201 wins &middot; 21 losses</td>
-          <td id="t-foot-wr">90.5%</td>
-          <td class="net" id="t-foot-net">+$178.11</td>
+          <td colspan="3" id="t-foot">Totals load from the live ledger</td>
+          <td id="t-foot-wr">-</td>
+          <td class="net" id="t-foot-net">-</td>
         </tr>
       </tfoot>
     </table>
@@ -430,6 +435,25 @@ fetch('/.netlify/functions/ledger').then(r => r.ok ? r.json() : null).then(d => 
   set('t-foot-net', d.net);
   const p = document.getElementById('t-period');
   if (p && d.period) p.innerHTML = 'Live results &middot; ' + d.period;
+
+  // Most recent 50 settled trades, stated plainly - including when they are worse than
+  // the lifetime average. A headline built only on a lifetime number can hide a bad
+  // month; this makes the current stretch impossible to miss.
+  const rec = document.getElementById('t-recent');
+  if (rec && d.rows.length >= 20) {
+    const last = d.rows.slice(-50);
+    const w = last.filter(r => r.win).length;
+    const l = last.length - w;
+    const net = last.reduce((a, r) => a + (r.net || 0), 0);
+    const rate = (w / last.length * 100).toFixed(1);
+    const netStr = (net >= 0 ? '+$' : '-$') + Math.abs(net).toFixed(2);
+    const lifetime = parseFloat(String(d.winRate).replace('%', ''));
+    const worse = !isNaN(lifetime) && parseFloat(rate) < lifetime;
+    rec.innerHTML = '<strong>Most recent 50 trades:</strong> ' + w + '-' + l + ' (' + rate +
+      '%), ' + netStr + ' net.' + (worse
+        ? ' <span style="color:#fbbf24;">That is below our lifetime average, and recent months include losing stretches. Judge the strategy on the full record above, not on the headline number.</span>'
+        : '');
+  }
   const tb = document.getElementById('t-rows');
   if (tb) {
     tb.innerHTML = d.rows.map(r => {
